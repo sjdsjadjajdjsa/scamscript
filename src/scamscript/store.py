@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import time
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
@@ -149,3 +150,38 @@ def ensure_home(home: str) -> None:
         os.makedirs(os.path.join(home, "logs"), exist_ok=True)
     except OSError:
         pass
+
+
+def prune(
+    logs_dir: str,
+    keep_days: int | None = 30,
+    keep: int | None = 200,
+) -> tuple[int, int, int]:
+    """Delete old run logs. Returns (deleted, bytes_freed, kept)."""
+    directory = Path(logs_dir).expanduser()
+    if not directory.is_dir():
+        return 0, 0, 0
+    now = time.time()
+    files = sorted(
+        (path for path in directory.glob("*.jsonl") if path.is_file()),
+        key=_mtime,
+        reverse=True,
+    )
+    deleted = 0
+    freed = 0
+    kept = 0
+    for index, path in enumerate(files):
+        too_many = keep is not None and index >= keep
+        stale = keep_days is not None and (now - _mtime(path)) > keep_days * 86400
+        if not too_many and not stale:
+            kept += 1
+            continue
+        try:
+            size = path.stat().st_size
+            path.unlink()
+        except OSError:
+            kept += 1
+            continue
+        deleted += 1
+        freed += size
+    return deleted, freed, kept

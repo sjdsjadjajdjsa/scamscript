@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -9,11 +10,19 @@ import typer
 from rich.console import Console
 from rich.table import Table
 
-from scamscript import __version__, prompts, store
+from scamscript import __version__, prompts, redact, store
 from scamscript import report as reporting
 from scamscript.analysis import Outcome, analyze_script
 from scamscript.client import ChatClient
-from scamscript.config import DEFAULT_BASE_URL, DEFAULT_MODEL, ConfigError, Settings
+from scamscript.config import (
+    DEFAULT_BASE_URL,
+    DEFAULT_MAX_TOKENS,
+    DEFAULT_MODEL,
+    DEFAULT_RETRIES,
+    DEFAULT_TIMEOUT,
+    ConfigError,
+    Settings,
+)
 from scamscript.ingest import IngestError, ScriptFile, collect_scripts, read_script
 from scamscript.render import (
     render_breakdown,
@@ -40,7 +49,9 @@ app = typer.Typer(
 class Context:
     settings: Settings
     dry_run: bool
+    json_output: bool
     console: Console
+    err_console: Console
 
 
 def version_callback(value: bool) -> None:
@@ -79,10 +90,36 @@ def main(
         envvar="SCAMSCRIPT_HOME",
         help="State directory for logs. Defaults to ~/.scamscript.",
     ),
+    timeout: float = typer.Option(
+        DEFAULT_TIMEOUT, "--timeout", min=1.0, help="Per-request timeout in seconds."
+    ),
+    retries: int = typer.Option(
+        DEFAULT_RETRIES,
+        "--retries",
+        min=0,
+        max=8,
+        help="Retries for transport and rate-limit failures.",
+    ),
+    max_tokens: int = typer.Option(
+        DEFAULT_MAX_TOKENS,
+        "--max-tokens",
+        min=256,
+        help="Output token budget per reply.",
+    ),
+    redact: bool = typer.Option(
+        False,
+        "--redact",
+        help="Mask likely identifiers before sending and before logging.",
+    ),
     dry_run: bool = typer.Option(
         False,
         "--dry-run",
         help="Assemble and print prompts without calling the API.",
+    ),
+    json_output: bool = typer.Option(
+        False,
+        "--json",
+        help="Emit one JSON object per script on stdout.",
     ),
     no_color: bool = typer.Option(False, "--no-color", help="Disable ANSI colors."),
     version: bool = typer.Option(
@@ -98,12 +135,23 @@ def main(
         base_url=base_url,
         model=model,
         api_key=api_key,
+        timeout=timeout,
+        retries=retries,
+        max_tokens=max_tokens,
+        redact=redact,
         home=str(home) if home else "",
     )
     ctx.obj = Context(
         settings=settings,
         dry_run=dry_run,
-        console=Console(no_color=no_color, highlight=False, soft_wrap=False),
+        json_output=json_output,
+        console=Console(
+            no_color=no_color,
+            highlight=False,
+            soft_wrap=False,
+            stderr=json_output,
+        ),
+        err_console=Console(no_color=no_color, highlight=False, stderr=True),
     )
 
 
@@ -158,14 +206,27 @@ def _run(
 
     if state.dry_run:
         for script in scripts:
-            messages = prompts.build_messages(script.name, script.text)
+            text, counts = _maybe_redact(script.text, settings.redact)
+            messages = prompts.build_messages(script.name, text)
             logger.request(
                 source=str(script.path),
                 attempt=1,
                 dry_run=True,
                 prompt_chars=sum(len(m["content"]) for m in messages),
+                redactions=counts,
             )
-            console.print(render_prompt(script, messages))
+            if state.json_output:
+                _emit_json(
+                    {
+                        "event": "prompt",
+                        "name": script.name,
+                        "source": str(script.path),
+                        "messages": messages,
+                        "redactions": counts,
+                    }
+                )
+            else:
+                console.print(render_prompt(script, messages))
         logger.run_end(status="dry-run", results=0, failures=0)
         console.print(f"[dim]dry run logged to {logger.path}[/dim]")
         return
@@ -178,16 +239,28 @@ def _run(
 
     outcomes: list[Outcome] = []
     report_entries: list[reporting.ReportEntry] = []
-    with ChatClient(api_key=api_key, base_url=settings.base_url, model=settings.model) as client:
+    client = ChatClient(
+        api_key=api_key,
+        base_url=settings.base_url,
+        model=settings.model,
+        timeout=settings.timeout,
+        retries=settings.retries,
+        max_tokens=settings.max_tokens,
+    )
+    with client:
         for index, script in enumerate(scripts, start=1):
-            if batch_mode:
+            if batch_mode and not state.json_output:
                 console.print(
                     f"[dim]({index}/{len(scripts)}) analyzing {script.name}...[/dim]"
                 )
-            outcome = analyze_script(client, script, logger)
+            outcome = analyze_script(
+                client, script, logger, redact_identifiers=settings.redact
+            )
             outcomes.append(outcome)
             report_entries.append(reporting.entry_from_outcome(outcome))
-            if outcome.breakdown is not None:
+            if state.json_output:
+                _emit_json(outcome.as_record())
+            elif outcome.breakdown is not None:
                 console.print(
                     render_breakdown(outcome.breakdown, outcome.name, outcome.attempts)
                 )
@@ -201,7 +274,10 @@ def _run(
     logger.run_end(status="ok" if failures == 0 else "partial", results=successes, failures=failures)
 
     if batch_mode and successes:
-        console.print(render_summary_table([(o.name, o.breakdown, o.error) for o in outcomes]))
+        if not state.json_output:
+            console.print(
+                render_summary_table([(o.name, o.breakdown, o.error) for o in outcomes])
+            )
         ranked = reporting.rank(report_entries)
         if top:
             ranked = ranked[:top]
@@ -211,25 +287,48 @@ def _run(
             command=command,
             model=settings.model,
         )
-        _emit_report(console, markdown, output)
+        written = _emit_report(console, markdown, output, json_mode=state.json_output)
+        if state.json_output:
+            payload: dict[str, object] = {
+                "event": "report",
+                "run_id": logger.run_id,
+                "path": str(written) if written else None,
+            }
+            if written is None:
+                payload["markdown"] = markdown
+            _emit_json(payload)
         console.print(f"[dim]log: {logger.path}[/dim]")
 
     if failures:
         raise typer.Exit(1)
 
 
-def _emit_report(console: Console, markdown: str, output: Path | None) -> None:
+def _emit_report(
+    console: Console, markdown: str, output: Path | None, json_mode: bool = False
+) -> Path | None:
     if output is None:
-        typer.echo(markdown)
-        return
+        if not json_mode:
+            typer.echo(markdown)
+        return None
     path = output.expanduser()
     try:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(markdown, encoding="utf-8")
     except OSError as exc:
         _fail(console, f"cannot write report to {path}: {exc}")
-        return
+        return None
     console.print(f"[green]report written[/green] {path}")
+    return path
+
+
+def _emit_json(payload: dict[str, object]) -> None:
+    typer.echo(json.dumps(payload, ensure_ascii=False))
+
+
+def _maybe_redact(text: str, enabled: bool) -> tuple[str, dict[str, int]]:
+    if not enabled:
+        return text, {}
+    return redact.redact(text)
 
 
 @app.command()
@@ -354,6 +453,33 @@ def history(
     state.console.print(
         f"[dim]{len(runs)} run(s) total; regenerate one with "
         f"`scamscript report --run-id <id>`[/dim]"
+    )
+
+
+@app.command()
+def prune(
+    ctx: typer.Context,
+    keep_days: int | None = typer.Option(
+        30, "--keep-days", min=0, help="Delete runs older than this many days. 0 disables the age rule."
+    ),
+    keep: int | None = typer.Option(
+        200, "--keep", min=0, help="Always keep at least the newest N runs. 0 disables the count rule."
+    ),
+    logs_dir: Path | None = typer.Option(None, "--logs-dir", help="Override the log directory."),
+) -> None:
+    """Delete old run logs, keeping the newest runs and recent history."""
+    state = _context(ctx)
+    if not keep_days and not keep:
+        _fail(state.console, "both --keep-days and --keep are 0; nothing to do")
+        return
+    directory = str(logs_dir.expanduser()) if logs_dir else state.settings.logs_dir
+    deleted, freed, kept = store.prune(
+        directory,
+        keep_days=keep_days or None,
+        keep=keep or None,
+    )
+    state.console.print(
+        f"[green]pruned[/green] {deleted} run(s), freed {freed / 1024:.1f} KiB, kept {kept}"
     )
 
 

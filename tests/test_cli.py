@@ -27,10 +27,11 @@ class FakeClient:
     replies = {}
     default = None
 
-    def __init__(self, api_key, base_url, model):
+    def __init__(self, api_key, base_url, model, **kwargs):
         self.api_key = api_key
         self.base_url = base_url
         self.model = model
+        self.max_tokens = kwargs.get("max_tokens", 4096)
 
     def __enter__(self):
         return self
@@ -197,3 +198,78 @@ def test_version(home):
     result = runner.invoke(cli.app, ["--version"])
     assert result.exit_code == 0
     assert result.stdout.strip() == "scamscript 0.1.0"
+
+
+def test_json_output_is_one_object_per_script(home, tmp_path, fake):
+    (tmp_path / "a.txt").write_text("CALLER: aa", encoding="utf-8")
+    (tmp_path / "b.txt").write_text("CALLER: bb", encoding="utf-8")
+    result = runner.invoke(
+        cli.app, ["--api-key", "k", "--json", "batch", str(tmp_path)]
+    )
+    assert result.exit_code == 0
+    records = [json.loads(line) for line in result.stdout.splitlines() if line.strip()]
+    assert [record["event"] for record in records] == ["result", "result", "report"]
+    assert all(record["ok"] for record in records[:2])
+    assert records[-1]["markdown"].startswith("# Scam script breakdown report")
+
+
+def test_json_output_writes_report_file(home, tmp_path, fake):
+    (tmp_path / "a.txt").write_text("CALLER: aa", encoding="utf-8")
+    out = tmp_path / "r.md"
+    result = runner.invoke(
+        cli.app, ["--api-key", "k", "--json", "batch", str(tmp_path), "--output", str(out)]
+    )
+    assert result.exit_code == 0
+    records = [json.loads(line) for line in result.stdout.splitlines() if line.strip()]
+    assert records[-1]["path"] == str(out)
+    assert "markdown" not in records[-1]
+    assert out.is_file()
+
+
+def test_json_dry_run_emits_prompts(home, tmp_path):
+    (tmp_path / "a.txt").write_text("CALLER: ring 415 555 0142", encoding="utf-8")
+    result = runner.invoke(
+        cli.app, ["--dry-run", "--json", "--redact", "analyze", "--file", str(tmp_path / "a.txt")]
+    )
+    assert result.exit_code == 0
+    record = json.loads(result.stdout.splitlines()[0])
+    assert record["event"] == "prompt"
+    assert record["redactions"] == {"phone": 1}
+    assert "0142" not in record["messages"][-1]["content"]
+
+
+def test_tuning_flags_reach_client(home, tmp_path, fake, monkeypatch):
+    seen = {}
+    original = FakeClient.__init__
+
+    def capture(self, api_key, base_url, model, **kwargs):
+        seen.update(kwargs)
+        original(self, api_key, base_url, model, **kwargs)
+
+    monkeypatch.setattr(FakeClient, "__init__", capture)
+    (tmp_path / "a.txt").write_text("CALLER: aa", encoding="utf-8")
+    result = runner.invoke(
+        cli.app,
+        ["--api-key", "k", "--timeout", "9", "--retries", "1", "--max-tokens", "999", "analyze", "--file", str(tmp_path / "a.txt")],
+    )
+    assert result.exit_code == 0
+    assert seen["timeout"] == 9.0
+    assert seen["retries"] == 1
+    assert seen["max_tokens"] == 999
+
+
+def test_prune_keeps_newest(home, fake, tmp_path):
+    for index in range(3):
+        script = tmp_path / f"s{index}.txt"
+        script.write_text("CALLER: x", encoding="utf-8")
+        runner.invoke(cli.app, ["--dry-run", "analyze", "--file", str(script)])
+    result = runner.invoke(cli.app, ["prune", "--keep", "1", "--keep-days", "0"])
+    assert result.exit_code == 0
+    assert "pruned 2 run(s)" in result.stdout
+    assert len(list((home / "logs").glob("*.jsonl"))) == 1
+
+
+def test_prune_nothing_configured(home):
+    result = runner.invoke(cli.app, ["prune", "--keep", "0", "--keep-days", "0"])
+    assert result.exit_code == 1
+    assert "nothing to do" in result.stdout
