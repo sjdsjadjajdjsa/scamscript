@@ -1,0 +1,63 @@
+# Fictional sample: government impersonation vishing
+# Names, numbers, case IDs and amounts are invented.
+
+CALLER: Good afternoon, this is Officer Dana Whitfield from the Revenue Enforcement
+Division. Am I speaking with Mr. Alan Reyes?
+
+TARGET: Yes, that's me.
+
+CALLER: Thank you. Mr. Reyes, this call is recorded for quality and for the case file.
+Can you confirm the last four of your taxpayer ID for verification?
+
+TARGET: It's 4471.
+
+CALLER: Perfect, that matches. I'm calling because our system flagged a discrepancy on
+your 2023 return. A withholding credit of $2,840 was applied but never verified. Under
+the corrected assessment your balance is $6,190. That's the principal, penalties and
+accrued interest as of today.
+
+TARGET: Six thousand? I've never owed anything before.
+
+CALLER: I understand, and there is a route out of this. The case is currently open, which
+means it has not been referred to collections yet. Once it is referred, the levy on your
+primary account begins within 48 hours and a 22 percent penalty is added. After that,
+reinstatement requires a field visit.
+
+TARGET: Can I just pay online?
+
+CALLER: You can, but the online portal does not accept same-day verification, so the levy
+date would not move. What I can do is hold the file open while we process a settlement.
+My supervisor has to approve anything below the assessed amount, and she leaves at 5.
+
+TARGET: What do you need from me?
+
+CALLER: First, let's establish you can cover it today. Which institution holds the account
+you'd use?
+
+TARGET: Second Federal.
+
+CALLER: Good. Now, do not use the number on the back of your card. That routes to the
+retail line, not enforcement. I'll give you the direct settlement desk number, and you
+call it from the same phone so the file stays linked.
+
+TARGET: How do I know you're really with the division?
+
+CALLER: Fair question. My badge is RE-8814, and the case reference is 20-4471-K. You can
+read them back to me. If you like, hold while I pull the supervisor. Most people find it
+reassuring to hear the approval happen live.
+
+TARGET: Okay. Let me get a pen.
+
+CALLER: Take your time. One more thing, Mr. Reyes. If a payment is not posted by 4:30
+today the file auto-refers, and I can't pull it back. Do we have a commitment?
+
+TARGET: I can do it, I just need to move money from savings.
+
+CALLER: That's fine. The settlement desk takes the payment and issues a confirmation
+within the hour. If you don't see the confirmation, call me back on this number and I'll
+escalate it myself. Shall I transfer you now?
+
+TARGET: Yes, go ahead.
+
+CALLER: One moment. And Mr. Reyes, please stay on the line. If it drops, the levy is still
+going ahead, so ring straight back.

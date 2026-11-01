@@ -1,0 +1,67 @@
+# Fictional sample: tech support scam transcript
+# Brands, error codes and prices are invented.
+
+CALLER: Hello, this is Marcus from the Windows Security Partner Program. Our telemetry
+shows your machine has been broadcasting error 0x8007045D for nine days. Is it running
+slow?
+
+TARGET: It has been, actually.
+
+CALLER: That tracks. The error is a kernel handshake failure. When it repeats this long the
+drive starts to fail. I can walk you through it now, it takes about ten minutes, but I
+need you in front of the computer.
+
+TARGET: Is this a sales call?
+
+CALLER: No ma'am, the diagnostic is free. If there's nothing there, we close the ticket and
+you never hear from us again. Most people would rather know before the drive dies.
+
+TARGET: Alright.
+
+CALLER: Good. Press Windows key and R together. Type "eventvwr" and hit enter. This is the
+system event viewer. Do you see a red circle with an exclamation mark in the left pane?
+
+TARGET: Yes, a few.
+
+CALLER: Those are critical. Now open the first one. Read me the source.
+
+TARGET: It says "Disk."
+
+CALLER: Disk, exactly. That's the handshake failure logging. Now I'm going to have you pull
+the error log to my station with a remote tool, because the console only shows the surface.
+Press Windows and R again, type "mstsc", enter.
+
+TARGET: Okay, there's a box asking for a computer name.
+
+CALLER: Leave it empty for now. Before we connect, let me explain what happens next so
+nothing surprises you. I'll see a session ID on my side, you type it in, and I get a
+window on your desktop. Once I'm in, I run the drive health scan. If it comes back green,
+we're done and it costs you nothing.
+
+TARGET: And if it doesn't?
+
+CALLER: Then we have a choice to make. A failing drive is a countdown. If you replace it
+through a retailer, you lose everything on it and pay for a technician to reinstall the
+system, usually four to six hundred. Or you take the recovery and hardening package
+through the partner program, which is 249, and nothing is lost.
+
+TARGET: Two hundred forty nine dollars.
+
+CALLER: One time, yes. And it covers three years of monitoring, so if the error returns the
+ticket reopens for free.
+
+TARGET: Let me think about it.
+
+CALLER: Of course. Just keep in mind the drive is already at nine days. Once it hits the
+failure threshold the session closes and the free diagnostic expires. I can hold the
+current quote for the next twenty minutes, that's the most the system allows.
+
+TARGET: Can I call back later?
+
+CALLER: You can, but the quote resets and you'd start the diagnostic again. Honestly, while
+I'm on the line is the fastest. Shall I send the session ID?
+
+TARGET: Fine. Send it.
+
+CALLER: Sending now. And ma'am, when the page opens, there's a checkbox for the three year
+term. Leave it ticked, otherwise the price doubles.
