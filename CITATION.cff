@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: scamscript
+message: If this tool contributes to published research, cite the repository at the version used.
+type: software
+authors:
+  - name: scamscript contributors
+repository-code: https://github.com/sjdsjadjajdjsa/scamscript
+license: MIT
+abstract: >-
+  Reverse-engineering analyzer for leaked and public scam call scripts and vishing transcripts.
+  Turns a script into a validated breakdown of persona, hook, trust moves, urgency, escalation,
+  red flags and a counter-playbook.
+keywords:
+  - security
+  - fraud
+  - vishing
+  - smishing
+  - social engineering
+version: 0.1.0
+date-released: 2026-11-01

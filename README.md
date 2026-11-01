@@ -189,4 +189,4 @@ For security research and fraud-awareness training only. Not legal advice, not a
 tool, no warranty. Keep API keys out of commits; the key is read from the environment.
 
 MIT licensed, see [LICENSE](LICENSE). Contribution notes in [CONTRIBUTING.md](CONTRIBUTING.md),
-vulnerability reports in [SECURITY.md](SECURITY.md).
+vulnerability reports in [SECURITY.md](.github/SECURITY.md).
