@@ -8,9 +8,9 @@ version = "0.1.0"
 description = "Reverse-engineering analyzer for leaked and public scam call scripts and vishing transcripts"
 readme = "README.md"
 requires-python = ">=3.12"
-license = { text = "MIT" }
+license = { file = "LICENSE" }
 authors = [{ name = "scamscript contributors" }]
-keywords = ["security", "fraud", "vishing", "scam", "osint", "cli"]
+keywords = ["security", "fraud", "vishing", "smishing", "scam", "osint", "cli"]
 classifiers = [
   "Environment :: Console",
   "Intended Audience :: Information Technology",
@@ -24,6 +24,11 @@ dependencies = [
   "httpx==0.28.1",
   "pydantic==2.14.2",
 ]
+
+[project.urls]
+Homepage = "https://github.com/sjdsjadjajdjsa/scamscript"
+Repository = "https://github.com/sjdsjadjajdjsa/scamscript"
+Issues = "https://github.com/sjdsjadjajdjsa/scamscript/issues"
 
 [project.optional-dependencies]
 dev = ["pytest==8.4.1"]

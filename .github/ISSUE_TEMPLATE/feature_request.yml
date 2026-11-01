@@ -1,0 +1,30 @@
+name: Feature request
+description: A new analysis field, output format or command
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What can you not answer today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Where it fits in the flow, and what it changes in the schema or CLI
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Fit
+      options:
+        - label: Works offline for tests
+        - label: Keeps `--json` one object per line
+        - label: Does not need a new dependency (or the dependency is justified)

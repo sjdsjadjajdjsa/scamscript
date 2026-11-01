@@ -1,0 +1,46 @@
+name: Bug report
+description: Something broke, or a breakdown is unusable
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For security problems use the private advisory link instead.
+        Never paste a live API key.
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: output of `scamscript --version` or `git rev-parse --short HEAD`
+    validations:
+      required: true
+  - type: dropdown
+    id: command
+    attributes:
+      label: Command
+      options: [analyze, batch, report, history, prune, other]
+    validations:
+      required: true
+  - type: input
+    id: provider
+    attributes:
+      label: Endpoint and model
+      placeholder: base URL and model slug, key redacted
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction
+      description: Smallest command and script fragment that shows the problem
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log lines or error text
+      description: From ~/.scamscript/logs/, trimmed to the failing record

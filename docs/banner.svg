@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-label="scamscript — reverse-engineer the playbook, not the story">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0d12"/>
+      <stop offset="0.55" stop-color="#0f141c"/>
+      <stop offset="1" stop-color="#151b25"/>
+    </linearGradient>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e63946"/>
+      <stop offset="0.6" stop-color="#f4a261"/>
+      <stop offset="1" stop-color="#2a9d8f"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0 H0 V32" fill="none" stroke="#1b2430" stroke-width="1" opacity="0.55"/>
+    </pattern>
+  </defs>
+
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect width="1280" height="640" fill="url(#grid)"/>
+  <rect y="0" width="1280" height="6" fill="url(#rule)"/>
+
+  <g font-family="'JetBrains Mono','DejaVu Sans Mono',monospace">
+    <text x="72" y="132" font-size="20" fill="#64748b" letter-spacing="6">SECURITY RESEARCH / FRAUD AWARENESS</text>
+
+    <text x="68" y="232" font-size="92" font-weight="700" fill="#f1f5f9" letter-spacing="-2">scamscript</text>
+    <text x="72" y="286" font-size="30" fill="#94a3b8">reverse-engineer the playbook, not the story</text>
+
+    <text x="72" y="330" font-size="18" fill="#64748b">Leaked scripts and vishing transcripts, turned into structured JSON:</text>
+    <text x="72" y="356" font-size="18" fill="#64748b">persona, hook, trust moves, urgency, escalation ladder, red flags.</text>
+  </g>
+
+  <g transform="translate(72,398)">
+    <rect width="780" height="212" rx="10" fill="#0b1017" stroke="#243040"/>
+    <rect width="780" height="30" rx="10" fill="#131a24"/>
+    <circle cx="20" cy="15" r="5" fill="#e63946"/>
+    <circle cx="38" cy="15" r="5" fill="#e9c46a"/>
+    <circle cx="56" cy="15" r="5" fill="#2a9d8f"/>
+    <text x="76" y="20" font-size="13" fill="#64748b" font-family="'JetBrains Mono',monospace">scamscript analyze --file transcript.txt</text>
+
+    <g font-family="'JetBrains Mono','DejaVu Sans Mono',monospace" font-size="14">
+      <text x="22" y="62" fill="#64748b">ATTACK TYPE</text>
+      <text x="150" y="62" fill="#e63946">TECH SUPPORT SCAM</text>
+      <text x="404" y="62" fill="#64748b">SOPHISTICATION</text>
+      <text x="566" y="62" fill="#f4a261">6/10</text>
+
+      <text x="22" y="92" fill="#e2e8f0">OPENING HOOK</text>
+      <text x="22" y="114" fill="#94a3b8">"Telemetry shows your machine has been broadcasting</text>
+      <text x="22" y="134" fill="#94a3b8">error 0x8007045D for nine days."</text>
+
+      <text x="22" y="160" fill="#e2e8f0">RED FLAGS</text>
+      <text x="22" y="180" fill="#f87171">✗ unsolicited call claiming Windows telemetry</text>
+      <text x="22" y="198" fill="#f87171">✗ remote access · quote expires in 20 minutes</text>
+    </g>
+  </g>
+
+  <g transform="translate(898,398)" font-family="'JetBrains Mono','DejaVu Sans Mono',monospace">
+    <rect width="310" height="188" rx="10" fill="#0b1017" stroke="#243040"/>
+    <text x="22" y="34" font-size="13" fill="#64748b">$ scamscript batch examples</text>
+    <text x="22" y="64" font-size="13" fill="#94a3b8">analyzed 3 scripts</text>
+    <text x="22" y="86" font-size="13" fill="#94a3b8">report ranked by score</text>
+    <text x="22" y="108" font-size="13" fill="#94a3b8">3 ok · 0 failed</text>
+    <text x="22" y="138" font-size="13" fill="#2a9d8f">1. gov_impersonation  7/10</text>
+    <text x="22" y="160" font-size="13" fill="#f4a261">2. romance_sms        6/10</text>
+    <text x="22" y="182" font-size="13" fill="#f4a261">3. tech_support       6/10</text>
+  </g>
+</svg>
