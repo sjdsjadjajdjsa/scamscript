@@ -8,6 +8,8 @@ from dataclasses import dataclass, field
 DEFAULT_BASE_URL = "https://api.venice.ai/api/v1"
 DEFAULT_MODEL = "deepseek-v4-1-flash-1017-uncensored"
 DEFAULT_TIMEOUT = 120.0
+DEFAULT_RETRIES = 2
+DEFAULT_MAX_TOKENS = 4096
 ENV_API_KEY = "API_KEY"
 ENV_HOME = "SCAMSCRIPT_HOME"
 
@@ -22,6 +24,9 @@ class Settings:
     model: str = DEFAULT_MODEL
     api_key: str | None = None
     timeout: float = DEFAULT_TIMEOUT
+    retries: int = DEFAULT_RETRIES
+    max_tokens: int = DEFAULT_MAX_TOKENS
+    redact: bool = False
     home: str = field(default_factory=lambda: os.environ.get(ENV_HOME, ""))
 
     def __post_init__(self) -> None:
