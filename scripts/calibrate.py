@@ -97,6 +97,14 @@ def main(
                 "ok": outcome.ok,
                 "attempts": outcome.attempts,
                 "duration_s": round(outcome.duration, 2),
+                "score": outcome.breakdown.sophistication_score if outcome.breakdown else None,
+                "unverified": sum(1 for issue in outcome.issues or [] if not issue.ok),
+                "unverified_close": sum(
+                    1 for issue in outcome.issues or [] if issue.status == "close"
+                ),
+                "unverified_missing": sum(
+                    1 for issue in outcome.issues or [] if issue.status == "missing"
+                ),
                 "error": outcome.error,
             }
             for outcome in outcomes

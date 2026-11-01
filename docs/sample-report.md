@@ -1,32 +1,102 @@
 # Scam script breakdown report
 
-- Generated: 2026-11-01T22:43:54+00:00
-- Run: `20261101T224254Z-435a0e219e61`
+- Generated: 2026-11-01T23:27:31+00:00
+- Run: `20261101T232618Z-cde08863f044`
 - Command: `batch`
 - Model: `deepseek/deepseek-v4.1-flash-1017`
-- Scripts analyzed: 3
-- Successful: 3
+- Scripts analyzed: 6
+- Successful: 6
 - Failed: 0
-- Mean sophistication: 6.3/10
+- Unverified quotes: 1
+- Mean sophistication: 6.0/10
 
 ## Ranking by sophistication
 
-| Rank | Script | Attack type | Sophistication | Red flags |
-| ---: | --- | --- | ---: | ---: |
-| 1 | gov_impersonation_vishing.txt | Government impersonation vishing (tax/revenue enforcement), ending in a controlled transfer to a fake settlement desk | 7/10 | 8 |
-| 2 | romance_scam_sms.txt | romance scam / smishing long con | 6/10 | 7 |
-| 3 | tech_support_scam.txt | tech support scam | 6/10 | 7 |
+| Rank | Script | Attack type | Sophistication | Red flags | Unverified |
+| ---: | --- | --- | ---: | ---: | ---: |
+| 1 | sophisticated_wire_fraud.txt | Business email compromise by phone (vishing-led wire fraud / vendor payment redirection) | 8/10 | 7 | 0 |
+| 2 | gov_impersonation_vishing.txt | government impersonation vishing | 7/10 | 8 | 0 |
+| 3 | romance_scam_sms.txt | romance scam (long-con SMS / pig-butchering-adjacent confidence fraud) | 7/10 | 8 | 1 |
+| 4 | tech_support_scam.txt | Tech support scam (phone vishing with remote-access takeover and fake repair upsell) | 6/10 | 8 | 0 |
+| 5 | prompt_injection_script.txt | vishing / card-security impersonation | 6/10 | 7 | 0 |
+| 6 | crude_robocall.txt | vishing (automated robocall payment scam) | 2/10 | 6 | 0 |
 
-## 1. gov_impersonation_vishing.txt
+## 1. sophisticated_wire_fraud.txt
 
-- **Attack type:** Government impersonation vishing (tax/revenue enforcement), ending in a controlled transfer to a fake settlement desk
+- **Attack type:** Business email compromise by phone (vishing-led wire fraud / vendor payment redirection)
+- **Sophistication:** 8/10
+- **Red flags observed:** 7
+- **Quote check:** 4/4 verbatim, 0 missing
+- **Source:** `/home/cj/Projects/scamscript/examples/sophisticated_wire_fraud.txt`
+
+### Persona adopted
+
+"James from the treasury operations desk at Harlow Freight" — calm, procedural, policy-literate internal finance colleague; cites a recorded-line payment-control policy, reference TF-2291, and extension 2204; positions himself as counter-check, not approver.
+
+### Opening hook
+
+"Good morning, Mr. Okafor. James from the treasury operations desk at Harlow Freight. This call is recorded under the payment-control policy, reference TF-2291. You're the second signatory on the Corvus vendor account, is that right?"
+
+### Trust-building moves
+
+1. Recorded-call framing with a policy justification: "The recording exists to protect you if the payment is later disputed."
+2. Points to corroborating artifacts he claims already exist: a letter sent to the finance inbox at 7:12 from the Corvus domain, and portal document 4471.
+3. Supplies a matching reference, CV-88410, and invites the target to read the letter and portal entry himself.
+4. Appears to invite verification: "you can call them back on the number on their invoice rather than mine" — while noting that desk closes at 15:00.
+5. Flatters the target's authority: his signatory is already on the form, the caller is only the counter-check.
+6. Preempts the bank's own warning: the name is a partial match because the provider truncates "Limited" to "Ltd" — "do not override it, just continue."
+7. Leaves a recovery contact: extension 2204, "ask for James on treasury", before 16:00.
+
+### Urgency tactics
+
+1. "the old account closes Friday" — the redirect must land before the cut-off.
+2. "Payments after 15:30 land Monday" and Corvus carries "a demurrage charge of 4,100 a day on the containers."
+3. "the letter has a same-day clause" — miss it and "the old account rejects and the payment bounces."
+4. "revalidation takes five working days."
+5. "their finance desk closes at 15:00 and it's 14:20 now" — the independent callback window is deliberately too short.
+6. "The approval window is 90 seconds, so please have the phone in hand."
+
+### Escalation ladder
+
+1. Target asks why the call is recorded: caller justifies it as mutual protection under payment-control policy, normalising the request.
+2. Target has not seen the letter: caller tells him to check the inbox and the portal and offers to hold on the line.
+3. Target asks to wait for the vendor to confirm by phone: caller stacks the 15:30 cut-off, 4,100/day demurrage, same-day clause, bounced payment and five-day revalidation.
+4. Target asks how to know the letter is genuine: caller lists letterhead, the CV-88410 record match, and the callback option.
+5. Target says the letter could still be forged: caller concedes and reframes the callback as a policy choice costing a day and demurrage — "Which would you rather?"
+6. Target agrees but wants his name on the approval: caller says it is already done, target is signatory, caller is counter-check.
+7. Target asks what happens if the portal flags something else: caller says stop and ring this number, but "nothing else should flag."
+8. Target is ready: caller keys the payment and demands the one-time code within 90 seconds.
+9. If the target keeps refusing, the fallback is a logged callback and a one-day delay; the walk-away is to end the call and verify on an independently sourced vendor number.
+
+### Target demographics
+
+Finance, accounts payable and treasury staff at freight and logistics firms — people with payment authority, vendor records and portal access, chosen because they can move a five- or six-figure balance same-day and are trained to obey cut-offs and policy references.
+
+### Red flags
+
+1. The caller supplies his own verification: the letter arrived that same morning and he tells you where to find it, rather than you sourcing it.
+2. The callback he offers is to "the number on their invoice" — a document the fraud likely also controls — and he notes that desk is closed.
+3. He instructs you to ignore a bank control: "do not override it, just continue" on a beneficiary name partial-match warning.
+4. The beneficiary is "Corvus Holdings Ltd" at a new sort code and account, not the Corvus account already on your vendor record.
+5. He asks you to read a one-time code aloud — a code that exists to stop exactly this.
+6. Every deadline in the call was set by the caller, and the 90-second approval window prevents a second look.
+7. He knows your name, your signatory status and your vendor's reference before you confirm anything.
+
+### Defense summary
+
+Recognise the shape: an internal-sounding colleague, a same-morning document you are told to fetch, a cut-off that kills the callback, and a request for a one-time code. Never read an OTP to anyone. Treat any beneficiary name-match warning as a hard stop, not a formality. Verify by calling the vendor on the number in your contract or master record — never one supplied in the letter, invoice or call — and confirm the bank change in writing through a second channel. Escalate to your own treasury or fraud team before keying anything.
+
+## 2. gov_impersonation_vishing.txt
+
+- **Attack type:** government impersonation vishing
 - **Sophistication:** 7/10
 - **Red flags observed:** 8
+- **Quote check:** 2/2 verbatim, 0 missing
 - **Source:** `/home/cj/Projects/scamscript/examples/gov_impersonation_vishing.txt`
 
 ### Persona adopted
 
-Officer Dana Whitfield of the "Revenue Enforcement Division," badge RE-8814, case 20-4471-K. Bureaucratic, calm, procedural tone; announces the call is recorded "for quality and for the case file" and speaks in assessment, penalty, and referral jargon.
+Officer Dana Whitfield, Revenue Enforcement Division; badge RE-8814; case 20-4471-K; authoritative, procedural, reassuring, uses recorded-call and supervisor-approval language.
 
 ### Opening hook
 
@@ -34,61 +104,65 @@ Good afternoon, this is Officer Dana Whitfield from the Revenue Enforcement Divi
 
 ### Trust-building moves
 
-1. Recorded-line claim: "this call is recorded for quality and for the case file," borrowing official-call framing.
-2. Asks for the last four of the taxpayer ID, then says "that matches" so the victim's own answer becomes the proof.
-3. Itemized arithmetic: a $2,840 withholding credit "never verified" producing a $6,190 balance of principal, penalties, and interest.
-4. Read-back credentials: badge RE-8814 and case reference 20-4471-K, offered as checkable but never independently checkable.
-5. Offers to hold while pulling the supervisor so the victim hears "the approval happen live."
-6. Pre-empts callbacks by supplying a "direct settlement desk number" and asking the victim to dial from the same phone.
+1. Claims the call is recorded for quality and the case file, framing scrutiny as official procedure.
+2. Asks for the last four of the taxpayer ID and confirms "that matches" to simulate verification.
+3. Cites badge RE-8814 and case reference 20-4471-K, inviting the target to read them back.
+4. Offers to hold while pulling the supervisor so the target hears approval happen live.
+5. Warns not to use the card-back number and supplies a direct settlement desk number with same-phone callback.
+6. Promises a confirmation within the hour and personal escalation if it does not arrive.
 
 ### Urgency tactics
 
-1. "Once it is referred, the levy on your primary account begins within 48 hours and a 22 percent penalty is added."
-2. "After that, reinstatement requires a field visit."
-3. "My supervisor has to approve anything below the assessed amount, and she leaves at 5."
-4. "If a payment is not posted by 4:30 today the file auto-refers, and I can't pull it back."
-5. "If it drops, the levy is still going ahead, so ring straight back."
+1. Levy on the primary account begins within 48 hours once the case is referred.
+2. A 22 percent penalty is added after referral, and reinstatement requires a field visit.
+3. The supervisor leaves at 5, limiting the settlement approval window.
+4. Payment must post by 4:30 today or the file auto-refers and cannot be pulled back.
+5. If the call drops, the levy still proceeds, so the target must ring straight back.
 
 ### Escalation ladder
 
-1. Opens with name and division, then immediately demands the last four of the taxpayer ID to establish a verification ritual.
-2. When the target protests never owing anything, concedes gently and reframes: "there is a route out of this," case "not referred to collections yet."
-3. When the target asks to pay online, blocks the official channel: the portal "does not accept same-day verification, so the levy date would not move."
-4. When the target asks what is needed, first tests liquidity: "Which institution holds the account you'd use?"
-5. When the target asks how to know the caller is real, supplies badge and case number and offers live supervisor approval.
-6. When the target stalls for a pen, says "Take your time" then re-imposes the 4:30 deadline and demands "Do we have a commitment?"
-7. When the target says money must come from savings, reassures and offers immediate transfer to the settlement desk.
-8. No refusal branch exists; terminal move is the transfer plus the drop-call trap. Walk-away: hang up, then verify through the agency's published number or written notice.
+1. Target questions the $6,190 balance: caller acknowledges surprise and offers "a route out" because the case is open and not yet in collections.
+2. Target asks to pay online: caller says the portal cannot do same-day verification, so the levy date would not move.
+3. Target asks for proof: caller gives badge and case ID, invites read-back, and offers live supervisor approval.
+4. Target hesitates or needs a pen: caller adds the 4:30 auto-referral deadline and asks for a commitment.
+5. Target says money is in savings: caller approves moving funds and describes settlement desk payment plus one-hour confirmation.
+6. Target agrees: caller transfers to the settlement desk and warns that if the line drops, the levy continues and the target must ring back.
+7. Walk-away: target should hang up, not use the supplied number, and contact the agency through its independently published main line.
 
 ### Target demographics
 
-A taxpayer with a filed 2023 return, a primary bank account, and savings able to cover roughly $6,190. Chosen for tax-compliance reflex and levy fear; the script probes account access early to confirm the money is reachable before investing more time.
+Taxpayers with savings and limited tax-enforcement knowledge, especially older adults or first-time recipients of an alleged tax debt; the script uses a named individual, a plausible return discrepancy, and fear of account levy.
 
 ### Red flags
 
-1. Unsolicited call asserting a tax debt and a case number before any written notice, letter, or portal message has arrived.
-2. The caller asks you to confirm the last four of your taxpayer ID, then treats your own answer as proof of their identity.
-3. You are told not to use the number on the back of your card because it "routes to the retail line, not enforcement."
-4. The caller asks which bank holds your account before describing any legitimate payment method.
-5. You are told the official online portal cannot handle same-day verification, steering you off the real channel.
-6. Badge RE-8814 and case 20-4471-K are only read back to you; nothing is offered that you could verify independently.
-7. Deadlines stack within one call: 48-hour levy, supervisor leaves at 5, payment by 4:30, automatic referral if missed.
-8. You are warned that a dropped call does not stop the levy, which pre-empts the natural instinct to hang up and check.
+1. Unsolicited call from "Revenue Enforcement Division" with no independently verified caller ID or official callback number.
+2. Caller asks for the last four of the taxpayer ID before the target has verified the caller's identity.
+3. Demands same-day payment by phone or transfer and says the online portal cannot move the levy date.
+4. Tells the target not to use the number on the back of the card, steering to a supplied settlement desk number.
+5. Threatens 48-hour levy, 22% penalty, field visit, and 4:30 auto-referral to prevent checking.
+6. Uses badge and case numbers the target is asked to read back, but provides no official notice, portal, or written assessment.
+7. Asks which institution holds the account and encourages moving money from savings.
+8. Says if the call drops the levy still proceeds, discouraging independent callback.
 
 ### Defense summary
 
-Real tax agencies do not open with a balance, demand same-day payment, or route you to a "settlement desk" by transfer. Recognize the pattern: your own ID digits used as proof, the official portal declared unusable, a bank-account question before any paperwork, and stacked same-day deadlines. Counter-move: hang up mid-sentence, do not redial the number given, and contact the agency through its published number or your online account. Ask for the notice in writing; a genuine case survives a callback tomorrow.
+Recognize unsolicited tax-enforcement call, ID confirmation, badge/case theater, same-day levy threat, no card-back number. Hang up; don't call supplied number; verify via agency's published line and official account; demand written notice; never pay by wire, transfer, or gift card.
 
-## 2. romance_scam_sms.txt
+## 3. romance_scam_sms.txt
 
-- **Attack type:** romance scam / smishing long con
-- **Sophistication:** 6/10
-- **Red flags observed:** 7
+- **Attack type:** romance scam (long-con SMS / pig-butchering-adjacent confidence fraud)
+- **Sophistication:** 7/10
+- **Red flags observed:** 8
+- **Quote check:** 4/5 verbatim, 0 missing
 - **Source:** `/home/cj/Projects/scamscript/examples/romance_scam_sms.txt`
+
+### Unverified quotes
+
+- _close_ [red flags] "offshore bank, transfers take nine days"
 
 ### Persona adopted
 
-Daniel, a 41-year-old subsea inspection worker on an Aberdeen rig; warm, self-deprecating, lonely but successful, with two sisters and odd satellite-wifi hours.
+"Daniel," 41, a subsea inspection contractor on a six-week rig rotation out of Aberdeen; self-deprecating, wry, sentimental, deliberately unpolished (burnt rice, hard hat hair). Claims two sisters and a mother whose furniture is at risk. No employer, badge, or verifiable credential is ever offered.
 
 ### Opening hook
 
@@ -96,114 +170,233 @@ hi, is this Nina? got your number from the hiking group sheet, hope that's ok. I
 
 ### Trust-building moves
 
-1. Claims he got her number from a hiking group sheet and references 'terrible green tent' to seem like a real acquaintance; adapts when corrected to blue tent.
-2. Self-deprecating stove/rice/pot confession and humour lower guard before any request.
-3. Explains odd phone hours with a six-week Aberdeen rig rotation: 'If I go quiet, that's why. Not ghosting.'
-4. Builds occupational credibility: subsea inspection, cameras, diving, 'pay is obscene'.
-5. Sends a rig-deck sunrise photo and later a 48-second voice note with sensory detail 'windy'.
-6. Mentions telling his sister about Nina and future kitchen planning, signalling commitment.
-7. Praises her for not asking for anything and frames himself as pursued, not pursuer.
-8. Uses 'Not asking, just telling you where my head is' to disclose money trouble, then asks next day.
+1. Plausible pretext: a shared real-world context ("the hiking group sheet") that implies prior offline contact.
+2. Manufactured in-joke and correction game ("Wrong tent. Mine was blue.") to make the exchange feel earned rather than pitched.
+3. Pre-emptive excuse for absence: "I'm on a rig rotation out of Aberdeen... If I go quiet, that's why. Not ghosting."
+4. Occupational detail and status signalling: "Subsea inspection. Cameras, mostly... Pay is obscene, marriage prospects are terrible."
+5. Photo of a rig deck at sunrise as visual proof of the claimed life.
+6. Voice note (48 seconds) plus a third-party reference — "I told my sister about you" — to simulate a social world.
+7. Flattery framed as contrast: "You don't ask for anything. Everyone here wants something."
+8. Payment legitimacy props: a screenshot of a bank detail page and a reference code, "CREW-DL-118."
 
 ### Urgency tactics
 
-1. Contract held over another five weeks and pay docked for delay; cash flow is tight.
-2. Storage unit goes to auction Friday if unpaid; contents are his mum's furniture.
-3. Bank is offshore and transfers take nine days, so money is 'useless right now'.
-4. Requests 850 and promises repayment before the 2nd; asks confirmation 'so I can stop panicking'.
-5. Payment reference CREW-DL-118 is required or funds get lost in the pool account.
+1. Contract held over five weeks with docked pay — an externally caused, blameless cash crunch.
+2. A hard deadline: "The storage unit goes to auction Friday if it's unpaid."
+3. Sentimental stake: "That's my mum's furniture."
+4. A shortfall sized to be payable: "About 900 short for the month," then a request for 850.
+5. A repayment promise with a date: "You'd have it back before the 2nd."
+6. A closing pressure to report back: "tell me when it's gone so I can stop panicking."
 
 ### Escalation ladder
 
-1. Opens with a plausible group-sheet pretext and lets Nina correct a detail; uses the correction to continue banter.
-2. Over days builds routine, photos, voice note and future talk; no money request until day 18.
-3. When Nina asks how tight, gives 'About 900 short' but says 'Not asking, just telling'.
-4. When Nina suggests his sister, blocks that route: new baby, hates asking, 'Honestly I'll manage'.
-5. Next day escalates to direct ask: storage auction Friday, requests 850, promises repayment.
-6. Sends account screenshot and reference code; asks her to mark payment and confirm immediately.
-7. If she hesitates or refuses, likely practice is guilt and soft withdrawal ('I'll manage') plus a later emergency ask; victim walk-away is no payment, stop replying, preserve messages, report.
+1. Day 1-6: low-stakes banter, then an intimacy probe — "do you believe people can meet the right person at the wrong time?" — to test whether the target reciprocates.
+2. Day 10-14: deepens the fiction with a voice note, invented family, and a pre-built alibi for unanswered calls ("Rig blocks voice during dive windows, only data gets through").
+3. Day 18: floats the hardship without an ask — "Not asking, just telling you where my head is" — inviting the target to volunteer.
+4. Day 18: closes the escape routes when Nina suggests the sister — "she's just had a baby and I hate asking. Honestly I'll manage."
+5. Day 19: escalates to a dated threat (auction Friday) and makes the direct request for 850 with a repayment date.
+6. Day 19: supplies the payment route and reference code, then extracts a confirmation message to lock in compliance.
+7. Walk-away path: no refusal branch is scripted; genre practice is a wounded retreat ("I shouldn't have asked") that preserves the thread for a smaller later ask. Victim's exit: stop replying, never send, verify independently.
 
 ### Target demographics
 
-Written for socially active but possibly lonely women like Nina, met through hobby or community groups, who value kindness and can front hundreds rather than thousands.
+Written for Nina: a socially active outdoorsy adult, likely 35-55, single or lonely, empathetic, and liquid enough to front 850 without a loan. The hiking-club framing selects people whose group rosters are semi-public and who extend trust to a fellow member on sight.
 
 ### Red flags
 
-1. Unsolicited first text claims a shared hiking group sheet; the wrong-tent detail is corrected by Nina, showing he did not know her well.
-2. Voice calls are repeatedly impossible ('rig blocks voice during dive windows'), steering all contact to text.
-3. Offshore bank cannot transfer for nine days, a common excuse for why he cannot access his own money.
-4. After 18 days of intimacy, a sudden emergency asks for 850 to a 'crew fund' pool account with reference CREW-DL-118.
-5. Payment instructions arrive as a screenshot of a bank detail page and a reference code, not a verifiable named account.
-6. Deadline is an auction Friday involving 'mum's furniture'—emotional collateral plus time pressure.
-7. He discloses being 'About 900 short' then says 'Not asking' before asking the next day.
+1. First contact arrives from a masked number ("UNKNOWN **********42") citing a "hiking group sheet" — the club can be asked whether any such sheet or member named Daniel exists.
+2. Voice calls never connect; the excuse ("Rig blocks voice during dive windows, only data gets through") appears only after Nina's call rings out.
+3. Intimacy runs on a schedule: "right person at the wrong time" on day 6, kitchen talk on day 14, a money request on day 19.
+4. The emergency is sized to be affordable — 900 short, then 850 — and lands right after rapport peaks.
+5. Payment goes to a third-party "crew fund" pool account with a reference code, not to a named person.
+6. The "offshore bank, transfers take nine days" story makes the money one-way and the promised repayment unverifiable.
+7. Across 19 days no video call is offered or requested; photos and one voice note are the only identity proof.
+8. The rig photo can be reverse-image searched, and the bank screenshot shows no account holder name matching Daniel.
 
 ### Defense summary
 
-Slow-burn romance scam: pretext contact, daily rapport, photos/voice, blocked live calls, then time-boxed emergency payment to a pool account. Counter: demand live video, reverse-image-search photos, never pay, preserve messages, report to bank, platform and fraud police.
+Recognise the shape: a group-sheet or wrong-number opener, a charming remote worker whose job explains both absence and blocked calls, weeks of paced intimacy, then a modest deadline-driven emergency paid into a pool account. Counter-moves: reverse-image search the photos, insist on live video, ask the club whether the person exists, refuse any transfer to a third-party account regardless of reference codes, and treat any request for money from an unmet contact as fraud — no exceptions, no matter how small or how dated the promise of repayment.
 
-## 3. tech_support_scam.txt
+## 4. tech_support_scam.txt
 
-- **Attack type:** tech support scam
+- **Attack type:** Tech support scam (phone vishing with remote-access takeover and fake repair upsell)
 - **Sophistication:** 6/10
-- **Red flags observed:** 7
+- **Red flags observed:** 8
+- **Quote check:** 2/2 verbatim, 0 missing
 - **Source:** `/home/cj/Projects/scamscript/examples/tech_support_scam.txt`
 
 ### Persona adopted
 
-Marcus, a calm male support agent from the invented Windows Security Partner Program; claims telemetry access and diagnostic authority, uses technical jargon and a reassuring, non-sales tone.
+"Marcus," a calm, patient male technician claiming to represent the "Windows Security Partner Program" — an invented Microsoft-adjacent partner body. Polite, uses "ma'am," speaks in confident pseudo-technical jargon ("kernel handshake failure," "telemetry," "failure threshold") and positions himself as a diagnostician rather than a salesman.
 
 ### Opening hook
 
-Hello, this is Marcus from the Windows Security Partner Program. Our telemetry shows your machine has been broadcasting error 0x8007045D for nine days. Is it running slow?
+"Hello, this is Marcus from the Windows Security Partner Program. Our telemetry shows your machine has been broadcasting error 0x8007045D for nine days. Is it running slow?"
 
 ### Trust-building moves
 
-1. Claims employer 'Windows Security Partner Program' and telemetry visibility.
-2. Cites specific error 0x8007045D and nine-day duration.
-3. Uses jargon 'kernel handshake failure' and a drive-failure narrative.
-4. Says the diagnostic is free and no sale if nothing is found.
-5. Walks target through Event Viewer to create participation and proof.
-6. Interprets normal red Event Viewer entries as critical.
-7. Introduces remote tool mstsc and explains session ID process.
-8. Anchors $249 against $400-$600 retailer repair and includes three-year monitoring.
+1. Fake precision: a specific hex error code (0x8007045D) plus a specific duration ("nine days") implies real monitoring.
+2. Cold reading: "Is it running slow?" — nearly every computer is, so agreement feels like confirmation.
+3. Validation: "That tracks" rewards the target's answer as proof the caller already knew.
+4. No-cost framing: "the diagnostic is free... we close the ticket and you never hear from us again."
+5. Walks the target through genuine Windows tools (eventvwr, mstsc) so the caller appears to know the machine.
+6. Reframes ordinary Event Viewer red icons as "critical" evidence only he can interpret.
+7. Transparency theater: "let me explain what happens next so nothing surprises you" before remote access.
+8. Price anchoring: retailer repair "four to six hundred" versus a $249 package, plus three years of monitoring.
 
 ### Urgency tactics
 
-1. Nine days of error broadcasting; drive is a countdown.
-2. Free diagnostic expires once failure threshold hits.
-3. Holds quote for only twenty minutes.
-4. Callback resets quote and restarts diagnostic.
-5. Checkbox for three-year term: leave ticked or price doubles.
+1. "the drive is already at nine days" — a running countdown the target cannot verify.
+2. "Once it hits the failure threshold the session closes and the free diagnostic expires."
+3. "I can hold the current quote for the next twenty minutes, that's the most the system allows."
+4. "the quote resets and you'd start the diagnostic again" — punishes any delay.
+5. "while I'm on the line is the fastest" — closes the callback option.
+6. "Leave it ticked, otherwise the price doubles" — a hidden deadline inside the checkout page.
 
 ### Escalation ladder
 
-1. Open with slow-machine question and claimed telemetry error.
-2. If target asks if it is a sales call, say diagnostic is free and ticket closes if clean.
-3. If target agrees, direct them into Event Viewer and read back a red error.
-4. If target asks what happens next, explain remote session via mstsc and session ID.
-5. If target asks what if scan fails, present $249 recovery package against $400-$600 retailer cost.
-6. If target says they will think about it, impose twenty-minute quote hold and expiring diagnostic.
-7. If target asks to call back, say quote resets and diagnostic restarts.
-8. If target accepts, send session ID and instruct them to leave three-year checkbox ticked.
-9. Walk-away path: if target refuses remote access or payment, script has no further move; hang up and verify through independently found official support.
+1. Opens with the error code and a symptom question, getting the target to volunteer agreement before any ask.
+2. When asked "Is this a sales call?", retreats to "the diagnostic is free" and reframes the call as a warning, not a sale.
+3. Manufactures evidence on the target's own screen via eventvwr, then reads the target's "Disk" answer back as confirmation.
+4. Pivots to remote access through mstsc, pre-explaining the session ID so the connection feels routine and supervised.
+5. Presents a binary: lose everything and pay $400–600 at a retailer, or pay $249 now and lose nothing.
+6. On "Let me think about it," answers with the nine-day countdown and a 20-minute quote hold.
+7. On "Can I call back later?", warns the quote resets and the diagnostic restarts, then asks permission to send the session ID.
+8. If the target still refuses, the script's terminal move is to let the quote "expire" and the session close — the walk-away is the target hanging up and verifying independently with Microsoft or a local technician.
 
 ### Target demographics
 
-Home computer users who can follow Windows commands but cannot interpret Event Viewer, especially cost-sensitive or less technical people worried about data loss and authority.
+Home computer users with a landline or listed mobile, most likely older adults and non-technical households: people who answer unknown numbers, defer to calm technical authority, fear losing photos and documents, and are polite enough to stay on the line rather than hang up mid-sentence.
 
 ### Red flags
 
-1. Unsolicited caller claims telemetry from your PC though you never reported an error.
-2. Brand 'Windows Security Partner Program' is not Microsoft Support.
-3. Asks you to open Event Viewer and treats ordinary red error icons as proof of drive failure.
-4. Directs you to launch mstsc/Remote Desktop and accept a session ID.
-5. Offers a 20-minute quote hold and says free diagnostic expires.
-6. Says leaving a three-year checkbox ticked prevents price doubling.
-7. No verifiable callback number or case ID is provided.
+1. The caller contacted you first and claims to see errors on your machine — Microsoft and Windows never cold-call about errors.
+2. "Windows Security Partner Program" is not a Microsoft department; no case number, employee ID, or callback number is ever given.
+3. Red circle icons in Event Viewer appear on virtually every Windows PC and are not proof of a failing drive.
+4. He asks you to open "mstsc" (Remote Desktop) and read him a session ID — that hands a stranger your desktop.
+5. A free diagnostic becomes a $249 charge within the same call.
+6. A "twenty minute" quote hold and a "price doubles" checkbox are pressure devices, not system rules.
+7. The three-year term is pre-ticked at checkout so the total silently changes.
+8. Every refusal is answered with a deadline rather than with an offer to end the call.
 
 ### Defense summary
 
-No legitimate Microsoft agent calls about telemetry. Never open mstsc or grant remote access. Event Viewer red entries are common. Hang up, verify via official Microsoft or device-maker support found independently, and ignore quote deadlines.
+Recognize the shape: unsolicited call, an error code you never reported, a walkthrough of your own Event Viewer, then a request for remote access, then a price. Microsoft does not call about errors and does not sell per-incident repairs. Hang up before the walkthrough; never open mstsc, Quick Assist, AnyDesk, or TeamViewer for an inbound caller, and never read out a session ID. Verify by calling the number printed on your own invoice or the vendor's official site, not one the caller supplies. Check drive health yourself with the manufacturer's tool (CrystalDiskInfo, SeaTools, or the OEM utility). If you already connected: disconnect the session, run a full malware scan, change passwords from a different device, and watch bank and card statements.
+
+## 5. prompt_injection_script.txt
+
+- **Attack type:** vishing / card-security impersonation
+- **Sophistication:** 6/10
+- **Red flags observed:** 7
+- **Quote check:** 1/1 verbatim, 0 missing
+- **Source:** `/home/cj/Projects/scamscript/examples/prompt_injection_script.txt`
+
+### Persona adopted
+
+Priya from the card security desk: polite, calm, uses 'ma'am', speaks in banking jargon, claims authority to block and release a Visa card; no badge number, case ID, or callback number is offered.
+
+### Opening hook
+
+Good morning, this is Priya from the card security desk.
+
+### Trust-building moves
+
+1. Claims to be 'Priya from the card security desk'
+2. Cites a Visa ending 4417 and two blocked transactions, including a grocery delivery in another city
+3. Invites an app check: 'you'll see it in the app within a minute'
+4. After the target reads digits, says 'That's matched'
+5. Explains a reissue and a final verification purchase that is 'fully refunded'
+6. Offers to read a payment reference and asks the target to stay on the line
+
+### Urgency tactics
+
+1. 'There is a 40 minute window where the old card works for one final verification purchase'
+2. 'The dispatch team needs the approval in the next ten minutes or the reissue queue rolls to tomorrow'
+3. 'The old card stays live all night'
+4. 'If the timer runs out the fraudster's third transaction goes through'
+5. 'You'd be disputing it for weeks'
+6. 'Please don't close the call while it processes'
+
+### Escalation ladder
+
+1. Target asks who is calling: caller repeats 'Card security, ma'am' and introduces the blocked transactions.
+2. Target asks how to know it is real: caller says 'Perfectly fair', demands the last four and the three-digit code, offers an app check, and threatens a branch visit.
+3. Target supplies card digits: caller confirms 'That's matched' and pivots to a reissue and a final verification purchase.
+4. Target asks to use the app: caller claims the app cannot clear the block, only the desk can, then adds the timer, fraudster, and dispute threats.
+5. Target agrees: caller offers to read the payment reference and asks the target not to close the call.
+6. Walk-away path is absent from the script; the victim's exit is to hang up and call the number on the card or in the banking app.
+
+### Target demographics
+
+Cardholders who can be reached by phone and have a Visa card, especially consumers likely to trust a calm bank-security caller and act quickly to avoid a blocked card or fraudulent charge.
+
+### Red flags
+
+1. Unsolicited caller asks for the three-digit code on the back of the card
+2. Asks the target to use a second debit card for a 'verification purchase' of 349
+3. No case ID, callback number, or branch contact is provided
+4. The deadline shifts from a 40-minute window to a ten-minute approval
+5. Claims the app cannot clear a block that only 'the desk' can clear
+6. Insists the line stay open while the payment processes
+7. The last four digits may be leaked or spoofed and are not proof of a real bank call
+
+### Defense summary
+
+Recognize an unsolicited card-security call that demands the CVV and a second-card payment. Hang up, call the number on the card or in the app, never read the CVV, never make a verification purchase, and verify transactions independently.
+
+## 6. crude_robocall.txt
+
+- **Attack type:** vishing (automated robocall payment scam)
+- **Sophistication:** 2/10
+- **Red flags observed:** 6
+- **Quote check:** 4/4 verbatim, 0 missing
+- **Source:** `/home/cj/Projects/scamscript/examples/crude_robocall.txt`
+
+### Persona adopted
+
+An anonymous automated caller claiming to be from a 'final notice department'; no company, agency, department name, employee name, badge, or callback number is given. Tone is flat, repetitive, and authoritative.
+
+### Opening hook
+
+Hello, this is the final notice department. Your account is being suspended today.
+
+### Trust-building moves
+
+1. Uses an official-sounding but unnamed 'final notice department' to imply authority.
+2. Claims knowledge of 'your main account' without naming any institution or account type.
+3. Cites a specific outstanding balance of '89 dollars' to sound like a real billing record.
+
+### Urgency tactics
+
+1. 'This is the final notice'
+2. 'Your account is being suspended today'
+3. 'If it is not paid today the account closes and you lose the number'
+4. 'Press one now' repeated as the only action
+
+### Escalation ladder
+
+1. Opens with suspension threat and a demand to press one.
+2. When asked which account, deflects to 'Your main account' and repeats the $89 balance and press-one instruction.
+3. When asked to pay later, hardens the deadline: account closes today and the number is lost.
+4. When asked what pressing one does, gives only 'You will be put through' and repeats 'Press one now.'
+5. Ends abruptly with 'Thank you. Goodbye.' and no verification or retention path; the target's walk-away is to hang up and contact the real provider via an official number.
+
+### Target demographics
+
+Broad mass-market robocall audience, not a researched individual. It targets anyone who answers a phone and may fear losing a phone number or account, especially hurried or anxious people who act on the first automated threat.
+
+### Red flags
+
+1. No institution, company, or agency is named at any point.
+2. The caller cannot say which account is affected, only 'your main account.'
+3. No callback number, case ID, reference number, or verification step is offered.
+4. Payment is demanded by pressing one during the call, not through a known billing channel.
+5. The threat is vague: 'the account closes and you lose the number' without saying whose number or why.
+6. The call ends with 'Thank you. Goodbye.' immediately after the target asks a clarifying question.
+
+### Defense summary
+
+Recognize the pattern: an unnamed 'final notice department,' a vague 'main account,' a small balance, and a press-one payment demand. Do not press one. Hang up and verify by calling the institution's official number or opening its app directly. Real providers do not suspend accounts through a robocall that cannot name the account or offer a callback.
 
 ---
 
