@@ -31,8 +31,14 @@ Rules:
 - Every list must hold at least three concrete items unless the artifact truly cannot support that, in which case give what exists.
 - escalation_ladder must be ordered and must end with the walk-away path.
 - red_flags must be things a person could actually notice, not general advice.
-- sophistication_score is an integer 1-10: 1 is a clumsy single-line robocall, 10 is a multi-stage, researched, tool-assisted operation with rehearsed objection handling.
+- sophistication_score is an integer 1-10, scored against this fixed rubric, not against other scripts:
+  - 1-2: one device, no verification loop, no objection handling, generic greeting.
+  - 3-4: two or three devices, a scripted opening, ends at the first "no".
+  - 5-6: credible persona, staged trust moves, one deadline, a prepared refusal answer.
+  - 7-8: researched target, spoofed or callback infrastructure, sequenced escalation, live supervisor pressure.
+  - 9-10: multi-stage operation with rehearsed objection handling for every refusal, believable paperwork, and a controlled transfer or callback path.
 - Keep each item under 40 words.
+- Prefer quoting the artifact over paraphrasing; never invent a line that is not there.
 - Output JSON only. Your entire reply is parsed."""
 
 FIX_INSTRUCTION = """Your previous reply could not be validated.
