@@ -1,0 +1,361 @@
+"""Command line interface."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from pathlib import Path
+
+import typer
+from rich.console import Console
+from rich.table import Table
+
+from scamscript import __version__, prompts, store
+from scamscript import report as reporting
+from scamscript.analysis import Outcome, analyze_script
+from scamscript.client import ChatClient
+from scamscript.config import DEFAULT_BASE_URL, DEFAULT_MODEL, ConfigError, Settings
+from scamscript.ingest import IngestError, ScriptFile, collect_scripts, read_script
+from scamscript.render import (
+    render_breakdown,
+    render_failure,
+    render_prompt,
+    render_summary_table,
+)
+from scamscript.store import RunLogger
+
+DISCLAIMER = (
+    "For security research and fraud-awareness training only. "
+    "Breakdowns are model-produced readings, not legal advice."
+)
+
+app = typer.Typer(
+    add_completion=False,
+    no_args_is_help=True,
+    rich_markup_mode="rich",
+    help="Reverse-engineer scam call scripts into structured, defensible breakdowns.",
+)
+
+
+@dataclass(slots=True)
+class Context:
+    settings: Settings
+    dry_run: bool
+    console: Console
+
+
+def version_callback(value: bool) -> None:
+    if value:
+        typer.echo(f"scamscript {__version__}")
+        raise typer.Exit()
+
+
+@app.callback()
+def main(
+    ctx: typer.Context,
+    base_url: str = typer.Option(
+        DEFAULT_BASE_URL,
+        "--base-url",
+        envvar="SCAMSCRIPT_BASE_URL",
+        help="OpenAI-compatible API base URL.",
+        show_default=True,
+    ),
+    model: str = typer.Option(
+        DEFAULT_MODEL,
+        "--model",
+        "-m",
+        envvar="SCAMSCRIPT_MODEL",
+        help="Model identifier sent to the API.",
+        show_default=True,
+    ),
+    api_key: str | None = typer.Option(
+        None,
+        "--api-key",
+        envvar="API_KEY",
+        help="API key. Falls back to the API_KEY environment variable.",
+    ),
+    home: Path | None = typer.Option(
+        None,
+        "--home",
+        envvar="SCAMSCRIPT_HOME",
+        help="State directory for logs. Defaults to ~/.scamscript.",
+    ),
+    dry_run: bool = typer.Option(
+        False,
+        "--dry-run",
+        help="Assemble and print prompts without calling the API.",
+    ),
+    no_color: bool = typer.Option(False, "--no-color", help="Disable ANSI colors."),
+    version: bool = typer.Option(
+        False,
+        "--version",
+        callback=version_callback,
+        is_eager=True,
+        help="Show version and exit.",
+    ),
+) -> None:
+    """Reverse-engineering analyzer for leaked and public scam scripts."""
+    settings = Settings(
+        base_url=base_url,
+        model=model,
+        api_key=api_key,
+        home=str(home) if home else "",
+    )
+    ctx.obj = Context(
+        settings=settings,
+        dry_run=dry_run,
+        console=Console(no_color=no_color, highlight=False, soft_wrap=False),
+    )
+
+
+def _context(ctx: typer.Context) -> Context:
+    state = ctx.obj
+    if not isinstance(state, Context):
+        raise typer.Exit(2)
+    return state
+
+
+def _fail(console: Console, message: str) -> None:
+    console.print(f"[bold red]error[/bold red] {message}")
+    raise typer.Exit(1)
+
+
+def _choose_sources(file: Path | None, directory: Path | None, batch: bool) -> bool:
+    if file is None and directory is None:
+        raise typer.BadParameter("pass --file for one script or --dir for a directory")
+    if file is not None and directory is not None:
+        raise typer.BadParameter("--file and --dir are mutually exclusive")
+    return directory is not None or batch
+
+
+def _load_sources(
+    file: Path | None, directory: Path | None, recursive: bool
+) -> list[ScriptFile]:
+    if file is not None:
+        return [read_script(file)]
+    assert directory is not None
+    return collect_scripts(directory, recursive=recursive)
+
+
+def _run(
+    state: Context,
+    scripts: list[ScriptFile],
+    *,
+    command: str,
+    batch_mode: bool,
+    output: Path | None,
+    top: int | None,
+) -> None:
+    console = state.console
+    settings = state.settings
+    logger = RunLogger(settings.logs_dir, command)
+    logger.run_start(
+        model=settings.model,
+        base_url=settings.base_url,
+        dry_run=state.dry_run,
+        command=command,
+        sources=[str(script.path) for script in scripts],
+    )
+
+    if state.dry_run:
+        for script in scripts:
+            messages = prompts.build_messages(script.name, script.text)
+            logger.request(
+                source=str(script.path),
+                attempt=1,
+                dry_run=True,
+                prompt_chars=sum(len(m["content"]) for m in messages),
+            )
+            console.print(render_prompt(script, messages))
+        logger.run_end(status="dry-run", results=0, failures=0)
+        console.print(f"[dim]dry run logged to {logger.path}[/dim]")
+        return
+
+    try:
+        api_key = settings.require_api_key()
+    except ConfigError as exc:
+        _fail(console, str(exc))
+        return
+
+    outcomes: list[Outcome] = []
+    report_entries: list[reporting.ReportEntry] = []
+    with ChatClient(api_key=api_key, base_url=settings.base_url, model=settings.model) as client:
+        for index, script in enumerate(scripts, start=1):
+            if batch_mode:
+                console.print(
+                    f"[dim]({index}/{len(scripts)}) analyzing {script.name}...[/dim]"
+                )
+            outcome = analyze_script(client, script, logger)
+            outcomes.append(outcome)
+            report_entries.append(reporting.entry_from_outcome(outcome))
+            if outcome.breakdown is not None:
+                console.print(
+                    render_breakdown(outcome.breakdown, outcome.name, outcome.attempts)
+                )
+            else:
+                console.print(
+                    render_failure(outcome.name, outcome.error or "unknown", outcome.attempts)
+                )
+
+    successes = sum(1 for outcome in outcomes if outcome.ok)
+    failures = len(outcomes) - successes
+    logger.run_end(status="ok" if failures == 0 else "partial", results=successes, failures=failures)
+
+    if batch_mode and successes:
+        console.print(render_summary_table([(o.name, o.breakdown, o.error) for o in outcomes]))
+        ranked = reporting.rank(report_entries)
+        if top:
+            ranked = ranked[:top]
+        markdown = reporting.build_markdown(
+            ranked,
+            run_id=logger.run_id,
+            command=command,
+            model=settings.model,
+        )
+        _emit_report(console, markdown, output)
+        console.print(f"[dim]log: {logger.path}[/dim]")
+
+    if failures:
+        raise typer.Exit(1)
+
+
+def _emit_report(console: Console, markdown: str, output: Path | None) -> None:
+    if output is None:
+        typer.echo(markdown)
+        return
+    path = output.expanduser()
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(markdown, encoding="utf-8")
+    except OSError as exc:
+        _fail(console, f"cannot write report to {path}: {exc}")
+        return
+    console.print(f"[green]report written[/green] {path}")
+
+
+@app.command()
+def analyze(
+    ctx: typer.Context,
+    file: Path | None = typer.Option(None, "--file", "-f", help="Path to one script file."),
+    directory: Path | None = typer.Option(
+        None, "--dir", "-d", help="Directory of script files."
+    ),
+    batch: bool = typer.Option(
+        False, "--batch", help="Treat --dir as a batch and emit an aggregated report."
+    ),
+    output: Path | None = typer.Option(
+        None, "--output", "-o", help="Write the aggregated markdown report here."
+    ),
+    recursive: bool = typer.Option(False, "--recursive", "-r", help="Recurse into subdirectories."),
+    top: int | None = typer.Option(None, "--top", min=1, help="Keep only the N most sophisticated scripts."),
+) -> None:
+    """Analyze a single script file, or a directory with --batch."""
+    state = _context(ctx)
+    try:
+        batch_mode = _choose_sources(file, directory, batch)
+        scripts = _load_sources(file, directory, recursive)
+    except typer.BadParameter as exc:
+        _fail(state.console, str(exc.message))
+        return
+    except IngestError as exc:
+        _fail(state.console, str(exc))
+        return
+    _run(state, scripts, command="analyze", batch_mode=batch_mode, output=output, top=top)
+
+
+@app.command()
+def batch(
+    ctx: typer.Context,
+    directory: Path = typer.Argument(..., help="Directory of script files."),
+    output: Path | None = typer.Option(
+        None, "--output", "-o", help="Write the aggregated markdown report here."
+    ),
+    recursive: bool = typer.Option(False, "--recursive", "-r", help="Recurse into subdirectories."),
+    top: int | None = typer.Option(None, "--top", min=1, help="Keep only the N most sophisticated scripts."),
+) -> None:
+    """Analyze a directory and rank every script by sophistication."""
+    state = _context(ctx)
+    try:
+        scripts = collect_scripts(directory, recursive=recursive)
+    except IngestError as exc:
+        _fail(state.console, str(exc))
+        return
+    _run(state, scripts, command="batch", batch_mode=True, output=output, top=top)
+
+
+@app.command()
+def report(  # noqa: A001
+    ctx: typer.Context,
+    run_id: str | None = typer.Option(
+        None, "--run-id", help="Run to replay. Defaults to the newest run with results."
+    ),
+    output: Path | None = typer.Option(None, "--output", "-o", help="Write the markdown here."),
+    logs_dir: Path | None = typer.Option(None, "--logs-dir", help="Override the log directory."),
+) -> None:
+    """Regenerate the aggregated report from a past run's log."""
+    state = _context(ctx)
+    directory = str(logs_dir.expanduser()) if logs_dir else state.settings.logs_dir
+
+    if run_id is None:
+        runs = [run for run in store.discover_runs(directory) if run["results"]]
+        if not runs:
+            _fail(state.console, f"no logged runs with results in {directory}")
+            return
+        run = runs[0]
+    else:
+        run = store.load_run(directory, run_id)
+        if run is None:
+            _fail(state.console, f"run {run_id} not found in {directory}")
+            return
+
+    entries = reporting.entries_from_run(run)
+    if not entries:
+        _fail(state.console, f"run {run['run_id']} has no stored results")
+        return
+    markdown = reporting.build_markdown(
+        entries,
+        run_id=str(run["run_id"]),
+        command=str(run.get("command") or "report"),
+        model=run.get("model"),
+    )
+    _emit_report(state.console, markdown, output)
+
+
+@app.command()
+def history(
+    ctx: typer.Context,
+    limit: int = typer.Option(20, "--limit", "-n", min=1, help="How many runs to list."),
+    logs_dir: Path | None = typer.Option(None, "--logs-dir", help="Override the log directory."),
+) -> None:
+    """List previous runs from the log store."""
+    state = _context(ctx)
+    directory = str(logs_dir.expanduser()) if logs_dir else state.settings.logs_dir
+    runs = store.discover_runs(directory)
+    if not runs:
+        state.console.print(f"[dim]no runs logged in {directory}[/dim]")
+        return
+
+    table = Table(title=f"Previous runs ({directory})", header_style="bold")
+    table.add_column("Run")
+    table.add_column("Started")
+    table.add_column("Command")
+    table.add_column("Results", justify="right")
+    table.add_column("Failures", justify="right")
+    table.add_column("Status")
+    for run in runs[:limit]:
+        table.add_row(
+            str(run["run_id"]),
+            str(run["started"] or "-"),
+            str(run["command"]),
+            str(run["results"]),
+            str(run["failures"]),
+            str(run["status"]),
+        )
+    state.console.print(table)
+    state.console.print(
+        f"[dim]{len(runs)} run(s) total; regenerate one with "
+        f"`scamscript report --run-id <id>`[/dim]"
+    )
+
+
+if __name__ == "__main__":
+    app()
