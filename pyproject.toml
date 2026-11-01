@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "scamscript"
+version = "0.1.0"
+description = "Reverse-engineering analyzer for leaked and public scam call scripts and vishing transcripts"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "scamscript contributors" }]
+keywords = ["security", "fraud", "vishing", "scam", "osint", "cli"]
+classifiers = [
+  "Environment :: Console",
+  "Intended Audience :: Information Technology",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Security",
+]
+dependencies = [
+  "typer==0.27.3",
+  "rich==15.0.0",
+  "httpx==0.28.1",
+  "pydantic==2.14.2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==8.4.1"]
+
+[project.scripts]
+scamscript = "scamscript.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/scamscript"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
