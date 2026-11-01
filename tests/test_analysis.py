@@ -173,3 +173,30 @@ def test_redaction_applied_to_prompt_and_breakdown(logger):
 
     assert "0142" not in sent[0]
     assert outcome.redactions == {"phone": 1}
+
+
+def quoted(**overrides):
+    data = dict(VALID)
+    data.update(overrides)
+    return data
+
+
+def test_verification_flags_invented_quote(logger):
+    script = ScriptFile(path=Path("/tmp/tech.txt"), text="CALLER: hello there", truncated=False)
+    payload = quoted(opening_hook='"A line nobody said at all"')
+    with client_for(lambda request: reply(json.dumps(payload))) as client:
+        outcome = analyze_script(client, script, logger)
+
+    assert outcome.breakdown is not None
+    assert outcome.issues and outcome.issues[0].status == "missing"
+    assert outcome.as_record()["unverified"][0]["quote"] == "A line nobody said at all"
+
+
+def test_verification_can_be_disabled(logger):
+    script = ScriptFile(path=Path("/tmp/tech.txt"), text="CALLER: hello there", truncated=False)
+    payload = quoted(opening_hook='"A line nobody said at all"')
+    with client_for(lambda request: reply(json.dumps(payload))) as client:
+        outcome = analyze_script(client, script, logger, verify_quotes=False)
+
+    assert outcome.issues is None
+    assert outcome.verification is None

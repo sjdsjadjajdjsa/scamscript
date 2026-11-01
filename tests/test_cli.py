@@ -273,3 +273,41 @@ def test_prune_nothing_configured(home):
     result = runner.invoke(cli.app, ["prune", "--keep", "0", "--keep-days", "0"])
     assert result.exit_code == 1
     assert "nothing to do" in result.stdout
+
+
+def test_strict_quotes_fails_on_invented_quote(home, tmp_path, fake):
+    fake.default = breakdown()
+    fake.default["opening_hook"] = '"A line nobody said at all"'
+    script = tmp_path / "a.txt"
+    script.write_text("CALLER: hello there", encoding="utf-8")
+    result = runner.invoke(
+        cli.app, ["--api-key", "k", "--strict-quotes", "analyze", "--file", str(script)]
+    )
+    assert result.exit_code == 1
+    assert "not found verbatim" in result.stdout
+
+
+def test_no_verify_skips_quote_check(home, tmp_path, fake):
+    fake.default = breakdown()
+    fake.default["opening_hook"] = '"A line nobody said at all"'
+    script = tmp_path / "a.txt"
+    script.write_text("CALLER: hello there", encoding="utf-8")
+    result = runner.invoke(
+        cli.app, ["--api-key", "k", "--no-verify", "--strict-quotes", "analyze", "--file", str(script)]
+    )
+    assert result.exit_code == 0
+    assert "QUOTE CHECK" not in result.stdout
+
+
+def test_json_result_carries_verification(home, tmp_path, fake):
+    fake.default = breakdown()
+    fake.default["opening_hook"] = '"A line nobody said at all"'
+    script = tmp_path / "a.txt"
+    script.write_text("CALLER: hello there", encoding="utf-8")
+    result = runner.invoke(
+        cli.app, ["--api-key", "k", "--json", "analyze", "--file", str(script)]
+    )
+    assert result.exit_code == 0
+    record = json.loads(result.stdout.splitlines()[0])
+    assert record["verification"] == {"checked": 1, "verbatim": 0, "close": 0, "missing": 1}
+    assert record["unverified"][0]["status"] == "missing"

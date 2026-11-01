@@ -79,3 +79,27 @@ def test_summary_table_row_states():
     text = capture(render_summary_table([("ok.txt", breakdown(), None), ("bad.txt", None, "boom")]))
     assert "ok.txt" in text
     assert "boom" in text
+
+
+def test_panel_shows_quote_check():
+    from scamscript.verify import Issue
+
+    issues = [
+        Issue(field="opening_hook", quote="a real line", status="verbatim"),
+        Issue(field="red_flags", quote="invented claim", status="missing"),
+    ]
+    text = capture(render_breakdown(breakdown(), "a.txt", issues=issues))
+    assert "QUOTE CHECK" in text
+    assert "1/2 quotes verbatim" in text
+    assert "invented claim" in text
+
+
+def test_panel_all_verbatim():
+    from scamscript.verify import Issue
+
+    issues = [Issue(field="opening_hook", quote="a real line", status="verbatim")]
+    assert "all quoted claims found" in capture(render_breakdown(breakdown(), "a.txt", issues=issues))
+
+
+def test_panel_without_verification_hides_section():
+    assert "QUOTE CHECK" not in capture(render_breakdown(breakdown(), "a.txt"))

@@ -29,6 +29,8 @@ class ReportEntry:
     breakdown: ScriptBreakdown | None = None
     error: str | None = None
     duration: float = 0.0
+    verification: dict[str, int] | None = None
+    unverified: list[dict[str, str]] | None = None
 
     @property
     def ok(self) -> bool:
@@ -42,6 +44,12 @@ def entry_from_outcome(outcome: Any) -> ReportEntry:
         breakdown=outcome.breakdown,
         error=outcome.error,
         duration=getattr(outcome, "duration", 0.0),
+        verification=getattr(outcome, "verification", None),
+        unverified=[
+            {"field": issue.field, "quote": issue.quote, "status": issue.status}
+            for issue in getattr(outcome, "issues", None) or []
+            if not issue.ok
+        ],
     )
 
 
@@ -62,6 +70,8 @@ def entries_from_run(run: dict[str, Any]) -> list[ReportEntry]:
                 breakdown=breakdown,
                 error=None if breakdown else record.get("error") or "no breakdown stored",
                 duration=float(record.get("duration_s") or 0.0),
+                verification=record.get("verification") or None,
+                unverified=record.get("unverified") or None,
             )
         )
     return entries
@@ -102,6 +112,9 @@ def build_markdown(
     lines.append(f"- Scripts analyzed: {len(entries)}")
     lines.append(f"- Successful: {len(ok)}")
     lines.append(f"- Failed: {len(failed)}")
+    unverified_total = sum(len(entry.unverified or []) for entry in ok)
+    if unverified_total:
+        lines.append(f"- Unverified quotes: {unverified_total}")
     if ok:
         lines.append(f"- Mean sophistication: {average:.1f}/10")
     lines.append("")
@@ -109,12 +122,13 @@ def build_markdown(
     if ok:
         lines.append("## Ranking by sophistication")
         lines.append("")
-        lines.append("| Rank | Script | Attack type | Sophistication | Red flags |")
-        lines.append("| ---: | --- | --- | ---: | ---: |")
+        lines.append("| Rank | Script | Attack type | Sophistication | Red flags | Unverified |")
+        lines.append("| ---: | --- | --- | ---: | ---: | ---: |")
         for position, entry in enumerate(ok, start=1):
             lines.append(
                 f"| {position} | {_cell(entry.name)} | {_cell(entry.breakdown.attack_type)} | "
-                f"{entry.breakdown.sophistication_score}/10 | {entry.breakdown.flag_count} |"
+                f"{entry.breakdown.sophistication_score}/10 | {entry.breakdown.flag_count} | "
+                f"{len(entry.unverified or [])} |"
             )
         lines.append("")
         for position, entry in enumerate(ok, start=1):
@@ -147,9 +161,22 @@ def _detail_section(position: int, entry: ReportEntry) -> list[str]:
     lines.append(f"- **Attack type:** {breakdown.attack_type}")
     lines.append(f"- **Sophistication:** {breakdown.sophistication_score}/10")
     lines.append(f"- **Red flags observed:** {breakdown.flag_count}")
+    counts = entry.verification or {}
+    if counts.get("checked"):
+        lines.append(
+            f"- **Quote check:** {counts.get('verbatim', 0)}/{counts['checked']} verbatim, "
+            f"{counts.get('missing', 0)} missing"
+        )
     if entry.source:
         lines.append(f"- **Source:** `{entry.source}`")
     lines.append("")
+    if entry.unverified:
+        lines.append("### Unverified quotes")
+        lines.append("")
+        for item in entry.unverified:
+            mark = "close" if item.get("status") == "close" else "missing"
+            lines.append(f"- _{mark}_ [{(item.get('field') or '').replace('_', ' ')}] \"{item.get('quote', '')}\"")
+        lines.append("")
     for field, label in SECTIONS:
         value = getattr(breakdown, field)
         lines.append(f"### {label}")

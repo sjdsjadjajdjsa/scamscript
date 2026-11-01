@@ -61,3 +61,19 @@ def test_entries_from_run_rehydrates_and_skips_corrupt():
     entries = entries_from_run(run)
     assert [entry.ok for entry in entries] == [True, False, False]
     assert entries[1].error == "no breakdown stored"
+
+
+def test_report_shows_unverified_quotes():
+    entry = ReportEntry(
+        name="a.txt",
+        source="a",
+        breakdown=breakdown(5),
+        verification={"checked": 2, "verbatim": 1, "missing": 1},
+        unverified=[{"field": "red_flags", "quote": "invented", "status": "missing"}],
+    )
+    markdown = build_markdown([entry], run_id="r")
+    assert "Unverified quotes: 1" in markdown
+    assert "| 1 |" in markdown and "| 1 |" in markdown
+    assert "**Quote check:** 1/2 verbatim, 1 missing" in markdown
+    assert "### Unverified quotes" in markdown
+    assert "_missing_ [red flags] \"invented\"" in markdown

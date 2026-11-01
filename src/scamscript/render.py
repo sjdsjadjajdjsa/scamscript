@@ -10,6 +10,7 @@ from rich.text import Text
 
 from scamscript.ingest import ScriptFile
 from scamscript.models import ScriptBreakdown
+from scamscript.verify import Issue, summarize
 
 SECTION_LABELS = {
     "persona": "PERSONA",
@@ -20,6 +21,7 @@ SECTION_LABELS = {
     "target_demographics": "TARGET DEMOGRAPHICS",
     "red_flags": "RED FLAGS",
     "defense_summary": "DEFENSE SUMMARY",
+    "quote_check": "QUOTE CHECK",
 }
 
 SECTION_COLORS = {
@@ -32,6 +34,7 @@ SECTION_COLORS = {
     "target_demographics": "blue",
     "red_flags": "bold red",
     "defense_summary": "bold green",
+    "quote_check": "dim white",
 }
 
 MARKERS = {
@@ -99,7 +102,12 @@ def _section(key: str, breakdown: ScriptBreakdown) -> list[RenderableType]:
     return parts
 
 
-def render_breakdown(breakdown: ScriptBreakdown, name: str, attempts: int = 1) -> Panel:
+def render_breakdown(
+    breakdown: ScriptBreakdown,
+    name: str,
+    attempts: int = 1,
+    issues: list[Issue] | None = None,
+) -> Panel:
     renderables: list[RenderableType] = []
 
     attack = Text()
@@ -125,13 +133,23 @@ def render_breakdown(breakdown: ScriptBreakdown, name: str, attempts: int = 1) -
         "escalation_ladder",
         "target_demographics",
         "red_flags",
-        "defense_summary",
     ):
         renderables.extend(_section(key, breakdown))
 
-    subtitle = f"{breakdown.flag_count} red flags"
+    if issues is not None:
+        renderables.extend(_quote_section(issues))
+
+    renderables.extend(_section("defense_summary", breakdown))
+
+    subtitle_parts = [f"{breakdown.flag_count} red flags"]
+    counts = summarize(issues or [])
+    if counts["checked"]:
+        subtitle_parts.append(f"{counts['verbatim']}/{counts['checked']} quotes verbatim")
+        if counts["missing"]:
+            subtitle_parts.append(f"{counts['missing']} missing")
     if attempts > 1:
-        subtitle += f" · repaired on attempt {attempts}"
+        subtitle_parts.append(f"repaired on attempt {attempts}")
+    subtitle = " · ".join(subtitle_parts)
 
     return Panel(
         Group(*renderables),
@@ -140,6 +158,28 @@ def render_breakdown(breakdown: ScriptBreakdown, name: str, attempts: int = 1) -
         border_style=border_for(breakdown),
         padding=(0, 1),
     )
+
+
+def _quote_section(issues: list[Issue]) -> list[RenderableType]:
+    parts: list[RenderableType] = [_heading("quote_check")]
+    bad = [issue for issue in issues if not issue.ok]
+    if not issues:
+        parts.append(Text("  (no quoted claims to check)", style="dim"))
+    elif not bad:
+        parts.append(Text("  all quoted claims found in the source", style="green"))
+    else:
+        body = Text()
+        for index, issue in enumerate(bad, start=1):
+            marker = "≈" if issue.status == "close" else "✗"
+            style = "yellow" if issue.status == "close" else "red"
+            body.append(f"  {marker} ", style=f"bold {style}")
+            body.append(f"{issue.field}: ", style="dim")
+            body.append(issue.quote, style=style)
+            if index < len(bad):
+                body.append("\n")
+        parts.append(body)
+    parts.append(Text(""))
+    return parts
 
 
 def render_failure(name: str, error: str, attempts: int) -> Panel:

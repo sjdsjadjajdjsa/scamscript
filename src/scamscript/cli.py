@@ -50,6 +50,8 @@ class Context:
     settings: Settings
     dry_run: bool
     json_output: bool
+    verify_quotes: bool
+    strict_quotes: bool
     console: Console
     err_console: Console
 
@@ -111,6 +113,16 @@ def main(
         "--redact",
         help="Mask likely identifiers before sending and before logging.",
     ),
+    verify_quotes: bool = typer.Option(
+        True,
+        "--verify/--no-verify",
+        help="Check quoted claims against the source script.",
+    ),
+    strict_quotes: bool = typer.Option(
+        False,
+        "--strict-quotes",
+        help="Exit non-zero when a quoted claim is not found in the source.",
+    ),
     dry_run: bool = typer.Option(
         False,
         "--dry-run",
@@ -145,6 +157,8 @@ def main(
         settings=settings,
         dry_run=dry_run,
         json_output=json_output,
+        verify_quotes=verify_quotes,
+        strict_quotes=strict_quotes,
         console=Console(
             no_color=no_color,
             highlight=False,
@@ -254,7 +268,11 @@ def _run(
                     f"[dim]({index}/{len(scripts)}) analyzing {script.name}...[/dim]"
                 )
             outcome = analyze_script(
-                client, script, logger, redact_identifiers=settings.redact
+                client,
+                script,
+                logger,
+                redact_identifiers=settings.redact,
+                verify_quotes=state.verify_quotes,
             )
             outcomes.append(outcome)
             report_entries.append(reporting.entry_from_outcome(outcome))
@@ -262,7 +280,12 @@ def _run(
                 _emit_json(outcome.as_record())
             elif outcome.breakdown is not None:
                 console.print(
-                    render_breakdown(outcome.breakdown, outcome.name, outcome.attempts)
+                    render_breakdown(
+                        outcome.breakdown,
+                        outcome.name,
+                        outcome.attempts,
+                        outcome.issues,
+                    )
                 )
             else:
                 console.print(
@@ -271,6 +294,11 @@ def _run(
 
     successes = sum(1 for outcome in outcomes if outcome.ok)
     failures = len(outcomes) - successes
+    unverified = sum(
+        1 for outcome in outcomes for issue in (outcome.issues or []) if not issue.ok
+    )
+    if state.strict_quotes and unverified:
+        failures += 0
     logger.run_end(status="ok" if failures == 0 else "partial", results=successes, failures=failures)
 
     if batch_mode and successes:
@@ -299,7 +327,13 @@ def _run(
             _emit_json(payload)
         console.print(f"[dim]log: {logger.path}[/dim]")
 
+    if unverified and not state.json_output:
+        console.print(
+            f"[yellow]{unverified} quoted claim(s) not found verbatim in the source[/yellow]"
+        )
     if failures:
+        raise typer.Exit(1)
+    if state.strict_quotes and unverified:
         raise typer.Exit(1)
 
 

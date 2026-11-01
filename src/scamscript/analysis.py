@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from scamscript import prompts, redact
+from scamscript import prompts, redact, verify
 from scamscript.client import ChatClient, ClientError, TruncatedError
 from scamscript.ingest import ScriptFile
 from scamscript.models import BreakdownError, ScriptBreakdown, parse_breakdown
@@ -26,6 +26,8 @@ class Outcome:
     error: str | None = None
     duration: float = 0.0
     redactions: dict[str, int] | None = None
+    issues: list[verify.Issue] | None = None
+    verification: dict[str, int] | None = None
 
     @property
     def ok(self) -> bool:
@@ -42,6 +44,12 @@ class Outcome:
             "breakdown": self.breakdown.model_dump() if self.breakdown else None,
             "error": self.error,
             "redactions": self.redactions or {},
+            "verification": self.verification or {},
+            "unverified": [
+                {"field": issue.field, "quote": issue.quote, "status": issue.status}
+                for issue in self.issues or []
+                if not issue.ok
+            ],
         }
 
 
@@ -51,6 +59,7 @@ def analyze_script(
     logger: RunLogger,
     *,
     redact_identifiers: bool = False,
+    verify_quotes: bool = True,
 ) -> Outcome:
     outcome = Outcome(source=script.path, name=script.name)
     started = time.monotonic()
@@ -102,6 +111,9 @@ def analyze_script(
         try:
             outcome.breakdown = parse_breakdown(visible)
             outcome.error = None
+            if verify_quotes:
+                outcome.issues = verify.verify_breakdown(outcome.breakdown, text)
+                outcome.verification = verify.summarize(outcome.issues)
             break
         except BreakdownError as exc:
             last_error = str(exc)
