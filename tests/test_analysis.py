@@ -43,7 +43,9 @@ def client_for(handler):
     return ChatClient(
         api_key="k",
         base_url="https://example.test/v1",
+        retries=0,
         transport=httpx.MockTransport(handler),
+        sleep=lambda _: None,
     )
 
 
@@ -120,3 +122,54 @@ def test_logger_records_request_result_and_error(tmp_path):
     assert lines[-1]["breakdown"] is None
     assert all(line["run_id"] == log.run_id for line in lines)
     assert lines[0]["source"] == "/tmp/tech.txt"
+
+
+def test_truncated_reply_is_repaired(logger):
+    calls = []
+    truncated = httpx.Response(
+        200,
+        json={"choices": [{"message": {"content": '{"attack_type"'}, "finish_reason": "length"}]},
+    )
+
+    def handler(request):
+        calls.append(json.loads(request.read()))
+        if len(calls) == 1:
+            return truncated
+        return reply(json.dumps(VALID))
+
+    with client_for(handler) as client:
+        outcome = analyze_script(client, SCRIPT, logger)
+
+    assert outcome.ok
+    assert outcome.attempts == 2
+    assert "cut off" in calls[1]["messages"][-1]["content"]
+
+
+def test_truncated_twice_reports_error(logger):
+    def handler(request):
+        return httpx.Response(
+            200,
+            json={"choices": [{"message": {"content": "{"}, "finish_reason": "length"}]},
+        )
+
+    with client_for(handler) as client:
+        outcome = analyze_script(client, SCRIPT, logger)
+
+    assert not outcome.ok
+    assert outcome.attempts == 2
+    assert "truncated" in outcome.error
+
+
+def test_redaction_applied_to_prompt_and_breakdown(logger):
+    sent = []
+
+    def handler(request):
+        sent.append(json.loads(request.read())["messages"][-1]["content"])
+        return reply(json.dumps(VALID))
+
+    script = ScriptFile(path=Path("/tmp/pii.txt"), text="CALLER: ring 415 555 0142")
+    with client_for(handler) as client:
+        outcome = analyze_script(client, script, logger, redact_identifiers=True)
+
+    assert "0142" not in sent[0]
+    assert outcome.redactions == {"phone": 1}
