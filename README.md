@@ -69,6 +69,10 @@ Each script renders as a colour-coded panel:
 Fields: `attack_type`, `persona`, `opening_hook`, `trust_building_moves`, `urgency_tactics`,
 `escalation_ladder`, `target_demographics`, `red_flags`, `defense_summary`, `sophistication_score`.
 
+The panel also carries a **quote check**: every quoted claim in `opening_hook` and `red_flags` is
+compared against the source, and lines that are paraphrased or simply not there are marked. Use
+`--strict-quotes` to make a missing line fail the run, and `--no-verify` to skip it.
+
 Batch mode ranks a whole directory into one markdown report. A redacted report from the sample
 corpus is at [`docs/sample-report.md`](docs/sample-report.md).
 
@@ -108,6 +112,9 @@ script ──▶ ingest (type/size guards, optional redaction)
 - **Transport.** Retryable statuses (408, 409, 425, 429, 5xx) and empty replies back off and
   retry within `--retries`; `Retry-After` is honoured. A `finish_reason: length` reply is treated
   as truncation and repaired with a shorter-answer instruction.
+- **Quote checking.** Quoted claims are normalised (case, quotes, punctuation) and matched against
+  the script. `close` means a paraphrase, `missing` means the line is not in the artifact.
+  Verification never drops a finding, it only marks it for the reader.
 - **Scoring.** `sophistication_score` follows fixed anchors (1-2 one device, 5-6 staged trust and
   one deadline, 9-10 rehearsed objection handling and controlled transfers) so rankings compare
   across runs instead of drifting with prose.
@@ -152,8 +159,9 @@ API_KEY=... python scripts/calibrate.py --dir examples --repeat 3 \
   --base-url https://openrouter.ai/api/v1
 ```
 
-A recorded run with its numbers is in [`docs/calibration.md`](docs/calibration.md): 88.9%
-first-attempt validity, one repair, no failures, $0.016 for nine samples.
+Recorded passes with their numbers are in [`docs/calibration.md`](docs/calibration.md). The current
+rubric reaches both ends of the scale in every repeat, and quote checking flagged the invented lines
+that a plain reading would have taken as evidence.
 
 ## Layout
 
@@ -169,8 +177,9 @@ src/scamscript/
   render.py     Rich panels and summary
   report.py     ranked markdown aggregation
   store.py      JSONL log, run discovery, retention
-tests/          schema, retry, redaction, client and CLI tests
-examples/       three fictional transcripts
+  verify.py     quote checking against the source
+tests/          schema, retry, redaction, verification, client and CLI tests
+examples/       six fictional transcripts, including two scale end-cases
 scripts/        calibration harness
 docs/           calibration record, sample report, banner
 ```
@@ -182,6 +191,8 @@ docs/           calibration record, sample report, banner
 - Redaction is regex-based and will miss names and identifiers without a fixed shape.
 - One script per request; no cross-script deduplication yet, so reprints inflate a ranking.
 - Analysis is English-centric: the prompt and schema assume English artifacts.
+- Quote checking compares text, not meaning. A legitimate paraphrase left in quotes is flagged;
+  an accurate paraphrase without quotes is skipped rather than judged.
 
 ## Scope and disclaimer
 
