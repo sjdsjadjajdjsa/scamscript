@@ -1,0 +1,17 @@
+# Fictional sample: crude automated robocall
+# Deliberately thin: one device, one threat, no verification.
+
+CALLER: Hello, this is the final notice department. Your account is being suspended today.
+
+TARGET: Which account?
+
+CALLER: Your main account. There is an outstanding balance of 89 dollars. Press one now to
+pay and keep the account open.
+
+TARGET: Can I pay later?
+
+CALLER: If it is not paid today the account closes and you lose the number. Press one.
+
+TARGET: And if I press one?
+
+CALLER: You will be put through. Press one now. Thank you. Goodbye.

@@ -1,0 +1,74 @@
+# Fictional sample: multi-stage wire fraud, business email compromise by phone
+# Written to exercise the top of the sophistication scale: research, paperwork,
+# supervisor approval, rehearsed refusals and a controlled callback path.
+
+CALLER: Good morning, Mr. Okafor. James from the treasury operations desk at Harlow
+Freight. This call is recorded under the payment-control policy, reference TF-2291. You're
+the second signatory on the Corvus vendor account, is that right?
+
+TARGET: I am, yes. Why recorded?
+
+CALLER: Any change to a verified beneficiary gets recorded, both ends. The recording exists to
+protect you if the payment is later disputed. Have you got the vendor variation letter in
+front of you? It went to the finance inbox at 7:12 this morning, from the Corvus domain.
+
+TARGET: I haven't seen it.
+
+CALLER: Check the inbox, I'll hold. It's headed "Beneficiary variation, effective immediately",
+signed by their finance director, and it carries both the new account and their reference
+CV-88410. There's a copy in your portal under pending approvals as well, document 4471.
+
+TARGET: Found it. So what has changed?
+
+CALLER: They've moved banks. Corvus consolidated with a treasury provider, and the old account
+closes Friday. The instruction is to redirect the balance of the outstanding invoice, which is
+142,800, to the new beneficiary before the cut-off.
+
+TARGET: That's a big number. Can we wait until they confirm by phone?
+
+CALLER: Normally yes. The problem is the cut-off. Payments after 15:30 land Monday and Corvus
+has a demurrage charge of 4,100 a day on the containers, which they'll pass back to us. Also,
+the letter has a same-day clause. If we miss it, the old account rejects and the payment
+bounces, then revalidation takes five working days.
+
+TARGET: How do I know the letter is genuine?
+
+CALLER: Three things. One, the letter is signed and on their letterhead. Two, the reference
+CV-88410 matches their vendor record in our system. Three, you can call them back on the number
+on their invoice rather than mine, but their finance desk closes at 15:00 and it's 14:20 now.
+By the time you get through, the cut-off has gone.
+
+TARGET: The letter could still be forged.
+
+CALLER: It could, and that's exactly why the policy has the callback step. So: if you want to
+verify, we log a callback and accept the one-day delay and the demurrage. If you're comfortable
+with the letter and the reference, we process today. Which would you rather?
+
+TARGET: Let's process today, but I want my name on the approval.
+
+CALLER: Already done. Your signatory is on the form, mine is the counter-check. Now, the new
+account is with a treasury provider, so the beneficiary shows as Corvus Holdings Ltd, sort code
+04-00-72, account 47118826. Read those back to me and I'll confirm each one.
+
+TARGET: 04-00-72, 47118826. Corvus Holdings.
+
+CALLER: That's right, all three. Before I key it, one thing that catches people out. The portal
+will warn that the name is only a partial match because the treasury provider truncates
+"Limited" to "Ltd". That warning is expected, do not override it, just continue.
+
+TARGET: And if it flags something else?
+
+CALLER: Then stop and call me straight back on this number, the call is recorded and the
+reference ties to it. But nothing else should flag.
+
+TARGET: Alright.
+
+CALLER: Keying now. You'll get a one-time code on the registered mobile, read it to me and
+I'll attach it to the payment. The approval window is 90 seconds, so please have the phone
+in hand.
+
+TARGET: Ready.
+
+CALLER: Sent. And Mr. Okafor, after this lands, the return leg is automatic on the next
+statement, so you don't need to chase accounts payable. If anything looks wrong on the
+confirmation, ring this line before 16:00 and ask for James on treasury, extension 2204.
