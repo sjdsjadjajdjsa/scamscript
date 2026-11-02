@@ -1,0 +1,7 @@
+# Source: https://consumer.ftc.gov/features/robocall-scam-examples
+# Publisher: U.S. Federal Trade Commission
+# Verbatim: yes, transcript of the actual recorded robocall
+# Quoted for security research; a U.S. government work.
+# Type as published: utility company impersonator
+
+Hello. This is an apology call from your electric utility. You got overcharged by your third party supplier. You will be receiving a rebate check along with a 30% discount on your electric and gas bill. Please press 1 to get your rebate check.

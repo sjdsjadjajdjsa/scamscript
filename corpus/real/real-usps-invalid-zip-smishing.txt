@@ -1,0 +1,6 @@
+# Source: https://www.newsweek.com/usps-scam-text-warning-package-delivery-post-fraud-2040890
+# Publisher: Newsweek (Kate Nalepinski), 2025-03-06
+# Verbatim: yes, one message as obtained by the publisher
+# Quoted for security research.
+
+USPS package has arrived at the warehouse and could not be delivered due to an invalid zip code address being detected. Please confirm the zip code address information link.

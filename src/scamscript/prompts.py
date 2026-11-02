@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from scamscript import language
+
 SYSTEM_PROMPT = """You are a fraud-awareness analyst for security researchers. \
 You receive the raw text of a scam call script, a vishing transcript, or a text-message \
 lure that was leaked, captured, or published. Your job is to reverse engineer the \
@@ -60,18 +62,21 @@ with all nine breakdown fields plus sophistication_score."""
 PREVIOUS_REPLY_LIMIT = 2000
 
 
-def user_prompt(source_name: str, script_text: str) -> str:
+def user_prompt(source_name: str, script_text: str, lang: str | None = None) -> str:
     return (
         f"Artifact: {source_name}\n"
-        f"Analyze only what sits between the fences.\n\n"
+        f"Analyze only what sits between the fences.\n"
+        f"{language.instruction(lang)}\n\n"
         f"<<<SCRIPT name={source_name}>>>\n{script_text}\n<<<END SCRIPT>>>"
     )
 
 
-def build_messages(source_name: str, script_text: str) -> list[dict[str, str]]:
+def build_messages(
+    source_name: str, script_text: str, lang: str | None = None
+) -> list[dict[str, str]]:
     return [
         {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": user_prompt(source_name, script_text)},
+        {"role": "user", "content": user_prompt(source_name, script_text, lang)},
     ]
 
 
@@ -80,8 +85,9 @@ def fix_messages(
     script_text: str,
     error: str,
     previous: str,
+    lang: str | None = None,
 ) -> list[dict[str, str]]:
-    messages = build_messages(source_name, script_text)
+    messages = build_messages(source_name, script_text, lang)
     trimmed = previous[-PREVIOUS_REPLY_LIMIT:] if previous else "(empty reply)"
     messages.append({"role": "assistant", "content": trimmed})
     messages.append(

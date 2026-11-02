@@ -1,0 +1,7 @@
+# Source: https://consumer.ftc.gov/features/robocall-scam-examples
+# Publisher: U.S. Federal Trade Commission
+# Verbatim: yes, transcript of the actual recorded robocall
+# Quoted for security research; a U.S. government work.
+# Type as published: Social Security Administration impersonator
+
+We will be suspending your Social Security Number because we found some suspicious activities on your Social Security. If you want more information about this case, press 1. Thank you.

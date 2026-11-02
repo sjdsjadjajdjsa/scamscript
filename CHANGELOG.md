@@ -5,6 +5,27 @@ schema are the things that count as public API.
 
 ## Unreleased
 
+## 0.7.0 - 2026-11-02
+
+### Added
+
+- `brief` command: a one-page defence handout per type from a finished run.
+- `--language` override and stopword language detection; the prompt asks for the script's own language.
+- `corpus/real/` with ten published transcripts, provenance in every header, and `docs/real-corpus.md`.
+- `--force` before overwriting an output file.
+
+### Fixed
+
+- Apostrophes inside words (`target's`) were read as quote delimiters, producing false `missing`
+  verdicts. Long quotes are now checked clause by clause.
+- A recursive walk followed a symlink loop; it now terminates.
+- A file changing mid-read is reported instead of being half-analyzed.
+- Utility-rebate robocalls classified as `refund`; utility is matched first.
+
+### Changed
+
+- Default `--max-tokens` 4096 → 6144, after two real calls hit the ceiling on the first attempt.
+
 ## 0.6.1 - 2026-11-02
 
 ### Changed

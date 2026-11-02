@@ -10,9 +10,12 @@ OTHER = "other"
 RULES: tuple[tuple[str, tuple[str, ...]], ...] = (
     ("bec", ("business email", "bec", "invoice fraud", "vendor payment", "mandate fraud", "ceo fraud")),
     ("tech-support", ("tech support", "tech-support", "remote access", "windows security", "computer support")),
-    ("refund", ("refund", "overpayment", "rebate")),
-    ("gov-impersonation", ("government", "tax", "revenue", "irs", "hmrc", "dvla", "council", "police", "court")),
+    ("gov-impersonation", (
+        "government", "tax", "revenue", "irs", "hmrc", "dvla", "council", "police", "court",
+        "medicare", "medicaid", "social security", "ssa",
+    )),
     ("utility", ("utility", "water board", "energy", "electric", "gas board", "boiler", "home service")),
+    ("refund", ("refund", "overpayment", "rebate", "student loan", "debt relief", "interest rate")),
     ("delivery", ("parcel", "delivery", "courier", "postage", "shipping")),
     ("crypto", ("crypto", "bitcoin", "wallet", "token")),
     ("investment", ("investment", "trading", "broker", "forex", "pig butchering")),
@@ -23,13 +26,17 @@ RULES: tuple[tuple[str, tuple[str, ...]], ...] = (
 
 SLUGS = tuple(slug for slug, _ in RULES) + (OTHER,)
 NON_WORD = re.compile(r"[^a-z0-9]+")
+MATCHERS: tuple[tuple[str, re.Pattern[str]], ...] = tuple(
+    (slug, re.compile(r"\b(?:" + "|".join(re.escape(n) for n in needles) + r")\b"))
+    for slug, needles in RULES
+)
 
 
 def slugify(attack_type: str) -> str:
     """Return a canonical slug for a model-written attack description."""
     text = NON_WORD.sub(" ", (attack_type or "").lower())
-    for slug, needles in RULES:
-        if any(needle in text for needle in needles):
+    for slug, pattern in MATCHERS:
+        if pattern.search(text):
             return slug
     return OTHER
 
@@ -51,7 +58,7 @@ def label(slug: str) -> str:
     return {
         "bec": "Business email compromise",
         "tech-support": "Tech support",
-        "refund": "Refund",
+        "refund": "Refund / debt relief",
         "gov-impersonation": "Government impersonation",
         "utility": "Utility",
         "delivery": "Delivery",

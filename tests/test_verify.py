@@ -73,3 +73,35 @@ def test_clean_breakdown_has_no_problems():
 
 def test_all_verbatim_summary():
     assert summarize(verify_breakdown(breakdown(), SOURCE))["missing"] == 0
+
+
+def test_long_quote_split_into_clauses():
+    quote = (
+        '"Am I speaking with Mr. Reyes, your account is being suspended today unless you verify '
+        'the balance, and the final notice department has already called twice before today"'
+    )
+    issues = verify_breakdown(breakdown(opening_hook=quote), SOURCE)
+    assert len(issues) > 1
+    assert any(issue.status == "verbatim" for issue in issues)
+
+
+def test_split_quote_keeps_missing_clause():
+    quote = '"Am I speaking with Mr. Reyes, a line that nobody ever said out loud in this call"'
+    issues = verify_breakdown(breakdown(opening_hook=quote), SOURCE)
+    assert any(issue.status == "missing" for issue in issues)
+
+
+def test_apostrophe_in_word_is_not_a_quote():
+    flag = "Caller does not know the target's name despite claiming to call about the target's account."
+    assert extract_quotes(flag) == []
+
+
+def test_single_quoted_claim_is_extracted():
+    assert extract_quotes("Caller claims to work for 'many different banks' today") == [
+        "many different banks"
+    ]
+
+
+def test_outer_double_quote_wins_over_inner_single():
+    flag = 'Caller claims to work for "many different banks" and lists three.'
+    assert extract_quotes(flag) == ["many different banks"]

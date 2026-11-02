@@ -12,7 +12,7 @@ import typer
 from rich.console import Console
 from rich.table import Table
 
-from scamscript import __version__, prompts, redact, store, taxonomy
+from scamscript import __version__, brief as briefing, language, prompts, redact, store, taxonomy
 from scamscript import report as reporting
 from scamscript.analysis import Outcome, analyze_script
 from scamscript.client import ChatClient
@@ -127,6 +127,11 @@ def main(
         "--redact",
         help="Mask likely identifiers before sending and before logging.",
     ),
+    lang: str | None = typer.Option(
+        None,
+        "--language",
+        help="Override the detected language code (e.g. en, es) used for the prompt.",
+    ),
     verify_quotes: bool = typer.Option(
         True,
         "--verify/--no-verify",
@@ -177,6 +182,7 @@ def main(
         concurrency=concurrency,
         max_cost=max_cost,
         redact=redact,
+        language=lang,
         home=str(home) if home else "",
     )
     ctx.obj = Context(
@@ -235,6 +241,7 @@ def _run(
     output: Path | None,
     top: int | None,
     types: list[str] | None = None,
+    force: bool = False,
 ) -> None:
     console = state.console
     settings = state.settings
@@ -255,7 +262,8 @@ def _run(
             )
         for script in scripts:
             text, counts = _maybe_redact(script.text, settings.redact)
-            messages = prompts.build_messages(script.name, text)
+            detected = settings.language or language.detect(text)
+            messages = prompts.build_messages(script.name, text, detected)
             logger.request(
                 source=str(script.path),
                 attempt=1,
@@ -323,6 +331,7 @@ def _run(
             logger,
             redact_identifiers=settings.redact,
             verify_quotes=state.verify_quotes,
+            lang=settings.language,
         )
         with lock:
             if state.dedupe and outcome.fingerprint:
@@ -440,7 +449,9 @@ def _run(
             model=settings.model,
             only_types=only_types,
         )
-        written = _emit_report(console, markdown, output, json_mode=state.json_output)
+        written = _emit_report(
+            console, markdown, output, json_mode=state.json_output, force=force
+        )
         if state.json_output:
             payload: dict[str, object] = {
                 "event": "report",
@@ -463,13 +474,20 @@ def _run(
 
 
 def _emit_report(
-    console: Console, markdown: str, output: Path | None, json_mode: bool = False
+    console: Console,
+    markdown: str,
+    output: Path | None,
+    json_mode: bool = False,
+    force: bool = False,
 ) -> Path | None:
     if output is None:
         if not json_mode:
             typer.echo(markdown)
         return None
     path = output.expanduser()
+    if path.exists() and not force:
+        _fail(console, f"{path} exists; pass --force to overwrite")
+        return None
     try:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(markdown, encoding="utf-8")
@@ -508,6 +526,7 @@ def analyze(
     types: list[str] | None = typer.Option(
         None, "--type", help="Only report these type slugs (repeatable or comma-separated)."
     ),
+    force: bool = typer.Option(False, "--force", help="Overwrite an existing output file."),
 ) -> None:
     """Analyze a single script file, or a directory with --batch."""
     state = _context(ctx)
@@ -528,6 +547,7 @@ def analyze(
         output=output,
         top=top,
         types=types,
+        force=force,
     )
 
 
@@ -543,6 +563,7 @@ def batch(
     types: list[str] | None = typer.Option(
         None, "--type", help="Only report these type slugs (repeatable or comma-separated)."
     ),
+    force: bool = typer.Option(False, "--force", help="Overwrite an existing output file."),
 ) -> None:
     """Analyze a directory and rank every script by sophistication."""
     state = _context(ctx)
@@ -551,7 +572,16 @@ def batch(
     except IngestError as exc:
         _fail(state.console, str(exc))
         return
-    _run(state, scripts, command="batch", batch_mode=True, output=output, top=top, types=types)
+    _run(
+        state,
+        scripts,
+        command="batch",
+        batch_mode=True,
+        output=output,
+        top=top,
+        types=types,
+        force=force,
+    )
 
 
 @app.command()
@@ -565,6 +595,7 @@ def report(  # noqa: A001
     types: list[str] | None = typer.Option(
         None, "--type", help="Only report these type slugs (repeatable or comma-separated)."
     ),
+    force: bool = typer.Option(False, "--force", help="Overwrite an existing output file."),
 ) -> None:
     """Regenerate the aggregated report from a past run's log."""
     state = _context(ctx)
@@ -593,7 +624,7 @@ def report(  # noqa: A001
         model=run.get("model"),
         only_types=taxonomy.parse_filter(types),
     )
-    _emit_report(state.console, markdown, output)
+    _emit_report(state.console, markdown, output, force=force)
 
 
 @app.command()
@@ -631,6 +662,46 @@ def history(
         f"[dim]{len(runs)} run(s) total; regenerate one with "
         f"`scamscript report --run-id <id>`[/dim]"
     )
+
+
+@app.command()
+def brief(
+    ctx: typer.Context,
+    run_id: str | None = typer.Option(
+        None, "--run-id", help="Run to brief. Defaults to the newest run with results."
+    ),
+    types: list[str] | None = typer.Option(
+        None, "--type", help="Only brief these type slugs (repeatable or comma-separated)."
+    ),
+    output: Path | None = typer.Option(None, "--output", "-o", help="Write the briefing here."),
+    logs_dir: Path | None = typer.Option(None, "--logs-dir", help="Override the log directory."),
+    force: bool = typer.Option(False, "--force", help="Overwrite an existing output file."),
+) -> None:
+    """Build a one-page defence briefing from a past run."""
+    state = _context(ctx)
+    directory = str(logs_dir.expanduser()) if logs_dir else state.settings.logs_dir
+
+    if run_id is None:
+        runs = [run for run in store.discover_runs(directory) if run["results"]]
+        if not runs:
+            _fail(state.console, f"no logged runs with results in {directory}")
+            return
+        run = runs[0]
+    else:
+        run = store.load_run(directory, run_id)
+        if run is None:
+            _fail(state.console, f"run {run_id} not found in {directory}")
+            return
+
+    entries = reporting.entries_from_run(run)
+    markdown = briefing.build_brief(
+        entries,
+        run_id=str(run["run_id"]),
+        only_types=taxonomy.parse_filter(types),
+    )
+    _emit_report(state.console, markdown, output, force=force)
+    if output:
+        state.console.print(f"[dim]from run {run['run_id']}[/dim]")
 
 
 @app.command()

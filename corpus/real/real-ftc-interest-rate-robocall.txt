@@ -1,0 +1,7 @@
+# Source: https://consumer.ftc.gov/features/robocall-scam-examples
+# Publisher: U.S. Federal Trade Commission
+# Verbatim: yes, transcript of the actual recorded robocall
+# Quoted for security research; a U.S. government work.
+# Type as published: interest rate reduction
+
+Thanks to your good payment history and good credit score, you have been qualified finally for interest rate reduction between 0 to 5%. Several attempts were made to reach you. This is your final courtesy call before we are unable to lower your interest rates. So press 1 now.

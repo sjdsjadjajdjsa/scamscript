@@ -94,11 +94,12 @@ corpus is at [`docs/sample-report.md`](https://github.com/sjdsjadjajdjsa/scamscr
 | `batch <dir>` | Same as above, ranked |
 | `report --run-id` | Regenerate a report from a past run's log |
 | `history` | List previous runs |
+| `brief` | One-page defence handout from a finished run |
 | `prune` | Delete old logs |
 
 Useful flags: `--dry-run`, `--json`, `--redact`, `--top N`, `--recursive`, `--timeout`,
 `--retries`, `--max-tokens`, `--concurrency`, `--max-cost`, `--dedupe/--no-dedupe`,
-`--show-duplicates`, `--type`, `--no-color`. `--json` puts one object per script on stdout and all
+`--show-duplicates`, `--type`, `--language`, `--force`, `--no-color`. `--json` puts one object per script on stdout and all
 Rich output on stderr, so it pipes:
 
 ```bash
@@ -119,6 +120,17 @@ The cap reads `usage.cost` from the response, so it works only where the provide
 says so when none is sent. Spend is printed and logged per run. In-flight requests can overshoot by
 up to the concurrency, so keep headroom on a hard limit.
 
+## Real corpus
+
+`corpus/real/` holds ten published transcripts with source, date and verbatim status in every
+header: a 40-minute bank impersonation call, a Medicare benefits pitch, six FTC robocalls, a
+recalled credit-union call and a USPS smishing message. Provenance and the results of running them
+are in [`docs/real-corpus.md`](https://github.com/sjdsjadjajdjsa/scamscript/blob/master/docs/real-corpus.md).
+
+```bash
+scamscript --redact batch corpus/real --concurrency 3 --max-cost 0.25 --output real.md
+```
+
 ## Attack types
 
 `attack_type` is free prose, which is useful to read and useless to group. Every result also carries a
@@ -128,6 +140,12 @@ per slug above the ranking, and `--type` filters to the ones you ask for:
 
 ```bash
 scamscript batch corpus/ --type tech-support,refund --output report.md
+```
+
+Briefings group the same way. Build one from a finished run:
+
+```bash
+scamscript brief --type tech-support --output briefing.md
 ```
 
 The raw phrase is always kept next to the slug. An unrecognised description lands in `other` and the
@@ -183,6 +201,12 @@ Every request appends to a timestamped JSONL file under `~/.scamscript/logs/` (o
 `--home` or `SCAMSCRIPT_HOME`). The API key is never written. Logs are the source for `report`, so
 a run replays without spending tokens, and `prune --keep 200 --keep-days 30` keeps the store
 bounded. Directories are `0700` and log files `0600`.
+
+## Paths
+
+`--file` and `--dir` resolve symlinks, a recursive walk survives a symlink loop, and a file that
+changes while it is read is an error rather than a half-read prompt. Output files are not overwritten
+unless `--force` is passed.
 
 ## Install and configure
 
@@ -245,6 +269,7 @@ src/scamscript/
   verify.py     quote checking against the source
 tests/          schema, retry, redaction, verification, client and CLI tests
 examples/       six fictional transcripts, plus adversarial/ fixtures
+corpus/real/    ten published transcripts with provenance
 scripts/        calibration and injection harnesses
 docs/           calibration record, sample report, banner, demo
 ```
@@ -257,7 +282,8 @@ docs/           calibration record, sample report, banner, demo
 - Duplicate folding ignores formatting only; a single changed digit keeps a copy separate.
 - Type slugs are keyword-matched, so an unusual description falls to `other` rather than inventing one.
 - The cost cap depends on provider-reported usage and can overshoot by the in-flight count.
-- Analysis is English-centric: the prompt and schema assume English artifacts.
+- The prompt asks the model to answer in the script's own language and `--language` overrides
+  detection, but the type keywords are English: a non-English script often falls to `other`.
 - Quote checking compares text, not meaning. A legitimate paraphrase left in quotes is flagged;
   an accurate paraphrase without quotes is skipped rather than judged.
 

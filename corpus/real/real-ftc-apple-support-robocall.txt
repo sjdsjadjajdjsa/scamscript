@@ -1,0 +1,7 @@
+# Source: https://consumer.ftc.gov/features/robocall-scam-examples
+# Publisher: U.S. Federal Trade Commission
+# Verbatim: yes, transcript of the actual recorded robocall
+# Quoted for security research; a U.S. government work.
+# Type as published: Apple tech support
+
+Before using any devices or going online, please contact Apple Support Advisor. Press 1 to connect to Apple Support Advisor. Press 2 to listen to this again. Thank you.

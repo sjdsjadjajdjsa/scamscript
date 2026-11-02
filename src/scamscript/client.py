@@ -63,7 +63,7 @@ class ChatClient:
                 "Authorization": f"Bearer {api_key}",
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "User-Agent": "scamscript/0.6.1",
+                "User-Agent": "scamscript/0.7.0",
             },
         )
 

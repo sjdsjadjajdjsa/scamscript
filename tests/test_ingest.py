@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pytest
 
 from scamscript.ingest import IngestError, collect_scripts, read_script
@@ -85,3 +87,33 @@ def test_collect_skips_unreadable(tmp_path):
     write(tmp_path / "ok.txt")
     (tmp_path / "empty.txt").write_text("", encoding="utf-8")
     assert [item.name for item in collect_scripts(tmp_path)] == ["ok.txt"]
+
+
+def test_symlink_loop_terminates(tmp_path):
+    (tmp_path / "a.txt").write_text("CALLER: x", encoding="utf-8")
+    (tmp_path / "loop").symlink_to(tmp_path)
+    names = [item.name for item in collect_scripts(tmp_path, recursive=True)]
+    assert names == ["a.txt"]
+
+
+def test_file_changing_mid_read(tmp_path, monkeypatch):
+    script = tmp_path / "a.txt"
+    script.write_text("one", encoding="utf-8")
+    real = Path.read_bytes
+
+    def mutate(self):
+        data = real(self)
+        self.write_text("one and more", encoding="utf-8")
+        return data
+
+    monkeypatch.setattr(Path, "read_bytes", mutate)
+    with pytest.raises(IngestError, match="changed while reading"):
+        read_script(script)
+
+
+def test_symlink_file_resolves(tmp_path):
+    real = tmp_path / "real.txt"
+    real.write_text("CALLER: x", encoding="utf-8")
+    link = tmp_path / "link.txt"
+    link.symlink_to(real)
+    assert read_script(link).path == real.resolve()

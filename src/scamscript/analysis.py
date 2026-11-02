@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from scamscript import dedupe, prompts, redact, taxonomy, verify
+from scamscript import dedupe, language, prompts, redact, taxonomy, verify
 from scamscript.client import ChatClient, ClientError, TruncatedError
 from scamscript.ingest import ScriptFile
 from scamscript.models import BreakdownError, ScriptBreakdown, parse_breakdown
@@ -29,6 +29,7 @@ class Outcome:
     skipped: bool = False
     fingerprint: str = ""
     attack_slug: str = ""
+    language: str = "unknown"
     duplicate_of: str | None = None
     issues: list[verify.Issue] | None = None
     verification: dict[str, int] | None = None
@@ -46,6 +47,7 @@ class Outcome:
             "skipped": self.skipped,
             "fingerprint": self.fingerprint,
             "attack_slug": self.attack_slug,
+            "language": self.language,
             "duplicate_of": self.duplicate_of,
             "attempts": self.attempts,
             "duration_s": round(self.duration, 3),
@@ -68,6 +70,7 @@ def analyze_script(
     *,
     redact_identifiers: bool = False,
     verify_quotes: bool = True,
+    lang: str | None = None,
 ) -> Outcome:
     outcome = Outcome(
         source=script.path, name=script.name, fingerprint=dedupe.fingerprint(script.text)
@@ -79,7 +82,8 @@ def analyze_script(
         text, counts = redact.redact(text)
         outcome.redactions = counts
 
-    messages = prompts.build_messages(script.name, text)
+    outcome.language = lang or language.detect(text)
+    messages = prompts.build_messages(script.name, text, outcome.language)
     last_error = ""
 
     for attempt in range(1, MAX_ATTEMPTS + 1):
@@ -108,7 +112,11 @@ def analyze_script(
             )
             if attempt < MAX_ATTEMPTS:
                 messages = prompts.fix_messages(
-                    script.name, text, "reply was cut off before the JSON closed", exc.partial
+                    script.name,
+                    text,
+                    "reply was cut off before the JSON closed",
+                    exc.partial,
+                    outcome.language,
                 )
             continue
         except ClientError as exc:
@@ -136,7 +144,9 @@ def analyze_script(
                 raw=visible[:2000],
             )
             if attempt < MAX_ATTEMPTS:
-                messages = prompts.fix_messages(script.name, text, last_error, raw)
+                messages = prompts.fix_messages(
+                    script.name, text, last_error, raw, outcome.language
+                )
 
     outcome.duration = time.monotonic() - started
     logger.result(**outcome.as_record())

@@ -230,7 +230,7 @@ def test_dry_run_without_endpoint(home, tmp_path, monkeypatch):
 def test_version(home):
     result = runner.invoke(cli.app, ["--version"])
     assert result.exit_code == 0
-    assert result.stdout.strip() == "scamscript 0.6.1"
+    assert result.stdout.strip() == "scamscript 0.7.0"
 
 
 def test_json_output_is_one_object_per_script(home, tmp_path, fake):
@@ -421,7 +421,7 @@ def _reprints(tmp_path):
 
 def test_dedupe_folds_reprints(home, tmp_path, fake):
     _reprints(tmp_path)
-    scores = {"original": 4, "copy-punctuation": 9, "copy-header": 6, "near-twin": 8}
+    scores = {"original.txt": 4, "copy-punctuation.txt": 9, "copy-header.txt": 6, "near-twin.txt": 8}
     for key, score in scores.items():
         fake.replies[key] = breakdown(score=score)
     out = tmp_path / "r.md"
@@ -478,3 +478,21 @@ def test_unknown_type_warns(home, tmp_path, fake):
     )
     assert result.exit_code == 0
     assert "unknown type" in result.stdout
+
+
+def test_language_override_reaches_prompt(home, tmp_path, fake):
+    seen = {}
+
+    def complete(self, messages, **kwargs):
+        seen["prompt"] = messages[-1]["content"]
+        return json.dumps(breakdown())
+
+    fake.complete = complete
+    script = tmp_path / "a.txt"
+    script.write_text("CALLER: hola", encoding="utf-8")
+    result = runner.invoke(
+        cli.app, ["--api-key", "k", "--language", "es", "analyze", "--file", str(script)]
+    )
+    assert result.exit_code == 0
+    assert "'es'" in seen["prompt"]
+    fake.complete = FakeClient.complete

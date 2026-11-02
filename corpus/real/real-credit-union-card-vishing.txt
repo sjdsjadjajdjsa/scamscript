@@ -1,0 +1,47 @@
+# REAL call: credit-union card "breach" verification (US)
+# Source: https://www.u1cu.org/OnlineSecurity/phone-call-phishing-scam
+# Publisher: Universal 1 Credit Union, Eliott C. Ponte (Regulatory Compliance Counsel)
+# Verbatim: recalled transcript by the target, reconstructed after the call
+# Quoted for security research.
+
+Scammer: Hi, my name is John and I am calling to notify you that your credit card was breached.
+
+Target: Again... geez. What credit card are you calling about?
+
+Scammer: Well, before I give you any additional information, I need to verify your identity. Please verify your name, address, and credit card number?
+
+Target: What credit card are you calling about?
+
+Scammer: I can't tell you what credit card I am calling about until I verify your identity.
+
+Target: What bank or credit union do you work for?
+
+Scammer: I am in a call center, but I work for many banks... Bank of America, Wells Fargo, Citi Bank, Capital One, Chase....
+
+Target: Almost everyone in America has a credit card with one of those banks. Which credit card are you calling about?
+
+Scammer: Is your cell phone number ###-###-####
+
+Target: Yes.
+
+Scammer: If you give me your name or social security number, I can pull up your account.
+
+Target: I understand your company does not want to give out social security numbers over the phone before a consumer's identity is verified, but I don't know what credit card you are calling about.
+
+Scammer: Well, I need to know your name before I can pull up your account.
+
+Target: You don't know my name? You called me to notify me of a breach. What's my first name?
+
+Scammer: I am trying to help you and protect you from someone ruining your credit.
+
+Target: I am just going to start calling the numbers on the back of my credit cards so I can ensure that my card was actually breached.
+
+Second Scammer: Hello Sir, we are trying to help you.
+
+Target: Who is this?
+
+Second Scammer: My name is Michael, I am one of the supervisors at the credit card call center. I was listening on the phone call, as a part of our quality control. We need your credit card information so we can cancel your credit cards
+
+Target: My credit card information?
+
+Second Scammer: Yes, if you give us your 16 digit credit card number, I can look up your account.

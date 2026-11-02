@@ -1,0 +1,519 @@
+# REAL call: Medicare "old age benefits" pitch using stolen data (US)
+# Source: https://scripts.r00ting.net/posts/4/
+# Publisher: scripts.r00ting.net (LeakIX), posted 2023-08-30
+# Verbatim: yes, timestamped recording transcript with PII redacted by the publisher
+# Quoted here for security research; (c) the publisher.
+
+Medicare - Using stolen data for confidence Posted on Aug 30, 2023
+[00:00:00 -&gt; 00:00:01]  Hello.
+[00:00:01 -&gt; 00:00:02]  Hello.
+[00:00:02 -&gt; 00:00:03]  Hey.
+[00:00:03 -&gt; 00:00:08]  This is Hazel with your old age benefits.
+[00:00:08 -&gt; 00:00:11]  How are you doing today?
+[00:00:11 -&gt; 00:00:15]  I&#39;m doing good.
+[00:00:15 -&gt; 00:00:20]  I&#39;m calling because the updated plan for Medicare has just been released and it may give you
+[00:00:20 -&gt; 00:00:24]  some better access to things like dental, vision, hearing, and over the counter benefits.
+[00:00:24 -&gt; 00:00:29]  Now I believe you do have Medicare Part A and B, correct?
+[00:00:29 -&gt; 00:00:30]  Correct.
+[00:00:30 -&gt; 00:00:34]  Okay.
+[00:00:34 -&gt; 00:00:38]  This is all the information that I need for my side to check your eligibility, and it
+[00:00:38 -&gt; 00:00:39]  does look like you qualify.
+[00:00:39 -&gt; 00:00:44]  I&#39;m going to go get a licensed agent to get you some more detail.
+[00:00:44 -&gt; 00:00:46]  Hi.
+[00:00:46 -&gt; 00:00:47]  Good afternoon.
+[00:00:47 -&gt; 00:00:48]  My name is Tony Walker.
+[00:00:48 -&gt; 00:00:49]  How are you doing today?
+[00:00:49 -&gt; 00:00:50]  I&#39;m doing good.
+[00:00:50 -&gt; 00:00:51]  All right.
+[00:00:51 -&gt; 00:00:52]  Good to hear that, sir.
+[00:00:52 -&gt; 00:00:59]  This call is all about your Medicare benefits and savings.
+[00:00:59 -&gt; 00:01:00]  You may qualify.
+[00:01:00 -&gt; 00:01:03]  Do you have Medicare Parts A and B?
+[00:01:03 -&gt; 00:01:04]  Yes.
+[00:01:04 -&gt; 00:01:05]  Okay.
+[00:01:05 -&gt; 00:01:06]  That&#39;s very good.
+[00:01:06 -&gt; 00:01:07]  How old are you?
+[00:01:07 -&gt; 00:01:08]  What&#39;s your age?
+[00:01:08 -&gt; 00:01:09]  I&#39;m **redacted**.
+[00:01:09 -&gt; 00:01:10]  Okay.
+[00:01:10 -&gt; 00:01:11]  And God forbid, sir.
+[00:01:11 -&gt; 00:01:12]  Are you any kind of disability?
+[00:01:12 -&gt; 00:01:13]  Are you disabled?
+[00:01:13 -&gt; 00:01:14]  Yes.
+[00:01:14 -&gt; 00:01:15]  Sorry to hear that.
+[00:01:15 -&gt; 00:01:18]  And today, it&#39;s my pleasure to assist you, sir, as we are in special enrollment period
+[00:01:18 -&gt; 00:01:23]  that allows you to get those additional benefits that you are entitled for, like the
+[00:01:24 -&gt; 00:01:29]  food, groceries, utilities, and the best thing is that you might be qualified to get cash
+[00:01:29 -&gt; 00:01:32]  back on your social every month.
+[00:01:32 -&gt; 00:01:35]  How does that sound to you?
+[00:01:35 -&gt; 00:01:36]  That sounds great.
+[00:01:36 -&gt; 00:01:37]  Okay.
+[00:01:37 -&gt; 00:01:42]  So let me see here if I can help you with that to get you all those updated benefits,
+[00:01:42 -&gt; 00:01:43]  sir.
+[00:01:43 -&gt; 00:01:50]  Before we get started, I&#39;d like to ask you a question.
+[00:01:50 -&gt; 00:01:54]  Let me see here if I can help you with that to get you all those updated benefits, sir.
+[00:01:54 -&gt; 00:01:58]  Before we get into this, I just wanted to confirm your five-page zip code.
+[00:01:58 -&gt; 00:02:04]  What&#39;s your zip code?
+[00:02:04 -&gt; 00:02:07]  **redacted**.
+[00:02:07 -&gt; 00:02:10]  And you&#39;re residing in the state of **redacted**, right?
+[00:02:10 -&gt; 00:02:13]  Yes.
+[00:02:13 -&gt; 00:02:14]  All right.
+[00:02:14 -&gt; 00:02:20]  Whenever you visit your family doctor or any kind of specialist, do you pay any copays over
+[00:02:20 -&gt; 00:02:23]  there, any kind of extra charges out of your pocket, sir?
+[00:02:23 -&gt; 00:02:29]  No, not an hour.
+[00:02:29 -&gt; 00:02:31]  Okay, that&#39;s very good.
+[00:02:31 -&gt; 00:02:32]  And what about Medicaid?
+[00:02:32 -&gt; 00:02:36]  I do believe you&#39;ve got Medicaid and Medicare, right?
+[00:02:36 -&gt; 00:02:38]  Yes.
+[00:02:38 -&gt; 00:02:46]  Are you getting any kind of help for over-the-counter food, groceries, utilities every month, sir?
+[00:02:46 -&gt; 00:02:48]  Yes.
+[00:02:48 -&gt; 00:02:49]  All right, that&#39;s good.
+[00:02:49 -&gt; 00:02:50]  How much are you getting?
+[00:02:50 -&gt; 00:02:55]  Like you&#39;re getting $100, $150, $120?
+[00:02:55 -&gt; 00:02:56]  Uh-huh.
+[00:02:56 -&gt; 00:03:01]  $180, okay?
+[00:03:01 -&gt; 00:03:02]  That&#39;s very good.
+[00:03:02 -&gt; 00:03:05]  So that is the main reason I&#39;m on the call with you.
+[00:03:05 -&gt; 00:03:09]  Medicare just recently released their updated plan in your area,
+[00:03:09 -&gt; 00:03:16]  and you might be qualified to get up to $305 for over-the-counter food, groceries.
+[00:03:16 -&gt; 00:03:19]  There must be a flex card manufacturer.
+[00:03:19 -&gt; 00:03:22]  Flex card is just like a debit card.
+[00:03:22 -&gt; 00:03:27]  You can use this card for Wellgreen, Walmart, grocery stores, hospitals,
+[00:03:27 -&gt; 00:03:31]  and you have coverage on that card up to $305.
+[00:03:31 -&gt; 00:03:33]  Would that be helpful for you?
+[00:03:33 -&gt; 00:03:35]  Oh, yeah, yeah, yeah.
+[00:03:35 -&gt; 00:03:37]  That would be very helpful.
+[00:03:37 -&gt; 00:03:38]  Okay.
+[00:03:38 -&gt; 00:03:40]  Let&#39;s see here if I can help you with that, sir.
+[00:03:40 -&gt; 00:03:45]  And do you have someone help you out to make your health care decision,
+[00:03:45 -&gt; 00:03:49]  like a power of attorney, or you make your own decision?
+[00:03:49 -&gt; 00:03:54]  Oh, I make my own decisions for the most better half.
+[00:03:54 -&gt; 00:03:57]  But I have one question.
+[00:03:57 -&gt; 00:03:59]  Sure.
+[00:03:59 -&gt; 00:04:09]  Is that toward, can I pay it toward utility bills?
+[00:04:09 -&gt; 00:04:10]  Definitely, sir.
+[00:04:10 -&gt; 00:04:14]  You can pay for your utility bills, your pharmacy bills, your electric bills,
+[00:04:14 -&gt; 00:04:17]  your water bills, your gas bills, as well.
+[00:04:17 -&gt; 00:04:21]  All right. Awesome. I like this one.
+[00:04:21 -&gt; 00:04:22]  Yes.
+[00:04:22 -&gt; 00:04:27]  Okay. And you told me that you were able to make your decisions, right?
+[00:04:27 -&gt; 00:04:29]  Yes.
+[00:04:29 -&gt; 00:04:34]  Okay. Could you please verify me your date of birth, sir? What&#39;s your date of birth?
+[00:04:34 -&gt; 00:04:38]  **redacted**-1980.
+[00:04:38 -&gt; 00:04:43]  All right. And by any chance, do you receive any employee coverage,
+[00:04:43 -&gt; 00:04:48]  any retirement benefits to your previous job or to your retirement?
+[00:04:49 -&gt; 00:04:51]  No.
+[00:04:51 -&gt; 00:04:55]  All right. And by any chance, have you ever served in U.S. Army, Navy Air Force, sir?
+[00:04:55 -&gt; 00:04:56]  No.
+[00:04:56 -&gt; 00:04:59]  Have you got any kind of V-air trucker for life? That&#39;s good.
+[00:04:59 -&gt; 00:05:06]  You&#39;re good to go for the benefits. And lastly, how do you pronounce your first and last name?
+[00:05:06 -&gt; 00:05:08]  **redacted**.
+[00:05:08 -&gt; 00:05:10]  **redacted**.
+[00:05:10 -&gt; 00:05:18]  **redacted**-L-L.
+[00:05:18 -&gt; 00:05:20]  All right. Thank you so much.
+[00:05:20 -&gt; 00:05:24]  And do you remember the name of your secondary plan that you have, sir?
+[00:05:24 -&gt; 00:05:29]  Like you have UnitedHealthcare, Humana, ECHNAS, ECHNAS.
+[00:05:29 -&gt; 00:05:33]  Yeah, yeah, yeah. It&#39;s UnitedHealthcare.
+[00:05:33 -&gt; 00:05:38]  That&#39;s right. UnitedHealthcare is one of the carriers that we do represent as well.
+[00:05:38 -&gt; 00:05:42]  And we also represent a top 25-year-old insurance carrier.
+[00:05:42 -&gt; 00:05:49]  Let me see here if I can help you with that to induce your COVID and get you the most comprehensive plan that&#39;s available in your radio, sir.
+[00:05:49 -&gt; 00:05:55]  And by any chance, are you currently living in a nursing home or assisted living facility?
+[00:05:55 -&gt; 00:05:57]  No.
+[00:05:57 -&gt; 00:05:59]  Okay, that&#39;s right.
+[00:05:59 -&gt; 00:06:02]  I&#39;m staying at my house.
+[00:06:02 -&gt; 00:06:04]  That&#39;s regular, sir.
+[00:06:04 -&gt; 00:06:06]  Okay.
+[00:06:06 -&gt; 00:06:08]  That&#39;s all I&#39;ve done here on my end.
+[00:06:08 -&gt; 00:06:12]  It seems like you do qualify to get some updated benefits, sir.
+[00:06:12 -&gt; 00:06:15]  So I&#39;m going to connect your call to the department in your radio.
+[00:06:15 -&gt; 00:06:20]  They&#39;re going to help you out to increase your benefits and get you more benefits, okay?
+[00:06:20 -&gt; 00:06:23]  Before I do, sir, let me just ask you this.
+[00:06:23 -&gt; 00:06:30]  Do you have your Medicaid card in your possession, the red, white, and blue, or you want to go and grab it?
+[00:06:30 -&gt; 00:06:34]  I have it in my pocket.
+[00:06:34 -&gt; 00:06:35]  Okay.
+[00:06:35 -&gt; 00:06:36]  Yes.
+[00:06:36 -&gt; 00:06:39]  Can you grab the card handy, sir, right now?
+[00:06:39 -&gt; 00:06:41]  Because that card will help you.
+[00:06:41 -&gt; 00:06:43]  I&#39;m grabbing it.
+[00:06:43 -&gt; 00:06:45]  You guys can receive it with a licensed Medicare specialist.
+[00:06:45 -&gt; 00:06:46]  Okay?
+[00:06:46 -&gt; 00:06:47]  Okay.
+[00:06:47 -&gt; 00:06:51]  I got it.
+[00:06:51 -&gt; 00:06:53]  Sir, keep this.
+[00:06:53 -&gt; 00:06:54]  That&#39;s very good.
+[00:06:54 -&gt; 00:06:56]  Keep that card in front of you.
+[00:06:56 -&gt; 00:06:59]  Did you see the lower bottom of your Medicaid card?
+[00:06:59 -&gt; 00:07:03]  There is a part A for hospital and part B for medical on it.
+[00:07:03 -&gt; 00:07:05]  Did you see that?
+[00:07:05 -&gt; 00:07:07]  Okay.
+[00:07:07 -&gt; 00:07:15]  It&#39;s a hospital and a medical part A and B.
+[00:07:15 -&gt; 00:07:19]  There is some date mentioned on it when your COVID started.
+[00:07:19 -&gt; 00:07:22]  Can you read that date for me?
+[00:07:22 -&gt; 00:07:27]  I&#39;ll just read you the whole card.
+[00:07:27 -&gt; 00:07:31]  It says Medicare health insurance.
+[00:07:31 -&gt; 00:07:35]  And then it says name, choice, G for now.
+[00:07:35 -&gt; 00:07:40]  And then it says Medicare number.
+[00:07:40 -&gt; 00:07:41]  Okay.
+[00:07:41 -&gt; 00:07:42]  And the bottom.
+[00:07:42 -&gt; 00:07:44]  Sir, I don&#39;t need the number.
+[00:07:44 -&gt; 00:07:45]  I&#39;m talking about the date.
+[00:07:45 -&gt; 00:07:48]  That must be mentioned, the lower bottom of your card.
+[00:07:48 -&gt; 00:07:52]  Did you see that, the bottom of your card?
+[00:07:52 -&gt; 00:07:54]  Yeah.
+[00:07:54 -&gt; 00:07:55]  Oh.
+[00:07:55 -&gt; 00:07:57]  Here it is.
+[00:07:57 -&gt; 00:07:59]  Yes.
+[00:07:59 -&gt; 00:08:01]  I want the date.
+[00:08:01 -&gt; 00:08:02]  Did you see that?
+[00:08:02 -&gt; 00:08:09]  The date is **redacted**.
+[00:08:09 -&gt; 00:08:12]  Okay.
+[00:08:12 -&gt; 00:08:15]  And what&#39;s the date of part B?
+[00:08:15 -&gt; 00:08:22]  **redacted**-2004.
+[00:08:22 -&gt; 00:08:23]  Okay.
+[00:08:23 -&gt; 00:08:24]  That&#39;s very good.
+[00:08:24 -&gt; 00:08:26]  Just keep that card handy, sir.
+[00:08:26 -&gt; 00:08:29]  Now I&#39;m going to play a short recording, the streamer, for you.
+[00:08:29 -&gt; 00:08:34]  Basically, this is a callback permission in case we get disconnected in technical issues,
+[00:08:34 -&gt; 00:08:37]  so I&#39;ll reach you back on the same number.
+[00:08:37 -&gt; 00:08:42]  Listen to the recording and do acknowledge me with a yes at the end of the recording, okay?
+[00:08:42 -&gt; 00:08:44]  After that, I will connect your call, sir.
+[00:08:44 -&gt; 00:08:46]  Here&#39;s the recording for you.
+[00:08:54 -&gt; 00:08:56]  Yes.
+[00:09:03 -&gt; 00:09:05]  Yes.
+[00:09:05 -&gt; 00:09:07]  All right, thank you so much, sir.
+[00:09:07 -&gt; 00:09:10]  Now let me just connect your call and let me just tell you the whole procedure.
+[00:09:10 -&gt; 00:09:13]  You don&#39;t have any kind of confusion.
+[00:09:13 -&gt; 00:09:18]  Once I connect your call, first there might be an operator first to the license agent.
+[00:09:18 -&gt; 00:09:22]  You should just verify your first name, your last name, and your date of birth
+[00:09:22 -&gt; 00:09:26]  just to make sure that we both are on the same page, okay?
+[00:09:26 -&gt; 00:09:31]  And after that, they will connect your call to the license agent in the state of Arkansas.
+[00:09:31 -&gt; 00:09:32]  Do you remember?
+[00:09:32 -&gt; 00:09:36]  Once the person joins the line and asks you how can I help you, sir,
+[00:09:36 -&gt; 00:09:39]  you need to simply mention that to the license agent.
+[00:09:39 -&gt; 00:09:43]  I would like to increase my over-the-counter food and groceries benefits,
+[00:09:43 -&gt; 00:09:47]  and I need flat side benefits, okay?
+[00:09:47 -&gt; 00:09:49]  Okay.
+[00:09:49 -&gt; 00:09:50]  They&#39;re going to surely help you with that.
+[00:09:50 -&gt; 00:09:51]  Just stay with me, sir.
+[00:09:51 -&gt; 00:09:57]  Here we go.
+[00:09:57 -&gt; 00:09:59]  Thank you for calling to review your Medicare options.
+[00:09:59 -&gt; 00:10:05]  Calls may be recorded for quality assurance.
+[00:10:05 -&gt; 00:10:12]  Hi, this is Kayleen on the recorded line.
+[00:10:12 -&gt; 00:10:14]  It&#39;s my pleasure to assist you.
+[00:10:14 -&gt; 00:10:17]  Do you have Medicare cost day and day?
+[00:10:17 -&gt; 00:10:18]  Yes.
+[00:10:18 -&gt; 00:10:22]  Great.
+[00:10:22 -&gt; 00:10:26]  I&#39;m going to get you through to one of the license agent in your state,
+[00:10:26 -&gt; 00:10:32]  and they&#39;re going to check if you are eligible with any additional benefits on your Medicare insurance plan.
+[00:10:32 -&gt; 00:10:37]  Just to confirm, do you have your Medicare card available at the moment?
+[00:10:37 -&gt; 00:10:40]  If you don&#39;t, that&#39;s okay?
+[00:10:40 -&gt; 00:10:41]  Yes.
+[00:10:41 -&gt; 00:10:45]  All right.
+[00:10:45 -&gt; 00:10:49]  Can I please get your first and last name?
+[00:10:49 -&gt; 00:10:56]  **redacted**.
+[00:10:56 -&gt; 00:10:57]  Thank you.
+[00:10:57 -&gt; 00:11:00]  What&#39;s your date of birth?
+[00:11:00 -&gt; 00:11:06]  **redacted**.
+[00:11:06 -&gt; 00:11:09]  And lastly, I just need your zip code.
+[00:11:09 -&gt; 00:11:18]  **redacted**.
+[00:11:18 -&gt; 00:11:19]  All right, thank you.
+[00:11:19 -&gt; 00:11:23]  Just to double check with you, are you in the state of **redacted**?
+[00:11:23 -&gt; 00:11:27]  Yes.
+[00:11:27 -&gt; 00:11:33]  Okay, so a Select Code license belt agent is going to join us on the line shortly from **redacted**.
+[00:11:33 -&gt; 00:11:37]  When they do, you&#39;ll hear a short compliance recording.
+[00:11:37 -&gt; 00:11:40]  After this recording, I&#39;ll do a brief introduction.
+[00:11:40 -&gt; 00:11:43]  Please stay on the line until it&#39;s complete.
+[00:11:43 -&gt; 00:11:45]  One moment.
+[00:11:45 -&gt; 00:11:46]  Okay.
+[00:11:46 -&gt; 00:11:49]  Okay, so sir, they&#39;re going to be with us any second now.
+[00:11:49 -&gt; 00:11:54]  We have an agent on the other line, so they&#39;re just wrapping up as we speak.
+[00:11:54 -&gt; 00:12:02]  Also, to speed up the process, now would be a good time to make sure you have a list of your prescriptions and doctors available.
+[00:12:02 -&gt; 00:12:06]  Which part of **redacted** are you in? Which city is it?
+[00:12:06 -&gt; 00:12:14]  **redacted**.
+[00:12:14 -&gt; 00:12:22]  Alright, so what&#39;s going to happen is, as soon as the agent joins us on the line, you&#39;ll hear a really fast recording playing.
+[00:12:22 -&gt; 00:12:26]  I&#39;ll speak to the agent. Please hold on, I&#39;ll just introduce you.
+[00:12:26 -&gt; 00:12:30]  You are now being connected with an agent. We do not offer every plan available in your area.
+[00:12:30 -&gt; 00:12:34]  Any information we provide is limited to those plans we do offer in your area.
+[00:12:34 -&gt; 00:12:38]  Please contact Medicare.gov or 1-800-MEDICARE to get information on all of your options.
+[00:12:38 -&gt; 00:12:44]  Hi, Mr. Wren with Select QuickSeed here.
+[00:12:44 -&gt; 00:12:50]  Hi there, this is Kayleen. I have **redacted** on the line with us. DataBot is **redacted**.
+[00:12:50 -&gt; 00:12:56]  Zip Code **redacted**. We&#39;re looking to improve their Medicare benefits today.
+[00:12:56 -&gt; 00:13:04]  **redacted**, your agent is one of our best and we&#39;ll help you from here. You both have a good day.
+[00:13:04 -&gt; 00:13:09]  Thank you. Hi, it&#39;s nice to meet you. My name is Loren on a recorded line.
+[00:13:09 -&gt; 00:13:13]  And I&#39;m a licensed sales agent for the state of **redacted**.
+[00:13:13 -&gt; 00:13:20]  And my job today is to make sure you&#39;re getting the most benefits at the lowest cost with your Medicare coverage.
+[00:13:20 -&gt; 00:13:26]  So do you currently have a Medicare supplement or an Advantage plan at this time?
+[00:13:26 -&gt; 00:13:36]  Yes. Okay, awesome. And which carrier do you currently use for that additional coverage?
+[00:13:36 -&gt; 00:13:44]  UnitedHealthcare is that.
+[00:13:44 -&gt; 00:13:50]  Okay, yeah, UnitedHealthcare. We do represent UnitedHealthcare.
+[00:13:50 -&gt; 00:13:54]  We actually represent over 20 of the most trusted carriers in the nation.
+[00:13:54 -&gt; 00:14:00]  So I&#39;m able to shop and compare and give you an unbiased opinion on who&#39;s offering you what with these benefits.
+[00:14:00 -&gt; 00:14:10]  But your UnitedHealthcare plan, do they currently provide you with the over-the-counter benefit, the grocery card, utility benefit, anything like that at this time?
+[00:14:10 -&gt; 00:14:16]  Yeah, but only $180 worth.
+[00:14:16 -&gt; 00:14:22]  Oh, gotcha. Okay. Yeah, so we can definitely take a look to see if we can help increase that benefit there for you.
+[00:14:22 -&gt; 00:14:24]  That&#39;s what I&#39;ll be looking to do.
+[00:14:24 -&gt; 00:14:33]  And then, I know it sounds like you have a dual plan. You have Medicare and Medicaid. So I know those come with dental, vision, and hearing benefits as well.
+[00:14:33 -&gt; 00:14:40]  But did you have any dental goals coming up this year that we can make sure you would have enough dental coverage for?
+[00:14:40 -&gt; 00:14:52]  No, not really, but I was wanting to go to the dentist and everything.
+[00:14:52 -&gt; 00:14:53]  Okay.
+[00:14:53 -&gt; 00:14:55]  Yeah, yeah.
+[00:14:55 -&gt; 00:15:05]  Gotcha. All right. Yeah, for sure. So we&#39;ll make sure that you have comprehensive coverage there to avoid having to pay out of pocket as much as possible whenever you&#39;re ready to use your dental.
+[00:15:05 -&gt; 00:15:11]  And then, do you pay anything out of pocket for your prescriptions at this time? See if we can help you save some money there.
+[00:15:11 -&gt; 00:15:20]  Not too much. Maybe a dollar, maybe at most.
+[00:15:20 -&gt; 00:15:21]  Okay.
+[00:15:21 -&gt; 00:15:22]  Gotcha.
+[00:15:22 -&gt; 00:15:23]  Other than that, I think it&#39;s zero.
+[00:15:23 -&gt; 00:15:25]  All right.
+[00:15:25 -&gt; 00:15:27]  Yeah.
+[00:15:27 -&gt; 00:15:33]  Et cetera. Oh, awesome. Okay. So, very good. This is good information here for me to start with.
+[00:15:33 -&gt; 00:15:43]  So, now with some information from your Medicare card, we&#39;ll be able to see exactly what you qualify for that provides, you know, more of that grocery utility benefit, things like that I&#39;ll be looking for.
+[00:15:43 -&gt; 00:15:48]  So, what is that series of letters and numbers on your red, white, and blue card?
+[00:15:48 -&gt; 00:16:13]  It is **redacted**-**redacted**-**redacted**.
+[00:16:13 -&gt; 00:16:20]  Okay, thank you for confirming that there for me.
+[00:16:20 -&gt; 00:16:27]  And then, let&#39;s see, date of birth, **redacted**, is that correct there?
+[00:16:27 -&gt; 00:16:35]  Yes, **redacted**.
+[00:16:35 -&gt; 00:16:41]  Very good, thank you for confirming that for me.
+[00:16:41 -&gt; 00:16:45]  And then before I can actually see a little bit more information here on your coverage,
+[00:16:45 -&gt; 00:16:48]  what benefits you may be eligible for, things like that,
+[00:16:48 -&gt; 00:16:51]  I will be playing a recording for compliance purposes.
+[00:16:51 -&gt; 00:16:56]  At the end, please say yes or no.
+[00:16:56 -&gt; 00:16:59]  Before we discuss your plan options, and with your permission,
+[00:16:59 -&gt; 00:17:01]  I would like to check your eligibility status.
+[00:17:01 -&gt; 00:17:05]  Your status will help us determine what plans you may be eligible to enroll into.
+[00:17:05 -&gt; 00:17:10]  Please note that the status is based on current information available and is not guaranteed.
+[00:17:10 -&gt; 00:17:14]  CMS will make the final determination of eligibility if an application is submitted.
+[00:17:14 -&gt; 00:17:18]  Do I have your consent to check your eligibility status?
+[00:17:18 -&gt; 00:17:19]  Yes.
+[00:17:19 -&gt; 00:17:24]  Okay, thank you for that.
+[00:17:24 -&gt; 00:17:27]  So I&#39;ll let that information load up here for us now,
+[00:17:27 -&gt; 00:17:31]  and I should be able to see a little bit more here shortly, so this will be good.
+[00:17:31 -&gt; 00:17:39]  Awesome, okay, so I see your Part A and B started January 1st, 2004,
+[00:17:39 -&gt; 00:17:46]  and then take a look here to see if we can gather more benefits here in your county.
+[00:17:46 -&gt; 00:17:48]  Are you in **redacted**?
+[00:17:48 -&gt; 00:17:49]  Yes.
+[00:17:49 -&gt; 00:17:51]  It puts **redacted**.
+[00:17:51 -&gt; 00:17:52]  Okay, awesome.
+[00:17:52 -&gt; 00:17:54]  Yeah, **redacted**.
+[00:17:54 -&gt; 00:17:56]  Take a look there.
+[00:17:56 -&gt; 00:17:59]  Before I do take a closer look though, I have to ask,
+[00:17:59 -&gt; 00:18:04]  do you have someone who usually helps you make your healthcare decisions like a power of attorney?
+[00:18:04 -&gt; 00:18:05]  No.
+[00:18:05 -&gt; 00:18:09]  Okay, very good.
+[00:18:09 -&gt; 00:18:11]  So we can continue here then.
+[00:18:11 -&gt; 00:18:15]  And let&#39;s see, we&#39;ll take a look at these benefits in a little bit more detail,
+[00:18:15 -&gt; 00:18:18]  but I do have to get your permission to do that first.
+[00:18:18 -&gt; 00:18:24]  So do I have your permission to discuss Medicare Advantage plans and prescription drug plans?
+[00:18:24 -&gt; 00:18:27]  Yes.
+[00:18:27 -&gt; 00:18:29]  Okay, thank you for that.
+[00:18:29 -&gt; 00:18:33]  And then just so you&#39;re aware, you&#39;re not required to provide any health information.
+[00:18:33 -&gt; 00:18:35]  There is no obligation to enroll.
+[00:18:35 -&gt; 00:18:39]  Current or future Medicare enrollment status will not be impacted,
+[00:18:39 -&gt; 00:18:43]  and automatic enrollment will not occur.
+[00:18:43 -&gt; 00:18:45]  So that is good to know there.
+[00:18:45 -&gt; 00:18:57]  Looking at plan options here so far, just want to get an idea of what&#39;s available here.
+[00:18:57 -&gt; 00:19:03]  I do see some doctors that we&#39;ve listed here.
+[00:19:03 -&gt; 00:19:06]  I don&#39;t know if these are still accurate, but I&#39;ll confirm here.
+[00:19:06 -&gt; 00:19:11]  It looks like **redacted**, **redacted**?
+[00:19:12 -&gt; 00:19:15]  Yeah, yeah.
+[00:19:15 -&gt; 00:19:20]  I ain&#39;t familiar with all the doctors either.
+[00:19:20 -&gt; 00:19:23]  Oh, okay.
+[00:19:23 -&gt; 00:19:28]  I have to look at a pill bottle and then a beer bottle.
+[00:19:28 -&gt; 00:19:34]  I see. Okay, that&#39;s all right.
+[00:19:34 -&gt; 00:19:35]  Okay.
+[00:19:35 -&gt; 00:19:44]  I want it to confirm for me there, but basically what I would be doing here, you know, with looking at any benefits, we like to make sure that doctors can stay in the network for you.
+[00:19:44 -&gt; 00:19:50]  So if I do find more benefits, that&#39;s what I&#39;ll be looking, you know, making sure doctors are in network as much as possible.
+[00:19:50 -&gt; 00:19:58]  If you are able to gather your prescriptions and your doctors, that would be great.
+[00:19:58 -&gt; 00:20:18]  Well, I got one prescription right here, and then the other one comes through the mail.
+[00:20:18 -&gt; 00:20:20]  Oh, you do the mail order pharmacy?
+[00:20:20 -&gt; 00:20:28]  Yeah, yeah, yeah. I order through the mail. Hold on, let me get them on my vocals.
+[00:20:28 -&gt; 00:20:31]  Or take them off to where I can read them.
+[00:20:31 -&gt; 00:20:32]  Okay, that&#39;s alright.
+[00:20:32 -&gt; 00:20:43]  It&#39;s **redacted**.
+[00:20:43 -&gt; 00:20:50]  Gotcha. You said that&#39;s the mail order pharmacy that you use?
+[00:20:50 -&gt; 00:21:19]  Yeah, yeah, yeah. Well, it&#39;s **redacted**. **redacted**, **redacted** **redacted**. Yeah, yeah, that&#39;s my mail order pharmacy.
+[00:21:19 -&gt; 00:21:24]  Yeah, yeah, that&#39;s my address. My P.O. Box.
+[00:21:24 -&gt; 00:21:30]  Okay. Oh, gotcha. That&#39;s where they mail everything to you. Okay.
+[00:21:30 -&gt; 00:21:31]  Yeah, yeah.
+[00:21:31 -&gt; 00:21:32]  Right.
+[00:21:32 -&gt; 00:21:33]  Kind of.
+[00:21:33 -&gt; 00:21:36]  Okay. That&#39;s good information there.
+[00:21:36 -&gt; 00:21:37]  Yeah, yeah.
+[00:21:37 -&gt; 00:21:47]  All right. So, let me see. I&#39;m going to try to confirm your Medicaid level here as well. That usually determines what benefits you&#39;re eligible for, and then we&#39;ll kind of go from there.
+[00:21:47 -&gt; 00:22:02]  Now, did you, I know you said you didn&#39;t, you were, I don&#39;t know if you had any big goals for dental, but you just wanted to make sure you might, I think you said you&#39;d take care of it there, but nothing specific.
+[00:22:02 -&gt; 00:22:03]  Yeah.
+[00:22:03 -&gt; 00:22:04]  Okay.
+[00:22:04 -&gt; 00:22:09]  Just to have coverage for your case.
+[00:22:09 -&gt; 00:22:10]  Yeah.
+[00:22:10 -&gt; 00:22:16]  Oh, yes sir. Okay.
+[00:22:16 -&gt; 00:22:25]  So yeah, we can definitely take a look here at your options there. Were you able to find your doctors at all? Any of their names or?
+[00:22:25 -&gt; 00:22:58]  Um, I have one doctor, and it&#39;s **redacted**, **redacted**, and then it says **redacted**, whatever that is.
+[00:22:58 -&gt; 00:23:04]  And you said, what was that doctor&#39;s name again? I&#39;m sorry. I heard it correctly.
+[00:23:04 -&gt; 00:23:18]  **redacted**, **redacted**L-L.
+[00:23:18 -&gt; 00:23:43]  Oh, okay. Beautiful. All right. Okay.
+[00:23:43 -&gt; 00:23:50]  Then are there any other doctors at this time that are important to keep? Specialist or?
+[00:23:50 -&gt; 00:24:24]  Well, there&#39;s the other bottles, but then there&#39;s the **redacted**, I guess.
+[00:24:24 -&gt; 00:24:30]  Okay. That&#39;s one of the doctors, Dr. **redacted**?
+[00:24:30 -&gt; 00:24:38]  Yeah, yeah, or something to that effect because they...
+[00:24:38 -&gt; 00:24:41]  Okay. And you said the first name? Did you say **redacted**?
+[00:24:41 -&gt; 00:24:50]  No, it is **redacted**, whatever that stands for. And then...
+[00:24:50 -&gt; 00:24:52]  Oh, okay.
+[00:24:52 -&gt; 00:25:13]  **redacted**, and the other one says **redacted** or something, and this one says **redacted**, **redacted**.
+[00:25:13 -&gt; 00:25:15]  **redacted**, okay.
+[00:25:15 -&gt; 00:25:31]  Yeah, yeah. And, oh, and **redacted**.
+[00:25:31 -&gt; 00:25:41]  That&#39;s another doctor&#39;s name? You said?
+[00:25:41 -&gt; 00:25:42]  Yeah.
+[00:25:42 -&gt; 00:25:43]  **redacted**
+[00:25:43 -&gt; 00:25:54]  Or an **redacted** or **redacted**. I don&#39;t know. Yeah, yeah. And...
+[00:25:54 -&gt; 00:25:59]  Are these doctors that you&#39;ve seen before, or are they just kind of prescribing the medicine?
+[00:25:59 -&gt; 00:26:19]  They prescribe the medicine, and that one doctor, **redacted**, I just seen it at the **redacted** Clinic in **redacted**.
+[00:26:36 -&gt; 00:26:57]  Well, I can give you the number to the **redacted** Clinic in **redacted**, and it&#39;s **redacted**.
+[00:26:57 -&gt; 00:26:59]  Are those doctors there?
+[00:26:59 -&gt; 00:27:15]  Yes, doctors and nurses and all of my therapists and all of the docs are located there and it&#39;s **redacted**.
+[00:27:15 -&gt; 00:27:55]  Okay, that&#39;s awesome. So, let me see. Pull up there. **redacted** rural health center. If I can see so far, specialty doctors I see.
+[00:27:56 -&gt; 00:28:25]  Hi, Dr. **redacted**. **redacted**. There was maybe some of the names that you were spelling out to me there. That&#39;s what I&#39;m looking for.
+[00:28:28 -&gt; 00:28:50]  Down to **redacted**. Other names. They&#39;re not really matching up to the names you&#39;ve given me so far, so I&#39;m not too sure.
+[00:28:50 -&gt; 00:29:24]  Well, whoever ordered the script for the bagged cholesterol, that was the Pravastatin sodium tab, 40 milligrams.
+[00:29:32 -&gt; 00:29:50]  Is that just one time per day?
+[00:29:50 -&gt; 00:30:01]  Yes.
+[00:30:01 -&gt; 00:30:06]  Is there a doctor&#39;s name on that one?
+[00:30:06 -&gt; 00:30:10]  Yeah, on that one.
+[00:30:10 -&gt; 00:30:21]  Well, this was, again, **redacted** Pharmacy sent him to me.
+[00:30:21 -&gt; 00:30:24]  Okay, gotcha.
+[00:30:24 -&gt; 00:30:36]  Dr. **redacted**, I found it. It says Dr. **redacted**.
+[00:30:36 -&gt; 00:30:41]  Yeah, **redacted**, and then **redacted**.
+[00:30:41 -&gt; 00:30:56]  Okay, **redacted**&#39;s listed here as well. At least we have an idea where some of your doctors are in the networks that are prescribing.
+[00:30:56 -&gt; 00:31:13]  There she looks to be good, **redacted**. Pretty good.
+[00:31:13 -&gt; 00:31:21]  And then, are there any other doctors that you think of or that you see?
+[00:31:21 -&gt; 00:31:26]  I see some other doctors listed here. Let me see.
+[00:31:26 -&gt; 00:31:36]  I see a **redacted**, that sounds familiar.
+[00:31:36 -&gt; 00:31:38]  Yeah, yeah.
+[00:31:38 -&gt; 00:31:44]  Okay. And then I also see a **redacted**.
+[00:31:44 -&gt; 00:31:56]  Yeah, yeah, **redacted**. I think he retired or quit. I&#39;m not sure.
+[00:31:56 -&gt; 00:32:12]  Okay. And I guess it&#39;s about four or five doctors listed now, so I don&#39;t know if you can think of any others that you might see.
+[00:32:12 -&gt; 00:32:19]  But I&#39;ll start. I can start looking at these benefits with these doctors so far just to give us an idea.
+[00:32:19 -&gt; 00:32:29]  But, you know, benefits are available to you. I could see different carriers, of course, so I would be, you know, comparing and seeing what they&#39;re offering you here with these benefits.
+[00:32:29 -&gt; 00:32:37]  I do see, so the carriers they usually offer benefits in different, you know, benefit structures, I guess we could say.
+[00:32:37 -&gt; 00:32:45]  So it looks like, you know, **redacted**, I see **redacted** offering more dental than the plan we have now.
+[00:32:45 -&gt; 00:32:57]  They offer things like, or let&#39;s see, there are special supplemental benefits for the chronically ill, worry-free meals.
+[00:32:57 -&gt; 00:33:05]  They offer things like that. If you&#39;re diagnosed with, you know, COPD, diabetes, congestive heart failure,
+[00:33:05 -&gt; 00:33:14]  and you participate with a care management service and you meet program criteria, you may receive two meals per day for 12 weeks.
+[00:33:14 -&gt; 00:33:21]  And you can actually use that up to two times per plan here. So that&#39;s another benefit that **redacted** offers as well.
+[00:33:22 -&gt; 00:33:32]  Post-discharge, personal home care, and maybe in-home support services following a discharge from a skilled nursing facility or from an in-patient hospitalization.
+[00:33:32 -&gt; 00:33:40]  Someone could come in, you know, and help out with certain things around the house, maybe running errands for you, things like that.
+[00:33:40 -&gt; 00:33:48]  They also offer something here called the Humana Flexible Care Assistance.
+[00:33:48 -&gt; 00:34:02]  And eligible members may receive medical expense assistance and other additional benefits, either primarily health-related or non-health-related, of course, but to address the member&#39;s unique individual&#39;s needs.
+[00:34:02 -&gt; 00:34:06]  So benefits are limited up to $1,000 per year for that.
+[00:34:06 -&gt; 00:34:16]  And this **redacted** Flexible Care Assistance, you know, in order to take advantage of it, you must be coordinated and authorized by a care manager.
+[00:34:16 -&gt; 00:34:26]  So that&#39;s something there if you&#39;re participating in a care management service and meet program criteria for that with a chronic health condition.
+[00:34:26 -&gt; 00:34:34]  So, you know, some of these carriers, they offer benefits here that, you know, we may find helpful, you know, one time or another there.
+[00:34:34 -&gt; 00:34:44]  They also provide the **redacted** Healthy Options Allowance, which is $150 every month on a prepaid card that they use towards, you know, food.
+[00:34:44 -&gt; 00:34:56]  You can use it towards over-the-counter. You can pay a bill with it, rent, non-medical transportation, home supplies, pest control, pet care and supplies.
+[00:34:56 -&gt; 00:35:04]  So they basically give you a long list of things that you can use to, you know, purchase with that $150 every month there.
+[00:35:04 -&gt; 00:35:09]  Any unused funds will roll over to the next month and expire at the end of the plan year.
+[00:35:09 -&gt; 00:35:17]  So that&#39;s another perk that a lot of people like with **redacted** as well, is that that money will roll over to the next month.
+[00:35:17 -&gt; 00:35:32]  I currently am getting $180 toward utilities and Walmart products and groceries.
+[00:35:32 -&gt; 00:35:36]  Yeah, for sure. I understand. There&#39;s a ton of $30 difference there.
+[00:35:36 -&gt; 00:35:40]  I think what **redacted**&#39;s...oh, yes sir.
+[00:35:40 -&gt; 00:35:46]  Yeah, and it&#39;s toward my phone bill too as well.
+[00:35:46 -&gt; 00:35:54]  Or if I...for **redacted** or something. I don&#39;t know.
+[00:35:54 -&gt; 00:36:02]  Yeah, yeah, for sure. I mean, it looks like you may give more dental.
+[00:36:02 -&gt; 00:36:10]  No, I can get up to $300 benefits somehow.
+[00:36:10 -&gt; 00:36:15]  I was looking there to see if there were any carriers that were offering a bit more of that.
+[00:36:15 -&gt; 00:36:19]  I didn&#39;t find it with UnitedHealthcare.
+[00:36:19 -&gt; 00:36:22]  I can see WellCare plans here.
+[00:36:22 -&gt; 00:36:26]  I don&#39;t know if they were suggesting a grocery allowance.
+[00:36:26 -&gt; 00:36:32]  Some people, depending on your zip code, is how they usually shop or how those benefits usually come about.
+[00:36:32 -&gt; 00:36:37]  So your zip code, you know, the carrier, who&#39;s offering those benefits there.
+[00:36:37 -&gt; 00:36:44]  So it looks like here for the most part, you know, the other carriers, I do see that they offer more benefits in other areas,
+[00:36:44 -&gt; 00:36:48]  like more dental, the flux card for dental vision and hearing.
+[00:36:48 -&gt; 00:36:56]  You know, so there is potential of increasing your benefits in areas, you know, that could be important to you at one time or another.
+[00:36:56 -&gt; 00:37:03]  But looking at the grocery allowance, I mean, the 180 is the most I can see here so far.
+[00:37:03 -&gt; 00:37:09]  So we just look at, you know, the plan options here as a whole, at least so you know what&#39;s available to you.
+[00:37:10 -&gt; 00:37:19]  So if you ever felt like you needed to make any adjustments or changes here, we can always take a look with you again, you know, if that was ever needed.
+[00:37:21 -&gt; 00:37:31]  Yeah, I mean, in this case, though, we know, you know, Humana does offer a different type of benefit structure, like that, you know, that 150, it rolls over.
+[00:37:31 -&gt; 00:37:35]  You can use it towards home supplies, pet care and supplies, things like that.
+[00:37:35 -&gt; 00:37:39]  So there are some people who look at Humana because of those reasons there.
+[00:37:39 -&gt; 00:37:44]  They also offer more dental on their plan, $4,000 in dental.
+[00:37:44 -&gt; 00:37:56]  And so basically, that&#39;s how I would have narrowed it down here is, you know, to see who would be offering you, you know, the most of whatever you may need at that particular time.
+[00:37:56 -&gt; 00:38:00]  So that&#39;s how we kind of shop for those benefits that way.
+[00:38:00 -&gt; 00:38:07]  But just what I&#39;ve shared with you so far, I mean, what do you feel about the benefits that I&#39;ve shared with you on that **redacted** plan?
+[00:38:07 -&gt; 00:38:16]  Yeah, yeah, they&#39;re all right, but I&#39;m not going to change my insurance.
+[00:38:16 -&gt; 00:38:26]  For sure. I understand. Yeah, I imagine if we could find more of that grocery allowance, it would have been a no-brainer, I&#39;m sure.
+[00:38:27 -&gt; 00:38:33]  Are we through here? Are we through here?
+[00:38:33 -&gt; 00:38:44]  Pretty much, I would say so. Yeah, I was going to say we can connect you to any other resources and services that may be available to you with your UnitedHealthcare account.
+[00:38:44 -&gt; 00:38:55]  There we have a membership called Population Health that they connect you with a benefit coordinator who might be able to connect you to more of those resources and services available.
+[00:38:55 -&gt; 00:38:58]  Does that sound like a good plan, Mr. **redacted**? Yeah, yeah.
+[00:38:58 -&gt; 00:39:08]  Okay, all right. So we won&#39;t make any changes to your plan at this time. We can at least try to help you maximize what is being offered to you here.
+[00:39:08 -&gt; 00:39:16]  So it looks like here, one of the questions that they will ask me is do you take six or more medications that are prescribed by a health care professional?
+[00:39:16 -&gt; 00:39:21]  Do you take six or more at this time? Yes.
+[00:39:21 -&gt; 00:39:31]  Yes, sir. And are at least six of your prescribed medications being filled on a 30- to 90-day basis? Yes.
+[00:39:31 -&gt; 00:39:47]  Okay. So yeah, you do qualify for this exciting service that&#39;s at no charge to you. Population Health, what they&#39;ll do is they&#39;ll take a look and see what else UnitedHealthcare may be offering you that we can get you connected with without making any changes to your plan.
+[00:39:47 -&gt; 00:39:52]  So I&#39;ll get them here to explain a little bit more about how we can help out there.
+[00:39:52 -&gt; 00:40:02]  Excellent.
+[00:40:02 -&gt; 00:40:12]  I&#39;ll give them a minute or so here. We usually don&#39;t take too long, so I&#39;ll let them know what man you do need.
+[00:40:12 -&gt; 00:40:16]  Thank you for contacting Population Health. This is Justin on the recorded line.
+[00:40:16 -&gt; 00:40:23]  Hi Justin. I do have Mr. **redacted** on the line with us today, and he currently has a UnitedHealthcare dual plan.
+[00:40:23 -&gt; 00:40:33]  That plan ID number is **redacted**, and if we can help connect him to any resources and services available, please.
+[00:40:33 -&gt; 00:40:36]  Of course, ma&#39;am. We&#39;ll get them all taken care of.
+[00:40:36 -&gt; 00:40:38]  Thank you. I appreciate your help.
+[00:40:38 -&gt; 00:40:43]  Hi, Mr. **redacted**. This is Justin with Population Health on the recorded line. How are you doing this afternoon?
+[00:40:43 -&gt; 00:40:47]  I&#39;m doing good.
+[00:40:47 -&gt; 00:40:52]  How are your benefits coordinated today, sir? We&#39;re going to finish up your call here with your Population Health membership and benefits.
+[00:40:52 -&gt; 00:40:56]  This is a no-cost service provided to you by a select quote.
+[00:40:56 -&gt; 00:41:03]  My job today is to find you those services you qualify for and are entitled to with your current UnitedHealthcare coverage.
+[00:41:03 -&gt; 00:41:08]  I do not change the benefits you are receiving through your plan or your plan itself.
+[00:41:08 -&gt; 00:41:14]  So again, this is a no-cost service. It is not part of your Medicare Advantage plan.
+[00:41:14 -&gt; 00:41:18]  You are not obligated to take action on the recommendations that we make here.
+[00:41:18 -&gt; 00:41:22]  Do I have your permission to continue to discuss Population Health services?
+[00:41:22 -&gt; 00:41:26]  Yes.
+[00:41:26 -&gt; 00:41:30]  Now, while I know you just reviewed your plan with your agent, we&#39;re not going to go through all that again.
+[00:41:30 -&gt; 00:41:37]  Do you have any questions before we move along to benefits? Good deal.
+[00:41:37 -&gt; 00:41:43]  Just know a customer care agent would be reaching out to you in the next two business days just to make sure everybody treated you professionally.
+[00:41:43 -&gt; 00:41:45]  Of course, you didn&#39;t have any further questions at that time.
+[00:41:45 -&gt; 00:41:54]  Now, before we move along, if I can talk today, before we move along, I do have a short recording I have to play for you for compliance purposes.
+[00:41:54 -&gt; 00:41:58]  At the end here, just give me a good yes or no and get Rockman rolling on your benefits.
+[00:41:58 -&gt; 00:42:01]  I&#39;ll play that for you now.
+[00:42:01 -&gt; 00:42:09]  I am needing your verbal agreement that you are opting in to Population Health membership and you agree to transferring your select quote data to Population Health
+[00:42:09 -&gt; 00:42:13]  so that we can save some time today in setting up your health profile.
+[00:42:13 -&gt; 00:42:21]  Population Health will help provide education and coordination of the managed care services available to you through your carrier or the general marketplace.
+[00:42:21 -&gt; 00:42:25]  Your membership is governed by the Population Health customer agreement.
+[00:42:25 -&gt; 00:42:33]  We will email you a more in-depth services agreement or you can find it online at www.populationhealth.com.
+[00:42:33 -&gt; 00:42:41]  If you need to cancel, you can call us at **redacted**.
+[00:42:41 -&gt; 00:42:45]  We need your consent to contact you at the number you are calling from.
+[00:42:45 -&gt; 00:42:50]  Your permission includes our use of an automated telephone dialing system to initiate our calls.
+[00:42:50 -&gt; 00:42:55]  Do you agree to these terms? Please say yes or no.
+[00:42:55 -&gt; 00:42:59]  Yes.
+[00:42:59 -&gt; 00:43:04]  It&#39;s there. And the first thing we&#39;ve got to do here is dot our I&#39;s and cross our T&#39;s.
+[00:43:04 -&gt; 00:43:07]  Make sure we&#39;ve got all the information correct on the screen for you.
+[00:43:07 -&gt; 00:43:12]  At this point it all should be correct, but if you need anything out of place just dot me and we&#39;ll make sure to make those corrections.
+[00:43:12 -&gt; 00:43:23]  We&#39;ve got **redacted**, middle initial G, last name **redacted**-L, birthday **redacted**.
+[00:43:23 -&gt; 00:43:27]  Do you have an email address you want to put in here today boss or would you like to put print only?
+[00:43:27 -&gt; 00:43:41]  No, email at the moment.
+[00:43:41 -&gt; 00:43:51]  Okay, so put print only at noemail.com.
+[00:43:52 -&gt; 00:43:56]  I put the ad symbol instead of the two, there we go.
+[00:43:56 -&gt; 00:44:00]  And then preferred language English, physical address.
+[00:44:00 -&gt; 00:44:07]  We&#39;ve got **redacted**, box **redacted**.
+[00:44:07 -&gt; 00:44:14]  That&#39;s **redacted**, **redacted**, **redacted**, and **redacted** County.
+[00:44:14 -&gt; 00:44:18]  Telephone number **redacted**, I&#39;m sorry, go ahead.
+[00:44:18 -&gt; 00:44:24]  That&#39;s an old address, and it&#39;s not in **redacted**, it&#39;s in **redacted**.
+[00:44:24 -&gt; 00:44:41]  And it&#39;s **redacted** box **redacted**, **redacted**, **redacted**.
+[00:44:41 -&gt; 00:44:43]  Is the zip code different?
+[00:44:43 -&gt; 00:44:57]  **redacted** should be **redacted**.
+[00:44:57 -&gt; 00:45:00]  Okay, see it is. It goes upright.
+[00:45:00 -&gt; 00:45:06]  And then telephone number **redacted**, correct?
+[00:45:06 -&gt; 00:45:10]  Yes, correct.
+[00:45:10 -&gt; 00:45:16]  Same. Red, white, and blue is in there. Dates are in there.
+[00:45:16 -&gt; 00:45:21]  Medicare and your plan.
+[00:45:21 -&gt; 00:45:33]  Computer. Healthcare. **redacted**.
+[00:45:33 -&gt; 00:45:37]  And on your Medicare, that&#39;s parts A and B, correct?
+[00:45:37 -&gt; 00:45:40]  Yes.
+[00:45:40 -&gt; 00:45:43]  Okay, good day.
+[00:45:43 -&gt; 00:45:48]  Alright, so the best way to make sure we get you everything you&#39;re entitled to is to complete what we call a health risk assessment.
+[00:45:48 -&gt; 00:45:51]  You can assign yes or no questions to determine eligibility.
+[00:45:51 -&gt; 00:45:55]  If you currently take six or more prescription drugs, yes or no?
+[00:45:55 -&gt; 00:45:58]  Yes.
+[00:45:58 -&gt; 00:46:02]  If yes, how many total?
+[00:46:02 -&gt; 00:46:06]  I don&#39;t know. I&#39;m on the bathroom right now.
+[00:46:06 -&gt; 00:46:15]  I have gotten. I&#39;m sorry.
+[00:46:15 -&gt; 00:46:16]  What? What?
+[00:46:16 -&gt; 00:46:17]  Sir? medicare

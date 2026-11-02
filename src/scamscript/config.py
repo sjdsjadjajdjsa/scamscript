@@ -8,7 +8,7 @@ from dataclasses import dataclass, field
 DEFAULT_TIMEOUT = 120.0
 DEFAULT_RETRIES = 2
 DEFAULT_CONCURRENCY = 1
-DEFAULT_MAX_TOKENS = 4096
+DEFAULT_MAX_TOKENS = 6144
 ENV_API_KEY = "API_KEY"
 ENV_HOME = "SCAMSCRIPT_HOME"
 
@@ -26,6 +26,7 @@ class Settings:
     retries: int = DEFAULT_RETRIES
     max_tokens: int = DEFAULT_MAX_TOKENS
     redact: bool = False
+    language: str | None = None
     concurrency: int = DEFAULT_CONCURRENCY
     max_cost: float | None = None
     home: str = field(default_factory=lambda: os.environ.get(ENV_HOME, ""))

@@ -8,10 +8,14 @@ from difflib import SequenceMatcher
 
 from scamscript.models import ScriptBreakdown
 
-QUOTE_PATTERN = re.compile(r"[\"“”'‘’]([^\"“”'‘’]{8,400})[\"“”'‘’]")
+DOUBLE_QUOTED = r"[\"“”]([^\"“”]{8,400})[\"“”]"
+SINGLE_QUOTED = r"(?<![A-Za-z])['‘]([^'‘’]{8,400})['’](?![A-Za-z])"
+QUOTE_PATTERN = re.compile(f"{DOUBLE_QUOTED}|{SINGLE_QUOTED}")
 WORD = re.compile(r"[a-z0-9]+")
 MIN_QUOTE_WORDS = 3
 CLOSE_RATIO = 0.75
+SPLIT = re.compile(r"\s*(?:;|—|\s-\s|,)\s*")
+LONG_QUOTE_WORDS = 22
 
 FIELDS = ("opening_hook", "red_flags")
 
@@ -42,7 +46,10 @@ def normalize(text: str) -> str:
 
 
 def extract_quotes(value: str) -> list[str]:
-    quotes = [match.group(1).strip() for match in QUOTE_PATTERN.finditer(value)]
+    quotes = [
+        (match.group(1) or match.group(2) or "").strip()
+        for match in QUOTE_PATTERN.finditer(value)
+    ]
     return [quote for quote in quotes if len(WORD.findall(quote)) >= MIN_QUOTE_WORDS]
 
 
@@ -85,11 +92,22 @@ def verify_breakdown(breakdown: ScriptBreakdown, source: str) -> list[Issue]:
             if not quotes and field == "opening_hook" and len(WORD.findall(item)) >= 4:
                 quotes = [item]
             for quote in quotes:
-                status, ratio = classify(quote, source)
-                issues.append(
-                    Issue(field=field, quote=quote.strip(), status=status, ratio=ratio)
-                )
+                issues.extend(_check_quote(field, quote, source))
     return issues
+
+
+def _check_quote(field: str, quote: str, source: str) -> list[Issue]:
+    """Long quotes drift; check their clauses separately so one clause cannot hide a miss."""
+    chunks = [quote]
+    if len(quote.split()) > LONG_QUOTE_WORDS:
+        split = [chunk for chunk in SPLIT.split(quote) if len(chunk.split()) >= 3]
+        if len(split) > 1:
+            chunks = split
+    out = []
+    for chunk in chunks:
+        status, ratio = classify(chunk, source)
+        out.append(Issue(field=field, quote=chunk.strip(), status=status, ratio=ratio))
+    return out
 
 
 def summarize(issues: list[Issue]) -> dict[str, int]:

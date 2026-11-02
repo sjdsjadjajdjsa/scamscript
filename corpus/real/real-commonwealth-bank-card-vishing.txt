@@ -1,0 +1,1459 @@
+# REAL call: Commonwealth Bank impersonation, card-fraud "verification" (Australia)
+# Source: https://scripts.r00ting.net/posts/6/
+# Publisher: scripts.r00ting.net (LeakIX), posted 2023-09-10
+# Verbatim: yes, timestamped recording transcript with PII redacted by the publisher
+# Quoted here for security research; (c) the publisher.
+
+Canceling fraudulent transactions - Stolen credit card #2 Posted on Sep 10, 2023
+[00:00:02 -&gt; 00:00:04]  Hello, yes, hello
+[00:00:06 -&gt; 00:00:10]  Hi ma&#39;am, my name is Jack and I&#39;m calling you from Commonwealth Bank. How are you doing today?
+[00:00:11 -&gt; 00:00:13]  Good, thank you
+[00:00:13 -&gt; 00:00:17]  And it&#39;s a verification call in regards to a payment of seven hundred dollar
+[00:00:17 -&gt; 00:00:20]  Which is initiated from your and going to mr. Markov&#39;s
+[00:00:20 -&gt; 00:00:27]  So we just wanted to verify this payment that has you made any payment of seven hundred dollar to mr. Markov&#39;s or not?
+[00:00:27 -&gt; 00:00:29]  Could you please confirm me?
+[00:00:29 -&gt; 00:00:29]  No
+[00:00:29 -&gt; 00:00:36]  Okay, do you know anybody by such name Markov&#39;s in a family friends or anywhere by chance, huh?
+[00:00:36 -&gt; 00:00:38]  No
+[00:00:39 -&gt; 00:00:44]  Okay, so now you have confirmed me that you haven&#39;t made this transaction and you don&#39;t know anybody by this name Markov&#39;s
+[00:00:44 -&gt; 00:00:48]  So we will go ahead and simply cancel this transaction as a proudly inform
+[00:00:48 -&gt; 00:00:51]  So not a single penny will move from your account. Okay, I&#39;m don&#39;t worry
+[00:00:51 -&gt; 00:00:56]  I&#39;m can you call me that when did you last time you used your card in a petrol station of all smart LED soon?
+[00:00:56 -&gt; 00:00:58]  Where did you last me you used your card?
+[00:00:59 -&gt; 00:01:06]  I don&#39;t know what card you&#39;re talking. I&#39;m talking about the visa part now
+[00:01:06 -&gt; 00:01:17]  It may have been used a couple of days ago
+[00:01:06 -&gt; 00:01:17]  And you can talk with my senior manager
+[00:01:17 -&gt; 00:01:24]  They will handle it and tell you all the information about this transition them. Okay, so can I transfer my call to our senior manager?
+[00:01:24 -&gt; 00:01:28]  Yes
+[00:01:28 -&gt; 00:01:31]  Yes, okay. Thank you being online. Let me transfer my call
+[00:01:32 -&gt; 00:01:39]  Do you want to get my card out and I&#39;ll check which one the visa one actually is
+[00:01:44 -&gt; 00:01:46]  Hello
+[00:01:46 -&gt; 00:01:48]  Yes, hello
+[00:01:48 -&gt; 00:01:54]  Yeah, thank you for being online ma&#39;am. My name is Edward Wilson and I&#39;m the senior manager from the cancellation team
+[00:01:54 -&gt; 00:01:56]  How are you today?
+[00:01:56 -&gt; 00:01:58]  Good. Thank you
+[00:01:58 -&gt; 00:02:04]  Ma&#39;am the reason we have called you today. We got a transaction request which is made from your account of
+[00:02:05 -&gt; 00:02:12]  $700 so we are just called you to verify the transaction amount you have spent any money of $700 today
+[00:02:13 -&gt; 00:02:15]  No
+[00:02:15 -&gt; 00:02:18]  Ma&#39;am this transaction is being placed under the name of mr. Mark Hobbs
+[00:02:19 -&gt; 00:02:23]  He is a person who is receiving this money from your account. So we need to validate
+[00:02:23 -&gt; 00:02:26]  You know anybody by the name mr. Mark Hobbs
+[00:02:27 -&gt; 00:02:28]  No
+[00:02:28 -&gt; 00:02:33]  Okay, and ma&#39;am as are you confirmed that you did not authorize any transaction today
+[00:02:33 -&gt; 00:02:38]  So do you recall using your card for the last time like in any grocery,
+[00:02:38 -&gt; 00:02:44]  petrol station super calls market who&#39;s forth. Where did you last time use your card ma&#39;am?
+[00:02:49 -&gt; 00:02:51]  It hasn&#39;t been used for quite some time
+[00:02:52 -&gt; 00:02:56]  That&#39;s the reason because we can&#39;t see any transaction in the recent time
+[00:02:56 -&gt; 00:03:02]  This transaction took place out of like the payment is being made for online purchase
+[00:03:02 -&gt; 00:03:06]  They have made the transaction today and ma&#39;am in the last couple of months
+[00:03:06 -&gt; 00:03:09]  You remember using a debit card or the credit card for the last time?
+[00:03:14 -&gt; 00:03:16]  No, not directly no
+[00:03:17 -&gt; 00:03:23]  Okay, I&#39;ll be giving you out some information so that you can have a clear understanding or where the payment is going
+[00:03:23 -&gt; 00:03:29]  I&#39;m just confirming you ma&#39;am. You just check a do you hold any card ma&#39;am which starts with a
+[00:03:30 -&gt; 00:03:35]  five two one seven and five five two three or five three five three just check
+[00:03:36 -&gt; 00:03:42]  Hang on. What was the numbers? Sorry?
+[00:03:43 -&gt; 00:03:52]  Ma&#39;am, just check do you hold any card which starts with five two one seven five five two three or five five three five?
+[00:03:56 -&gt; 00:03:59]  Ma&#39;am just check like you were looking onto the Visa card
+[00:04:01 -&gt; 00:04:03]  Yep
+[00:04:03 -&gt; 00:04:05]  Okay, just check with the transaction amount ma&#39;am
+[00:04:05 -&gt; 00:04:14]  It&#39;s $700 from the card four nine four zero. Just check.
+[00:04:05 -&gt; 00:04:14]  Not my card
+[00:04:15 -&gt; 00:04:19]  Yeah, that&#39;s the reason because you are not authorizing this transaction
+[00:04:19 -&gt; 00:04:26]  And are you looking on to the like AMZ or NAP card ma&#39;am which card you are looking on to?
+[00:04:19 -&gt; 00:04:26]  Neither
+[00:04:28 -&gt; 00:04:33]  Neither no issues. Let me block this card. I&#39;m just verifying some stuff. You are **redacted**. Am I correct?
+[00:04:35 -&gt; 00:04:39]  Yes, what what is the number of the card that you are blocking?
+[00:04:39 -&gt; 00:04:44]  I&#39;m just blocking the transaction amount ma&#39;am. I&#39;ll be just verifying that in the card. Just check
+[00:04:44 -&gt; 00:04:51]  Do you hold any card ma&#39;am which starts with five five two zero or five three five three? Just check from your end
+[00:04:55 -&gt; 00:04:57]  five five two zero
+[00:04:57 -&gt; 00:04:59]  five five two zero
+[00:05:00 -&gt; 00:05:09]  Yep, just check this card is with you. Just grab your card and have a look the card is
+[00:05:10 -&gt; 00:05:13]  I don&#39;t have any that have those numbers.
+[00:05:10 -&gt; 00:05:13]  Thank you ma&#39;am
+[00:05:13 -&gt; 00:05:21]  So I&#39;m just cancelling this transaction and in the meanwhile you just check for card which starts with five three five three
+[00:05:21 -&gt; 00:05:29]  And what what about that card I?
+[00:05:29 -&gt; 00:05:34]  Just need to confirm the card you hold is being used for the online payment ma&#39;am
+[00:05:34 -&gt; 00:05:38]  You use register this card for eBay Amazon anywhere
+[00:05:40 -&gt; 00:05:42]  No
+[00:05:42 -&gt; 00:05:47]  Okay, I&#39;m just placing a block on the card ma&#39;am the five three five three card is in your possession
+[00:05:47 -&gt; 00:06:00]  And that&#39;s not but that is not the card that you said has been used today for the seven hundred dollars
+[00:06:01 -&gt; 00:06:08]  I&#39;m saying ma&#39;am we are blocking the transaction amount ma&#39;am you just check with the card you hold any card ma&#39;am
+[00:06:08 -&gt; 00:06:20]  Which starts with five three five three or five three two six just check it should be there ma&#39;am
+[00:06:20 -&gt; 00:06:24]  If you lost the card, please confirm so that we can block it ma&#39;am
+[00:06:24 -&gt; 00:06:27]  What&#39;s going to happen with those cards?
+[00:06:29 -&gt; 00:06:34]  Ma&#39;am the first transaction which they have placed is five three five three card **redacted**
+[00:06:34 -&gt; 00:06:43]  I just need to confirm this card is with you or five three two six card is with you ma&#39;am. Just check
+[00:06:45 -&gt; 00:06:50]  Yeah, and and if that if those cards are with me what is going to happen
+[00:06:51 -&gt; 00:06:54]  Ma&#39;am, we only put a block onto the card
+[00:06:54 -&gt; 00:07:01]  You have to come down to the local branch tomorrow and just get verified all the stuff and you need to get a replace card ma&#39;am
+[00:07:01 -&gt; 00:07:05]  Don&#39;t use the card any further because we believe mr
+[00:07:05 -&gt; 00:07:10]  Mark Hopps has got some information and he is trying to purchase the stuff on the internet
+[00:07:10 -&gt; 00:07:12]  That&#39;s the reason you have got this call ma&#39;am
+[00:07:12 -&gt; 00:07:17]  Now we need to just validate ma&#39;am this card is in your possession five three five three card or any other card ma&#39;am
+[00:07:18 -&gt; 00:07:21]  I&#39;ll come down to one the bank tomorrow
+[00:07:22 -&gt; 00:07:27]  That will be fine ma&#39;am, but right now we need to place a block on the card ma&#39;am without blocking the card
+[00:07:27 -&gt; 00:07:28]  They might use it once again
+[00:07:28 -&gt; 00:07:33]  And if they will make any charges which will go through you end up losing the money ma&#39;am
+[00:07:33 -&gt; 00:07:40]  I don&#39;t need your BSP your account your password your client number even I don&#39;t need any information from you
+[00:07:40 -&gt; 00:07:45]  We are only validating that the card is in customer possession. You haven&#39;t lost from misplaced the card
+[00:07:45 -&gt; 00:07:53]  So for the verification purpose ma&#39;am, but we are verifying you got the card five three five three card or any other card ma&#39;am
+[00:07:45 -&gt; 00:07:53]  Yes
+[00:07:56 -&gt; 00:07:57]  First thing what I&#39;ll do ma&#39;am
+[00:07:57 -&gt; 00:08:04]  I will be sending you a notification on your number ma&#39;am so that you can have a clear vision that what&#39;s going on and where the
+[00:08:04 -&gt; 00:08:08]  Payment is they have charged and it&#39;s a master. It&#39;s a master credit card. You are using
+[00:08:04 -&gt; 00:08:08]  Yes
+[00:08:08 -&gt; 00:08:15]  Okay
+[00:08:15 -&gt; 00:08:16]  Okay, now ma&#39;am
+[00:08:16 -&gt; 00:08:19]  I&#39;m just going to place a block on the card before that ma&#39;am
+[00:08:19 -&gt; 00:08:23]  I request you to please grab a pen and a paper and note down some information
+[00:08:24 -&gt; 00:08:28]  Okay, go ahead
+[00:08:28 -&gt; 00:08:35]  Okay, first thing ma&#39;am like this call is getting recorded ma&#39;am with the banking system for the quality and the training purpose
+[00:08:35 -&gt; 00:08:40]  So there must be a reference number for the call. Please make a note. It&#39;s V for Victor
+[00:08:41 -&gt; 00:08:45]  **redacted**
+[00:08:46 -&gt; 00:08:48]  **redacted**
+[00:08:48 -&gt; 00:08:53]  **redacted**
+[00:08:53 -&gt; 00:08:59]  Okay, now just note down the transaction amount ma&#39;am. They have made a payment of 700
+[00:09:00 -&gt; 00:09:05]  GHS it&#39;s a Ghana in South Africa ma&#39;am. They have made international transactions from the card
+[00:09:11 -&gt; 00:09:13]  Now just note down that
+[00:09:13 -&gt; 00:09:15]  Transaction is a $700 payment
+[00:09:16 -&gt; 00:09:18]  Yep, got it
+[00:09:18 -&gt; 00:09:19]  First thing what I&#39;ll do ma&#39;am
+[00:09:19 -&gt; 00:09:23]  I will be sending you a message on your number in order to place a block on the card
+[00:09:23 -&gt; 00:09:29]  The bank need to ensure that the card is still with customer once the verification is done
+[00:09:29 -&gt; 00:09:36]  We will send you a message on your mobile phone from the Commonwealth Bank in order to block the card bank
+[00:09:36 -&gt; 00:09:38]  So that nobody can use it any further
+[00:09:39 -&gt; 00:09:45]  So for the verification purpose only verify the last eight digits on the card madam. Just confirm only the last date
+[00:09:46 -&gt; 00:09:54]  Just verify.
+[00:09:46 -&gt; 00:09:54]  You&#39;ve asked me for two of those numbers
+[00:09:55 -&gt; 00:09:58]  Ma&#39;am, I&#39;m only verifying the last eight digits
+[00:09:58 -&gt; 00:10:05]  I don&#39;t need your full card or any name on the card or any person details. I&#39;m not authorized ma&#39;am
+[00:10:05 -&gt; 00:10:09]  We&#39;re only ensuring that the card is still with customer
+[00:10:10 -&gt; 00:10:12]  information on
+[00:10:12 -&gt; 00:10:14]  which
+[00:10:15 -&gt; 00:10:21]  Just check you hold any card ma&#39;am. I&#39;ve given you series the numbers which they have charged. They have charged multiple transactions
+[00:10:21 -&gt; 00:10:30]  So we need to verify which one of your cards. Is it starts with 5353 ma&#39;am. It&#39;s a master credit card. Just check. Yes
+[00:10:32 -&gt; 00:10:34]  Just verify all
+[00:10:32 -&gt; 00:10:34]  Yes
+[00:10:34 -&gt; 00:10:36]  Come again ma&#39;am
+[00:10:36 -&gt; 00:10:38]  That would be **redacted**
+[00:10:39 -&gt; 00:10:51]  **redacted**. It&#39;s **redacted**
+[00:10:52 -&gt; 00:10:55]  Okay, I&#39;ll be sending you a message ma&#39;am in order to
+[00:10:56 -&gt; 00:11:01]  Give you a clear reason where the payment is going. What&#39;s the transaction amount.
+[00:11:01 -&gt; 00:11:08]  I&#39;ll be sending you a copy of the message and it will be coming onto your combank app ma&#39;am
+[00:11:08 -&gt; 00:11:13]  This message will be coming onto combank you app you use any combank application on your phone?
+[00:11:15 -&gt; 00:11:17]  I don&#39;t really not
+[00:11:18 -&gt; 00:11:21]  Okay, no issue, so you will be getting the notification on your number
+[00:11:21 -&gt; 00:11:28]  Just check it will be coming directly from the Commonwealth Bank ma&#39;am. You need to open the message and if you check ma&#39;am
+[00:11:28 -&gt; 00:11:34]  Somebody is trying to register your card on the internet and they have tried to purchase a stuffs
+[00:11:34 -&gt; 00:11:36]  I am sending you a copy of the message ma&#39;am
+[00:11:37 -&gt; 00:11:39]  Like when the person has tried to use your card
+[00:11:39 -&gt; 00:11:43]  We got this message and I&#39;m sharing with you on the recorded line
+[00:11:43 -&gt; 00:11:48]  You need to just check with the message if it is matching then we will cancel the transaction ma&#39;am
+[00:11:48 -&gt; 00:11:53]  You need to get verified everything. I&#39;ll be sending you the message. Just hold for a while
+[00:11:53 -&gt; 00:12:04]  Let me send you the message first and if you receive just confirm to me ma&#39;am. Okay, you there ma&#39;am?
+[00:12:05 -&gt; 00:12:07]  Yes, I am
+[00:12:07 -&gt; 00:12:12]  Okay, if you receive the message just confirm to me that yes, I do what I got a message from the Commonwealth
+[00:12:12 -&gt; 00:12:17]  Just hold the line. I&#39;ll be sending you the exact notification ma&#39;am, which we have got
+[00:12:22 -&gt; 00:12:27]  Okay, if you receive any notification from the Commonwealth, just let me know
+[00:12:27 -&gt; 00:12:37]  Okay, and ma&#39;am we can see two number is being registered with the system the number which ends in **redacted**
+[00:12:38 -&gt; 00:12:52]  And **redacted** who you is using this number ma&#39;am **redacted** the mobile engine, who use the mobile phone ma&#39;am
+[00:12:52 -&gt; 00:12:54]  Which ends in **redacted**?
+[00:12:56 -&gt; 00:12:58]  That&#39;s my husband
+[00:12:58 -&gt; 00:13:03]  Okay, because you understand when we can see our two notification centers
+[00:13:03 -&gt; 00:13:16]  I&#39;m sending you copy on your mobile phone check your phone ma&#39;am you got any notification from the bank you have received a notification
+[00:13:03 -&gt; 00:13:16]  Yeah
+[00:13:17 -&gt; 00:13:22]  Okay, now just open the message and check ma&#39;am somebody&#39;s trying to purchase
+[00:13:22 -&gt; 00:13:29]  They are trying to authorize a payment if you can see some message the net code to authorize a transaction of
+[00:13:29 -&gt; 00:13:31]  700 ghs
+[00:13:31 -&gt; 00:13:37]  It&#39;s a different currency ma&#39;am if you understand it&#39;s a different currency which they are charging on your card ma&#39;am
+[00:13:37 -&gt; 00:13:44]  That&#39;s the reason the banking system got suspicious and we have put the transaction on hold and ma&#39;am apart from you
+[00:13:45 -&gt; 00:13:47]  Your husband is also using your card ma&#39;am
+[00:13:50 -&gt; 00:13:55]  No,
+[00:13:50 -&gt; 00:13:55]  he is not using the card. Am I correct?
+[00:13:57 -&gt; 00:13:59]  No, not that card
+[00:14:00 -&gt; 00:14:02]  Thank you, ma&#39;am. So first thing what I&#39;ll do ma&#39;am
+[00:14:02 -&gt; 00:14:06]  I&#39;m requesting you to not to please use your card ma&#39;am
+[00:14:06 -&gt; 00:14:11]  We believe this person has got your information and he is trying to purchase the stuffs
+[00:14:11 -&gt; 00:14:16]  So I&#39;m blocking the card and I&#39;ll be sending you the notifications
+[00:14:16 -&gt; 00:14:23]  Which they have charged on your card and we will cancel the net code the transaction which they have placed on your card
+[00:14:23 -&gt; 00:14:25]  We will cancel all those authorizations
+[00:14:25 -&gt; 00:14:32]  First thing what we need to do. We need to block the card ma&#39;am. You want to use the card for any further transactions?
+[00:14:35 -&gt; 00:14:38]  Well, yes, I do but I&#39;m not going to be it. I
+[00:14:39 -&gt; 00:14:41]  obviously can&#39;t now
+[00:14:41 -&gt; 00:14:45]  I&#39;m saying them because you need to understand there&#39;s a potential threat on the card ma&#39;am
+[00:14:46 -&gt; 00:14:51]  Somebody else might have the card numbers and they&#39;re using it ma&#39;am and they&#39;re charging the card
+[00:14:51 -&gt; 00:14:59]  So it&#39;s always a good start not to use it ma&#39;am because we believe somebody has got this number and they are charging it
+[00:14:59 -&gt; 00:15:05]  What we will do we will place a block on the card and we will issue a new card to you on your registered
+[00:15:05 -&gt; 00:15:11]  Address in the next three to four business days ma&#39;am. You will be receiving a new card till the time
+[00:15:11 -&gt; 00:15:14]  I&#39;m requesting you not to use this card any further.
+[00:15:11 -&gt; 00:15:14]  Okay
+[00:15:16 -&gt; 00:15:18]  So first thing what I&#39;ll do ma&#39;am
+[00:15:18 -&gt; 00:15:24]  I&#39;m placing a block on the card and we need to get verified that the card is still with customer
+[00:15:24 -&gt; 00:15:29]  You did not lost or misplace the card. So for the verification purpose ma&#39;am
+[00:15:29 -&gt; 00:15:33]  We need to verify the card is in your position. Please look at the back of the card
+[00:15:33 -&gt; 00:15:41]  We have provided you with a three-digit validation. Just have a look
+[00:15:33 -&gt; 00:15:41]  Back of the card. No
+[00:15:44 -&gt; 00:15:48]  Ma&#39;am you don&#39;t have to share with me ma&#39;am what I&#39;m trying to tell you
+[00:15:48 -&gt; 00:15:52]  We are blocking at him if you can understand we have sent you the message from the bank
+[00:15:53 -&gt; 00:15:58]  They are using this card ma&#39;am on the internet and they have used the three-digit CVV number
+[00:15:59 -&gt; 00:16:01]  ma&#39;am we need
+[00:16:02 -&gt; 00:16:06]  We need to validate it ma&#39;am so that we can ensure it is a right card
+[00:16:06 -&gt; 00:16:12]  Which you are holding and the person mr. Mark hops has using the same card ma&#39;am. I don&#39;t need your full card number
+[00:16:12 -&gt; 00:16:15]  I don&#39;t need your password. I don&#39;t need your pin
+[00:16:15 -&gt; 00:16:18]  I don&#39;t need your BSV or account ma&#39;am
+[00:16:18 -&gt; 00:16:24]  I&#39;m not asking as somebody&#39;s charging your card ma&#39;am and they have tried to make a payment of
+[00:16:24 -&gt; 00:16:31]  $700 from the card so we are ensuring card is in right hand ma&#39;am and we are blocking each and everything
+[00:16:31 -&gt; 00:16:35]  Like the three-digit validation CVV we are blocking the card pin
+[00:16:35 -&gt; 00:16:39]  We are blocking the card along with the expiry ma&#39;am you no need to worry for this ma&#39;am
+[00:16:39 -&gt; 00:16:43]  I&#39;ll be sending you a copy of the message on your number ma&#39;am
+[00:16:43 -&gt; 00:16:47]  Everything will be like you will be getting in a registered manner
+[00:16:47 -&gt; 00:16:52]  You will be getting everything in writing ma&#39;am on to your address. We will send you even ma&#39;am
+[00:16:52 -&gt; 00:16:54]  What about transaction we are cancelling?
+[00:16:54 -&gt; 00:16:59]  We will send you a copy of the message ma&#39;am on your number right away while talking to me
+[00:16:59 -&gt; 00:17:00]  I&#39;m not going to hang up the line
+[00:17:00 -&gt; 00:17:05]  You can verify all the stops from your end once the cancellation is done ma&#39;am
+[00:17:05 -&gt; 00:17:08]  We will send you a closing ticket from the Commonwealth Bank
+[00:17:08 -&gt; 00:17:10]  So there&#39;s nothing to worry you are talking with the right team ma&#39;am
+[00:17:11 -&gt; 00:17:17]  Once we are done because we believe this person is a Mark Hobbs has got the master credit card information
+[00:17:17 -&gt; 00:17:19]  And they are using to purchase the steps ma&#39;am
+[00:17:19 -&gt; 00:17:25]  They&#39;re using the information on the card. That&#39;s a reason we need to place a block on the CVV ma&#39;am. Just verify
+[00:17:27 -&gt; 00:17:32]  Look, I&#39;m just going to tell you I&#39;m just going to tell you that I am
+[00:17:33 -&gt; 00:17:34]  flustered
+[00:17:34 -&gt; 00:17:39]  I&#39;m trying to put the pin in the Commonwealth Bank app. I&#39;ve forgotten it
+[00:17:39 -&gt; 00:17:46]  I&#39;ve used I&#39;ve tried multiple times. It now says if I do it again, it&#39;s going to lock me out
+[00:17:46 -&gt; 00:17:48]  So if you&#39;re needing any information
+[00:17:48 -&gt; 00:17:54]  Listen to me. Don&#39;t do any activity ma&#39;am apart from you
+[00:17:55 -&gt; 00:17:59]  Somebody else has also got the number **redacted** card ma&#39;am
+[00:17:59 -&gt; 00:18:03]  What I&#39;m trying to tell you have one percent of trust ma&#39;am if I&#39;m the wrong person
+[00:18:03 -&gt; 00:18:07]  I have could ask for the full card number. I did not ask you ma&#39;am
+[00:18:07 -&gt; 00:18:14]  I only validate the last eight number what I&#39;m trying to tell you bank never asked you for your financial or your credentials ma&#39;am
+[00:18:14 -&gt; 00:18:20]  What I&#39;m trying to tell you as the card is being compromised. So we are only ensuring card is with you. That&#39;s it
+[00:18:21 -&gt; 00:18:25]  Apart from that. I&#39;m not seeking you ma&#39;am. What&#39;s your client number? What&#39;s your password?
+[00:18:25 -&gt; 00:18:30]  What&#39;s your card pin and what&#39;s your person information? I&#39;m not seeking ma&#39;am if you understand
+[00:18:30 -&gt; 00:18:32]  I&#39;m not asking for any details from you
+[00:18:32 -&gt; 00:18:38]  Somebody&#39;s charging your card ma&#39;am and they have used the card on the internet in order to purchase the stuffs
+[00:18:38 -&gt; 00:18:45]  They have used the card details. They have used the expiry date. They have used the three-digit validation. That is CVV
+[00:18:45 -&gt; 00:18:48]  So we are blocking all the stuffs on the card ma&#39;am
+[00:18:48 -&gt; 00:18:54]  That&#39;s it and I&#39;m telling you you will be getting a message from the Commonwealth Bank itself ma&#39;am. So, please verify
+[00:18:54 -&gt; 00:18:56]  Let me do my job
+[00:18:56 -&gt; 00:18:58]  Just confirm the three-digit validation ma&#39;am
+[00:18:59 -&gt; 00:19:02]  At the back of the card on the signature panel, let me block it first
+[00:19:02 -&gt; 00:19:10]  Just confirm look on the back of the card ma&#39;am. There&#39;s a three-digit validation. Just confirm
+[00:19:12 -&gt; 00:19:14]  **redacted**
+[00:19:14 -&gt; 00:19:15]  That&#39;s correct ma&#39;am ma&#39;am
+[00:19:15 -&gt; 00:19:19]  We have all the number you no need to worry for this if you want to verify
+[00:19:19 -&gt; 00:19:23]  First of all ask anyone to send you a message from the bank
+[00:19:23 -&gt; 00:19:28]  If they are able to send you the message from the bank, then you can only verify that yes
+[00:19:28 -&gt; 00:19:31]  I am talking with the system and ma&#39;am we have for the verification
+[00:19:31 -&gt; 00:19:36]  We have sent you the message ma&#39;am and what I&#39;m trying to tell you I am blocking this card ma&#39;am
+[00:19:36 -&gt; 00:19:38]  I&#39;m not asking you to share your information
+[00:19:38 -&gt; 00:19:44]  Like name on the card or any other details what we will do once we cancel all the transaction
+[00:19:44 -&gt; 00:19:51]  We will place a block on the card. You can come to the bank tomorrow get verified all the stuff
+[00:19:51 -&gt; 00:19:55]  I have shared with you like the validation number
+[00:19:55 -&gt; 00:19:58]  I have shared with you the reference number for this call if you want
+[00:19:58 -&gt; 00:20:02]  I&#39;ll be verifying you all the steps ma&#39;am now just check when the card is getting expired ma&#39;am
+[00:20:02 -&gt; 00:20:08]  Just check only with the month and year don&#39;t read me the first number only the when it get expired
+[00:20:08 -&gt; 00:20:18]  Don&#39;t read me the start number only the end when the card get expired only just confirm. Just look at the card ma&#39;am
+[00:20:19 -&gt; 00:20:21]  **redacted**
+[00:20:21 -&gt; 00:20:23]  That&#39;s correct, which month is reflecting ma&#39;am
+[00:20:24 -&gt; 00:20:30]  No, you&#39;re basically getting all the information out of me
+[00:20:24 -&gt; 00:20:30]  Ma&#39;am you want to listen to me
+[00:20:30 -&gt; 00:20:34]  Okay, if you don&#39;t feel comfortable don&#39;t share ma&#39;am listen
+[00:20:34 -&gt; 00:20:39]  I will go to ma&#39;am listen. Okay. Okay. Don&#39;t feel comfortable. Don&#39;t share ma&#39;am
+[00:20:40 -&gt; 00:20:44]  Don&#39;t share if you don&#39;t feel comfortable don&#39;t share but you need to understand ma&#39;am
+[00:20:44 -&gt; 00:20:48]  You are getting calls from the bank you get messages on your mobile phone
+[00:20:48 -&gt; 00:20:51]  We have verified like apart from this mobile phone
+[00:20:51 -&gt; 00:20:54]  Which mobile phone you are using ma&#39;am like your husband number?
+[00:20:54 -&gt; 00:21:00]  So who can verify you ma&#39;am that what the number is being registered with the bank only your bank can verify ma&#39;am
+[00:21:01 -&gt; 00:21:07]  Nobody else can verify what your husband using the phone is he registered with the same number?
+[00:21:07 -&gt; 00:21:13]  We have verified to you ma&#39;am. So have 1% of trust ma&#39;am if we are here to do the wrong stuff ma&#39;am
+[00:21:13 -&gt; 00:21:17]  If you have got all that information and the
+[00:21:17 -&gt; 00:21:19]  Ma&#39;am listen listen
+[00:21:19 -&gt; 00:21:21]  Ma&#39;am what is most
+[00:21:23 -&gt; 00:21:27]  What is most important thing is ma&#39;am do not share your pin ma&#39;am
+[00:21:27 -&gt; 00:21:35]  Your pin is the most important thing for the transactions ma&#39;am your account number your BSB number
+[00:21:35 -&gt; 00:21:40]  Ma&#39;am tell me let me assume I&#39;ll be verifying you one thing if you lost your wallet ma&#39;am that doesn&#39;t mean
+[00:21:40 -&gt; 00:21:43]  Anybody can take out the money from your card ma&#39;am
+[00:21:43 -&gt; 00:21:47]  Most of the customer called us and they said that sir I need to block my card
+[00:21:47 -&gt; 00:21:53]  We verify them and the reason which they told that I lost my wallet. I have misplaced the card
+[00:21:53 -&gt; 00:21:59]  So we are only blocking the card ma&#39;am if somebody get your card that doesn&#39;t mean they can take out the money from the card ma&#39;am
+[00:21:59 -&gt; 00:22:02]  What you are sharing with me are you sharing your pin with me?
+[00:22:02 -&gt; 00:22:06]  Are you sharing the name on the card with me? Are you sharing your account your client?
+[00:22:06 -&gt; 00:22:09]  Nothing you&#39;re sharing with me ma&#39;am what I&#39;m trying to tell you
+[00:22:09 -&gt; 00:22:15]  I&#39;m blocking all the details on the card ma&#39;am and I&#39;m telling you that you will be getting the message from the bank ma&#39;am
+[00:22:15 -&gt; 00:22:19]  I&#39;m not telling you that you please verify and I&#39;m not going to send you anything
+[00:22:19 -&gt; 00:22:23]  I&#39;m telling you ma&#39;am that I&#39;m going to verify you all the stuffs
+[00:22:23 -&gt; 00:22:28]  You will be getting notifications like the net code so that we can cancel all the
+[00:22:29 -&gt; 00:22:31]  Authorizations which they are placing on the card ma&#39;am
+[00:22:31 -&gt; 00:22:38]  These are the things ma&#39;am which we need to validate that the customer is having the card the physically card is present with you
+[00:22:38 -&gt; 00:22:43]  That&#39;s it ma&#39;am. You don&#39;t share me your pin ma&#39;am if I&#39;ll ask you for the pin hang up on me if I&#39;ll ask you
+[00:22:43 -&gt; 00:22:46]  For your password hang up on me. I&#39;m not asking you any details
+[00:22:46 -&gt; 00:22:53]  I&#39;m only verifying the number which they have used on the internet is it the same number or the different number ma&#39;am. That&#39;s it
+[00:22:54 -&gt; 00:22:58]  Now just hold the line. Let me cancel these transactions and the card ma&#39;am now
+[00:22:58 -&gt; 00:23:11]  Just please validate like which month is reflecting the year is 24 and which month is reflecting.
+[00:22:58 -&gt; 00:23:11]  **redacted**
+[00:22:58 -&gt; 00:23:11]  It&#39;s a **redacted am I correct ma&#39;am
+[00:23:12 -&gt; 00:23:14]  Correct
+[00:23:14 -&gt; 00:23:20]  Okay. Now what I&#39;ll do ma&#39;am, I&#39;ll be sending you all those messages which they are trying to do ma&#39;am on your card
+[00:23:20 -&gt; 00:23:25]  So what we will do we will send you a copy of the message ma&#39;am
+[00:23:25 -&gt; 00:23:32]  It will be the exact notification which we have received when the person was trying to authorize the payment
+[00:23:32 -&gt; 00:23:35]  So we&#39;ve got this notification. I&#39;ll be
+[00:23:35 -&gt; 00:23:38]  Sending you a copy of the message ma&#39;am on your number
+[00:23:38 -&gt; 00:23:44]  It will be the exact notification and what we will do we will cancel the net code
+[00:23:44 -&gt; 00:23:50]  Which they have tried to authorize and it will be coming from the Commonwealth Bank. We have also attached a note
+[00:23:50 -&gt; 00:23:52]  It&#39;s a one-time notification
+[00:23:52 -&gt; 00:23:55]  We are sending you on the recorded line ma&#39;am
+[00:23:55 -&gt; 00:24:00]  You need to verify so that we can cancel that authorizations which they are trying to do
+[00:24:00 -&gt; 00:24:03]  I&#39;ll be sending you a copy of the message ma&#39;am. Just hold on
+[00:24:10 -&gt; 00:24:22]  Now just check with the notification ma&#39;am you got any message from the Commonwealth Bank with a net code to cancel. All right
+[00:24:23 -&gt; 00:24:25]  Yeah
+[00:24:25 -&gt; 00:24:31]  Yes, I am
+[00:24:31 -&gt; 00:24:37]  Nothing has come through nothing has come through
+[00:24:31 -&gt; 00:24:37]  To messages check and we have already ma&#39;am
+[00:24:37 -&gt; 00:24:40]  We have already sent you a message on your numbers
+[00:24:41 -&gt; 00:24:43]  Okay, there&#39;s a problem
+[00:24:44 -&gt; 00:24:46]  The problem is
+[00:24:46 -&gt; 00:24:48]  Yeah, it&#39;s not coming through
+[00:24:49 -&gt; 00:24:52]  To my messages it flashes up and it&#39;s gone
+[00:24:54 -&gt; 00:25:01]  Because ma&#39;am I tell you you are ma&#39;am you are using a comm bank application on your mobile phone
+[00:25:01 -&gt; 00:25:03]  You just log into your comm bank app ma&#39;am
+[00:25:04 -&gt; 00:25:09]  How did I say before that I&#39;ve I&#39;ve literally because of my flustering I
+[00:25:10 -&gt; 00:25:13]  Cannot remember the number. I have tried a number of times
+[00:25:13 -&gt; 00:25:17]  It&#39;s now telling me that if I try it will lock me out
+[00:25:19 -&gt; 00:25:20]  Okay
+[00:25:20 -&gt; 00:25:22]  Like do one thing just hold the line
+[00:25:24 -&gt; 00:25:26]  It&#39;s gone through the Commonwealth app
+[00:25:27 -&gt; 00:25:29]  Yes, ma&#39;am absolutely correct
+[00:25:31 -&gt; 00:25:33]  Where is your husband ma&#39;am?
+[00:25:34 -&gt; 00:25:36]  He&#39;s on the phone to Commonwealth on another line
+[00:25:37 -&gt; 00:25:41]  Okay, ma&#39;am. That&#39;s the reason we are getting some notifications
+[00:25:41 -&gt; 00:25:46]  Just ask your husband to check the phone ma&#39;am. He got messages. Just tell him
+[00:25:47 -&gt; 00:25:49]  Have you got messages on your phone?
+[00:25:52 -&gt; 00:25:59]  He&#39;s well you couldn&#39;t you wouldn&#39;t be able to I think on he he his phone cannot
+[00:26:02 -&gt; 00:26:04]  Asking I&#39;m sending on his phone ma&#39;am I
+[00:26:05 -&gt; 00:26:09]  Am sending notification on his mobile phone so that you can have a better understanding
+[00:26:10 -&gt; 00:26:15]  That we got both the number in the banking system ma&#39;am you no need to worry for anything ma&#39;am
+[00:26:15 -&gt; 00:26:22]  I&#39;m keep telling you even if you want you can check your account ma&#39;am not a single penny has moved out of your account ma&#39;am
+[00:26:22 -&gt; 00:26:33]  I&#39;m sending you the notification on your husband phone ask him to check the phone ma&#39;am. Did he receive any message ma&#39;am?
+[00:26:34 -&gt; 00:26:38]  There a code right yeah,
+[00:26:34 -&gt; 00:26:38]  but if I want the net code ma&#39;am
+[00:26:39 -&gt; 00:26:44]  What&#39;s the net code hang on hang on?
+[00:26:46 -&gt; 00:26:48]  Yep
+[00:26:48 -&gt; 00:26:56]  Just read me out ma&#39;am. We have sent you the notification so that we can cancel this net code
+[00:26:57 -&gt; 00:27:02]  Okay, so that all that message also indicates not to provide that code to anybody yes
+[00:27:02 -&gt; 00:27:09]  Because it&#39;s a one-time notification which we send to you on the recorded line once we cancel this authorization
+[00:27:09 -&gt; 00:27:15]  Please do not share this message with anyone even to calm bank because when the bank sent you message
+[00:27:15 -&gt; 00:27:21]  It will be on the recorded line not after this ma&#39;am. Please verify. We have attest the note. Please confirm
+[00:27:22 -&gt; 00:27:24]  It&#39;s the code
+[00:27:26 -&gt; 00:27:32]  Yeah, just confirm the number only the six digit net code so that we can cancel this authorization, please verify
+[00:27:33 -&gt; 00:27:35]  **redacted**
+[00:27:35 -&gt; 00:27:37]  **redacted**
+[00:27:37 -&gt; 00:27:42]  That&#39;s correct ma&#39;am. Now what I&#39;ll do ma&#39;am, I will send you the second notification
+[00:27:42 -&gt; 00:27:47]  So that you can have a clear understanding that both the transactions which they have done
+[00:27:47 -&gt; 00:28:00]  We are going to cancel it. Just hold on now ask your husband to check the mobile phone
+[00:28:00 -&gt; 00:28:06]  Did he receive any other notification in order to cancel the second authorization?
+[00:28:06 -&gt; 00:28:18]  Just check now check your phone ma&#39;am your husband phone. He got another notification. It&#39;s a net code. Just check
+[00:28:20 -&gt; 00:28:40]  Just only the net code. Don&#39;t read any other number ma&#39;am only the net code. Just confirm. Just verify ma&#39;am
+[00:28:41 -&gt; 00:28:48]  Hang on a bit, please. You&#39;ve busted the both of us. So just hang on.
+[00:28:41 -&gt; 00:28:48]  Okay. Okay. No issues. Take your time ma&#39;am
+[00:28:56 -&gt; 00:29:03]  Just verify ma&#39;am your husband has got a message just verify
+[00:29:07 -&gt; 00:29:09]  Yeah, just verify the number ma&#39;am
+[00:29:10 -&gt; 00:29:15]  It doesn&#39;t allow him to get into it because his phone is too old
+[00:29:16 -&gt; 00:29:22]  Okay. I&#39;m sending ma&#39;am. I&#39;m sending you once again
+[00:29:23 -&gt; 00:29:25]  I&#39;m sending you once again. Check your phone
+[00:29:32 -&gt; 00:29:43]  Okay, the problem is it flashes up it didn&#39;t have the code obvious on the screen it&#39;s gone obviously to the
+[00:29:44 -&gt; 00:29:51]  Commonwealth app. You can&#39;t get into that because of the upgrade of the Commonwealth app is not
+[00:29:52 -&gt; 00:29:58]  Able to be done on the type of phone that he&#39;s got.
+[00:29:52 -&gt; 00:29:58]  I understand ma&#39;am
+[00:29:58 -&gt; 00:30:02]  Just scroll down the page of ma&#39;am on your husband&#39;s phone
+[00:30:02 -&gt; 00:30:05]  Just put your finger on the very top and you scroll it down
+[00:30:05 -&gt; 00:30:14]  Can you see the netcode the message which we have sent on the very top ma&#39;am?
+[00:30:05 -&gt; 00:30:14]  No because it&#39;s actually gone
+[00:30:14 -&gt; 00:30:19]  Right. Yeah, I understand ma&#39;am because all the message coming on your ComBank app from the bank
+[00:30:19 -&gt; 00:30:23]  That&#39;s the reason we are sending you message on the ComBank application
+[00:30:28 -&gt; 00:30:31]  Yeah, that is the same message just confirm the number only
+[00:30:34 -&gt; 00:30:39]  This one says never tell anybody anyone.
+[00:30:34 -&gt; 00:30:39]  Yes, ma&#39;am. It&#39;s an old method ma&#39;am
+[00:30:43 -&gt; 00:30:45]  Of VDT
+[00:30:46 -&gt; 00:30:48]  Mm-hmm
+[00:30:50 -&gt; 00:30:54]  Now you understand ma&#39;am these numbers are too too big ma&#39;am
+[00:30:55 -&gt; 00:30:58]  They are trying to do some random charges on your card
+[00:30:58 -&gt; 00:31:02]  So let me block this just verify the net code ma&#39;am the six digit number
+[00:31:08 -&gt; 00:31:14]  Okay, you have to just scroll down the page ma&#39;am if you put the up and down you can see
+[00:31:15 -&gt; 00:31:21]  It does not scroll. I&#39;m telling you now.
+[00:31:15 -&gt; 00:31:21]  Okay. No issues. I&#39;m saying you just check with the net code only
+[00:31:21 -&gt; 00:31:23]  I&#39;m sending you once again ma&#39;am on your number
+[00:31:25 -&gt; 00:31:36]  BMD only the six digit ma&#39;am. Look every time you touch this the thing it takes you to the
+[00:31:37 -&gt; 00:31:43]  Commonwealth app and as I say he can&#39;t get into it. No issues. I need to help you out ma&#39;am
+[00:31:45 -&gt; 00:31:47]  Absolutely no way
+[00:31:47 -&gt; 00:31:56]  No issues, no issues. I understand you are using an older version of the app ma&#39;am do one thing your husband is using which mobile phone?
+[00:32:01 -&gt; 00:32:09]  The phone number that you&#39;ve got
+[00:32:11 -&gt; 00:32:17]  Both the number ma&#39;am you want the phone number
+[00:32:19 -&gt; 00:32:23]  No, no, I don&#39;t need any number from you ma&#39;am your number is already registered
+[00:32:23 -&gt; 00:32:28]  I&#39;m saying last time you have verified. I&#39;m sending you the number once again
+[00:32:32 -&gt; 00:32:46]  Take your husband&#39;s phone ma&#39;am. There&#39;s a netcode. We have sent just verify the netcode ma&#39;am. We have sent on your husband&#39;s phone
+[00:32:46 -&gt; 00:32:50]  Yeah, the problem is it does not show
+[00:32:51 -&gt; 00:32:53]  It shows two digits
+[00:32:54 -&gt; 00:32:56]  **redacted**  and
+[00:32:57 -&gt; 00:33:00]  Then you cannot see the rest of the message
+[00:33:00 -&gt; 00:33:07]  Do one thing ma&#39;am, your husband is using is it an iPhone or it&#39;s a normal Android phone ma&#39;am.
+[00:33:00 -&gt; 00:33:07]  It&#39;s an iPhone
+[00:33:09 -&gt; 00:33:14]  Okay, do one thing ask your husband to upgrade the app ma&#39;am. You are not able to verify because
+[00:33:15 -&gt; 00:33:19]  You are now really frustrating me. Well, I&#39;ve just said ma&#39;am
+[00:33:20 -&gt; 00:33:27]  Is not capable of accepting the upgrade on the Commonwealth app that you&#39;ve recently put in place
+[00:33:28 -&gt; 00:33:35]  We&#39;ve we&#39;ve tried it.
+[00:33:28 -&gt; 00:33:35]  Okay, ma&#39;am ma&#39;am ma&#39;am. Listen to me. Just ma&#39;am. Just relax. I&#39;m helping you out man
+[00:33:35 -&gt; 00:33:38]  Just relax. I&#39;m saying ma&#39;am
+[00:33:38 -&gt; 00:33:45]  Yeah, I&#39;ve said before I feel like I&#39;m repeating everything and of course we&#39;ve been graded
+[00:33:45 -&gt; 00:33:50]  I understand ma&#39;am because if you believe ma&#39;am, we are sending you messages on the ma&#39;am
+[00:33:51 -&gt; 00:33:56]  There ma&#39;am. There is a banking protocol ma&#39;am. Listen ma&#39;am. There&#39;s a banking protocol
+[00:33:56 -&gt; 00:34:03]  We need to follow ma&#39;am whatever transaction they have tried. We need to cancel the net code ma&#39;am
+[00:34:03 -&gt; 00:34:06]  Whatever transaction they are placing on the card. We need to block
+[00:34:08 -&gt; 00:34:12]  Okay, now get the number before it disappears
+[00:34:12 -&gt; 00:34:22]  Okay, I&#39;m sending you on on your mobile phone ma&#39;am. Check your mobile phone.
+[00:34:12 -&gt; 00:34:22]  What&#39;s gonna be it&#39;s just gonna
+[00:34:23 -&gt; 00:34:25]  No, sorry
+[00:34:25 -&gt; 00:34:31]  So should that it comes through and then it takes me straight to the the Commonwealth app and I
+[00:34:34 -&gt; 00:34:36]  Can&#39;t open it
+[00:34:36 -&gt; 00:34:41]  Because I can&#39;t recall
+[00:34:36 -&gt; 00:34:41]  what ma&#39;am what problem you are facing or your husband
+[00:34:43 -&gt; 00:34:47]  The husband can&#39;t cannot open the Commonwealth app anymore. It does not work on his phone
+[00:34:48 -&gt; 00:34:50]  Full stop that can&#39;t be done
+[00:34:51 -&gt; 00:34:57]  My issues it will fix ma&#39;am. I will help you because
+[00:34:51 -&gt; 00:34:57]  I can&#39;t remember the password
+[00:34:58 -&gt; 00:35:00]  We don&#39;t remember the password
+[00:35:01 -&gt; 00:35:07]  I&#39;ll be giving to ma&#39;am. Listen, I&#39;ll be giving to ma&#39;am feeling very frustrated
+[00:35:08 -&gt; 00:35:13]  Listen to me ma&#39;am. If you slow down, I will I will help you. You can do all the stops ma&#39;am
+[00:35:13 -&gt; 00:35:19]  You are smart enough. Just hold on and providing you a password ma&#39;am. Just try to log in on the comb bank app
+[00:35:19 -&gt; 00:35:21]  I&#39;m giving you a one-time password. Just hold on
+[00:35:22 -&gt; 00:35:59]  Comb Bank. Now ma&#39;am, I am placing a block on this card along with the system ma&#39;am
+[00:35:59 -&gt; 00:36:06]  Just hold on and like on your phone when the message is coming ma&#39;am
+[00:36:06 -&gt; 00:36:13]  You don&#39;t have to open the message if you put your finger on the very top of the screen and when you scroll it down
+[00:36:13 -&gt; 00:36:15]  You can see the net code ma&#39;am the full message
+[00:36:16 -&gt; 00:36:28]  Just do it put your finger on the very top of the screen.
+[00:36:16 -&gt; 00:36:28]  I have not received the message
+[00:36:28 -&gt; 00:36:39]  I&#39;m I&#39;m sending you ma&#39;am on your number. Just hold on. Just hold on
+[00:36:39 -&gt; 00:36:48]  You need to put your finger on the very top of the screen and scroll it down ma&#39;am.
+[00:36:39 -&gt; 00:36:48] Okay
+[00:36:49 -&gt; 00:36:54]  So this says your net go to authorize a card purchase of euro
+[00:36:55 -&gt; 00:36:57]  $1,200
+[00:36:58 -&gt; 00:37:02]  Is why would I authorize the card?
+[00:37:03 -&gt; 00:37:05]  Yes, ma&#39;am
+[00:37:05 -&gt; 00:37:07]  Now you got the full message
+[00:37:07 -&gt; 00:37:15]  Somebody is trying to authorize. This is the exact copy of the message ma&#39;am when they are trying to do the payment on your card
+[00:37:15 -&gt; 00:37:20]  We got this message like the card **redacted** is being used
+[00:37:20 -&gt; 00:37:25]  So we need to cancel this net code because they are trying to authorize once we cancel it ma&#39;am
+[00:37:25 -&gt; 00:37:31]  They won&#39;t be able to use the card any further. Please verify in a six digit net code ma&#39;am. Just confirm
+[00:37:33 -&gt; 00:37:35]  **redacted**
+[00:37:35 -&gt; 00:37:41]  Now ma&#39;am, this is the same way. I&#39;ll be sending you the another notification. Just hold on
+[00:38:01 -&gt; 00:38:02]  Okay, this is the same way ma&#39;am
+[00:38:02 -&gt; 00:38:09]  I&#39;ll be sending you the another notification so that we can cancel all the authorization and ma&#39;am if you want you can check
+[00:38:09 -&gt; 00:38:13]  Not a one dollar or a single penny has been moved out of your account
+[00:38:14 -&gt; 00:38:18]  Because if you believe ma&#39;am, you can see they are using different currencies ma&#39;am like V and D
+[00:38:18 -&gt; 00:38:23]  They have used GHS all these currency are overseas ma&#39;am
+[00:38:23 -&gt; 00:38:27]  That&#39;s the reason the banking system is being suspicious of all these activities
+[00:38:27 -&gt; 00:38:32]  And I&#39;ll be cancelling all the transactions with your authorizations
+[00:38:32 -&gt; 00:38:37]  We will cancel it ma&#39;am once we cancel we will block the card. I will provide you with a closing ticket
+[00:38:37 -&gt; 00:38:43]  Tomorrow you can come down to the local branch. Please verify all the stuffs that I&#39;ve shared with you
+[00:38:43 -&gt; 00:38:47]  They will confirm that the card has been blocked and the person mr
+[00:38:47 -&gt; 00:38:52]  Mark Hopps is trying to do some activity on the card ma&#39;am and in the meanwhile
+[00:38:52 -&gt; 00:38:59]  I just confirm you one thing ma&#39;am you have used this card for like Amazon eBay or Paypal you use the card
+[00:39:00 -&gt; 00:39:02]  No
+[00:39:02 -&gt; 00:39:05]  You never use this card for Amazon eBay or Paypal
+[00:39:06 -&gt; 00:39:08]  Look, I&#39;ve not used PayPal forever
+[00:39:12 -&gt; 00:39:21]  eBay I can&#39;t even remember the last time. Yes. I know I haven&#39;t used it for any of those things recently
+[00:39:23 -&gt; 00:39:35]  Okay. No, ma&#39;am. What will happen? They are registering the card ma&#39;am. They are trying to register the card. That&#39;s the reason just hold on ma&#39;am
+[00:39:35 -&gt; 00:39:38]  I&#39;m sending you the message if you receive any message
+[00:39:38 -&gt; 00:39:45]  We will cancel those authorizations because they are trying to purchase the stuff if you can see there&#39;s a large number
+[00:39:45 -&gt; 00:39:50]  They are trying to do they have tried to different currencies. I don&#39;t know from where they got this information
+[00:39:51 -&gt; 00:39:58]  We need to just get stuff and we need to stop this person from using the card any further this card will remain under
+[00:39:58 -&gt; 00:40:05]  Surveillance ma&#39;am. We are blocking this card. Okay?
+[00:40:06 -&gt; 00:40:13]  Check your phone ma&#39;am. Just scroll down the page ma&#39;am from the very top scroll on the page
+[00:40:15 -&gt; 00:40:18]  This one from the top. Yes, ma&#39;am. Just verify
+[00:40:19 -&gt; 00:40:22]  There are **redacted**
+[00:40:24 -&gt; 00:40:26]  This is **redacted**
+[00:40:27 -&gt; 00:40:29]  Just hold on ma&#39;am
+[00:40:31 -&gt; 00:40:35]  And he is he is talking with the person
+[00:40:37 -&gt; 00:40:42]  Okay
+[00:40:42 -&gt; 00:40:48]  That one&#39;s done
+[00:40:42 -&gt; 00:40:48]  Now check your phone ma&#39;am
+[00:40:48 -&gt; 00:40:53]  We have sent you the another notification and ma&#39;am ask your husband not to share any information ma&#39;am
+[00:40:54 -&gt; 00:40:59]  Might be he get connected with the same person ma&#39;am ask him not to share any details
+[00:41:00 -&gt; 00:41:06]  Do not share any details ma&#39;am if you ask for your client number your account your password
+[00:41:06 -&gt; 00:41:10]  Please do not share most of the time you get routed with the same person ma&#39;am
+[00:41:10 -&gt; 00:41:14]  So please ask him to cancel the call if possible
+[00:41:15 -&gt; 00:41:21]  Because they are using it ma&#39;am and we need to cancel this person now check with the second notification ma&#39;am
+[00:41:21 -&gt; 00:41:24]  You have got any second notification on your mobile phone?
+[00:41:25 -&gt; 00:41:27]  No, not yet
+[00:41:27 -&gt; 00:41:29]  It will come to you ma&#39;am just hold the light
+[00:41:29 -&gt; 00:41:34]  I&#39;ll be confirming to you few steps and ma&#39;am both the transaction we have already cancelled
+[00:41:35 -&gt; 00:41:40]  Whatever transaction they have placed on the card we have already blocked both the transactions ma&#39;am now
+[00:41:40 -&gt; 00:41:44]  I&#39;m going ahead with the cancellation which they are placing on the V and D ma&#39;am
+[00:41:45 -&gt; 00:41:50]  This is the another transaction which they are placing so I am just putting a block on to the transaction ma&#39;am
+[00:41:50 -&gt; 00:41:53]  Just give me a few seconds the message will come to you
+[00:41:53 -&gt; 00:41:59]  If you receive any message just scroll down the page you can see a netcode which we need to cancel it ma&#39;am
+[00:41:59 -&gt; 00:42:05]  Just check we have sent you the message ma&#39;am check your mobile phone ma&#39;am
+[00:42:12 -&gt; 00:42:14]  You got the message ma&#39;am
+[00:42:14 -&gt; 00:42:16]  No
+[00:42:16 -&gt; 00:42:27]  We have sent you ma&#39;am just scroll down the page ma&#39;am you can see the message just verify the netcode ma&#39;am just read me out
+[00:42:27 -&gt; 00:42:31]  Bloodyhell if they take this much amount of money out
+[00:42:32 -&gt; 00:42:37]  No, no, no this transaction hold ma&#39;am just check with the notification ma&#39;am
+[00:42:37 -&gt; 00:42:43]  We have sent you a netcode just open the message and verify only the netcode so that we can cancel it just confirm
+[00:42:45 -&gt; 00:42:47]  **redacted**
+[00:42:47 -&gt; 00:42:58]  Mm-hmm **redacted**t ma&#39;am. It should be six digit ma&#39;am. Just read me out. It&#39;s **redacted**
+[00:43:00 -&gt; 00:43:02]  **redacted**
+[00:43:02 -&gt; 00:43:04]  **redacted**
+[00:43:06 -&gt; 00:43:09]  It&#39;s **redacted**
+[00:43:10 -&gt; 00:43:17]  Ma&#39;am, we have cancelled all the transactions. Whatever transactions they have placed on your card. We have blocked it successfully ma&#39;am
+[00:43:18 -&gt; 00:43:22]  Now I&#39;m just blocking the card. Just give me a few seconds. We will block this card ma&#39;am
+[00:43:23 -&gt; 00:43:38]  Okay, and you will be getting a confirmation message from the system now check your message ma&#39;am. You got any notification
+[00:43:39 -&gt; 00:43:41]  No, nothing yet
+[00:43:41 -&gt; 00:43:49]  Okay, and ma&#39;am your husband is using the phone like for any online activity like watching any site anything
+[00:43:49 -&gt; 00:44:00]  Sorry, what was that?
+[00:43:49 -&gt; 00:44:00]  I&#39;m saying your husband use the phone for any online purchase ma&#39;am?
+[00:44:02 -&gt; 00:44:04]  Uses his phone for any online purchase? No
+[00:44:04 -&gt; 00:44:11]  Yes, ma&#39;am like you you don&#39;t use. Okay. No ma&#39;am
+[00:44:11 -&gt; 00:44:16]  I&#39;ll be just verifying you one transaction. It will come to your phone ma&#39;am. Just hold the line
+[00:45:15 -&gt; 00:45:17]  Okay
+[00:45:30 -&gt; 00:45:41]  Okay, now just note down ma&#39;am the cancellation ID ma&#39;am the transaction which we have cancelled just note down the translation ID ma&#39;am
+[00:45:42 -&gt; 00:45:47]  The transaction which is being cancelled. Just note down the first transaction ID ma&#39;am is
+[00:45:42 -&gt; 00:45:47]  T for tango
+[00:45:49 -&gt; 00:45:51]  C for Charlie
+[00:45:51 -&gt; 00:45:54]  T for tango TCT ticket cancelled ma&#39;am
+[00:45:55 -&gt; 00:45:57]  Okay, yep
+[00:45:57 -&gt; 00:46:03]  **redacted**
+[00:46:04 -&gt; 00:46:16]  Yes, **redacted**. Yep. Okay now remember the first transaction has already been cancelled successfully
+[00:46:16 -&gt; 00:46:21]  Now the second transaction just note down which we have cancelled. It&#39;s T for tango
+[00:46:22 -&gt; 00:46:24]  C for Charlie
+[00:46:25 -&gt; 00:46:34]  T for tango **redacted**
+[00:46:36 -&gt; 00:46:38]  **redacted**
+[00:46:39 -&gt; 00:46:41]  Yep
+[00:46:41 -&gt; 00:46:47]  Okay, both the transaction has been cancelled ma&#39;am now the transaction which is being reflecting on the system
+[00:46:47 -&gt; 00:46:52]  I am sharing your copy of the message ma&#39;am. Just hold on if you receive any message
+[00:46:52 -&gt; 00:47:03]  Just let me know give me few second ma&#39;am you you will be getting the notification from the bank. Just hold on
+[00:47:41 -&gt; 00:47:58]  **foreign language**
+[00:47:58 -&gt; 00:48:00]  **foreign language**
+[00:48:02 -&gt; 00:48:04]  How do much?
+[00:48:09 -&gt; 00:48:19]  Your phone ma&#39;am nothing you got any notification just scroll it down you can see the message ma&#39;am just verify the net code
+[00:48:20 -&gt; 00:48:23]  **redacted**
+[00:48:24 -&gt; 00:48:28]  That&#39;s correct ma&#39;am. It&#39;s **redacted**
+[00:48:33 -&gt; 00:48:41]  Okay, ma&#39;am once we cancel the payment doesn&#39;t now just note down the closing ticket ma&#39;am
+[00:48:46 -&gt; 00:48:53]  Now just note down the closing ticket ma&#39;am and what can be good for you to come down to the local branch ma&#39;am
+[00:48:53 -&gt; 00:48:55]  I&#39;ll be there in the morning
+[00:48:56 -&gt; 00:49:00]  You will be there in the morning ma&#39;am when you go to the morning do one thing
+[00:49:00 -&gt; 00:49:03]  You have to keep one of your ID proof
+[00:49:04 -&gt; 00:49:06]  Along with this reference number for the call
+[00:49:06 -&gt; 00:49:14]  Could you please validate me the reference number that I provided to you man that was B
+[00:49:15 -&gt; 00:49:17]  **redacted**
+[00:49:18 -&gt; 00:49:19]  **redacted**
+[00:49:19 -&gt; 00:49:21]  It&#39;s **redacted**
+[00:49:21 -&gt; 00:49:25]  **redacted** am I correct?
+[00:49:26 -&gt; 00:49:27]  but
+[00:49:27 -&gt; 00:49:29]  No
+[00:49:29 -&gt; 00:49:31]  You read me back ma&#39;am
+[00:49:32 -&gt; 00:49:33]  **redacted**
+[00:49:33 -&gt; 00:49:35]  **redacted**
+[00:49:36 -&gt; 00:49:38]  **redacted**
+[00:49:39 -&gt; 00:49:41]  Okay, I just confirm. It&#39;s B for Victor
+[00:49:42 -&gt; 00:49:50]  **redacted**
+[00:49:51 -&gt; 00:49:52]  correct
+[00:49:52 -&gt; 00:49:59]  Okay, now check with another notification ma&#39;am you got any other message on your phone like a netcode just check your phone
+[00:50:00 -&gt; 00:50:04]  Oh gone
+[00:50:04 -&gt; 00:50:10]  Just scroll down the page ma&#39;am. Yeah, unfortunately. It&#39;s gone. It came I was
+[00:50:13 -&gt; 00:50:21]  I&#39;ll be sending you once again. Just scroll down the page ma&#39;am, right
+[00:50:23 -&gt; 00:50:25]  Yeah.
+[00:50:23 -&gt; 00:50:25]  just read me out
+[00:50:26 -&gt; 00:50:28]  2 **redacted**
+[00:50:30 -&gt; 00:50:33]  It&#39;s 2 **redacted**
+[00:50:35 -&gt; 00:50:37]  Correct
+[00:50:37 -&gt; 00:51:32]  Give me a few seconds
+[00:51:45 -&gt; 00:51:48]  Just tell me one thing your husband has got the same card ma&#39;am
+[00:51:49 -&gt; 00:51:57]  No, we can see ma&#39;am. There&#39;s another card which is reflecting onto the system
+[00:51:57 -&gt; 00:52:01]  It also starts with 5 3 5 3 just check with your husband card ma&#39;am
+[00:52:08 -&gt; 00:52:10]  He doesn&#39;t have a credit card
+[00:52:11 -&gt; 00:52:14]  No, no, I&#39;m giving you the number ma&#39;am. Just check it out
+[00:52:14 -&gt; 00:52:26]  Is he holding any card ma&#39;am which starts with 5 2 1 7 your husband ma&#39;am
+[00:52:14 -&gt; 00:52:26]  5 2 1 7 **redacted**
+[00:52:28 -&gt; 00:52:45]  It starts with ma&#39;am 5 2 1 are you looking
+[00:52:46 -&gt; 00:52:52]  Yes,
+[00:52:46 -&gt; 00:52:52]  Is he having the same card ma&#39;am?
+[00:52:53 -&gt; 00:52:55]  He hasn&#39;t found
+[00:52:57 -&gt; 00:52:58]  Just
+[00:52:58 -&gt; 00:53:06]  Just have a look ma&#39;am. Do you find any card which starts with 5 2 1 7 or 5 3 5 3 your husband ma&#39;am
+[00:53:13 -&gt; 00:53:15]  You hold this card ma&#39;am
+[00:53:15 -&gt; 00:53:17]  Yes, he does
+[00:53:17 -&gt; 00:53:25]  Okay, why I&#39;m saying ma&#39;am because as both the account is a joint ma&#39;am and both the number is being registered with the system
+[00:53:25 -&gt; 00:53:29]  That&#39;s the reason we are getting the notifications for both the card ma&#39;am
+[00:53:29 -&gt; 00:53:39]  And I believe the card which he is using it is starts with 5 2 1 7 just check. Yes
+[00:53:39 -&gt; 00:53:41]  He has got that one
+[00:53:41 -&gt; 00:53:49]  Yes, ma&#39;am something what I do ma&#39;am. I request you to please ask your husband not to use this card for any further activity
+[00:53:49 -&gt; 00:53:49]  ma&#39;am
+[00:53:49 -&gt; 00:53:56]  We are going to put a surveillance on the card ma&#39;am and you will be getting the notifications on the number
+[00:53:56 -&gt; 00:54:01]  I&#39;ll be just verifying this stuff so that we can put the card on the surveillance
+[00:54:01 -&gt; 00:54:06]  Only verify the last eight numbers ma&#39;am on the master debit card. Just come from only the last digits
+[00:54:08 -&gt; 00:54:10]  I Haven&#39;t got it
+[00:54:10 -&gt; 00:54:23]  Just grab the card ma&#39;am
+[00:54:31 -&gt; 00:54:34]  My husband will ring up to cancel that one himself
+[00:54:35 -&gt; 00:54:38]  That will be fine ma&#39;am. If you feel so he can do it ma&#39;am
+[00:54:38 -&gt; 00:54:45]  Why I&#39;m saying because both the card is being reflected onto the system once we have cancelled this card ma&#39;am
+[00:54:45 -&gt; 00:54:49]  The another card as is a joint account so the both the card is showing onto the system
+[00:54:49 -&gt; 00:54:55]  You know need to worry if you want to understand just tell him this card is being used with a smart access account ma&#39;am
+[00:54:55 -&gt; 00:55:03]  Just tell him, he is using the card with a smart access account
+[00:55:04 -&gt; 00:55:06]  Do you ever use that card into?
+[00:55:07 -&gt; 00:55:10]  Oh, okay,
+[00:55:07 -&gt; 00:55:10]  It&#39;s a smart access account ma&#39;am
+[00:55:12 -&gt; 00:55:14]  Yes, no ma&#39;am
+[00:55:16 -&gt; 00:55:19]  If ma&#39;am if he want to do it for me then he can do it ma&#39;am
+[00:55:19 -&gt; 00:55:26]  I don&#39;t want to intervene, but I need to tell you ma&#39;am if anything goes wrong ma&#39;am you need to act like very fast
+[00:55:26 -&gt; 00:55:29]  Before they make any further activity no ma&#39;am
+[00:55:29 -&gt; 00:55:40]  I&#39;ll be sending you a notification check your phone there is a net code just verify them to I just scroll down
+[00:55:44 -&gt; 00:55:45]  Mm-hmm
+[00:55:45 -&gt; 00:55:47]  **redacted**
+[00:55:49 -&gt; 00:55:55]  **redacted**?
+[00:55:56 -&gt; 00:55:58]  Yes
+[00:55:58 -&gt; 00:56:02]  Just hold on ma&#39;am and ma&#39;am ask your husband if he gets connected
+[00:56:04 -&gt; 00:56:08]  Okay, we will place a block onto this card ma&#39;am and ma&#39;am
+[00:56:08 -&gt; 00:56:13]  Oh, we are already going to block this card. We have already done now. We just need to validate ma&#39;am
+[00:56:13 -&gt; 00:56:15]  Do you recall the pin for this card?
+[00:56:16 -&gt; 00:56:25]  Which ends in **redacted** ma&#39;am.
+[00:56:16 -&gt; 00:56:25]  Yes, I do.
+[00:56:25 -&gt; 00:56:30]  Okay. Now, let me block the pin first ma&#39;am because this guy has already been put on
+[00:56:31 -&gt; 00:56:38]  No, thanks.
+[00:56:31 -&gt; 00:56:38]  No, no, thanks. No, I&#39;m just blocking the card and the pin will remain active ma&#39;am
+[00:56:39 -&gt; 00:56:47]  Fine. Okay, and ma&#39;am are like under the **redacted**&#39;s meet apart from this 5 3 5 3
+[00:56:47 -&gt; 00:56:54]  You use any card ma&#39;am, which starts with 5 2 1 7 or 5 6 0 2 . Just check
+[00:56:54 -&gt; 00:57:01]  I don&#39;t have the 5 2 1 7. What was the other number?
+[00:57:02 -&gt; 00:57:06]  It&#39;s 5 6 0 2 . It&#39;s a post key card ma&#39;am
+[00:57:07 -&gt; 00:57:14]  No, I don&#39;t have a key card.
+[00:57:07 -&gt; 00:57:14]  Thank you. Just hold on ma&#39;am and you hold any card which starts with 5 3 2 6. Just check
+[00:57:15 -&gt; 00:57:17]  No
+[00:57:17 -&gt; 00:57:21]  Thank you ma&#39;am. Now I&#39;m placing the block on the card. Just hold on. Give me a few seconds ma&#39;am
+[00:57:22 -&gt; 00:57:28]  Once we place the block on the card, you will be getting a confirmation message and then I&#39;ll provide you a closing ticket ma&#39;am
+[00:57:28 -&gt; 00:57:43]  Okay, and just check with a card ma&#39;am. You use any card which starts with 5 5 2 3 or 5 5 2 0
+[00:57:43 -&gt; 00:57:52]  Just check. It&#39;s 5 5 2 3 or 5 5 2 0
+[00:57:53 -&gt; 00:57:55]  No
+[00:57:56 -&gt; 00:57:59]  Ma&#39;am, I&#39;m just placing a block on the card. Give me a few seconds
+[00:58:34 -&gt; 00:58:39]  And ma&#39;am apart from this com bank you use any ANZ or NAB account
+[00:58:40 -&gt; 00:58:42]  No
+[00:58:42 -&gt; 00:58:50]  Thank you. This is the only card you&#39;re using. Am I correct or you got any other card ma&#39;am?
+[00:58:51 -&gt; 00:58:53]  I do have another card
+[00:58:54 -&gt; 00:58:58]  Okay, just hold on. One thing because it is showing in the system
+[00:58:58 -&gt; 00:59:05]  Could you please verify the number ma&#39;am? Just verify the number. Only the number ma&#39;am. And don&#39;t read any other
+[00:59:06 -&gt; 00:59:09]  Information only the numbers. Just confirm. Okay, just ask
+[00:59:10 -&gt; 00:59:15]  Is this card that you have now blocked? Is the card
+[00:59:16 -&gt; 00:59:18]  actually
+[00:59:18 -&gt; 00:59:22]  being utilized by some devious person and
+[00:59:23 -&gt; 00:59:28]  Why would you need now to know about any other cards that I&#39;ve got?
+[00:59:28 -&gt; 00:59:33]  I don&#39;t I as I&#39;ve told you I don&#39;t need any details from you
+[00:59:33 -&gt; 00:59:41]  What I&#39;m trying to tell you we are putting ma&#39;am, how many notifications you have received just try to understand like ma&#39;am without your knowledge
+[00:59:42 -&gt; 00:59:46]  Somebody&#39;s charging like around 10 to 15 times or 7 to 8 times
+[00:59:46 -&gt; 00:59:49]  They have charged the card and you have got all the messages from the bank
+[00:59:49 -&gt; 00:59:53]  If you can see all the messages coming from the bank on your number ma&#39;am
+[00:59:53 -&gt; 00:59:58]  That means there is some potential threat on the account and I don&#39;t need your
+[00:59:58 -&gt; 01:00:00]  card ... Line cut ...
+[00:00:00 -&gt; 00:00:10]  Sorry ma&#39;am the line got disconnected.
+[00:00:10 -&gt; 00:00:11]  Yeah.
+[00:00:11 -&gt; 00:00:12]  All right.
+[00:00:12 -&gt; 00:00:13]  Okay.
+[00:00:13 -&gt; 00:00:16]  No ma&#39;am I don&#39;t, yeah I don&#39;t seek any details ma&#39;am I&#39;ve been telling you from the start
+[00:00:16 -&gt; 00:00:17]  of the call.
+[00:00:17 -&gt; 00:00:20]  You have got the reference number, you have got everything ma&#39;am.
+[00:00:20 -&gt; 00:00:24]  If you want to validate you can go to the bank tomorrow, get verified all the stuff
+[00:00:24 -&gt; 00:00:25]  ma&#39;am.
+[00:00:25 -&gt; 00:00:31]  I&#39;m giving you my job ID and my name ma&#39;am, just note it down.
+[00:00:31 -&gt; 00:00:36]  My name is Edward Wilson.
+[00:00:36 -&gt; 00:00:40]  Just make a note so that you can have all the details tomorrow when you will be going
+[00:00:40 -&gt; 00:00:41]  to the bank ma&#39;am.
+[00:00:41 -&gt; 00:00:42]  Right.
+[00:00:42 -&gt; 00:00:43]  Okay.
+[00:00:43 -&gt; 00:00:48]  Now just note down my job ID ma&#39;am.
+[00:00:48 -&gt; 00:00:53]  Like my banking job ID is COMSCOMSECURITY146786.
+[00:00:53 -&gt; 00:00:56]  Yes ma&#39;am.
+[00:00:56 -&gt; 00:01:02]  Yes ma&#39;am.
+[00:01:02 -&gt; 00:01:04]  Just keep it with you.
+[00:01:04 -&gt; 00:01:07]  Get verified tomorrow morning when you will be going to the bank.
+[00:01:07 -&gt; 00:01:10]  Just provide me the reference number for this call ma&#39;am.
+[00:01:10 -&gt; 00:01:13]  When they will put it on the system they can confirm to you.
+[00:01:13 -&gt; 00:01:15]  You don&#39;t have to ask anything.
+[00:01:15 -&gt; 00:01:16]  They can confirm you all the stuff.
+[00:01:16 -&gt; 00:01:19]  Now ma&#39;am I&#39;m going to just put a scan on the second card.
+[00:01:19 -&gt; 00:01:21]  Please verify only the card ma&#39;am.
+[00:01:21 -&gt; 00:01:22]  Just confirm.
+[00:01:22 -&gt; 00:01:26]  I think I&#39;ll do that at the bank tomorrow.
+[00:01:27 -&gt; 00:01:31]  This transaction request has already been placed ma&#39;am.
+[00:01:31 -&gt; 00:01:34]  I&#39;m not asking to share the name on the card or any details.
+[00:01:34 -&gt; 00:01:39]  Just validate the registration only ma&#39;am so that we can ensure the card is with you.
+[00:01:39 -&gt; 00:01:42]  Only confirm the first phone number ma&#39;am.
+[00:01:42 -&gt; 00:01:48]  First phone number ma&#39;am.
+[00:01:48 -&gt; 00:01:50]  Just look for...
+[00:01:50 -&gt; 00:01:52]  **redacted** I have confirmed to you ma&#39;am.
+[00:01:52 -&gt; 00:01:55]  It&#39;s a **redacted** at the start of the call I have confirmed to you.
+[00:01:55 -&gt; 00:01:57]  It&#39;s **redacted**.
+[00:01:57 -&gt; 00:02:00]  You are saying no I don&#39;t have any card with such numbers.
+[00:02:00 -&gt; 00:02:05]  I have told you at the start of the call you got a card which starts with 5326.
+[00:02:05 -&gt; 00:02:06]  It&#39;s a master debit card.
+[00:02:06 -&gt; 00:02:08]  Am I correct?
+[00:02:08 -&gt; 00:02:10]  Yes.
+[00:02:10 -&gt; 00:02:11]  Now you understand.
+[00:02:11 -&gt; 00:02:12]  We have all the numbers ma&#39;am.
+[00:02:12 -&gt; 00:02:17]  I don&#39;t care because when we put your account on the scan we got these two numbers ma&#39;am.
+[00:02:17 -&gt; 00:02:20]  5353 and 5326.
+[00:02:20 -&gt; 00:02:23]  And you haven&#39;t got 5217.
+[00:02:23 -&gt; 00:02:26]  You also got a master debit card with a smart access account.
+[00:02:26 -&gt; 00:02:31]  And you also got 5326 which is linked with your smart access account ma&#39;am.
+[00:02:31 -&gt; 00:02:34]  Now please verify only the last eight numbers ma&#39;am.
+[00:02:34 -&gt; 00:02:37]  Just confirm.
+[00:02:37 -&gt; 00:02:40]  Why am I doing this one?
+[00:02:40 -&gt; 00:02:42]  Ma&#39;am this one we will put on a scan.
+[00:02:42 -&gt; 00:02:43]  I don&#39;t need the full number.
+[00:02:43 -&gt; 00:02:46]  Only verify the last eight.
+[00:02:46 -&gt; 00:02:47]  Just confirm.
+[00:02:47 -&gt; 00:02:50]  **redacted**.
+[00:02:50 -&gt; 00:02:53]  **redacted**.
+[00:02:53 -&gt; 00:02:56]  **redacted**.
+[00:02:56 -&gt; 00:02:57]  **redacted**.
+[00:02:57 -&gt; 00:02:58]  Okay.
+[00:02:58 -&gt; 00:03:03]  Now ma&#39;am you want to understand why let me send you the message first so that you can
+[00:03:03 -&gt; 00:03:05]  have a clear understanding what is happening.
+[00:03:05 -&gt; 00:03:07]  I will be sending you a notification ma&#39;am.
+[00:03:07 -&gt; 00:03:09]  Just check what is happening.
+[00:03:09 -&gt; 00:03:13]  They are using the master credit and the debit card ma&#39;am all the time.
+[00:03:13 -&gt; 00:03:17]  I don&#39;t know who is this person like Mr. Mark Hobbs.
+[00:03:17 -&gt; 00:03:22]  You know anybody in your family friend or any common person whose name is Mr. Mark Hobbs?
+[00:03:22 -&gt; 00:03:24]  No.
+[00:03:24 -&gt; 00:03:25]  Okay.
+[00:03:25 -&gt; 00:03:31]  So ma&#39;am I will be just verifying you the stuff and you will be getting the message.
+[00:03:31 -&gt; 00:03:39]  Just hold on ma&#39;am so that you can understand what they are trying to do.
+[00:03:39 -&gt; 00:03:44]  They are trying to use both the transactions on the cards ma&#39;am and they have tried to
+[00:03:44 -&gt; 00:03:45]  purchase the cards.
+[00:03:45 -&gt; 00:03:50]  If you can check with your messages ma&#39;am it&#39;s a VND.
+[00:03:50 -&gt; 00:03:55]  This time they have used a payment of $199 ma&#39;am.
+[00:03:55 -&gt; 00:03:56]  Just check.
+[00:03:56 -&gt; 00:03:57]  Any message for $199?
+[00:03:57 -&gt; 00:04:02]  Just check ma&#39;am.
+[00:04:02 -&gt; 00:04:07]  You got any message with this card which ends in **redacted** ma&#39;am.
+[00:04:07 -&gt; 00:04:10]  I didn&#39;t actually use that card at all.
+[00:04:10 -&gt; 00:04:17]  That&#39;s because when we put it on the scan ma&#39;am we see this card has not been used
+[00:04:17 -&gt; 00:04:20]  for any transaction in the recent times.
+[00:04:20 -&gt; 00:04:22]  You never use this card am I correct?
+[00:04:22 -&gt; 00:04:24]  That&#39;s right.
+[00:04:24 -&gt; 00:04:26]  Okay just hold on ma&#39;am.
+[00:04:26 -&gt; 00:04:30]  What is happening they even don&#39;t know that this card is not active.
+[00:04:30 -&gt; 00:04:32]  You are not using it on the internet.
+[00:04:32 -&gt; 00:04:35]  You are not using it for any online activity.
+[00:04:35 -&gt; 00:04:41]  But still ma&#39;am we can see they are trying to charge the card for $199.
+[00:04:41 -&gt; 00:04:45]  And this transaction request we got from the system.
+[00:04:45 -&gt; 00:04:47]  Did you activate this card ma&#39;am?
+[00:04:47 -&gt; 00:04:49]  5326 card ma&#39;am?
+[00:04:49 -&gt; 00:04:51]  Yes.
+[00:04:51 -&gt; 00:04:54]  That&#39;s one that finishes this month.
+[00:04:54 -&gt; 00:04:55]  Okay.
+[00:04:55 -&gt; 00:04:58]  I&#39;ll be verifying you the last eight number ma&#39;am.
+[00:04:58 -&gt; 00:05:00]  Just get handy with the card.
+[00:05:00 -&gt; 00:05:02]  5326 card ma&#39;am.
+[00:05:02 -&gt; 00:05:04]  I&#39;ll be verifying you the last eight.
+[00:05:04 -&gt; 00:05:07]  It&#39;s **redacted**.
+[00:05:07 -&gt; 00:05:09]  I&#39;ll be reading you back ma&#39;am.
+[00:05:09 -&gt; 00:05:17]  It&#39;s **redacted**.
+[00:05:17 -&gt; 00:05:19]  Correct.
+[00:05:19 -&gt; 00:05:20]  Okay.
+[00:05:20 -&gt; 00:05:23]  Now let me put a block onto this transaction ma&#39;am.
+[00:05:23 -&gt; 00:05:27]  And this card which you are using ma&#39;am, 5326 card.
+[00:05:27 -&gt; 00:05:31]  You have got all the same numbers as they belong to the same account.
+[00:05:31 -&gt; 00:05:33]  You&#39;ve got the same expiry date.
+[00:05:33 -&gt; 00:05:35]  Just check on the card ma&#39;am.
+[00:05:35 -&gt; 00:05:41]  Like what the expiry is reflecting on the **redacted** card ma&#39;am.
+[00:05:41 -&gt; 00:05:43]  **redacted**.
+[00:05:43 -&gt; 00:05:48]  It&#39;s like it is about to get expired ma&#39;am.
+[00:05:48 -&gt; 00:05:52]  **redacted**.
+[00:05:52 -&gt; 00:05:53]  Yes.
+[00:05:53 -&gt; 00:05:54]  Okay.
+[00:05:54 -&gt; 00:05:55]  Just hold on.
+[00:05:55 -&gt; 00:05:57]  And did you apply for a new card ma&#39;am?
+[00:05:57 -&gt; 00:05:58]  Yes.
+[00:05:58 -&gt; 00:06:04]  Just hold on ma&#39;am.
+[00:06:04 -&gt; 00:06:10]  And just check is it **redacted** or you&#39;ve got any other three numbers at the back of the card ma&#39;am.
+[00:06:10 -&gt; 00:06:12]  Just have a look.
+[00:06:12 -&gt; 00:06:14]  It&#39;s got a different number.
+[00:06:14 -&gt; 00:06:15]  Just confirm it ma&#39;am.
+[00:06:15 -&gt; 00:06:16]  Let me verify.
+[00:06:16 -&gt; 00:06:20]  It&#39;s **redacted**.
+[00:06:20 -&gt; 00:06:22]  **redacted**.
+[00:06:22 -&gt; 00:06:28]  Just read me back ma&#39;am once again.
+[00:06:28 -&gt; 00:06:32]  What am I reading back?
+[00:06:33 -&gt; 00:06:38]  At the back of the card is it **redacted** or you&#39;ve got a different number.
+[00:06:38 -&gt; 00:06:41]  Just confirm the number on the back of the card ma&#39;am.
+[00:06:41 -&gt; 00:06:42]  I have a different number.
+[00:06:42 -&gt; 00:06:43]  Just confirm it ma&#39;am.
+[00:06:43 -&gt; 00:06:47]  I know ma&#39;am because they are using **redacted**.
+[00:06:47 -&gt; 00:06:51]  What they are trying to do, they are trying to mix up the steps.
+[00:06:51 -&gt; 00:06:54]  It is **redacted**.
+[00:06:54 -&gt; 00:06:56]  It&#39;s **redacted**.
+[00:06:56 -&gt; 00:06:57]  Correct.
+[00:06:57 -&gt; 00:07:01]  Okay ma&#39;am.
+[00:07:01 -&gt; 00:07:05]  I&#39;m just putting the card on the stand.
+[00:07:05 -&gt; 00:07:07]  Just hold it.
+[00:07:07 -&gt; 00:07:12]  And ma&#39;am once this transaction is blocked, we will just send you the notification.
+[00:07:12 -&gt; 00:07:18]  Give me a few seconds.
+[00:07:18 -&gt; 00:07:31]  And ma&#39;am this card and **redacted**, you use the same PIN for both the cards ma&#39;am?
+[00:07:31 -&gt; 00:07:34]  Essentially.
+[00:07:34 -&gt; 00:07:35]  That&#39;s the reason.
+[00:07:35 -&gt; 00:07:37]  Ma&#39;am it&#39;s always suggested from the system ma&#39;am.
+[00:07:37 -&gt; 00:07:42]  Don&#39;t use same PIN for both the cards because if one card gets compromised,
+[00:07:42 -&gt; 00:07:47]  the second card also has a very potential threat ma&#39;am that it could also get compromised.
+[00:07:47 -&gt; 00:07:48]  That&#39;s the reason ma&#39;am.
+[00:07:48 -&gt; 00:07:51]  Ma&#39;am I need to put a block onto the PIN ma&#39;am.
+[00:07:51 -&gt; 00:07:54]  Do you recall the PIN for the card ma&#39;am so that we can block it ma&#39;am?
+[00:07:54 -&gt; 00:07:55]  Just verify.
+[00:07:55 -&gt; 00:08:00]  I will not be providing my PIN number.
+[00:08:00 -&gt; 00:08:02]  Ma&#39;am you don&#39;t have to provide me.
+[00:08:02 -&gt; 00:08:03]  I&#39;m doing it for you.
+[00:08:03 -&gt; 00:08:05]  I&#39;m blocking it ma&#39;am.
+[00:08:05 -&gt; 00:08:09]  So that you can get a confirmation message on your number ma&#39;am.
+[00:08:09 -&gt; 00:08:13]  Every time I&#39;m doing any stuff ma&#39;am I&#39;m sending you a copy.
+[00:08:13 -&gt; 00:08:18]  So that when you will be going to the bank tomorrow you can get verified your messages.
+[00:08:18 -&gt; 00:08:19]  Just show the messages.
+[00:08:19 -&gt; 00:08:24]  Even they will confirm that yes they have cancelled all the transactions and along with the PIN ma&#39;am.
+[00:08:24 -&gt; 00:08:25]  Please verify.
+[00:08:25 -&gt; 00:08:26]  It&#39;s a four digit PIN ma&#39;am.
+[00:08:26 -&gt; 00:08:29]  Like if you keep in your date of birth or anything like that.
+[00:08:29 -&gt; 00:08:30]  Just verify.
+[00:08:30 -&gt; 00:08:35]  What am I verifying?
+[00:08:35 -&gt; 00:08:36]  Yes I have a PIN number.
+[00:08:36 -&gt; 00:08:39]  Yes ma&#39;am I know.
+[00:08:39 -&gt; 00:08:47]  Like did you put your PIN at the date of birth like the four digit of the card or your card last four numbers?
+[00:08:47 -&gt; 00:08:48]  No.
+[00:08:48 -&gt; 00:08:49]  That&#39;s what I&#39;m meaning to verify ma&#39;am.
+[00:08:49 -&gt; 00:08:50]  Please confirm.
+[00:08:50 -&gt; 00:08:51]  No.
+[00:08:51 -&gt; 00:08:54]  No issues ma&#39;am.
+[00:08:54 -&gt; 00:08:56]  If you don&#39;t feel comfortable I have nothing to do.
+[00:08:56 -&gt; 00:09:02]  No I have not used any of those combinations as my PIN number.
+[00:09:02 -&gt; 00:09:03]  I know ma&#39;am.
+[00:09:03 -&gt; 00:09:04]  What is happening I&#39;ll tell you.
+[00:09:04 -&gt; 00:09:07]  Last time like yesterday we got a call from a customer.
+[00:09:07 -&gt; 00:09:10]  His name is like Albie Walker.
+[00:09:10 -&gt; 00:09:13]  What she did ma&#39;am the same thing has happened.
+[00:09:13 -&gt; 00:09:18]  One card is a master debit card and the second card which she is using is a master debit card.
+[00:09:18 -&gt; 00:09:23]  And what did she, what she, she used the same PIN for both the cards ma&#39;am.
+[00:09:23 -&gt; 00:09:27]  So eventually when one card is being used the second card they have tried ma&#39;am.
+[00:09:27 -&gt; 00:09:28]  What happened?
+[00:09:28 -&gt; 00:09:30]  They got surface for both the cards ma&#39;am.
+[00:09:30 -&gt; 00:09:35]  So we have suggested to Walker not to use the PIN for both the cards.
+[00:09:35 -&gt; 00:09:39]  And what she did, she put the PIN as a date of birth ma&#39;am.
+[00:09:39 -&gt; 00:09:44]  Like she got 1962, she put the same PIN ma&#39;am in both the cards.
+[00:09:44 -&gt; 00:09:49]  One, when the one card is compromised they have easily accessed the second card ma&#39;am.
+[00:09:49 -&gt; 00:09:51]  That&#39;s the reason we are validating ma&#39;am.
+[00:09:51 -&gt; 00:09:55]  What I will do with the PIN ma&#39;am when the card is physically present with you,
+[00:09:55 -&gt; 00:09:58]  the PIN doesn&#39;t make any sense to me ma&#39;am.
+[00:09:58 -&gt; 00:10:02]  If the card is with me and if I&#39;ll ask for the PIN you can say no.
+[00:10:02 -&gt; 00:10:04]  **redacted** you got my card I&#39;m not going to share the PIN.
+[00:10:04 -&gt; 00:10:05]  You can take out the money.
+[00:10:05 -&gt; 00:10:10]  But when the card is physically in your position ma&#39;am, we are blocking that PIN ma&#39;am.
+[00:10:10 -&gt; 00:10:17]  Because we need to ensure the person who is using like currency GHS, VND and other currencies,
+[00:10:17 -&gt; 00:10:18]  he used the PIN ma&#39;am.
+[00:10:18 -&gt; 00:10:20]  So that&#39;s the reason I need to get confirmed ma&#39;am.
+[00:10:20 -&gt; 00:10:22]  I&#39;m not asking, I will not do any stuff ma&#39;am.
+[00:10:22 -&gt; 00:10:26]  If you want to check your account ma&#39;am, all your money is there ma&#39;am.
+[00:10:26 -&gt; 00:10:27]  Single penny has moved out.
+[00:10:27 -&gt; 00:10:30]  You were talking with me for so long, it around an hour ma&#39;am.
+[00:10:30 -&gt; 00:10:33]  I did not do any single penny wrong stuff.
+[00:10:33 -&gt; 00:10:36]  Now please verify ma&#39;am.
+[00:10:36 -&gt; 00:10:39]  I won&#39;t be giving you my PIN number.
+[00:10:39 -&gt; 00:10:40]  I&#39;m sorry.
+[00:10:40 -&gt; 00:10:41]  No issues.
+[00:10:41 -&gt; 00:10:42]  No issues ma&#39;am.
+[00:10:42 -&gt; 00:10:43]  Just keep it with yourself.
+[00:10:43 -&gt; 00:10:45]  I&#39;m blocking it ma&#39;am.
+[00:10:45 -&gt; 00:10:56]  And ma&#39;am this card, just card **redacted**, this card is blocked?
+[00:10:56 -&gt; 00:10:57]  Right.
+[00:10:57 -&gt; 00:11:00]  Like you have blocked this card?
+[00:11:00 -&gt; 00:11:06]  Well you&#39;re blocking it.
+[00:11:06 -&gt; 00:11:11]  I&#39;m asking ma&#39;am, like have you put any time block, like few months back or anything like that?
+[00:11:11 -&gt; 00:11:15]  Because while we are standing profile, we got some error notifications.
+[00:11:15 -&gt; 00:11:16]  Just hold on.
+[00:11:16 -&gt; 00:11:17]  I&#39;m sharing with you ma&#39;am.
+[00:11:17 -&gt; 00:11:20]  I have not put a block on this.
+[00:11:20 -&gt; 00:11:21]  Okay.
+[00:11:21 -&gt; 00:11:22]  Just verify ma&#39;am.
+[00:11:22 -&gt; 00:11:24]  After 5326, there&#39;s a four digit number.
+[00:11:24 -&gt; 00:11:25]  Just confirm.
+[00:11:25 -&gt; 00:11:26]  After 5326.
+[00:11:26 -&gt; 00:11:29]  Just confirm.
+[00:11:29 -&gt; 00:11:32]  It&#39;s **redacted**?
+[00:11:32 -&gt; 00:11:33]  Yes.
+[00:11:33 -&gt; 00:11:35]  Okay.
+[00:11:35 -&gt; 00:11:40]  Okay.
+[00:11:40 -&gt; 00:11:41]  No issues ma&#39;am.
+[00:11:41 -&gt; 00:11:42]  Just hold on.
+[00:11:42 -&gt; 00:11:49]  And in that case ma&#39;am, what I&#39;ll be doing, and you and your husband, both have same joint
+[00:11:49 -&gt; 00:11:51]  account, am I correct?
+[00:11:51 -&gt; 00:11:52]  Yes.
+[00:11:52 -&gt; 00:11:55]  And he&#39;s also using two cards.
+[00:11:55 -&gt; 00:11:59]  He&#39;s using his card.
+[00:11:59 -&gt; 00:12:00]  No, no.
+[00:12:00 -&gt; 00:12:03]  I&#39;m saying he used two cards ma&#39;am.
+[00:12:03 -&gt; 00:12:04]  Yes.
+[00:12:04 -&gt; 00:12:05]  Okay.
+[00:12:05 -&gt; 00:12:32]  Just hold on.
+[00:12:32 -&gt; 00:12:47]  So this other card that you pay the bills with, mine&#39;s going to be blocked.
+[00:12:47 -&gt; 00:12:50]  That probably will compromise yours as well.
+[00:12:50 -&gt; 00:12:51]  Yes.
+[00:12:51 -&gt; 00:12:55]  Ask your husband to block the card ma&#39;am.
+[00:12:55 -&gt; 00:12:59]  If he&#39;s not comfortable sharing, ask him to block the card.
+[00:12:59 -&gt; 00:13:00]  Yes, we will.
+[00:13:00 -&gt; 00:13:01]  Okay.
+[00:13:01 -&gt; 00:13:02]  Just hold on ma&#39;am.
+[00:13:03 -&gt; 00:13:18]  So it sounds like that your system has been compromised to actually have access to my card.
+[00:13:18 -&gt; 00:13:20]  No ma&#39;am, not our system ma&#39;am.
+[00:13:20 -&gt; 00:13:22]  No ma&#39;am, no ma&#39;am.
+[00:13:22 -&gt; 00:13:23]  Not our system.
+[00:13:23 -&gt; 00:13:30]  I&#39;ve used that last card, so there&#39;s no way that anyone would have that number.
+[00:13:30 -&gt; 00:13:31]  I&#39;ll tell you ma&#39;am.
+[00:13:31 -&gt; 00:13:32]  I&#39;ll tell you ma&#39;am.
+[00:13:32 -&gt; 00:13:33]  What is happening.
+[00:13:33 -&gt; 00:13:34]  I&#39;ll tell you.
+[00:13:34 -&gt; 00:13:35]  Ma&#39;am, I&#39;ll tell you what is happening.
+[00:13:35 -&gt; 00:13:39]  Most of the time customers use their card on the POS machine ma&#39;am.
+[00:13:39 -&gt; 00:13:45]  Like when you buy coffee, when you buy anything, you use the card on the POS machine or you
+[00:13:45 -&gt; 00:13:47]  use the card in the ATM.
+[00:13:47 -&gt; 00:13:52]  At point of time when you use the card in the ATM along with the PIN, if anybody got
+[00:13:52 -&gt; 00:13:57]  them, like if anybody is with you, and if you got any numbers on it, they might use
+[00:13:57 -&gt; 00:13:58]  it ma&#39;am.
+[00:13:58 -&gt; 00:13:59]  So what is happening.
+[00:13:59 -&gt; 00:14:00]  A lot of money is coming out ma&#39;am.
+[00:14:00 -&gt; 00:14:02]  You need to be rest assured ma&#39;am.
+[00:14:02 -&gt; 00:14:03]  Money is not coming out.
+[00:14:03 -&gt; 00:14:06]  There&#39;s a potential threat I&#39;m saying.
+[00:14:06 -&gt; 00:14:10]  No money has been taken out from your account ma&#39;am.
+[00:14:10 -&gt; 00:14:12]  Your account is all safe ma&#39;am.
+[00:14:12 -&gt; 00:14:15]  Only thing is happening somebody charging the card ma&#39;am.
+[00:14:15 -&gt; 00:14:18]  And we need to understand is it you or somebody else.
+[00:14:18 -&gt; 00:14:23]  So we have called you and you have confirmed that I&#39;m not using the card for any online
+[00:14:23 -&gt; 00:14:29]  activity and I&#39;m not sending any money to Ghana, South Africa or VND ma&#39;am.
+[00:14:29 -&gt; 00:14:31]  So you need to understand what is happening.
+[00:14:31 -&gt; 00:14:35]  Most of the time the customer card along with the PIN gets compromised ma&#39;am.
+[00:14:35 -&gt; 00:14:36]  What they will do?
+[00:14:36 -&gt; 00:14:41]  They use the card along with some of the sites ma&#39;am like third party site.
+[00:14:41 -&gt; 00:14:42]  What they do?
+[00:14:42 -&gt; 00:14:44]  They accept the card along with the PIN.
+[00:14:44 -&gt; 00:14:45]  But what is happening?
+[00:14:45 -&gt; 00:14:48]  Bank is all time secure for customers.
+[00:14:48 -&gt; 00:14:50]  We did not authorize any payment.
+[00:14:50 -&gt; 00:14:54]  Because you are making any payment along with the card.
+[00:14:54 -&gt; 00:14:56]  The bank asks you to verify.
+[00:14:56 -&gt; 00:15:02]  But there is no verification done from the payment of $361, $899.
+[00:15:02 -&gt; 00:15:04]  All the transactions ma&#39;am is on hold.
+[00:15:04 -&gt; 00:15:06]  We haven&#39;t released anything.
+[00:15:06 -&gt; 00:15:10]  So that&#39;s the reason the bank has to verify like where you have used the PIN ma&#39;am.
+[00:15:10 -&gt; 00:15:13]  So that we can place a block on the PIN.
+[00:15:13 -&gt; 00:15:14]  It&#39;s not like I&#39;m asking.
+[00:15:14 -&gt; 00:15:16]  You have to confirm to me.
+[00:15:16 -&gt; 00:15:22]  Once we place a block on the PIN you will be getting a confirmation notification from the system ma&#39;am.
+[00:15:22 -&gt; 00:15:24]  That your card and the PIN have been blocked.
+[00:15:24 -&gt; 00:15:27]  This is the only reason I&#39;m asking you to verify.
+[00:15:27 -&gt; 00:15:28]  Please confirm ma&#39;am.
+[00:15:28 -&gt; 00:15:30]  You remember the PIN ma&#39;am?
+[00:15:30 -&gt; 00:15:31]  Any of those card ma&#39;am.
+[00:15:31 -&gt; 00:15:35]  Like **redacted** or **redacted**.
+[00:15:35 -&gt; 00:15:37]  Just verify the four digit PIN ma&#39;am.
+[00:15:37 -&gt; 00:15:38]  Okay.
+[00:15:38 -&gt; 00:15:40]  I&#39;m not going to give you the PIN.
+[00:15:40 -&gt; 00:15:45]  And clearly I haven&#39;t used that second card at all in any session.
+[00:15:45 -&gt; 00:15:46]  That&#39;s the reason ma&#39;am.
+[00:15:46 -&gt; 00:15:52]  I&#39;m thinking that the system, the banking system has actually been compromised in some way.
+[00:15:52 -&gt; 00:15:54]  No ma&#39;am.
+[00:15:54 -&gt; 00:15:58]  We&#39;ve got 1.7 million customer ma&#39;am.
+[00:15:58 -&gt; 00:15:59]  Let me confirm to you.
+[00:15:59 -&gt; 00:16:04]  We&#39;ve got 1.7 million ComBank customer ma&#39;am.
+[00:16:04 -&gt; 00:16:07]  And I really feel inconvenient to tell you.
+[00:16:07 -&gt; 00:16:10]  No customer has been taken out.
+[00:16:10 -&gt; 00:16:13]  As you understand, a lot of the time is going on ma&#39;am.
+[00:16:13 -&gt; 00:16:15]  A different method they&#39;re using.
+[00:16:15 -&gt; 00:16:16]  They&#39;re using different numbers.
+[00:16:16 -&gt; 00:16:21]  When you start card, I can&#39;t understand how they would even get that number.
+[00:16:21 -&gt; 00:16:26]  Ma&#39;am, might be when you use the card in the paper station.
+[00:16:26 -&gt; 00:16:28]  We use the card in the cost market.
+[00:16:28 -&gt; 00:16:33]  When you use the card somewhere, might be anybody has got all the numbers on the card.
+[00:16:33 -&gt; 00:16:37]  That&#39;s the reason banks always told you not to give the card physically to anyone.
+[00:16:37 -&gt; 00:16:39]  Do not hand over your card to anyone.
+[00:16:39 -&gt; 00:16:41]  Because might be they will take a sale.
+[00:16:41 -&gt; 00:16:47]  It doesn&#39;t come out of my purse because I&#39;ve never used it.
+[00:16:47 -&gt; 00:16:50]  So anyway, that&#39;s a good point.
+[00:16:50 -&gt; 00:16:52]  Now tell me one thing ma&#39;am.
+[00:16:52 -&gt; 00:16:58]  How you are getting these notifications ma&#39;am from the card **redacted** ma&#39;am?
+[00:16:58 -&gt; 00:17:01]  You receive a lot of net posts ma&#39;am.
+[00:17:01 -&gt; 00:17:04]  That one I use is the other one I don&#39;t.
+[00:17:04 -&gt; 00:17:11]  I know ma&#39;am because ma&#39;am we have already done with the stuff.
+[00:17:11 -&gt; 00:17:12]  I&#39;m blocking the PIN ma&#39;am.
+[00:17:12 -&gt; 00:17:14]  I&#39;m requesting it for you.
+[00:17:14 -&gt; 00:17:16]  If you want, check your account ma&#39;am.
+[00:17:16 -&gt; 00:17:21]  If you find anything coming out, we will block the transaction along with the PIN ma&#39;am.
+[00:17:21 -&gt; 00:17:23]  I don&#39;t want anybody to use it.
+[00:17:23 -&gt; 00:17:25]  So please verify ma&#39;am.
+[00:17:25 -&gt; 00:17:29]  I&#39;m not saying I would tap in the bank tomorrow.
+[00:17:29 -&gt; 00:17:30]  Thank you.
+[00:17:30 -&gt; 00:17:31]  That will be fine ma&#39;am.
+[00:17:31 -&gt; 00:17:32]  Just hold on.
+[00:17:32 -&gt; 00:17:33]  Do one thing ma&#39;am.
+[00:17:33 -&gt; 00:17:35]  I&#39;ll be just confirming you.
+[00:17:35 -&gt; 00:17:38]  Your husband card hasn&#39;t blocked because it&#39;s still showing active ma&#39;am.
+[00:17:38 -&gt; 00:17:41]  Your husband card is still showing active.
+[00:17:41 -&gt; 00:17:43]  5217 card ma&#39;am.
+[00:17:43 -&gt; 00:17:48]  He is sitting on the phone and it&#39;s the 46 minute wait.
+[00:17:48 -&gt; 00:17:50]  So he will do that for himself.
+[00:17:50 -&gt; 00:17:52]  46 minute wait.
+[00:17:52 -&gt; 00:17:58]  46 minute wait on the call has been mentioned.
+[00:17:58 -&gt; 00:18:00]  Oh my god.
+[00:18:00 -&gt; 00:18:07]  Ma&#39;am ask him to block the card by logging to the system or else they will use his card.
+[00:18:07 -&gt; 00:18:11]  He will be on the line for a long, long time and they will use that card.
+[00:18:11 -&gt; 00:18:16]  End of the day when you will be going to the bank tomorrow where you will be providing the number,
+[00:18:16 -&gt; 00:18:19]  you will get confirmed that I was talking with the bank.
+[00:18:19 -&gt; 00:18:24]  There is no use of calling somebody on the phone, getting hangover for so long.
+[00:18:24 -&gt; 00:18:27]  Ma&#39;am it&#39;s always better to block the card from your end.
+[00:18:27 -&gt; 00:18:28]  Why are you calling the bank?
+[00:18:28 -&gt; 00:18:29]  Simply block the card.
+[00:18:29 -&gt; 00:18:31]  Ask your husband to block the card.
+[00:18:31 -&gt; 00:18:32]  That&#39;s it ma&#39;am.
+[00:18:32 -&gt; 00:18:34]  It will resolve the problem ma&#39;am.
+[00:18:34 -&gt; 00:18:41]  So if he actually goes onto the Commonwealth Bank site he can do that independently, can he?
+[00:18:41 -&gt; 00:18:42]  Yes ma&#39;am.
+[00:18:42 -&gt; 00:18:46]  But before that what we need to do, we need to put it on the security system ma&#39;am.
+[00:18:46 -&gt; 00:18:51]  Because we need to provide you the access so that you can log in and block the card ma&#39;am.
+[00:18:51 -&gt; 00:18:52]  That&#39;s the reason.
+[00:18:52 -&gt; 00:18:58]  And what we will do ma&#39;am, as they are using the PIN along with the card,
+[00:18:58 -&gt; 00:19:02]  so what we will do, we will block both the card and the PIN.
+[00:19:02 -&gt; 00:19:03]  So we need to get verified ma&#39;am.
+[00:19:03 -&gt; 00:19:07]  You don&#39;t need to operate ma&#39;am because we have already blocked all the transactions ma&#39;am.
+[00:19:07 -&gt; 00:19:10]  And I am requesting you to check from your end so that you can get confirmed,
+[00:19:10 -&gt; 00:19:11]  yes the card hasn&#39;t blocked.
+[00:19:11 -&gt; 00:19:13]  So we need to block the PIN ma&#39;am.
+[00:19:13 -&gt; 00:19:16]  If you remember the PIN, we will place a block ma&#39;am.
+[00:19:16 -&gt; 00:19:19]  I am not going to block the PIN on the phone.
+[00:19:19 -&gt; 00:19:26]  I will do that in the office with the Commonwealth Bank staff tomorrow morning.
+[00:19:26 -&gt; 00:19:30]  Okay.
+[00:19:30 -&gt; 00:19:35]  Ma&#39;am as we are going with the closing ahead, just verify your date of birth ma&#39;am.
+[00:19:35 -&gt; 00:19:41]  **redacted**.
+[00:19:41 -&gt; 00:19:44]  **redacted**.
+[00:19:44 -&gt; 00:19:47]  **redacted**.
+[00:19:47 -&gt; 00:19:51]  **redacted**, **redacted**.
+[00:19:51 -&gt; 00:19:52]  Correct.
+[00:19:52 -&gt; 00:19:59]  Just hold on ma&#39;am.
+[00:19:59 -&gt; 00:20:01]  I am generating a closing ticket for you.
+[00:20:01 -&gt; 00:20:02]  Just hold on.
+[00:20:02 -&gt; 00:20:13]  And I am connecting you with my senior manager ma&#39;am.
+[00:20:13 -&gt; 00:20:19]  He will explain with some banking protocol, some security measures that you need to take for further activity.
+[00:20:19 -&gt; 00:20:22]  I am just connecting you with my senior manager.
+[00:20:22 -&gt; 00:20:48]  Just hold on.
+[00:20:48 -&gt; 00:20:49]  Thank you for being online.
+[00:20:49 -&gt; 00:20:50]  This is Frank.
+[00:20:50 -&gt; 00:20:52]  I am the senior manager from the floor.
+[00:20:52 -&gt; 00:20:53]  How are you doing today?
+[00:20:53 -&gt; 00:20:54]  Good.
+[00:20:54 -&gt; 00:20:55]  Thank you.
+[00:20:55 -&gt; 00:21:02]  As we have informed you regarding the transactions ma&#39;am, so we have successfully canceled all
+[00:21:02 -&gt; 00:21:07]  the fraudulent transactions which will be done by you and this is not your consent.
+[00:21:07 -&gt; 00:21:13]  So first of all the card which is ending with **redacted** I can see over here on your profile,
+[00:21:13 -&gt; 00:21:18]  we have secured that card and we are going to put a block on your online transactions
+[00:21:18 -&gt; 00:21:23]  from your card so that nobody has the authorization to use your card and going online.
+[00:21:23 -&gt; 00:21:27]  So before we proceed with that, I just need to get in from one more.
+[00:21:27 -&gt; 00:21:29]  Can you write down the reference number for this call?
+[00:21:29 -&gt; 00:21:34]  I have the reference number for this call.
+[00:21:34 -&gt; 00:21:36]  You have the reference number.
+[00:21:36 -&gt; 00:21:37]  This is for your reference.
+[00:21:37 -&gt; 00:21:43]  When you collect all the documents you have to provide the reference number to the trader.
+[00:21:43 -&gt; 00:21:45]  I just need to get in from one thing.
+[00:21:45 -&gt; 00:21:50]  Like these transactions we have cancelled, as Michael had a word with you regarding this.
+[00:21:50 -&gt; 00:21:53]  You haven&#39;t made these transactions overseas from your side.
+[00:21:53 -&gt; 00:21:55]  Is it correct?
+[00:21:55 -&gt; 00:21:57]  Definitely not.
+[00:21:57 -&gt; 00:21:58]  Definitely not.
+[00:21:58 -&gt; 00:21:59]  That&#39;s the reason.
+[00:21:59 -&gt; 00:22:03]  Because we haven&#39;t found any of your past payment history there and we have a block on that.
+[00:22:03 -&gt; 00:22:07]  And we have already cancelled by sending you a netcode for the cancellation of all the payments.
+[00:22:07 -&gt; 00:22:11]  And your card which is ending with **redacted**, we have secured that.
+[00:22:11 -&gt; 00:22:16]  And we are just putting a block on a temporary period of time so that we can get secure everything.
+[00:22:16 -&gt; 00:22:19]  And then you can use your card after tomorrow, okay?
+[00:22:19 -&gt; 00:22:27]  I was under the impression that I would need to have another card for it.
+[00:22:27 -&gt; 00:22:29]  Yes, and that I&#39;m telling you.
+[00:22:29 -&gt; 00:22:32]  Still you are not receiving your new card.
+[00:22:32 -&gt; 00:22:35]  You can use your card with a different PIN.
+[00:22:35 -&gt; 00:22:38]  So I&#39;m just generating a system generating PIN for yourself.
+[00:22:38 -&gt; 00:22:42]  You just write down the PIN which is for the card **redacted**.
+[00:22:42 -&gt; 00:22:47]  So I&#39;m just putting a block on your current PIN and I&#39;m just going to generate a new PIN for yourself.
+[00:22:47 -&gt; 00:22:51]  And you have to use this PIN until the new card is getting arrived, okay?
+[00:22:51 -&gt; 00:22:53]  Okay.
+[00:22:53 -&gt; 00:22:58]  Yes, just write down, it&#39;s **redacted**.
+[00:22:58 -&gt; 00:23:01]  **redacted**.
+[00:23:01 -&gt; 00:23:05]  Yes, and do you know how to change your PIN from your side?
+[00:23:05 -&gt; 00:23:08]  Yes, **redacted**.
+[00:23:08 -&gt; 00:23:14]  And do you know how to change your PIN from your side?
+[00:23:14 -&gt; 00:23:17]  You don&#39;t know.
+[00:23:17 -&gt; 00:23:18]  I can understand.
+[00:23:18 -&gt; 00:23:19]  I&#39;ll be doing it from my side.
+[00:23:19 -&gt; 00:23:22]  You just confirm me one thing, the card which is **redacted**.
+[00:23:22 -&gt; 00:23:29]  I&#39;m just putting a block on your current PIN so that they won&#39;t be able to use it for any kind of transaction going online further on.
+[00:23:29 -&gt; 00:23:33]  And from now on, he will just start using your PIN with his **redacted**.
+[00:23:33 -&gt; 00:23:36]  So I&#39;m just putting a block on your current PIN.
+[00:23:36 -&gt; 00:23:42]  And if anything, like we&#39;ll be refreshing and resetting everything on your account and you&#39;ll be receiving the information message,
+[00:23:42 -&gt; 00:23:45]  then I&#39;ll provide you a password to log in.
+[00:23:45 -&gt; 00:23:48]  And then you can do and check all the other stuff from your side.
+[00:23:48 -&gt; 00:23:52]  So first of all, before you proceed with that, I just need to get verified your current PIN.
+[00:23:52 -&gt; 00:23:56]  Do you recall your current PIN for your credit card ending with **redacted**?
+[00:23:56 -&gt; 00:23:59]  Do you have any idea about your PIN?
+[00:23:59 -&gt; 00:24:03]  Do you recall your current PIN?
+[00:24:03 -&gt; 00:24:05]  I&#39;m just putting a block on your current PIN.
+[00:24:05 -&gt; 00:24:08]  And you start using your PIN.
+[00:24:08 -&gt; 00:24:14]  No, I&#39;m not asking for that.
+[00:24:14 -&gt; 00:24:15]  I&#39;m not asking for your PIN.
+[00:24:15 -&gt; 00:24:20]  I&#39;m saying I am just providing you a new PIN which is **redacted**.
+[00:24:20 -&gt; 00:24:25]  And I&#39;m just starting your new PIN until you&#39;re using a new card.
+[00:24:25 -&gt; 00:24:29]  And the person who has tried has tried a card which is **redacted**.
+[00:24:29 -&gt; 00:24:32]  It might be a possibility they can have your PIN also.
+[00:24:32 -&gt; 00:24:36]  So that is the reason I&#39;m asking you to just put a block on the PIN and nothing to be done.
+[00:24:36 -&gt; 00:24:43]  So when we will put a block now on the call, you will be receiving a confirmation message regarding the PIN to be blocked.
+[00:24:43 -&gt; 00:24:45]  That&#39;s the reason I&#39;m telling you.
+[00:24:45 -&gt; 00:24:54]  The 5353, the card ending with **redacted**, I&#39;m putting in the card, the 5353 **redacted**.
+[00:24:54 -&gt; 00:25:01]  So only just verify with the PIN so that I can put a block on it and no one has authorization to use your card and the PIN further on.
+[00:25:01 -&gt; 00:25:06]  And you will be receiving a confirmation message while checking to see when we will put a block on it.
+[00:25:06 -&gt; 00:25:09]  So right now you will be receiving a message for putting a block on your PIN.
+[00:25:09 -&gt; 00:25:13]  And you will start using a new PIN with the **redacted** only.
+[00:25:13 -&gt; 00:25:17]  So just validate with your PIN only for the card ending with **redacted** please.
+[00:25:17 -&gt; 00:25:23]  So you exist the card.
+[00:25:23 -&gt; 00:25:29]  I&#39;m just going to put a block on the PIN and then I&#39;m just going to put a block on the PIN and the new PIN you will start using it.
+[00:25:29 -&gt; 00:25:34]  I&#39;m just putting a block on your current PIN so that the person who has already tried to use your card,
+[00:25:34 -&gt; 00:25:38]  they won&#39;t be able to use it any kind of transaction by using your PIN.
+[00:25:38 -&gt; 00:25:40]  So that&#39;s the reason I&#39;m putting a block.
+[00:25:40 -&gt; 00:25:43]  It might be a possibility that they can have access of your card.
+[00:25:43 -&gt; 00:25:45]  They can have an access of PIN also.
+[00:25:45 -&gt; 00:25:47]  So I&#39;m just putting a block on your current PIN.
+[00:25:47 -&gt; 00:25:50]  And for that you will be receiving a confirmation message right now.
+[00:25:50 -&gt; 00:25:56]  When you will put a block you will be receiving a message on your mobile phone for resetting and refreshing each and everything on your account.
+[00:25:56 -&gt; 00:25:58]  You will be receiving a message right now.
+[00:25:58 -&gt; 00:26:01]  Once you validate the PIN, I&#39;m just putting a block on it.
+[00:26:01 -&gt; 00:26:05]  So only just validate me the PIN for the card which is ending with **redacted**.
+[00:26:05 -&gt; 00:26:07]  That&#39;s not the PIN.
+[00:26:07 -&gt; 00:26:10]  I am not seeing the PIN.
+[00:26:10 -&gt; 00:26:13]  You are not understanding my point what I&#39;m saying to you.
+[00:26:13 -&gt; 00:26:17]  I&#39;ll be go ahead and scanning all the things on your account,
+[00:26:17 -&gt; 00:26:23]  and I&#39;ll be providing you a password to log in as I got information that you are not able to log into your account.
+[00:26:23 -&gt; 00:26:26]  So I&#39;ll be refreshing and resetting everything on your account
+[00:26:26 -&gt; 00:26:32]  so that you will be able to log in and check all the steps from your site that I&#39;m helping you out with
+[00:26:32 -&gt; 00:26:34]  because you are not able to log in from your site.
+[00:26:34 -&gt; 00:26:39]  So I&#39;m telling you I&#39;ll be sending you the notification for refreshing and resetting everything on your account
+[00:26:39 -&gt; 00:26:41]  by putting a block on your PIN.
+[00:26:41 -&gt; 00:26:43]  And you&#39;ll be receiving a notification right now.
+[00:26:43 -&gt; 00:26:45]  Once you will confirm to the system the PIN,
+[00:26:45 -&gt; 00:26:49]  the system will be sending you the notification for the refreshing and resetting your account.
+[00:26:49 -&gt; 00:26:54]  And you can check from your site that you&#39;re getting a message for the refreshment of your account or not.
+[00:26:54 -&gt; 00:26:55]  That I can confirm to you.
+[00:26:55 -&gt; 00:26:59]  So all you have to do is validate the PIN for the card which is ending with **redacted**
+[00:26:59 -&gt; 00:27:02]  so that I can put a block and send you the notification first.
+[00:27:02 -&gt; 00:27:04]  That&#39;s where you find me the PIN only.
+[00:27:04 -&gt; 00:27:19]  Okay. Just to clarify, you are requesting me to give you my PIN for the card **redacted**. Is that correct?
+[00:27:19 -&gt; 00:27:25]  I&#39;m requesting you to give the PIN for the card which is ending with **redacted** to put a block on your PIN.
+[00:27:25 -&gt; 00:27:30]  And I have stated that I will not be giving you the PIN for that card.
+[00:27:30 -&gt; 00:27:37]  That I&#39;m confirming you, that you will be receiving a notification by putting a block because we have already secured your card.
+[00:27:37 -&gt; 00:27:41]  Now the thing is that it can be used, the card, by using your PIN.
+[00:27:41 -&gt; 00:27:45]  So we don&#39;t know how your PIN is. So we have to validate the customer.
+[00:27:45 -&gt; 00:27:51]  Now yes, you are having the PIN. And once we validate from the customer, you will be receiving a confirmation message I&#39;m telling you.
+[00:27:51 -&gt; 00:27:53]  Once we verify to the system, I don&#39;t need your PIN.
+[00:27:53 -&gt; 00:27:56]  The system is capturing your voice and each and everything.
+[00:27:56 -&gt; 00:28:02]  And it will get delivered to you right now for the putting a block and replacement of your account.
+[00:28:02 -&gt; 00:28:05]  So once you receive the notification, then you will understand what is being happening.
+[00:28:05 -&gt; 00:28:10]  Then you can understand, yes, your PIN is being blocked and your account is being refreshed and secured.
+[00:28:10 -&gt; 00:28:14]  You will be receiving this notification on your mobile phone from the Commonwealth Bank itself.
+[00:28:14 -&gt; 00:28:18]  Right now only, once we validate the PIN. Let me go ahead and put a block on the PIN.
+[00:28:18 -&gt; 00:28:25]  I will be going into the Commonwealth Bank in the morning and finalize what I did.
+[00:28:25 -&gt; 00:28:30]  Yes, yes, yes. You can go to the branch and you can average tabs.
+[00:28:30 -&gt; 00:28:33]  I understand I have to give you the reference number also.
+[00:28:33 -&gt; 00:28:40]  I just need to get validates. Can you please check the last transaction which we have forgot to cancel, the last transaction cancellation request.
+[00:28:40 -&gt; 00:28:45]  Do you receive any notification on your mobile phone with the fixed digit number? Can you please check right now?
+[00:28:45 -&gt; 00:28:51]  **redacted**.
+[00:28:51 -&gt; 00:28:56]  Yes, it just comes to your, sorry?
+[00:28:56 -&gt; 00:29:00]  **redacted**.
+[00:29:00 -&gt; 00:29:05]  **redacted**. Is it correct?
+[00:29:05 -&gt; 00:29:06]  That&#39;s correct.
+[00:29:06 -&gt; 00:29:07]  Just hold on a moment.
+[00:29:07 -&gt; 00:29:15]  The concern that I&#39;ve got is that clearly the first line says never tell anyone this code.
+[00:29:15 -&gt; 00:29:26]  Yes, I&#39;m just clarifying you on this. The thing is that this is the one-time code that you can only share on a recorded line.
+[00:29:26 -&gt; 00:29:34]  And after me, because nowadays so much scams are going on, after me if anyone calls you and asks me for any kind of code that you have received or not
+[00:29:34 -&gt; 00:29:41]  or they will send you an e-code, do not answer and do not give any and do not provide any code or anything like any information to anyone.
+[00:29:41 -&gt; 00:29:50]  It might be a possibility that if we are cancelling the transactions and the person who have initiated it, they can get the information here, the transaction, or getting cancelled.
+[00:29:50 -&gt; 00:29:59]  So they have your information, they have your card information, they have your PIN, so it might be a possibility that they can contact you and ask for your code and each and everything.
+[00:29:59 -&gt; 00:30:06]  So you didn&#39;t have to share any kind of code to anyone apart from me. Once on a live call, you can only share the code to the bank.
+[00:30:06 -&gt; 00:30:08]  That is being mentioned over there.
+[00:30:08 -&gt; 00:30:19]  Now we have successfully secured the card. Now I&#39;m just going to put a block on the PIN also that I&#39;m telling you continuously, but we have to put a block on the PIN so that I can send you the notifications.
+[00:30:19 -&gt; 00:30:27]  I&#39;m telling you, you will be receiving a notification right now regarding the payment to get blocked, the PIN to get blocked, and the account to get secured.
+[00:30:27 -&gt; 00:30:36]  So you will be receiving a notification with a different message and it will be there like your net code for the securing of your account and resetting each and everything.
+[00:30:36 -&gt; 00:30:44]  So you will be getting this notification. After then we&#39;ll go ahead and secure each and everything on your account so that they won&#39;t have any access of your account.
+[00:30:44 -&gt; 00:30:47]  So if you&#39;re telling me that you&#39;re not able to log in.
+[00:30:47 -&gt; 00:30:51]  I will do that part in the bank tomorrow.
+[00:30:52 -&gt; 00:30:55]  That I&#39;m telling you. You just go to the branch tomorrow. It&#39;s okay.
+[00:30:55 -&gt; 00:30:59]  The thing is that we are calling you from the first call so we have our way.
+[00:30:59 -&gt; 00:31:01]  Yes. I&#39;m not going to be...
+[00:31:01 -&gt; 00:31:07]  No, no. I&#39;m not asking for that. You&#39;re not understanding my phone. This card is already being used now.
+[00:31:07 -&gt; 00:31:10]  This card is already being used.
+[00:31:10 -&gt; 00:31:19]  Yes. And I&#39;m not going to provide my pin code to you over the phone. I wouldn&#39;t do that for anybody.
+[00:31:19 -&gt; 00:31:20]  So...
+[00:31:20 -&gt; 00:31:26]  No, no, no. You&#39;re not understanding my point, ma&#39;am. I am not asking for your pin, **redacted**. I am not asking for your pin.
+[00:31:26 -&gt; 00:31:33]  This is just the system that we are following. The system will identify your pin and it will send you a notification.
+[00:31:33 -&gt; 00:31:38]  And even I&#39;m telling you, right on the call I&#39;ll refresh it and everything, you will be receiving a notification
+[00:31:38 -&gt; 00:31:42]  and you can log into your account. I&#39;ll help you to log into your account. That I&#39;m telling you.
+[00:31:42 -&gt; 00:31:48]  I&#39;ll reset the password from my end and I&#39;ll give you the password so that you can log in and check all that stuff.
+[00:31:48 -&gt; 00:31:54]  So you can understand. The person who has already initiated the transaction, they have the access of your device.
+[00:31:54 -&gt; 00:31:58]  That is the reason they are able to change your password and you are not able to log in.
+[00:31:58 -&gt; 00:32:02]  So you have to understand the severity of the situation, what has been going on.
+[00:32:02 -&gt; 00:32:04]  So that&#39;s the reason I&#39;m telling you.
+[00:32:04 -&gt; 00:32:09]  If I have a Commonwealth Bank app that has been compromised.
+[00:32:09 -&gt; 00:32:14]  Yes, yes. That I&#39;m telling you. You will be receiving and I&#39;ll be giving, once you put a block on that,
+[00:32:14 -&gt; 00:32:17]  you&#39;ll be receiving a message and I&#39;ll be giving you a password.
+[00:32:17 -&gt; 00:32:20]  One time password so that you can log in.
+[00:32:20 -&gt; 00:32:29]  As I explained to the other gentleman, I have forgotten my password for the Commonwealth app.
+[00:32:29 -&gt; 00:32:38]  I have tried and used it last evening as he was talking and I was feeling very flustered.
+[00:32:38 -&gt; 00:32:46]  So I got to the maximum amount. If I put another wrong code in, it will lock.
+[00:32:46 -&gt; 00:32:53]  No, no, no. That I am telling you, that I am telling you, you don&#39;t have to do anything from your side.
+[00:32:53 -&gt; 00:32:55]  That I am telling you, I am making you understand.
+[00:32:55 -&gt; 00:33:00]  Once we validate the PIN, we will put a block on the PIN and reset everything on your account.
+[00:33:00 -&gt; 00:33:06]  We will generate a new password for you so that you can check and log in from your side.
+[00:33:06 -&gt; 00:33:11]  If I cannot remember the PIN to give you, how could that?
+[00:33:11 -&gt; 00:33:15]  The thing is that this is the process of the bank. You have to understand one thing.
+[00:33:15 -&gt; 00:33:18]  Other person has also initiated the transaction.
+[00:33:18 -&gt; 00:33:24]  So we have to verify, yes, you are having the card not with other person, not with the person who has initiated it,
+[00:33:24 -&gt; 00:33:29]  so that we can verify all the steps and we can do the needful and we can send you the notification
+[00:33:29 -&gt; 00:33:32]  and we can generate a new password for yourself.
+[00:33:32 -&gt; 00:33:37]  Once you generate a new password, then you can log in to your account and check all the steps.
+[00:33:37 -&gt; 00:33:39]  You don&#39;t have to worry about it.
+[00:33:39 -&gt; 00:33:44]  I&#39;ll be on the line. Once you&#39;ll check all the steps, once all we get cleared, then we&#39;ll hang up the call.
+[00:33:44 -&gt; 00:33:46]  So you don&#39;t have to worry about anything now.
+[00:33:46 -&gt; 00:33:50]  Once you validate the PIN, we&#39;ll be sending you the notification on your mobile phone
+[00:33:50 -&gt; 00:33:53]  for resetting and refreshing everything on your account.
+[00:33:53 -&gt; 00:33:56]  Then we&#39;ll give you a system generated password.
+[00:33:56 -&gt; 00:33:59]  Then you try to log in and you log in. You check all the steps.
+[00:33:59 -&gt; 00:34:02]  Then we&#39;ll close this call by giving you the closing number, each and everything.
+[00:34:02 -&gt; 00:34:05]  So this is the steps that we are following.
+[00:34:05 -&gt; 00:34:07]  You don&#39;t have to be worried about it.
+[00:34:07 -&gt; 00:34:10]  Just validate the PIN and let me send you the notification.
+[00:34:10 -&gt; 00:34:13]  Then you will understand, yes, your account has been getting refreshed.
+[00:34:13 -&gt; 00:34:16]  You&#39;ll be receiving your notification right now only.
+[00:34:16 -&gt; 00:34:21]  Right now you&#39;ll be receiving a notification for the resetting and refreshing of everything on your account.
+[00:34:21 -&gt; 00:34:24]  And you&#39;ll be able to log into your account and check all the steps.
+[00:34:24 -&gt; 00:34:28]  So only just verify the PIN for the card which is ending with **redacted**.
+[00:34:28 -&gt; 00:34:29]  Do not write that.
+[00:34:29 -&gt; 00:34:34]  Okay, so we&#39;re back to square one.
+[00:34:34 -&gt; 00:34:41]  Now for the PIN number for the credit card **redacted**.
+[00:34:42 -&gt; 00:34:43]  What is that?
+[00:34:43 -&gt; 00:34:44]  That&#39;s correct.
+[00:34:44 -&gt; 00:34:45]  I see.
+[00:34:45 -&gt; 00:34:54]  You&#39;re now asking me, we&#39;re back to square one, where you&#39;re asking me for the PIN number of the card **redacted**.
+[00:34:54 -&gt; 00:34:55]  **redacted**, yes, correct.
+[00:34:55 -&gt; 00:35:00]  Because you can go ahead and put a block on the PIN and we can send you the notification.
+[00:35:00 -&gt; 00:35:01]  I&#39;m not doing that.
+[00:35:01 -&gt; 00:35:08]  I&#39;ve literally said numerous times I will not be providing my PIN.
+[00:35:08 -&gt; 00:35:15]  I am not asking for your PIN, Mr. and Mrs. **redacted**.
+[00:35:15 -&gt; 00:35:17]  You will understand one thing.
+[00:35:17 -&gt; 00:35:24]  I am just trying to explain to you from last 10 to 15 minutes that I will be going ahead and putting a block on the PIN.
+[00:35:24 -&gt; 00:35:27]  And you&#39;ll be getting a notification for that.
+[00:35:27 -&gt; 00:35:29]  Put a block on it.
+[00:35:29 -&gt; 00:35:31]  So I don&#39;t know your PIN, man.
+[00:35:31 -&gt; 00:35:33]  How the bank knows your personal PIN?
+[00:35:33 -&gt; 00:35:36]  The bank has to identify, yes, you are having the PIN.
+[00:35:36 -&gt; 00:35:39]  When you put it in the system, the system will match the PIN.
+[00:35:39 -&gt; 00:35:43]  I am the human and the system is like working on the background.
+[00:35:43 -&gt; 00:35:46]  We&#39;ll put this PIN on the system and it will get matched.
+[00:35:46 -&gt; 00:35:51]  Then you will automatically receive a notification for the refreshment and resetting everything on your account.
+[00:35:51 -&gt; 00:35:53]  Then we&#39;ll further go on and give you a password.
+[00:35:53 -&gt; 00:35:55]  Then you can log in and set.
+[00:35:55 -&gt; 00:35:58]  This is the step that I am trying to explain to you.
+[00:35:58 -&gt; 00:36:01]  And you don&#39;t have to be worried about it, I am telling you.
+[00:36:01 -&gt; 00:36:05]  I will do this in the branch tomorrow morning.
+[00:36:05 -&gt; 00:36:07]  It&#39;s okay, I am telling you.
+[00:36:07 -&gt; 00:36:10]  The thing is that till tomorrow, it might be a possibility that...
+[00:36:10 -&gt; 00:36:13]  Mrs **redacted**, that&#39;s what the possibility is that.
+[00:36:13 -&gt; 00:36:15]  I am not doing it tonight.
+[00:36:15 -&gt; 00:36:16]  Do one thing.
+[00:36:16 -&gt; 00:36:17]  That&#39;s all there is to it.
+[00:36:17 -&gt; 00:36:20]  I can go on alternate way.
+[00:36:20 -&gt; 00:36:22]  I can go on alternate way.
+[00:36:22 -&gt; 00:36:24]  First of all, you can call me once.
+[00:36:24 -&gt; 00:36:28]  You are not comfortable in giving me a PIN for the card **redacted**.
+[00:36:28 -&gt; 00:36:29]  Is it comfortable to give...
+[00:36:29 -&gt; 00:36:31]  I think I said that a lot of times.
+[00:36:31 -&gt; 00:36:33]  I am happy to state that.
+[00:36:33 -&gt; 00:36:38]  I am not comfortable in giving you a PIN card over the phone.
+[00:36:38 -&gt; 00:36:43]  Is it possible for you to give me the PIN for the card ending with **redacted**?
+[00:36:43 -&gt; 00:36:47]  Now you are okay with that so that I can just try to log in.
+[00:36:47 -&gt; 00:36:51]  I am actually not happy to give you the PIN card.
+[00:36:52 -&gt; 00:36:54]  Mrs. **redacted**, you have to understand one thing.
+[00:36:54 -&gt; 00:36:55]  Why I am asking you for this.
+[00:36:55 -&gt; 00:36:59]  We are helping you out in this so that you can log in and check all the stats.
+[00:36:59 -&gt; 00:37:03]  You can relax, yes, not a single penny has gone out of your account,
+[00:37:03 -&gt; 00:37:05]  and you can check the stats from your site.
+[00:37:05 -&gt; 00:37:08]  Then we will go ahead and close this call because this is your hard-earned money.
+[00:37:08 -&gt; 00:37:10]  We don&#39;t want to face any kind of problem.
+[00:37:10 -&gt; 00:37:14]  And while we are asking for the PIN, Mrs. **redacted**, just let me confirm to you,
+[00:37:14 -&gt; 00:37:19]  this person has the authorization of your password, your PIN, your card number,
+[00:37:19 -&gt; 00:37:22]  your accounting summary, your device, each and everything.
+[00:37:22 -&gt; 00:37:24]  We are just tracking down this person.
+[00:37:24 -&gt; 00:37:29]  So further on, if they will not go ahead and take the money out of your account,
+[00:37:29 -&gt; 00:37:33]  they will not charge any other transaction, that is the reason I am asking for the PIN
+[00:37:33 -&gt; 00:37:37]  so I can put a block on it and I can take you to the login to your account
+[00:37:37 -&gt; 00:37:39]  and you can check the stats from your site.
+[00:37:39 -&gt; 00:37:41]  Then you will appreciate for my job.
+[00:37:41 -&gt; 00:37:43]  That I can only say to you.
+[00:37:43 -&gt; 00:37:48]  You have already been with our supervisor for one hour.
+[00:37:48 -&gt; 00:37:51]  So you are not talking to me from last 15 to 20 minutes.
+[00:37:51 -&gt; 00:37:53]  So I am just guiding you.
+[00:37:53 -&gt; 00:37:56]  You don&#39;t have to be worried about anything, ma&#39;am.
+[00:37:56 -&gt; 00:37:58]  You don&#39;t, Mrs. **redacted**, I am telling you.
+[00:37:58 -&gt; 00:38:03]  I am telling you, Mrs. **redacted**, you don&#39;t have to be worried about anything.
+[00:38:03 -&gt; 00:38:06]  I thank you for your help up to this point.
+[00:38:06 -&gt; 00:38:08]  But tomorrow morning I will be in.
+[00:38:08 -&gt; 00:38:14]  But the thing is that we have already, then we have already canceled all the transactions.
+[00:38:14 -&gt; 00:38:19]  It might be possible that they can use your PIN again to take the money out of your account.
+[00:38:19 -&gt; 00:38:22]  That is the reason I am asking for putting a block on the PIN, ma&#39;am.
+[00:38:22 -&gt; 00:38:25]  And what I can do with the PIN?
+[00:38:25 -&gt; 00:38:26]  I can understand what you are saying.
+[00:38:26 -&gt; 00:38:27]  I want you to understand.
+[00:38:27 -&gt; 00:38:29]  I have explained all the things, **redacted**.
+[00:38:29 -&gt; 00:38:31]  I have explained all the things.
+[00:38:31 -&gt; 00:38:32]  I know.
+[00:38:32 -&gt; 00:38:33]  You have.
+[00:38:33 -&gt; 00:38:37]  I have explained that I will not be providing the PIN.
+[00:38:37 -&gt; 00:38:40]  I will do it in the branch.
+[00:38:40 -&gt; 00:38:41]  Okay, do one thing.
+[00:38:41 -&gt; 00:38:42]  Do one thing, **redacted**.
+[00:38:42 -&gt; 00:38:43]  I am just helping you.
+[00:38:43 -&gt; 00:38:45]  I am just helping you out in this for the last time.
+[00:38:45 -&gt; 00:38:50]  I will just go ahead and help you out to log in into your account.
+[00:38:50 -&gt; 00:38:53]  Then you go ahead and change the PIN from your end.
+[00:38:53 -&gt; 00:38:55]  I will guide you to change your PIN, how to change your PIN.
+[00:38:55 -&gt; 00:38:57]  I will be on the line and guide you how to change your PIN.
+[00:38:57 -&gt; 00:38:59]  First of all, let me go ahead and...
+[00:38:59 -&gt; 00:39:03]  I can put the block on the app there.
+[00:39:03 -&gt; 00:39:05]  And if I...
+[00:39:05 -&gt; 00:39:06]  On the app.
+[00:39:06 -&gt; 00:39:12]  I am saying I will be guiding you once I put a block on the PIN.
+[00:39:12 -&gt; 00:39:14]  Then I will guide you to log in.
+[00:39:14 -&gt; 00:39:17]  And then you can change the PIN from your app, from your side.
+[00:39:17 -&gt; 00:39:18]  Right now only.
+[00:39:18 -&gt; 00:39:19]  I am not taking too much of time.
+[00:39:19 -&gt; 00:39:20]  You can change the PIN.
+[00:39:20 -&gt; 00:39:22]  But why I am asking for the PIN, ma&#39;am, why?
+[00:39:22 -&gt; 00:39:26]  Because I want you to log in and check all this stuff from your site.
+[00:39:26 -&gt; 00:39:28]  Once you log in, you can check the stuff.
+[00:39:28 -&gt; 00:39:29]  Yes, everything is there.
+[00:39:29 -&gt; 00:39:31]  Then you will be satisfied.
+[00:39:31 -&gt; 00:39:32]  Then I am asking for that.
+[00:39:32 -&gt; 00:39:34]  And I will be with your PIN, ma&#39;am.
+[00:39:34 -&gt; 00:39:35]  I don&#39;t know.
+[00:39:35 -&gt; 00:39:36]  I don&#39;t want your PIN.
+[00:39:36 -&gt; 00:39:40]  I just need to verify to the system so that the system can go ahead
+[00:39:40 -&gt; 00:39:45]  and do the needful and they can log the PIN and let you log into your account.
+[00:39:45 -&gt; 00:39:46]  That I am telling you.
+[00:39:46 -&gt; 00:39:48]  I don&#39;t want your PIN.
+[00:39:48 -&gt; 00:39:50]  What I will be with your PIN?
+[00:39:50 -&gt; 00:39:52]  I am an employee of a bank.
+[00:39:52 -&gt; 00:39:55]  I don&#39;t need any personal information from you.
+[00:39:55 -&gt; 00:39:57]  I just need to help you out in this.
+[00:39:57 -&gt; 00:40:01]  When you call the bank, the bank will always customer care,
+[00:40:01 -&gt; 00:40:04]  but they will not help you out in this because you are from the fraud.
+[00:40:04 -&gt; 00:40:06]  But if you call the customer care,
+[00:40:06 -&gt; 00:40:09]  they will also ask for your card and the PIN number.
+[00:40:09 -&gt; 00:40:12]  So who will you trust?
+[00:40:12 -&gt; 00:40:17]  You have to trust your bank so that I can go ahead and put a block on the card and the PIN.
+[00:40:17 -&gt; 00:40:20]  So once you receive the notification, **redacted**, that I am telling you,
+[00:40:20 -&gt; 00:40:24]  you receive the notification for refreshment or resetting of your account.
+[00:40:24 -&gt; 00:40:27]  You talk to me and if not, you can hang up on me.
+[00:40:27 -&gt; 00:40:29]  That I can say to you.
+[00:40:29 -&gt; 00:40:30]  So only let me do my job.
+[00:40:30 -&gt; 00:40:33]  If you go ahead and secure each and everything on your account,
+[00:40:33 -&gt; 00:40:35]  then you will appreciate my job.
+[00:40:35 -&gt; 00:40:39]  So first of all, just verify the PIN for the card which is ending with **redacted** please.
+[00:40:39 -&gt; 00:40:42]  Let me go ahead and send you the notification.
+[00:40:42 -&gt; 00:40:43]  I&#39;m going to repeat it again.
+[00:40:43 -&gt; 00:40:45]  I won&#39;t be handing it over to the phone.
+[00:40:45 -&gt; 00:40:48]  I will go in tomorrow.
+[00:40:48 -&gt; 00:40:53]  PIN then, this might be a possibility **redacted**, they can take the money out of your account.
+[00:40:53 -&gt; 00:40:57]  I&#39;m telling you again and again, it might be a possibility to take the money out of your account.
+[00:40:57 -&gt; 00:40:59]  I haven&#39;t got any money in there.
+[00:40:59 -&gt; 00:41:00]  There is no money.
+[00:41:00 -&gt; 00:41:01]  No, no.
+[00:41:01 -&gt; 00:41:02]  No, no, no.
+[00:41:02 -&gt; 00:41:07]  The credit card has a credit limit of 6,000 ma&#39;am.
+[00:41:07 -&gt; 00:41:10]  You can see over there, the credit card has a credit limit of 6,000.
+[00:41:10 -&gt; 00:41:13]  Look, I&#39;m sorry.
+[00:41:13 -&gt; 00:41:16]  I have stated what I&#39;m going to do.
+[00:41:16 -&gt; 00:41:21]  Ma&#39;am, let me go ahead and put the block on the PIN so that I can send you the notification first.
+[00:41:21 -&gt; 00:41:28]  If you don&#39;t want, okay, do one thing.
+[00:41:28 -&gt; 00:41:29]  Do one thing.
+[00:41:29 -&gt; 00:41:30]  I can do one thing for you.
+[00:41:30 -&gt; 00:41:35]  Only just verify me the last three digits of your PIN.
+[00:41:35 -&gt; 00:41:36]  Only the last three digits.
+[00:41:36 -&gt; 00:41:37]  And I can help you out.
+[00:41:37 -&gt; 00:41:40]  And so I can go the alternative way to check all the steps.
+[00:41:40 -&gt; 00:41:43]  Only just verify me the last three digits only.
+[00:41:43 -&gt; 00:41:44]  Thank you.
+[00:41:44 -&gt; 00:41:49]  If you were a scammer, then that would be a fair AP.
+[00:41:49 -&gt; 00:41:50]  No, no, no, no.
+[00:41:50 -&gt; 00:41:52]  We are helping you out in this.
+[00:41:52 -&gt; 00:41:55]  But **redacted**, you are not understanding my point.
+[00:41:55 -&gt; 00:41:57]  So you will be really upset.
+[00:41:57 -&gt; 00:42:02]  You will be getting really upset on this if anyone takes the money out of your account, **redacted**.
+[00:42:02 -&gt; 00:42:08]  Look, I will be at the bank first thing in the morning.
+[00:42:08 -&gt; 00:42:14]  No **redacted**, that I am telling you **redacted**, that I am telling you **redacted**,
+[00:42:14 -&gt; 00:42:18]  you will be getting really upset when you will receive that
+[00:42:18 -&gt; 00:42:22]  and you will check all this information that nothing has been gone out.
+[00:42:22 -&gt; 00:42:23]  That I am telling you.
+[00:42:23 -&gt; 00:42:25]  So you will be receiving that.
+[00:42:25 -&gt; 00:42:30]  I appreciate that, but I will not be handing my password over.
+[00:42:30 -&gt; 00:42:31]  Sorry?
+[00:42:31 -&gt; 00:42:37]  There is no point continuing the conversation when I have clearly indicated I have come to the end.
+[00:42:37 -&gt; 00:42:39]  Okay, I will do one thing **redacted**.
+[00:42:39 -&gt; 00:42:41]  Could you just confirm me one thing?
+[00:42:41 -&gt; 00:42:45]  I will just help you out in an alternate way or you just confirm me one thing.
+[00:42:45 -&gt; 00:42:49]  What was the last password that you have put in and you are not able to log in?
+[00:42:49 -&gt; 00:42:55]  What was the last password you have put in for the log in?
+[00:42:55 -&gt; 00:42:56]  I cannot remember.
+[00:42:56 -&gt; 00:42:58]  I tried a few different combinations.
+[00:42:58 -&gt; 00:42:59]  That is the reason.
+[00:42:59 -&gt; 00:43:01]  You do not remember your password.
+[00:43:01 -&gt; 00:43:03]  You are telling me your PIN.
+[00:43:03 -&gt; 00:43:06]  How the bank will go ahead and help you out in this?
+[00:43:06 -&gt; 00:43:07]  You have to understand.
+[00:43:07 -&gt; 00:43:09]  You are a little bit smart to understand.
+[00:43:09 -&gt; 00:43:15]  We are here to help you out and understand one thing that I will be going ahead and sending you the notifications, ma&#39;am.
+[00:43:15 -&gt; 00:43:19]  I will be sending you the notifications right now for putting a block on the PIN
+[00:43:19 -&gt; 00:43:22]  and I will be getting help you in logging to your account.
+[00:43:22 -&gt; 00:43:24]  Right now you will be able to log into your account.
+[00:43:24 -&gt; 00:43:27]  I will be giving you a password once you put a block on the PIN.
+[00:43:27 -&gt; 00:43:32]  And right now you will be logging to your account and taking all this stuff from your side.
+[00:43:32 -&gt; 00:43:36]  I am not going to provide the PIN.
+[00:43:36 -&gt; 00:43:37]  Okay, do one thing.
+[00:43:37 -&gt; 00:43:39]  You are not able to provide the PIN.
+[00:43:39 -&gt; 00:43:42]  Ma&#39;am, okay, do one thing.
+[00:43:42 -&gt; 00:43:46]  Do not make an issue of tomorrow if you lose your money.
+[00:43:46 -&gt; 00:43:48]  Do not make an issue of tomorrow, Mrs. **redacted**.
+[00:43:48 -&gt; 00:43:52]  I am telling you because the bank has cooperated with you so long to help you out.
+[00:43:52 -&gt; 00:43:55]  But you are trying to be smart, but you are not now.
+[00:43:55 -&gt; 00:43:56]  We are your bank.
+[00:43:56 -&gt; 00:44:00]  We are just going to help you out in this, but you are not understanding how the bank works.
+[00:44:00 -&gt; 00:44:03]  So you are getting problems from your side.
+[00:44:03 -&gt; 00:44:04]  You are doing this stuff from your side.
+[00:44:04 -&gt; 00:44:07]  You are like telling your own statements.
+[00:44:07 -&gt; 00:44:12]  You are not following the banking protocol, the banking process that you are following.
+[00:44:12 -&gt; 00:44:16]  I am telling you that I will be on the line once we cancel the authorization.
+[00:44:16 -&gt; 00:44:18]  That I am telling you I will be on the line.
+[00:44:18 -&gt; 00:44:22]  Once we cancel the PIN, I will be able to log in to your account.
+[00:44:22 -&gt; 00:44:23]  I will be giving you a password.
+[00:44:23 -&gt; 00:44:25]  You try to log in.
+[00:44:25 -&gt; 00:44:31]  How I can give you a trust that I will be giving you the password for the log in.
+[00:44:31 -&gt; 00:44:33]  You just log in and check all this stuff.
+[00:44:33 -&gt; 00:44:35]  Then you will understand, yes, you are talking to the right department.
+[00:44:35 -&gt; 00:44:37]  Not a single PIN has gone out.
+[00:44:37 -&gt; 00:44:40]  Even I have given you a system with a new PIN also.
+[00:44:40 -&gt; 00:44:43]  This PIN is going to be blocked.
+[00:44:43 -&gt; 00:44:50]  I actually need to cease this conversation because I have no power left in this phone.
+[00:44:50 -&gt; 00:44:52]  I have been on the phone.
+[00:44:52 -&gt; 00:44:56]  Thank you for your support at this point.
+[00:44:56 -&gt; 00:45:02]  If you don&#39;t want to give the PIN for the card, do one thing. credit-card bank fraud
