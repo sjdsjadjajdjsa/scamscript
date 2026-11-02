@@ -5,6 +5,13 @@ schema are the things that count as public API.
 
 ## Unreleased
 
+## Unreleased
+
+### Changed
+
+- CI actions moved to current majors; dependabot now carries Action and dev-tool updates.
+- Dev dependencies: pytest 9.2.0, twine 7.0.0, build 1.6.1.
+
 ## 0.8.0 - 2026-11-02
 
 ### Added
