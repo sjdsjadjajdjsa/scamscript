@@ -5,8 +5,6 @@ from __future__ import annotations
 import os
 from dataclasses import dataclass, field
 
-DEFAULT_BASE_URL = "https://api.venice.ai/api/v1"
-DEFAULT_MODEL = "deepseek-v4-1-flash-1017-uncensored"
 DEFAULT_TIMEOUT = 120.0
 DEFAULT_RETRIES = 2
 DEFAULT_MAX_TOKENS = 4096
@@ -20,8 +18,8 @@ class ConfigError(Exception):
 
 @dataclass(slots=True)
 class Settings:
-    base_url: str = DEFAULT_BASE_URL
-    model: str = DEFAULT_MODEL
+    base_url: str = ""
+    model: str = ""
     api_key: str | None = None
     timeout: float = DEFAULT_TIMEOUT
     retries: int = DEFAULT_RETRIES
@@ -30,9 +28,8 @@ class Settings:
     home: str = field(default_factory=lambda: os.environ.get(ENV_HOME, ""))
 
     def __post_init__(self) -> None:
-        self.base_url = (self.base_url or DEFAULT_BASE_URL).rstrip("/")
-        if not self.model:
-            self.model = DEFAULT_MODEL
+        self.base_url = (self.base_url or "").strip().rstrip("/")
+        self.model = (self.model or "").strip()
         home = self.home or os.path.join(os.path.expanduser("~"), ".scamscript")
         self.home = home
 
@@ -41,6 +38,21 @@ class Settings:
         if key is not None:
             key = key.strip()
         return key or None
+
+    def require_base_url(self) -> str:
+        if not self.base_url:
+            raise ConfigError(
+                "missing API base URL: pass --base-url or set the SCAMSCRIPT_BASE_URL "
+                "environment variable"
+            )
+        return self.base_url
+
+    def require_model(self) -> str:
+        if not self.model:
+            raise ConfigError(
+                "missing model: pass --model or set the SCAMSCRIPT_MODEL environment variable"
+            )
+        return self.model
 
     def require_api_key(self) -> str:
         key = self.resolve_api_key()

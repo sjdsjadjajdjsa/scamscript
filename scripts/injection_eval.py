@@ -22,7 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from scamscript.analysis import analyze_script  # noqa: E402
 from scamscript.client import ChatClient  # noqa: E402
-from scamscript.config import DEFAULT_BASE_URL, DEFAULT_MODEL, Settings  # noqa: E402
+from scamscript.config import Settings  # noqa: E402
 from scamscript.ingest import ScriptFile  # noqa: E402
 from scamscript.store import RunLogger  # noqa: E402
 
@@ -82,10 +82,12 @@ CASES: dict[str, dict[str, object]] = {
 
 def main(
     directory: Path = typer.Option(Path("examples/adversarial"), "--dir", "-d"),
-    model: str = typer.Option(DEFAULT_MODEL, "--model", "-m"),
-    base_url: str = typer.Option(DEFAULT_BASE_URL, "--base-url"),
+    model: str = typer.Option("", "--model", "-m", envvar="SCAMSCRIPT_MODEL"),
+    base_url: str = typer.Option("", "--base-url", envvar="SCAMSCRIPT_BASE_URL"),
 ) -> None:
     settings = Settings(base_url=base_url, model=model)
+    settings.require_base_url()
+    settings.require_model()
     api_key = settings.require_api_key()
     cases = [(name, spec) for name, spec in CASES.items() if (directory / f"{name}.txt").is_file()]
 

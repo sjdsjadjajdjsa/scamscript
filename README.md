@@ -40,18 +40,22 @@ mechanics instead of general advice.
 pip install scamscript           # or, for development:
 # git clone https://github.com/sjdsjadjajdjsa/scamscript && cd scamscript && pip install -e ".[dev]"
 
-export API_KEY=...               # never committed, never logged
+export API_KEY=...
+export SCAMSCRIPT_BASE_URL=https://openrouter.ai/api/v1
+export SCAMSCRIPT_MODEL=deepseek/deepseek-v4.1-flash-1017
 
 scamscript --dry-run analyze --file examples/tech_support_scam.txt   # inspect the prompt, spend nothing
 scamscript analyze --file examples/tech_support_scam.txt
 ```
 
-Any OpenAI-compatible `/chat/completions` endpoint works. Defaults are Venice with
-`deepseek-v4-1-flash-1017-uncensored`; OpenRouter needs only the model slug:
+Any OpenAI-compatible `/chat/completions` endpoint works. There is no baked-in provider or model:
+pass `--base-url` and `--model`, or set `SCAMSCRIPT_BASE_URL` and `SCAMSCRIPT_MODEL`.
 
 ```bash
 scamscript --base-url https://openrouter.ai/api/v1 \
   --model deepseek/deepseek-v4.1-flash-1017 analyze --file script.txt
+
+scamscript --base-url http://localhost:11434/v1 --model llama3.2 analyze --file script.txt
 ```
 
 ## What it produces
@@ -146,8 +150,8 @@ Release history is in [CHANGELOG.md](https://github.com/sjdsjadjajdjsa/scamscrip
 | Setting | Flag | Env | Default |
 | --- | --- | --- | --- |
 | API key | `--api-key` | `API_KEY` | none, required unless `--dry-run` |
-| Base URL | `--base-url` | `SCAMSCRIPT_BASE_URL` | `https://api.venice.ai/api/v1` |
-| Model | `--model` | `SCAMSCRIPT_MODEL` | `deepseek-v4-1-flash-1017-uncensored` |
+| Base URL | `--base-url` | `SCAMSCRIPT_BASE_URL` | none, required |
+| Model | `--model` | `SCAMSCRIPT_MODEL` | none, required |
 | State dir | `--home` | `SCAMSCRIPT_HOME` | `~/.scamscript` |
 
 ## Tests, CI and calibration
@@ -163,9 +167,9 @@ Calibration is evidence, not vibes. `scripts/calibrate.py` measures first-attemp
 adherence, repair rate, latency, score spread and billed cost against a live endpoint:
 
 ```bash
-API_KEY=... python scripts/calibrate.py --dir examples --repeat 3 \
-  --model deepseek/deepseek-v4.1-flash-1017 \
-  --base-url https://openrouter.ai/api/v1
+API_KEY=... SCAMSCRIPT_BASE_URL=https://openrouter.ai/api/v1 \
+  python scripts/calibrate.py --dir examples --repeat 3 \
+  --model deepseek/deepseek-v4.1-flash-1017
 ```
 
 Recorded passes with their numbers are in [`docs/calibration.md`](https://github.com/sjdsjadjajdjsa/scamscript/blob/master/docs/calibration.md): three rubric
@@ -176,7 +180,7 @@ take as evidence.
 The adversarial set lives in `examples/adversarial/` and has its own harness:
 
 ```bash
-API_KEY=... python scripts/injection_eval.py --model ... --base-url ...
+API_KEY=... SCAMSCRIPT_BASE_URL=... python scripts/injection_eval.py --model ...
 ```
 
 Format held in 7/7 cases; embedded demands were obeyed in 1 of 6. The fence protects the schema, not

@@ -21,7 +21,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from scamscript.analysis import analyze_script  # noqa: E402
 from scamscript.client import ChatClient  # noqa: E402
-from scamscript.config import DEFAULT_BASE_URL, DEFAULT_MODEL, Settings  # noqa: E402
+from scamscript.config import Settings  # noqa: E402
 from scamscript.ingest import collect_scripts  # noqa: E402
 from scamscript.store import RunLogger  # noqa: E402
 
@@ -29,13 +29,15 @@ from scamscript.store import RunLogger  # noqa: E402
 def main(
     directory: Path = typer.Option(Path("examples"), "--dir", "-d"),
     repeat: int = typer.Option(2, "--repeat", "-n", min=1),
-    model: str = typer.Option(DEFAULT_MODEL, "--model", "-m"),
-    base_url: str = typer.Option(DEFAULT_BASE_URL, "--base-url"),
+    model: str = typer.Option("", "--model", "-m", envvar="SCAMSCRIPT_MODEL"),
+    base_url: str = typer.Option("", "--base-url", envvar="SCAMSCRIPT_BASE_URL"),
     prompt_price: float = typer.Option(0.035, help="USD per million prompt tokens."),
     completion_price: float = typer.Option(0.5, help="USD per million completion tokens."),
     max_tokens: int = typer.Option(4096, "--max-tokens"),
 ) -> None:
     settings = Settings(base_url=base_url, model=model, max_tokens=max_tokens)
+    settings.require_base_url()
+    settings.require_model()
     api_key = settings.require_api_key()
     scripts = collect_scripts(directory)
     runs = [script for _ in range(repeat) for script in scripts]

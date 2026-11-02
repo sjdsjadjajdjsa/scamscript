@@ -5,6 +5,13 @@ schema are the things that count as public API.
 
 ## Unreleased
 
+## 0.3.0 - 2026-11-02
+
+### Changed
+
+- Breaking: no default provider or model. `--base-url` and `--model` (or `SCAMSCRIPT_BASE_URL` /
+  `SCAMSCRIPT_MODEL`) are required for API calls; `--dry-run` works without them.
+
 ## 0.2.1 - 2026-11-02
 
 ### Fixed

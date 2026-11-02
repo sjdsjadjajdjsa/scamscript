@@ -15,9 +15,7 @@ from scamscript import report as reporting
 from scamscript.analysis import Outcome, analyze_script
 from scamscript.client import ChatClient
 from scamscript.config import (
-    DEFAULT_BASE_URL,
     DEFAULT_MAX_TOKENS,
-    DEFAULT_MODEL,
     DEFAULT_RETRIES,
     DEFAULT_TIMEOUT,
     ConfigError,
@@ -66,19 +64,17 @@ def version_callback(value: bool) -> None:
 def main(
     ctx: typer.Context,
     base_url: str = typer.Option(
-        DEFAULT_BASE_URL,
+        "",
         "--base-url",
         envvar="SCAMSCRIPT_BASE_URL",
-        help="OpenAI-compatible API base URL.",
-        show_default=True,
+        help="OpenAI-compatible API base URL. Falls back to SCAMSCRIPT_BASE_URL.",
     ),
     model: str = typer.Option(
-        DEFAULT_MODEL,
+        "",
         "--model",
         "-m",
         envvar="SCAMSCRIPT_MODEL",
-        help="Model identifier sent to the API.",
-        show_default=True,
+        help="Model identifier sent to the API. Falls back to SCAMSCRIPT_MODEL.",
     ),
     api_key: str | None = typer.Option(
         None,
@@ -219,6 +215,11 @@ def _run(
     )
 
     if state.dry_run:
+        if not settings.base_url or not settings.model:
+            console.print(
+                "[yellow]note[/yellow] --base-url and --model are unset; "
+                "the prompt below is complete but unaddressed"
+            )
         for script in scripts:
             text, counts = _maybe_redact(script.text, settings.redact)
             messages = prompts.build_messages(script.name, text)
@@ -246,6 +247,8 @@ def _run(
         return
 
     try:
+        settings.require_base_url()
+        settings.require_model()
         api_key = settings.require_api_key()
     except ConfigError as exc:
         _fail(console, str(exc))

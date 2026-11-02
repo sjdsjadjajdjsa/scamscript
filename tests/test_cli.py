@@ -50,6 +50,8 @@ class FakeClient:
 @pytest.fixture()
 def home(tmp_path, monkeypatch):
     monkeypatch.setenv("SCAMSCRIPT_HOME", str(tmp_path))
+    monkeypatch.setenv("SCAMSCRIPT_BASE_URL", "https://example.test/v1")
+    monkeypatch.setenv("SCAMSCRIPT_MODEL", "test-model")
     monkeypatch.delenv("API_KEY", raising=False)
     return tmp_path
 
@@ -194,10 +196,38 @@ def test_history_empty(home):
     assert "no runs logged" in result.stdout
 
 
+def test_missing_model(home, tmp_path, monkeypatch):
+    monkeypatch.delenv("SCAMSCRIPT_MODEL")
+    script = tmp_path / "a.txt"
+    script.write_text("CALLER: hello", encoding="utf-8")
+    result = runner.invoke(cli.app, ["--api-key", "k", "analyze", "--file", str(script)])
+    assert result.exit_code == 1
+    assert "missing model" in result.stdout
+
+
+def test_missing_base_url(home, tmp_path, monkeypatch):
+    monkeypatch.delenv("SCAMSCRIPT_BASE_URL")
+    script = tmp_path / "a.txt"
+    script.write_text("CALLER: hello", encoding="utf-8")
+    result = runner.invoke(cli.app, ["--api-key", "k", "analyze", "--file", str(script)])
+    assert result.exit_code == 1
+    assert "missing API base URL" in result.stdout
+
+
+def test_dry_run_without_endpoint(home, tmp_path, monkeypatch):
+    monkeypatch.delenv("SCAMSCRIPT_MODEL")
+    monkeypatch.delenv("SCAMSCRIPT_BASE_URL")
+    script = tmp_path / "a.txt"
+    script.write_text("CALLER: hello", encoding="utf-8")
+    result = runner.invoke(cli.app, ["--dry-run", "analyze", "--file", str(script)])
+    assert result.exit_code == 0
+    assert "unaddressed" in result.stdout
+
+
 def test_version(home):
     result = runner.invoke(cli.app, ["--version"])
     assert result.exit_code == 0
-    assert result.stdout.strip() == "scamscript 0.2.1"
+    assert result.stdout.strip() == "scamscript 0.3.0"
 
 
 def test_json_output_is_one_object_per_script(home, tmp_path, fake):

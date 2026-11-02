@@ -8,9 +8,7 @@ from typing import Any, Callable
 import httpx
 
 from scamscript.config import (
-    DEFAULT_BASE_URL,
     DEFAULT_MAX_TOKENS,
-    DEFAULT_MODEL,
     DEFAULT_RETRIES,
     DEFAULT_TIMEOUT,
 )
@@ -42,8 +40,8 @@ class ChatClient:
     def __init__(
         self,
         api_key: str,
-        base_url: str = DEFAULT_BASE_URL,
-        model: str = DEFAULT_MODEL,
+        base_url: str = "",
+        model: str = "",
         timeout: float = DEFAULT_TIMEOUT,
         retries: int = DEFAULT_RETRIES,
         max_tokens: int = DEFAULT_MAX_TOKENS,
@@ -64,7 +62,7 @@ class ChatClient:
                 "Authorization": f"Bearer {api_key}",
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "User-Agent": "scamscript/0.2.1",
+                "User-Agent": "scamscript/0.3.0",
             },
         )
 
