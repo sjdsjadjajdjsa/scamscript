@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="docs/banner.svg" alt="scamscript: reverse-engineer the playbook, not the story" width="100%">
+  <img src="https://raw.githubusercontent.com/sjdsjadjajdjsa/scamscript/master/docs/banner.svg" alt="scamscript: reverse-engineer the playbook, not the story" width="100%">
 </p>
 
 <p align="center">
-  <img src="docs/demo.gif" alt="terminal demo: analyzing a script, then ranking a directory" width="760">
+  <img src="https://raw.githubusercontent.com/sjdsjadjajdjsa/scamscript/master/docs/demo.gif" alt="terminal demo: analyzing a script, then ranking a directory" width="760">
   <br>
   <sub>Recorded against a local stub endpoint, so no API spend.</sub>
 </p>
@@ -12,7 +12,7 @@
 
 [![CI](https://github.com/sjdsjadjajdjsa/scamscript/actions/workflows/ci.yml/badge.svg)](https://github.com/sjdsjadjajdjsa/scamscript/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/python-3.12%20%7C%203.13-3776ab)](pyproject.toml)
-[![License](https://img.shields.io/badge/license-MIT-2a9d8f)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-2a9d8f)](https://github.com/sjdsjadjajdjsa/scamscript/blob/master/LICENSE)
 [![Scope](https://img.shields.io/badge/scope-security%20research-e63946)](#scope-and-disclaimer)
 
 A reverse-engineering analyzer for leaked or public scam call scripts and vishing transcripts.
@@ -79,7 +79,7 @@ compared against the source, and lines that are paraphrased or simply not there 
 `--strict-quotes` to make a missing line fail the run, and `--no-verify` to skip it.
 
 Batch mode ranks a whole directory into one markdown report. A redacted report from the sample
-corpus is at [`docs/sample-report.md`](docs/sample-report.md).
+corpus is at [`docs/sample-report.md`](https://github.com/sjdsjadjajdjsa/scamscript/blob/master/docs/sample-report.md).
 
 ## Commands
 
@@ -141,7 +141,7 @@ bounded.
 ## Install and configure
 
 Python 3.12+. `pip install scamscript` for use, `pip install -e ".[dev]"` from a clone for tests.
-Release history is in [CHANGELOG.md](CHANGELOG.md).
+Release history is in [CHANGELOG.md](https://github.com/sjdsjadjajdjsa/scamscript/blob/master/CHANGELOG.md).
 
 | Setting | Flag | Env | Default |
 | --- | --- | --- | --- |
@@ -168,7 +168,7 @@ API_KEY=... python scripts/calibrate.py --dir examples --repeat 3 \
   --base-url https://openrouter.ai/api/v1
 ```
 
-Recorded passes with their numbers are in [`docs/calibration.md`](docs/calibration.md): three rubric
+Recorded passes with their numbers are in [`docs/calibration.md`](https://github.com/sjdsjadjajdjsa/scamscript/blob/master/docs/calibration.md): three rubric
 repeats, a three-model comparison, an adversarial set and end-case stability runs. The current rubric
 reaches both ends of the scale, and quote checking flags the invented lines a plain reading would
 take as evidence.
@@ -218,5 +218,5 @@ docs/           calibration record, sample report, banner, demo
 For security research and fraud-awareness training only. Not legal advice, not an attribution
 tool, no warranty. Keep API keys out of commits; the key is read from the environment.
 
-MIT licensed, see [LICENSE](LICENSE). Contribution notes in [CONTRIBUTING.md](CONTRIBUTING.md),
+MIT licensed, see [LICENSE](https://github.com/sjdsjadjajdjsa/scamscript/blob/master/LICENSE). Contribution notes in [CONTRIBUTING.md](https://github.com/sjdsjadjajdjsa/scamscript/blob/master/CONTRIBUTING.md),
 vulnerability reports in [SECURITY.md](.github/SECURITY.md).

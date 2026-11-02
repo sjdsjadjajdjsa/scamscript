@@ -197,7 +197,7 @@ def test_history_empty(home):
 def test_version(home):
     result = runner.invoke(cli.app, ["--version"])
     assert result.exit_code == 0
-    assert result.stdout.strip() == "scamscript 0.2.0"
+    assert result.stdout.strip() == "scamscript 0.2.1"
 
 
 def test_json_output_is_one_object_per_script(home, tmp_path, fake):

@@ -5,6 +5,14 @@ schema are the things that count as public API.
 
 ## Unreleased
 
+## 0.2.1 - 2026-11-02
+
+### Fixed
+
+- PyPI project page: absolute image and link URLs so the banner, demo and docs links resolve.
+- License metadata now uses the SPDX expression `MIT` plus `license-files` instead of embedding the
+  full license text in the sidebar.
+
 ### Added
 
 - Terminal demo GIF in the README, recorded against a local stub endpoint.
