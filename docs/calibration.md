@@ -3,16 +3,40 @@
 Purpose: check that a real endpoint obeys the schema before trusting the analyzer, and put a
 number on the repair retry instead of assuming it.
 
-## Pending before 0.9.0
+## Run 2, 2026-11-02 (current tree)
 
-No live pass covers the current tree: the 6144 default token budget, the `channel` field, the
-romance-before-investment slug order and the quote-check clause split all landed after the last
-recorded run. Check the size first without spending, then run the real pass and append it here:
+Covers the 6144 default budget, the `channel` field, the romance-before-investment slug order and
+the quote-check clause split. Check the size without spending with
+`python scripts/calibrate.py --dry-run` before repeating it.
 
-```bash
-python scripts/calibrate.py --dry-run --dir examples --repeat 3
-API_KEY=... SCAMSCRIPT_BASE_URL=... python scripts/calibrate.py --dir examples --repeat 3 --model ...
-```
+- Endpoint: `https://api.venice.ai/api/v1`
+- Model: `venice-uncensored-1-2`
+- Corpus: every `examples/` transcript, three repetitions (n=18)
+- Settings: current defaults (`--max-tokens 6144`, `--retries 2`, `--timeout 120`)
+
+### Results
+
+| Metric | Value |
+| --- | ---: |
+| Samples | 18 |
+| Valid on first attempt | 18 (100%) |
+| Repaired on retry | 0 |
+| Failed outright | 0 |
+| Final success | 18 (100%) |
+| Mean latency | 3.9 s |
+| Prompt tokens | 48,618 |
+| Completion tokens | 6,274 |
+| Billed cost | $0.0048 |
+| Score spread | 1, 2 x2, 5, 6 x3, 7 x8, 10 x3 |
+
+### What the numbers say
+
+- Format held on every sample; the repair path was never exercised, so this pass says nothing new
+  about it. Run 1 remains the evidence that the retry works.
+- The whole 1-10 range appears and no quote needed a `missing` or `close` verdict. The 6144 budget
+  was ample: completion stayed far below it.
+- Latency is a different model and endpoint, so do not compare it directly with Run 1. Cost is low
+  enough that a repeat three pass fits in a cent.
 
 ## Run 1, 2026-11-01
 
