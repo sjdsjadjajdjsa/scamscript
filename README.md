@@ -219,6 +219,8 @@ who will not open a terminal.
 scamscript brief --type tech-support --html --output handout.html
 ```
 
+A rendered example is at [`docs/sample-briefing.html`](https://github.com/sjdsjadjajdjsa/scamscript/blob/master/docs/sample-briefing.html).
+
 ## Paths
 
 `--file` and `--dir` resolve symlinks, a recursive walk survives a symlink loop, and a file that
