@@ -4,12 +4,6 @@ on:
   push:
     tags: ["v*"]
   workflow_dispatch:
-    inputs:
-      repository:
-        description: Target index
-        type: choice
-        options: [pypi, testpypi]
-        default: testpypi
 
 permissions:
   contents: read
@@ -38,25 +32,8 @@ jobs:
           name: dist
           path: dist/
 
-  testpypi:
-    needs: build
-    if: github.event_name == 'workflow_dispatch' && inputs.repository == 'testpypi'
-    runs-on: ubuntu-latest
-    environment: testpypi
-    permissions:
-      id-token: write
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: dist
-          path: dist/
-      - uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          repository-url: https://test.pypi.org/legacy/
-
   pypi:
     needs: build
-    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.repository == 'pypi')
     runs-on: ubuntu-latest
     environment: pypi
     permissions:

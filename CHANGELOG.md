@@ -5,6 +5,12 @@ schema are the things that count as public API.
 
 ## Unreleased
 
+## 0.6.1 - 2026-11-02
+
+### Changed
+
+- Removed the unused TestPyPI job and environment. Manual dispatch publishes to PyPI directly.
+
 ## 0.6.0 - 2026-11-02
 
 ### Added
