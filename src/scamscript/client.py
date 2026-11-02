@@ -100,7 +100,7 @@ class ChatClient:
         for attempt in range(self.retries + 1):
             try:
                 body = self._post(payload)
-                content, finish_reason = _content_of(body)
+                content, finish_reason, reasoning = _content_of(body)
             except ClientError as exc:
                 if not _is_retryable(exc) or attempt == self.retries:
                     raise
@@ -113,8 +113,10 @@ class ChatClient:
             if finish_reason == "length":
                 raise TruncatedError(
                     f"reply hit the {max_tokens or self.max_tokens} token limit before finishing",
-                    partial=content,
+                    partial=content or reasoning,
                 )
+            if not content.strip() and reasoning.strip():
+                return reasoning
             return content
 
         raise last or ClientError("request failed without a response")
@@ -169,7 +171,7 @@ def _delay(attempt: int, exc: ClientError) -> float:
     return min(BACKOFF_BASE * (2**attempt), BACKOFF_CAP)
 
 
-def _content_of(body: Any) -> tuple[str, str | None]:
+def _content_of(body: Any) -> tuple[str, str | None, str]:
     if not isinstance(body, dict):
         raise ClientError("unexpected response shape")
     choices = body.get("choices")
@@ -180,10 +182,14 @@ def _content_of(body: Any) -> tuple[str, str | None]:
         raise ClientError("unexpected choice shape")
     reason = first.get("finish_reason")
     message = first.get("message")
+    reasoning = ""
     if isinstance(message, dict):
+        raw_reasoning = message.get("reasoning")
+        if isinstance(raw_reasoning, str):
+            reasoning = raw_reasoning
         content = message.get("content")
         if isinstance(content, str) and content.strip():
-            return content, reason
+            return content, reason, reasoning
         if isinstance(content, list):
             parts = [
                 part.get("text", "")
@@ -192,8 +198,10 @@ def _content_of(body: Any) -> tuple[str, str | None]:
             ]
             joined = "".join(parts)
             if joined.strip():
-                return joined, reason
+                return joined, reason, reasoning
     text = first.get("text")
     if isinstance(text, str) and text.strip():
-        return text, reason
+        return text, reason, reasoning
+    if reasoning.strip():
+        return "", reason, reasoning
     raise _RetryableError("response contained no message content")

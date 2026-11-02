@@ -242,3 +242,37 @@ def test_usage_captured():
     with make_client(handler) as client:
         client.complete(MESSAGES)
         assert client.last_usage == {"prompt_tokens": 3, "completion_tokens": 4, "cost": 0.5}
+
+
+def test_reasoning_used_when_content_empty():
+    def handler(request):
+        return httpx.Response(
+            200,
+            json={
+                "choices": [
+                    {"message": {"content": None, "reasoning": '{"attack_type": "x"}'}, "finish_reason": "stop"}
+                ]
+            },
+        )
+
+    with make_client(handler) as client:
+        assert client.complete(MESSAGES) == '{"attack_type": "x"}'
+
+
+def test_length_with_only_reasoning_is_truncation():
+    from scamscript.client import TruncatedError
+
+    def handler(request):
+        return httpx.Response(
+            200,
+            json={
+                "choices": [
+                    {"message": {"content": None, "reasoning": "thinking..."}, "finish_reason": "length"}
+                ]
+            },
+        )
+
+    with make_client(handler) as client:
+        with pytest.raises(TruncatedError) as excinfo:
+            client.complete(MESSAGES)
+    assert excinfo.value.partial == "thinking..."
