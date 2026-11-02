@@ -56,7 +56,7 @@ Issues = "https://github.com/sjdsjadjajdjsa/scamscript/issues"
 Changelog = "https://github.com/sjdsjadjajdjsa/scamscript/blob/master/CHANGELOG.md"
 
 [project.optional-dependencies]
-dev = ["pytest==8.4.1", "build==1.6.1", "twine==7.0.0"]
+dev = ["pytest==9.2.0", "build==1.6.1", "twine==7.0.0"]
 
 [project.scripts]
 scamscript = "scamscript.cli:app"
