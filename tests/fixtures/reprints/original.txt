@@ -1,0 +1,4 @@
+# captured 2026-10-02, first copy
+CALLER: Good morning, this is the card security desk.
+CALLER: We have blocked two transactions on your card ending 4417.
+CALLER: Read me the last four digits and we will release the block.

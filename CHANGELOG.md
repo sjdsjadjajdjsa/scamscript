@@ -5,6 +5,18 @@ schema are the things that count as public API.
 
 ## Unreleased
 
+## 0.5.0 - 2026-11-02
+
+### Added
+
+- Content fingerprints and duplicate folding: reprints collapse to the strongest copy in reports,
+  with a folded count and `duplicate_of` in JSON.
+- `--dedupe/--no-dedupe` (on by default) and `--show-duplicates` to render every panel.
+
+### Changed
+
+- Duplicate panels are replaced by a one-line pointer unless `--show-duplicates` is set.
+
 ## 0.4.1 - 2026-11-02
 
 ### Fixed

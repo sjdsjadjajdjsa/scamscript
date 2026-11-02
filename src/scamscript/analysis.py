@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from scamscript import prompts, redact, verify
+from scamscript import dedupe, prompts, redact, verify
 from scamscript.client import ChatClient, ClientError, TruncatedError
 from scamscript.ingest import ScriptFile
 from scamscript.models import BreakdownError, ScriptBreakdown, parse_breakdown
@@ -27,6 +27,8 @@ class Outcome:
     duration: float = 0.0
     redactions: dict[str, int] | None = None
     skipped: bool = False
+    fingerprint: str = ""
+    duplicate_of: str | None = None
     issues: list[verify.Issue] | None = None
     verification: dict[str, int] | None = None
 
@@ -41,6 +43,8 @@ class Outcome:
             "name": self.name,
             "ok": self.ok,
             "skipped": self.skipped,
+            "fingerprint": self.fingerprint,
+            "duplicate_of": self.duplicate_of,
             "attempts": self.attempts,
             "duration_s": round(self.duration, 3),
             "breakdown": self.breakdown.model_dump() if self.breakdown else None,
@@ -63,7 +67,9 @@ def analyze_script(
     redact_identifiers: bool = False,
     verify_quotes: bool = True,
 ) -> Outcome:
-    outcome = Outcome(source=script.path, name=script.name)
+    outcome = Outcome(
+        source=script.path, name=script.name, fingerprint=dedupe.fingerprint(script.text)
+    )
     started = time.monotonic()
 
     text = script.text

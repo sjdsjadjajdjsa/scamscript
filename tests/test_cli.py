@@ -1,4 +1,6 @@
 import json
+import re
+from pathlib import Path
 
 import pytest
 from typer.testing import CliRunner
@@ -228,7 +230,7 @@ def test_dry_run_without_endpoint(home, tmp_path, monkeypatch):
 def test_version(home):
     result = runner.invoke(cli.app, ["--version"])
     assert result.exit_code == 0
-    assert result.stdout.strip() == "scamscript 0.4.1"
+    assert result.stdout.strip() == "scamscript 0.5.0"
 
 
 def test_json_output_is_one_object_per_script(home, tmp_path, fake):
@@ -409,3 +411,47 @@ def test_max_cost_warns_when_provider_reports_nothing(home, tmp_path, fake):
     )
     assert result.exit_code == 0
     assert "could not be enforced" in result.stdout
+
+
+def _reprints(tmp_path):
+    src = Path(__file__).parent / "fixtures" / "reprints"
+    for item in src.iterdir():
+        (tmp_path / item.name).write_text(item.read_text(), encoding="utf-8")
+
+
+def test_dedupe_folds_reprints(home, tmp_path, fake):
+    _reprints(tmp_path)
+    scores = {"original": 4, "copy-punctuation": 9, "copy-header": 6, "near-twin": 8}
+    for key, score in scores.items():
+        fake.replies[key] = breakdown(score=score)
+    out = tmp_path / "r.md"
+    result = runner.invoke(cli.app, ["--api-key", "k", "batch", str(tmp_path), "--output", str(out)])
+    assert result.exit_code == 0
+    markdown = out.read_text()
+    assert "Duplicate copies folded: 2" in markdown
+    assert len(re.findall(r"^## \d+\. ", markdown, re.M)) == 2
+    assert "| 1 | copy-punctuation.txt |" in markdown
+    assert "near-twin.txt" in markdown
+    assert "copy-header.txt" in markdown
+
+
+def test_no_dedupe_keeps_every_copy(home, tmp_path, fake):
+    _reprints(tmp_path)
+    out = tmp_path / "r.md"
+    result = runner.invoke(
+        cli.app, ["--api-key", "k", "--no-dedupe", "batch", str(tmp_path), "--output", str(out)]
+    )
+    assert result.exit_code == 0
+    text = out.read_text()
+    assert "Duplicate copies folded" not in text
+    assert len(re.findall(r"^\| \d+ \|", text, re.M)) == 4
+
+
+def test_json_marks_duplicates(home, tmp_path, fake):
+    _reprints(tmp_path)
+    result = runner.invoke(cli.app, ["--api-key", "k", "--json", "batch", str(tmp_path)])
+    assert result.exit_code == 0
+    records = [json.loads(line) for line in result.stdout.splitlines() if line.strip()]
+    results = [record for record in records if record.get("event") == "result"]
+    assert all(record["fingerprint"] for record in results)
+    assert sum(1 for record in results if record["duplicate_of"]) == 2

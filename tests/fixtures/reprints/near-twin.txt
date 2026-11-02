@@ -1,0 +1,5 @@
+# near twin: one extra sentence, different card digits
+CALLER: Good morning, this is the card security desk.
+CALLER: We have blocked two transactions on your card ending 9902.
+CALLER: Read me the last four digits and we will release the block.
+CALLER: If we do not clear it now, the block stays until you visit a branch.

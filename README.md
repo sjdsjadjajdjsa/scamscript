@@ -97,7 +97,8 @@ corpus is at [`docs/sample-report.md`](https://github.com/sjdsjadjajdjsa/scamscr
 | `prune` | Delete old logs |
 
 Useful flags: `--dry-run`, `--json`, `--redact`, `--top N`, `--recursive`, `--timeout`,
-`--retries`, `--max-tokens`, `--concurrency`, `--max-cost`, `--no-color`. `--json` puts one object per script on stdout and all
+`--retries`, `--max-tokens`, `--concurrency`, `--max-cost`, `--dedupe/--no-dedupe`,
+`--show-duplicates`, `--no-color`. `--json` puts one object per script on stdout and all
 Rich output on stderr, so it pipes:
 
 ```bash
@@ -117,6 +118,19 @@ scamscript --concurrency 6 --max-cost 0.25 batch corpus/ --output report.md
 The cap reads `usage.cost` from the response, so it works only where the provider reports cost and
 says so when none is sent. Spend is printed and logged per run. In-flight requests can overshoot by
 up to the concurrency, so keep headroom on a hard limit.
+
+## Duplicates
+
+Corpora are full of reprints. Each script is fingerprinted on its body: headers, casing, punctuation
+and whitespace are ignored, so copies collapse. The strongest copy is ranked and the rest are listed
+under it; the report counts what was folded and JSON records carry `fingerprint` and `duplicate_of`.
+
+```bash
+scamscript batch corpus/ --output report.md          # folds by default
+scamscript batch corpus/ --no-dedupe --show-duplicates
+```
+
+Only byte-level twins fold. A copy with one changed account number stays separate, by design.
 
 ## How it works
 
@@ -226,7 +240,7 @@ docs/           calibration record, sample report, banner, demo
 - Breakdowns are model readings; a bad prompt or a weak model produces confident nonsense. Read
   `opening_hook` and `red_flags` against the source before quoting anything.
 - Redaction is regex-based and will miss names and identifiers without a fixed shape.
-- One script per request; no cross-script deduplication yet, so reprints inflate a ranking.
+- Duplicate folding ignores formatting only; a single changed digit keeps a copy separate.
 - The cost cap depends on provider-reported usage and can overshoot by the in-flight count.
 - Analysis is English-centric: the prompt and schema assume English artifacts.
 - Quote checking compares text, not meaning. A legitimate paraphrase left in quotes is flagged;

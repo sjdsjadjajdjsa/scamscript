@@ -52,6 +52,8 @@ class Context:
     json_output: bool
     verify_quotes: bool
     strict_quotes: bool
+    dedupe: bool
+    show_duplicates: bool
     console: Console
     err_console: Console
 
@@ -135,6 +137,16 @@ def main(
         "--strict-quotes",
         help="Exit non-zero when a quoted claim is not found in the source.",
     ),
+    dedupe: bool = typer.Option(
+        True,
+        "--dedupe/--no-dedupe",
+        help="Fold identical scripts into the strongest copy in reports.",
+    ),
+    show_duplicates: bool = typer.Option(
+        False,
+        "--show-duplicates",
+        help="Render a full panel for duplicate copies too.",
+    ),
     dry_run: bool = typer.Option(
         False,
         "--dry-run",
@@ -173,6 +185,8 @@ def main(
         json_output=json_output,
         verify_quotes=verify_quotes,
         strict_quotes=strict_quotes,
+        dedupe=dedupe,
+        show_duplicates=show_duplicates,
         console=Console(
             no_color=no_color,
             highlight=False,
@@ -278,6 +292,7 @@ def _run(
     spent = 0.0
     spent_seen = False
     lock = threading.Lock()
+    seen: dict[str, str] = {}
     client = ChatClient(
         api_key=api_key,
         base_url=settings.base_url,
@@ -308,6 +323,11 @@ def _run(
             redact_identifiers=settings.redact,
             verify_quotes=state.verify_quotes,
         )
+        with lock:
+            if state.dedupe and outcome.fingerprint:
+                outcome.duplicate_of = seen.setdefault(outcome.fingerprint, outcome.name)
+                if outcome.duplicate_of == outcome.name:
+                    outcome.duplicate_of = None
         cost = client.last_cost
         if cost:
             with lock:
@@ -320,6 +340,10 @@ def _run(
             _emit_json(outcome.as_record())
         elif outcome.skipped:
             console.print(f"[dim]skipped {outcome.name}: budget reached[/dim]")
+        elif outcome.duplicate_of and not state.show_duplicates:
+            console.print(
+                f"[dim]{outcome.name}: duplicate of {outcome.duplicate_of}[/dim]"
+            )
         elif outcome.breakdown is not None:
             console.print(
                 render_breakdown(
@@ -388,14 +412,17 @@ def _run(
         cost_usd=round(spent, 6),
     )
 
+    collapsed = reporting.collapse(report_entries) if state.dedupe else report_entries
+
     if batch_mode and (successes or skipped):
         if not state.json_output:
-            console.print(
-                render_summary_table(
-                    [(o.name, o.breakdown, o.error, o.skipped) for o in finished]
-                )
+            rows = (
+                [(e.name, e.breakdown, e.error, e.skipped) for e in collapsed]
+                if state.dedupe
+                else [(o.name, o.breakdown, o.error, o.skipped) for o in finished]
             )
-        ranked = reporting.rank(report_entries)
+            console.print(render_summary_table(rows))
+        ranked = reporting.rank(collapsed)
         if top:
             ranked = ranked[:top]
         markdown = reporting.build_markdown(

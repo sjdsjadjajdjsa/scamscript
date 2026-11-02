@@ -30,6 +30,8 @@ class ReportEntry:
     error: str | None = None
     duration: float = 0.0
     skipped: bool = False
+    fingerprint: str = ""
+    duplicates: list[str] | None = None
     verification: dict[str, int] | None = None
     unverified: list[dict[str, str]] | None = None
 
@@ -44,6 +46,7 @@ def entry_from_outcome(outcome: Any) -> ReportEntry:
         source=str(getattr(outcome, "source", outcome.name)),
         breakdown=outcome.breakdown,
         skipped=getattr(outcome, "skipped", False),
+        fingerprint=getattr(outcome, "fingerprint", ""),
         error=outcome.error,
         duration=getattr(outcome, "duration", 0.0),
         verification=getattr(outcome, "verification", None),
@@ -71,6 +74,8 @@ def entries_from_run(run: dict[str, Any]) -> list[ReportEntry]:
                 source=record.get("source") or "",
                 breakdown=breakdown,
                 skipped=bool(record.get("skipped")),
+                fingerprint=record.get("fingerprint") or "",
+                duplicates=record.get("duplicates") or None,
                 error=None if breakdown else record.get("error") or "no breakdown stored",
                 duration=float(record.get("duration_s") or 0.0),
                 verification=record.get("verification") or None,
@@ -78,6 +83,29 @@ def entries_from_run(run: dict[str, Any]) -> list[ReportEntry]:
             )
         )
     return entries
+
+
+def collapse(entries: list[ReportEntry]) -> list[ReportEntry]:
+    """Keep the strongest copy of each fingerprint and list the rest under it."""
+    groups: dict[str, list[ReportEntry]] = {}
+    for entry in entries:
+        if entry.ok and entry.fingerprint:
+            groups.setdefault(entry.fingerprint, []).append(entry)
+
+    primaries: dict[str, ReportEntry] = {}
+    for key, group in groups.items():
+        if len(group) > 1:
+            best = max(group, key=lambda item: (item.breakdown.sophistication_score, item.breakdown.flag_count))
+            best.duplicates = [item.name for item in group if item is not best]
+            primaries[key] = best
+        else:
+            primaries[key] = group[0]
+
+    return [
+        primaries[entry.fingerprint] if entry.ok and entry.fingerprint else entry
+        for entry in entries
+        if not (entry.ok and entry.fingerprint and primaries[entry.fingerprint] is not entry)
+    ]
 
 
 def rank(entries: list[ReportEntry]) -> list[ReportEntry]:
@@ -118,6 +146,9 @@ def build_markdown(
     lines.append(f"- Failed: {len(failed)}")
     if skipped:
         lines.append(f"- Skipped at budget: {len(skipped)}")
+    folded = sum(len(entry.duplicates or []) for entry in ok)
+    if folded:
+        lines.append(f"- Duplicate copies folded: {folded}")
     unverified_total = sum(len(entry.unverified or []) for entry in ok)
     if unverified_total:
         lines.append(f"- Unverified quotes: {unverified_total}")
@@ -128,13 +159,13 @@ def build_markdown(
     if ok:
         lines.append("## Ranking by sophistication")
         lines.append("")
-        lines.append("| Rank | Script | Attack type | Sophistication | Red flags | Unverified |")
-        lines.append("| ---: | --- | --- | ---: | ---: | ---: |")
+        lines.append("| Rank | Script | Attack type | Sophistication | Red flags | Unverified | Copies |")
+        lines.append("| ---: | --- | --- | ---: | ---: | ---: | ---: |")
         for position, entry in enumerate(ok, start=1):
             lines.append(
                 f"| {position} | {_cell(entry.name)} | {_cell(entry.breakdown.attack_type)} | "
                 f"{entry.breakdown.sophistication_score}/10 | {entry.breakdown.flag_count} | "
-                f"{len(entry.unverified or [])} |"
+                f"{len(entry.unverified or [])} | {1 + len(entry.duplicates or [])} |"
             )
         lines.append("")
         for position, entry in enumerate(ok, start=1):
@@ -174,6 +205,8 @@ def _detail_section(position: int, entry: ReportEntry) -> list[str]:
     lines.append(f"- **Attack type:** {breakdown.attack_type}")
     lines.append(f"- **Sophistication:** {breakdown.sophistication_score}/10")
     lines.append(f"- **Red flags observed:** {breakdown.flag_count}")
+    if entry.duplicates:
+        lines.append(f"- **Identical copies folded:** {len(entry.duplicates)} ({', '.join(_cell(name) for name in entry.duplicates)})")
     counts = entry.verification or {}
     if counts.get("checked"):
         lines.append(
