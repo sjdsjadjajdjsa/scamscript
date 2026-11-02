@@ -33,6 +33,7 @@ class ScriptBreakdown(BaseModel):
     model_config = ConfigDict(extra="ignore", str_strip_whitespace=True)
 
     attack_type: str
+    channel: str = "other"
     persona: str
     opening_hook: str
     trust_building_moves: list[str]
@@ -75,6 +76,22 @@ class ScriptBreakdown(BaseModel):
                         out.append(text)
             return out
         return [str(value)]
+
+    @field_validator("channel", mode="before")
+    @classmethod
+    def _channel(cls, value: Any) -> str:
+        text = str(value or "").strip().lower()
+        aliases = {
+            "call": "vishing",
+            "phone": "vishing",
+            "voice": "vishing",
+            "text": "smishing",
+            "sms": "smishing",
+            "whatsapp": "smishing",
+            "mail": "email",
+        }
+        text = aliases.get(text, text)
+        return text if text in {"vishing", "smishing", "email", "other"} else "other"
 
     @field_validator("sophistication_score", mode="before")
     @classmethod

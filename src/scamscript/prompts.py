@@ -22,6 +22,7 @@ markdown. It must validate against this schema:
 
 {
   "attack_type": "string: the fraud family, e.g. vishing, smishing, romance scam, tech support scam, government impersonation, refund scam, crypto investment scam",
+  "channel": "string: the delivery route, exactly one of vishing, smishing, email, other",
   "persona": "string: the identity, authority, and tone the caller adopts, including any claimed employer, department, or credentials",
   "opening_hook": "string: the literal first line or lure that grabs attention, quoted from the script when present",
   "trust_building_moves": ["string: each credibility move in order, e.g. badge numbers, case IDs, hold music, spoofed caller ID, callback numbers, jargon"],
@@ -34,6 +35,7 @@ markdown. It must validate against this schema:
 }
 
 Rules:
+- channel is about delivery, not theme: a delivery-themed text message is channel smishing, a phone call is vishing.
 - opening_hook must quote the script verbatim when it has dialogue.
 - Every list must hold at least three concrete items unless the artifact truly cannot support that, in which case give what exists.
 - escalation_ladder must be ordered and must end with the walk-away path.

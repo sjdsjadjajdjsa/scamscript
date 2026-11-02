@@ -24,6 +24,13 @@ RULES: tuple[tuple[str, tuple[str, ...]], ...] = (
     ("vishing", ("vishing", "phone call", "cold call", "robocall", "phone")),
 )
 
+CHANNELS = ("vishing", "smishing", "email", "other")
+CHANNEL_RULES = (
+    ("vishing", ("vishing", "call", "phone", "robocall", "cold call", "landline")),
+    ("smishing", ("smishing", "sms", "text message", "text-message", "whatsapp")),
+    ("email", ("email", "e-mail", "phishing email")),
+)
+
 SLUGS = tuple(slug for slug, _ in RULES) + (OTHER,)
 NON_WORD = re.compile(r"[^a-z0-9]+")
 MATCHERS: tuple[tuple[str, re.Pattern[str]], ...] = tuple(
@@ -39,6 +46,15 @@ def slugify(attack_type: str) -> str:
         if pattern.search(text):
             return slug
     return OTHER
+
+
+def channel_of(*texts: str) -> str:
+    """Infer the delivery channel when the model did not supply one."""
+    text = NON_WORD.sub(" ", " ".join(texts).lower())
+    for channel, needles in CHANNEL_RULES:
+        if any(re.search(r"\b" + re.escape(n) + r"\b", text) for n in needles):
+            return channel
+    return "other"
 
 
 def unknown(values: list[str] | None) -> set[str]:

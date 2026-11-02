@@ -5,6 +5,19 @@ schema are the things that count as public API.
 
 ## Unreleased
 
+## 0.8.0 - 2026-11-02
+
+### Added
+
+- `channel` field (`vishing`, `smishing`, `email`, `other`) separate from the attack theme, with
+  `--channel` filtering in reports and briefings.
+- `brief --html`: self-contained printable page, escaped and offline.
+
+### Changed
+
+- Panels show the channel; JSON records carry it; real-corpus validation confirms text lures keep
+  their delivery route.
+
 ## 0.7.0 - 2026-11-02
 
 ### Added

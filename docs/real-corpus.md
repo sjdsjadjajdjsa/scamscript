@@ -35,3 +35,10 @@ Ten files, `--concurrency 3 --redact`, 2026-11-02, primary model:
   the model described the pattern instead of quoting a line.
 
 Recorded cost for the full directory: about two cents.
+
+## Channel split, same day
+
+A third run added the `channel` field. All nine call transcripts type as `vishing`; the USPS message
+is `delivery` + `smishing` instead of one erasing the other. The Medicare call again needed one
+repair, and the bank call produced three paraphrased quotes this time against zero the run before:
+quote drift varies by draw, which is why the checker flags rather than rewrites.

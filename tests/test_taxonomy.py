@@ -54,3 +54,25 @@ def test_parse_filter_accepts_comma_and_spaces():
 def test_label_known_and_fallback():
     assert label("bec") == "Business email compromise"
     assert label("odd") == "odd"
+
+
+@pytest.mark.parametrize(
+    "texts,channel",
+    [
+        (("USPS delivery smishing text",), "smishing"),
+        (("phone robocall",), "vishing"),
+        (("vendor invoice", "email"), "email"),
+        (("something",), "other"),
+        (("first", "second"), "other"),
+    ],
+)
+def test_channel_of(texts, channel):
+    from scamscript.taxonomy import channel_of
+
+    assert channel_of(*texts) == channel
+
+
+def test_channel_matching_uses_word_boundaries():
+    from scamscript.taxonomy import channel_of
+
+    assert channel_of("rainfall") == "other"

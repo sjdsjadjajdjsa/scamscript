@@ -241,6 +241,7 @@ def _run(
     output: Path | None,
     top: int | None,
     types: list[str] | None = None,
+    channels: list[str] | None = None,
     force: bool = False,
 ) -> None:
     console = state.console
@@ -429,6 +430,17 @@ def _run(
             console.print(
                 f"[yellow]note[/yellow] unknown type(s): {', '.join(sorted(unknown))}"
             )
+    only_channels = {
+        chunk.strip().lower()
+        for value in channels or []
+        for chunk in value.split(",")
+        if chunk.strip()
+    }
+    invalid_channels = only_channels - set(taxonomy.CHANNELS)
+    if invalid_channels:
+        console.print(
+            f"[yellow]note[/yellow] unknown channel(s): {', '.join(sorted(invalid_channels))}"
+        )
     collapsed = reporting.collapse(report_entries) if state.dedupe else report_entries
 
     if batch_mode and (successes or skipped):
@@ -448,6 +460,7 @@ def _run(
             command=command,
             model=settings.model,
             only_types=only_types,
+            only_channels=only_channels,
         )
         written = _emit_report(
             console, markdown, output, json_mode=state.json_output, force=force
@@ -527,6 +540,9 @@ def analyze(
         None, "--type", help="Only report these type slugs (repeatable or comma-separated)."
     ),
     force: bool = typer.Option(False, "--force", help="Overwrite an existing output file."),
+    channels: list[str] | None = typer.Option(
+        None, "--channel", help="Only report these channels (vishing, smishing, email, other)."
+    ),
 ) -> None:
     """Analyze a single script file, or a directory with --batch."""
     state = _context(ctx)
@@ -547,6 +563,7 @@ def analyze(
         output=output,
         top=top,
         types=types,
+        channels=channels,
         force=force,
     )
 
@@ -564,6 +581,9 @@ def batch(
         None, "--type", help="Only report these type slugs (repeatable or comma-separated)."
     ),
     force: bool = typer.Option(False, "--force", help="Overwrite an existing output file."),
+    channels: list[str] | None = typer.Option(
+        None, "--channel", help="Only report these channels (vishing, smishing, email, other)."
+    ),
 ) -> None:
     """Analyze a directory and rank every script by sophistication."""
     state = _context(ctx)
@@ -580,6 +600,7 @@ def batch(
         output=output,
         top=top,
         types=types,
+        channels=channels,
         force=force,
     )
 
@@ -596,6 +617,9 @@ def report(  # noqa: A001
         None, "--type", help="Only report these type slugs (repeatable or comma-separated)."
     ),
     force: bool = typer.Option(False, "--force", help="Overwrite an existing output file."),
+    channels: list[str] | None = typer.Option(
+        None, "--channel", help="Only report these channels (vishing, smishing, email, other)."
+    ),
 ) -> None:
     """Regenerate the aggregated report from a past run's log."""
     state = _context(ctx)
@@ -623,6 +647,12 @@ def report(  # noqa: A001
         command=str(run.get("command") or "report"),
         model=run.get("model"),
         only_types=taxonomy.parse_filter(types),
+        only_channels={
+            chunk.strip().lower()
+            for value in channels or []
+            for chunk in value.split(",")
+            if chunk.strip()
+        },
     )
     _emit_report(state.console, markdown, output, force=force)
 
@@ -673,9 +703,15 @@ def brief(
     types: list[str] | None = typer.Option(
         None, "--type", help="Only brief these type slugs (repeatable or comma-separated)."
     ),
+    channels: list[str] | None = typer.Option(
+        None, "--channel", help="Only brief these channels (vishing, smishing, email, other)."
+    ),
     output: Path | None = typer.Option(None, "--output", "-o", help="Write the briefing here."),
     logs_dir: Path | None = typer.Option(None, "--logs-dir", help="Override the log directory."),
     force: bool = typer.Option(False, "--force", help="Overwrite an existing output file."),
+    as_html: bool = typer.Option(
+        False, "--html", help="Emit a standalone HTML page instead of markdown."
+    ),
 ) -> None:
     """Build a one-page defence briefing from a past run."""
     state = _context(ctx)
@@ -694,10 +730,17 @@ def brief(
             return
 
     entries = reporting.entries_from_run(run)
-    markdown = briefing.build_brief(
+    builder = briefing.build_brief_html if as_html else briefing.build_brief
+    markdown = builder(
         entries,
         run_id=str(run["run_id"]),
         only_types=taxonomy.parse_filter(types),
+        only_channels={
+            chunk.strip().lower()
+            for value in channels or []
+            for chunk in value.split(",")
+            if chunk.strip()
+        },
     )
     _emit_report(state.console, markdown, output, force=force)
     if output:

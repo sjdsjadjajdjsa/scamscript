@@ -118,6 +118,7 @@ def render_breakdown(
         style=SECTION_COLORS["attack_type"],
     )
     attack.append("   ")
+    attack.append(f"VIA {breakdown.channel.upper()}  ", style="dim")
     attack.append("SOPHISTICATION  ", style="dim")
     attack.append(
         f"{breakdown.sophistication_score}/10",

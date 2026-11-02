@@ -55,3 +55,22 @@ def test_brief_caps_list_length():
     flags = [f"flag {i}" for i in range(10)]
     out = build_brief([entry("a", "vishing", flags, "c")], run_id="r")
     assert out.count("- flag ") == 6
+
+
+def test_html_brief_structure_and_escaping():
+    from scamscript.brief import build_brief_html
+
+    out = build_brief_html(
+        [entry("a<b>.txt", "vishing", ["<script>alert(1)</script>"], "hang up & verify")], run_id="r"
+    )
+    assert out.startswith("<!DOCTYPE html>")
+    assert "<script>alert(1)</script>" not in out
+    assert "&lt;script&gt;alert(1)&lt;/script&gt;" in out
+    assert "hang up &amp; verify" in out
+    assert "<title>Scam defence briefing</title>" in out
+
+
+def test_html_brief_empty():
+    from scamscript.brief import build_brief_html
+
+    assert "No matching successful analyses" in build_brief_html([], run_id="r")

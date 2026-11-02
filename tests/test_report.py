@@ -31,7 +31,7 @@ def test_markdown_has_summary_and_details():
     ]
     markdown = build_markdown(entries, run_id="run-1", command="batch", model="m")
     assert "# Scam script breakdown report" in markdown
-    assert "| 1 | a.txt | `vishing` | 9/10 | 1 | 0 | 1 |" in markdown
+    assert "| 1 | a.txt | `vishing` | `other` | 9/10 | 1 | 0 | 1 |" in markdown
     assert "## Failures" in markdown
     assert "bad json" in markdown
     assert "### Defense summary" in markdown
@@ -90,3 +90,12 @@ def test_type_filter_keeps_only_allowed_and_failures():
     assert "a.txt" in markdown
     assert "b.txt" not in markdown
     assert "bad.txt" in markdown
+
+
+def test_channel_filter():
+    entries = [
+        ReportEntry(name="a.txt", source="a", breakdown=breakdown(5), channel="vishing"),
+        ReportEntry(name="b.txt", source="b", breakdown=breakdown(5), channel="smishing"),
+    ]
+    markdown = build_markdown(entries, run_id="r", only_channels={"vishing"})
+    assert "a.txt" in markdown and "b.txt" not in markdown

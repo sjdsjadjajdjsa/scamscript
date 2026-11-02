@@ -146,15 +146,13 @@ def test_batch_top_limits_report(home, tmp_path, fake):
     assert "## 2." not in markdown
 
 
-def test_failure_exits_nonzero(home, tmp_path, fake):
+def test_failure_exits_nonzero(home, tmp_path, fake, monkeypatch):
     (tmp_path / "a.txt").write_text("CALLER: x", encoding="utf-8")
     fake.default = None
-    original = FakeClient.complete
-    fake.complete = lambda self, messages, **kwargs: "not json"
+    monkeypatch.setattr(FakeClient, "complete", lambda self, messages, **kwargs: "not json")
     result = runner.invoke(cli.app, ["--api-key", "k", "analyze", "--file", str(tmp_path / "a.txt")])
     assert result.exit_code == 1
     assert "FAILED" in result.stdout
-    fake.complete = original
 
 
 def test_report_replays_logged_run(home, tmp_path, fake):
@@ -230,7 +228,7 @@ def test_dry_run_without_endpoint(home, tmp_path, monkeypatch):
 def test_version(home):
     result = runner.invoke(cli.app, ["--version"])
     assert result.exit_code == 0
-    assert result.stdout.strip() == "scamscript 0.7.0"
+    assert result.stdout.strip() == "scamscript 0.8.0"
 
 
 def test_json_output_is_one_object_per_script(home, tmp_path, fake):
@@ -480,14 +478,14 @@ def test_unknown_type_warns(home, tmp_path, fake):
     assert "unknown type" in result.stdout
 
 
-def test_language_override_reaches_prompt(home, tmp_path, fake):
+def test_language_override_reaches_prompt(home, tmp_path, fake, monkeypatch):
     seen = {}
 
     def complete(self, messages, **kwargs):
         seen["prompt"] = messages[-1]["content"]
         return json.dumps(breakdown())
 
-    fake.complete = complete
+    monkeypatch.setattr(FakeClient, "complete", complete)
     script = tmp_path / "a.txt"
     script.write_text("CALLER: hola", encoding="utf-8")
     result = runner.invoke(
@@ -495,4 +493,50 @@ def test_language_override_reaches_prompt(home, tmp_path, fake):
     )
     assert result.exit_code == 0
     assert "'es'" in seen["prompt"]
-    fake.complete = FakeClient.complete
+
+
+def test_channel_filter_and_unknown_warning(home, tmp_path, fake):
+    (tmp_path / "a.txt").write_text("CALLER: call me", encoding="utf-8")
+    (tmp_path / "b.txt").write_text("CALLER: text me", encoding="utf-8")
+    vish = breakdown()
+    vish["channel"] = "vishing"
+    smish = breakdown()
+    smish["channel"] = "smishing"
+    fake.replies = {"a.txt": vish, "b.txt": smish}
+    out = tmp_path / "r.md"
+    result = runner.invoke(
+        cli.app, ["--api-key", "k", "batch", str(tmp_path), "--channel", "vishing", "--output", str(out)]
+    )
+    assert result.exit_code == 0
+    assert "a.txt" in out.read_text() and "b.txt" not in out.read_text()
+
+
+def test_unknown_channel_warns(home, tmp_path, fake):
+    (tmp_path / "a.txt").write_text("CALLER: x", encoding="utf-8")
+    result = runner.invoke(cli.app, ["--api-key", "k", "batch", str(tmp_path), "--channel", "carrier-pigeon"])
+    assert result.exit_code == 0
+    assert "unknown channel" in result.stdout
+
+
+def test_brief_html_output(home, tmp_path, fake):
+    script = tmp_path / "a.txt"
+    script.write_text("CALLER: x", encoding="utf-8")
+    runner.invoke(cli.app, ["--api-key", "k", "analyze", "--file", str(script)])
+    out = tmp_path / "b.html"
+    result = runner.invoke(cli.app, ["brief", "--html", "--output", str(out)])
+    assert result.exit_code == 0
+    assert out.read_text().startswith("<!DOCTYPE html>")
+
+
+def test_brief_refuses_overwrite_without_force(home, tmp_path, fake):
+    script = tmp_path / "a.txt"
+    script.write_text("CALLER: x", encoding="utf-8")
+    runner.invoke(cli.app, ["--api-key", "k", "analyze", "--file", str(script)])
+    out = tmp_path / "b.md"
+    out.write_text("old", encoding="utf-8")
+    refused = runner.invoke(cli.app, ["brief", "--output", str(out)])
+    assert refused.exit_code == 1
+    assert "pass --force" in refused.stdout
+    forced = runner.invoke(cli.app, ["brief", "--output", str(out), "--force"])
+    assert forced.exit_code == 0
+    assert "Scam defence briefing" in out.read_text()

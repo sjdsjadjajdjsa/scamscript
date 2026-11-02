@@ -75,7 +75,7 @@ Each script renders as a colour-coded panel:
 ╰────────────────────────────────── 7 red flags ───────────────────────────────╯
 ```
 
-Fields: `attack_type`, `persona`, `opening_hook`, `trust_building_moves`, `urgency_tactics`,
+Fields: `attack_type`, `channel`, `persona`, `opening_hook`, `trust_building_moves`, `urgency_tactics`,
 `escalation_ladder`, `target_demographics`, `red_flags`, `defense_summary`, `sophistication_score`.
 
 The panel also carries a **quote check**: every quoted claim in `opening_hook` and `red_flags` is
@@ -99,7 +99,7 @@ corpus is at [`docs/sample-report.md`](https://github.com/sjdsjadjajdjsa/scamscr
 
 Useful flags: `--dry-run`, `--json`, `--redact`, `--top N`, `--recursive`, `--timeout`,
 `--retries`, `--max-tokens`, `--concurrency`, `--max-cost`, `--dedupe/--no-dedupe`,
-`--show-duplicates`, `--type`, `--language`, `--force`, `--no-color`. `--json` puts one object per script on stdout and all
+`--show-duplicates`, `--type`, `--channel`, `--language`, `--force`, `--no-color`. `--json` puts one object per script on stdout and all
 Rich output on stderr, so it pipes:
 
 ```bash
@@ -142,7 +142,15 @@ per slug above the ranking, and `--type` filters to the ones you ask for:
 scamscript batch corpus/ --type tech-support,refund --output report.md
 ```
 
-Briefings group the same way. Build one from a finished run:
+Delivery is tracked separately from theme. `channel` is one of `vishing`, `smishing`, `email` or
+`other`, so a delivery-themed text lure is `delivery` + `smishing` rather than losing one of the two.
+`--channel` filters on it:
+
+```bash
+scamscript batch corpus/real --channel smishing --output texts.md
+```
+
+Briefings group by type but accept `--channel` too. Build one from a finished run:
 
 ```bash
 scamscript brief --type tech-support --output briefing.md
@@ -201,6 +209,15 @@ Every request appends to a timestamped JSONL file under `~/.scamscript/logs/` (o
 `--home` or `SCAMSCRIPT_HOME`). The API key is never written. Logs are the source for `report`, so
 a run replays without spending tokens, and `prune --keep 200 --keep-days 30` keeps the store
 bounded. Directories are `0700` and log files `0600`.
+
+## Printable briefings
+
+`brief --html` writes a self-contained page with inline CSS and escaped text, for handing to people
+who will not open a terminal.
+
+```bash
+scamscript brief --type tech-support --html --output handout.html
+```
 
 ## Paths
 
@@ -282,6 +299,8 @@ docs/           calibration record, sample report, banner, demo
 - Duplicate folding ignores formatting only; a single changed digit keeps a copy separate.
 - Type slugs are keyword-matched, so an unusual description falls to `other` rather than inventing one.
 - The cost cap depends on provider-reported usage and can overshoot by the in-flight count.
+- `channel` is inferred from the model's answer or, failing that, from keywords; a script with no
+  channel words falls to `other`.
 - The prompt asks the model to answer in the script's own language and `--language` overrides
   detection, but the type keywords are English: a non-English script often falls to `other`.
 - Quote checking compares text, not meaning. A legitimate paraphrase left in quotes is flagged;

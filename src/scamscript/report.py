@@ -33,6 +33,7 @@ class ReportEntry:
     skipped: bool = False
     fingerprint: str = ""
     attack_slug: str = ""
+    channel: str = "other"
     duplicates: list[str] | None = None
     verification: dict[str, int] | None = None
     unverified: list[dict[str, str]] | None = None
@@ -50,6 +51,7 @@ def entry_from_outcome(outcome: Any) -> ReportEntry:
         skipped=getattr(outcome, "skipped", False),
         fingerprint=getattr(outcome, "fingerprint", ""),
         attack_slug=getattr(outcome, "attack_slug", ""),
+        channel=getattr(outcome, "channel", "other"),
         error=outcome.error,
         duration=getattr(outcome, "duration", 0.0),
         verification=getattr(outcome, "verification", None),
@@ -79,6 +81,7 @@ def entries_from_run(run: dict[str, Any]) -> list[ReportEntry]:
                 skipped=bool(record.get("skipped")),
                 fingerprint=record.get("fingerprint") or "",
                 attack_slug=record.get("attack_slug") or "",
+                channel=record.get("channel") or "other",
                 duplicates=record.get("duplicates") or None,
                 error=None if breakdown else record.get("error") or "no breakdown stored",
                 duration=float(record.get("duration_s") or 0.0),
@@ -129,7 +132,10 @@ def build_markdown(
     command: str = "batch",
     model: str | None = None,
     only_types: set[str] | None = None,
+    only_channels: set[str] | None = None,
 ) -> str:
+    if only_channels:
+        entries = [entry for entry in entries if not entry.ok or entry.channel in only_channels]
     if only_types:
         entries = [
             entry
@@ -177,12 +183,13 @@ def build_markdown(
         lines.append("")
         lines.append("## Ranking by sophistication")
         lines.append("")
-        lines.append("| Rank | Script | Type | Sophistication | Red flags | Unverified | Copies |")
-        lines.append("| ---: | --- | --- | ---: | ---: | ---: | ---: |")
+        lines.append("| Rank | Script | Type | Channel | Sophistication | Red flags | Unverified | Copies |")
+        lines.append("| ---: | --- | --- | --- | ---: | ---: | ---: | ---: |")
         for position, entry in enumerate(ok, start=1):
             lines.append(
                 f"| {position} | {_cell(entry.name)} | "
                 f"`{entry.attack_slug or taxonomy.slugify(entry.breakdown.attack_type)}` | "
+                f"`{entry.channel}` | "
                 f"{entry.breakdown.sophistication_score}/10 | {entry.breakdown.flag_count} | "
                 f"{len(entry.unverified or [])} | {1 + len(entry.duplicates or [])} |"
             )
@@ -225,6 +232,7 @@ def _detail_section(position: int, entry: ReportEntry) -> list[str]:
     lines.append(
         f"- **Type slug:** `{entry.attack_slug or taxonomy.slugify(breakdown.attack_type)}`"
     )
+    lines.append(f"- **Channel:** `{entry.channel}`")
     lines.append(f"- **Sophistication:** {breakdown.sophistication_score}/10")
     lines.append(f"- **Red flags observed:** {breakdown.flag_count}")
     if entry.duplicates:

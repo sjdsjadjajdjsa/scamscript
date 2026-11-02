@@ -29,6 +29,7 @@ class Outcome:
     skipped: bool = False
     fingerprint: str = ""
     attack_slug: str = ""
+    channel: str = "other"
     language: str = "unknown"
     duplicate_of: str | None = None
     issues: list[verify.Issue] | None = None
@@ -47,6 +48,7 @@ class Outcome:
             "skipped": self.skipped,
             "fingerprint": self.fingerprint,
             "attack_slug": self.attack_slug,
+            "channel": self.channel,
             "language": self.language,
             "duplicate_of": self.duplicate_of,
             "attempts": self.attempts,
@@ -130,6 +132,11 @@ def analyze_script(
             outcome.breakdown = parse_breakdown(visible)
             outcome.error = None
             outcome.attack_slug = taxonomy.slugify(outcome.breakdown.attack_type)
+            outcome.channel = (
+                outcome.breakdown.channel
+                if outcome.breakdown.channel != "other"
+                else taxonomy.channel_of(outcome.breakdown.attack_type, outcome.breakdown.opening_hook)
+            )
             if verify_quotes:
                 outcome.issues = verify.verify_breakdown(outcome.breakdown, text)
                 outcome.verification = verify.summarize(outcome.issues)
