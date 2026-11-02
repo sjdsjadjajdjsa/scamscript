@@ -104,6 +104,20 @@ Rich output on stderr, so it pipes:
 scamscript --json batch examples | jq -s 'map(select(.event == "result")) | length'
 ```
 
+## Scale and spend
+
+`--concurrency N` runs up to 16 analyses at once and keeps output in script order. `--max-cost`
+stops scheduling new scripts once the provider reports that much spend, marks the remainder skipped
+and still exits zero when nothing failed.
+
+```bash
+scamscript --concurrency 6 --max-cost 0.25 batch corpus/ --output report.md
+```
+
+The cap reads `usage.cost` from the response, so it works only where the provider reports cost and
+says so when none is sent. Spend is printed and logged per run. In-flight requests can overshoot by
+up to the concurrency, so keep headroom on a hard limit.
+
 ## How it works
 
 ```text

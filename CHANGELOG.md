@@ -5,6 +5,13 @@ schema are the things that count as public API.
 
 ## Unreleased
 
+## 0.4.1 - 2026-11-02
+
+### Fixed
+
+- README lost the scale and spend section during an earlier edit; restored so the new flags are
+  documented where people look.
+
 ## 0.4.0 - 2026-11-02
 
 ### Added

@@ -228,7 +228,7 @@ def test_dry_run_without_endpoint(home, tmp_path, monkeypatch):
 def test_version(home):
     result = runner.invoke(cli.app, ["--version"])
     assert result.exit_code == 0
-    assert result.stdout.strip() == "scamscript 0.4.0"
+    assert result.stdout.strip() == "scamscript 0.4.1"
 
 
 def test_json_output_is_one_object_per_script(home, tmp_path, fake):
