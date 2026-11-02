@@ -11,23 +11,51 @@ ul { margin-top: .2rem; } .meta { color: #777; } .slug { font-family: ui-monospa
 footer { margin-top: 2rem; color: #777; font-size: .85rem; }
 </style></head><body>
 <h1>Scam defence briefing</h1>
-<p class="meta">Built from run <code>20261102T041050Z-ff874d09e8b2</code>. Every claim comes from the analyzed scripts.</p>
+<p class="meta">Built from run <code>20261102T053045Z-9b8ffdc77970</code>. Every claim comes from the analyzed scripts.</p>
 <p>The flags are what a target can notice. The counters are what to do instead of complying.</p>
 <section>
-<h2>Business email compromise <span class="slug">(bec)</span></h2>
-<p class="meta">1 script(s), mean sophistication 9.0/10.</p>
+<h2>Vishing <span class="slug">(vishing)</span></h2>
+<p class="meta">2 script(s), mean sophistication 4.0/10.</p>
 <h3>What to notice</h3><ul>
-<li>unsolicited call</li>
-<li>callback number differs from the printed one</li>
+<li>No institution, company, or agency is named at any point.</li>
+<li>The caller cannot say which account is affected, only &#x27;your main account.&#x27;</li>
+<li>No callback number, case ID, reference number, or verification step is offered.</li>
+<li>Payment is demanded by pressing one during the call, not through a known billing channel.</li>
+<li>The threat is vague: &#x27;the account closes and you lose the number&#x27; without saying whose number or why.</li>
+<li>The call ends with &#x27;Thank you. Goodbye.&#x27; immediately after the target asks a clarifying question.</li>
 </ul>
 <h3>How pressure is applied</h3><ul>
-<li>deadline today</li>
-<li>escalating penalty</li>
-<li>closing queue</li>
-<li>restate the risk</li>
+<li>&#x27;This is the final notice&#x27;</li>
+<li>&#x27;Your account is being suspended today&#x27;</li>
+<li>&#x27;If it is not paid today the account closes and you lose the number&#x27;</li>
+<li>&#x27;Press one now&#x27; repeated as the only action</li>
 </ul>
 <h3>What to do</h3><ul>
-<li>Hang up and dial the published number, never the one read out.</li>
+<li>Recognize the pattern: an unnamed &#x27;final notice department,&#x27; a vague &#x27;main account,&#x27; a small balance, and a press-one payment demand. Do not press one. Hang up and verify by calling the institution&#x27;s official number or opening its app directly. Real providers do not suspend accounts through a robocall that cannot name the account or offer a callback.</li>
+<li>Recognize an unsolicited card-security call that demands the CVV and a second-card payment. Hang up, call the number on the card or in the app, never read the CVV, never make a verification purchase, and verify transactions independently.</li>
+</ul><h3>Sources</h3><ul>
+<li><code>crude_robocall.txt</code></li>
+<li><code>prompt_injection_script.txt</code></li>
+</ul></section>
+<section>
+<h2>Business email compromise <span class="slug">(bec)</span></h2>
+<p class="meta">1 script(s), mean sophistication 8.0/10.</p>
+<h3>What to notice</h3><ul>
+<li>The caller supplies his own verification: the letter arrived that same morning and he tells you where to find it, rather than you sourcing it.</li>
+<li>The callback he offers is to &quot;the number on their invoice&quot; — a document the fraud likely also controls — and he notes that desk is closed.</li>
+<li>He instructs you to ignore a bank control: &quot;do not override it, just continue&quot; on a beneficiary name partial-match warning.</li>
+<li>The beneficiary is &quot;Corvus Holdings Ltd&quot; at a new sort code and account, not the Corvus account already on your vendor record.</li>
+<li>He asks you to read a one-time code aloud — a code that exists to stop exactly this.</li>
+<li>Every deadline in the call was set by the caller, and the 90-second approval window prevents a second look.</li>
+</ul>
+<h3>How pressure is applied</h3><ul>
+<li>&quot;the old account closes Friday&quot; — the redirect must land before the cut-off.</li>
+<li>&quot;Payments after 15:30 land Monday&quot; and Corvus carries &quot;a demurrage charge of 4,100 a day on the containers.&quot;</li>
+<li>&quot;the letter has a same-day clause&quot; — miss it and &quot;the old account rejects and the payment bounces.&quot;</li>
+<li>&quot;revalidation takes five working days.&quot;</li>
+</ul>
+<h3>What to do</h3><ul>
+<li>Recognise the shape: an internal-sounding colleague, a same-morning document you are told to fetch, a cut-off that kills the callback, and a request for a one-time code. Never read an OTP to anyone. Treat any beneficiary name-match warning as a hard stop, not a formality. Verify by calling the vendor on the number in your contract or master record — never one supplied in the letter, invoice or call — and confirm the bank change in writing through a second channel. Escalate to your own treasury or fraud team before keying anything.</li>
 </ul><h3>Sources</h3><ul>
 <li><code>sophisticated_wire_fraud.txt</code></li>
 </ul></section>
@@ -35,54 +63,66 @@ footer { margin-top: 2rem; color: #777; font-size: .85rem; }
 <h2>Government impersonation <span class="slug">(gov-impersonation)</span></h2>
 <p class="meta">1 script(s), mean sophistication 7.0/10.</p>
 <h3>What to notice</h3><ul>
-<li>unsolicited call</li>
-<li>callback number differs from the printed one</li>
+<li>Unsolicited call from &quot;Revenue Enforcement Division&quot; with no independently verified caller ID or official callback number.</li>
+<li>Caller asks for the last four of the taxpayer ID before the target has verified the caller&#x27;s identity.</li>
+<li>Demands same-day payment by phone or transfer and says the online portal cannot move the levy date.</li>
+<li>Tells the target not to use the number on the back of the card, steering to a supplied settlement desk number.</li>
+<li>Threatens 48-hour levy, 22% penalty, field visit, and 4:30 auto-referral to prevent checking.</li>
+<li>Uses badge and case numbers the target is asked to read back, but provides no official notice, portal, or written assessment.</li>
 </ul>
 <h3>How pressure is applied</h3><ul>
-<li>deadline today</li>
-<li>escalating penalty</li>
-<li>closing queue</li>
-<li>restate the risk</li>
+<li>Levy on the primary account begins within 48 hours once the case is referred.</li>
+<li>A 22 percent penalty is added after referral, and reinstatement requires a field visit.</li>
+<li>The supervisor leaves at 5, limiting the settlement approval window.</li>
+<li>Payment must post by 4:30 today or the file auto-refers and cannot be pulled back.</li>
 </ul>
 <h3>What to do</h3><ul>
-<li>Hang up and dial the published number, never the one read out.</li>
+<li>Recognize unsolicited tax-enforcement call, ID confirmation, badge/case theater, same-day levy threat, no card-back number. Hang up; don&#x27;t call supplied number; verify via agency&#x27;s published line and official account; demand written notice; never pay by wire, transfer, or gift card.</li>
 </ul><h3>Sources</h3><ul>
 <li><code>gov_impersonation_vishing.txt</code></li>
+</ul></section>
+<section>
+<h2>Romance <span class="slug">(romance)</span></h2>
+<p class="meta">1 script(s), mean sophistication 7.0/10.</p>
+<h3>What to notice</h3><ul>
+<li>First contact arrives from a masked number (&quot;UNKNOWN **********42&quot;) citing a &quot;hiking group sheet&quot; — the club can be asked whether any such sheet or member named Daniel exists.</li>
+<li>Voice calls never connect; the excuse (&quot;Rig blocks voice during dive windows, only data gets through&quot;) appears only after Nina&#x27;s call rings out.</li>
+<li>Intimacy runs on a schedule: &quot;right person at the wrong time&quot; on day 6, kitchen talk on day 14, a money request on day 19.</li>
+<li>The emergency is sized to be affordable — 900 short, then 850 — and lands right after rapport peaks.</li>
+<li>Payment goes to a third-party &quot;crew fund&quot; pool account with a reference code, not to a named person.</li>
+<li>The &quot;offshore bank, transfers take nine days&quot; story makes the money one-way and the promised repayment unverifiable.</li>
+</ul>
+<h3>How pressure is applied</h3><ul>
+<li>Contract held over five weeks with docked pay — an externally caused, blameless cash crunch.</li>
+<li>A hard deadline: &quot;The storage unit goes to auction Friday if it&#x27;s unpaid.&quot;</li>
+<li>Sentimental stake: &quot;That&#x27;s my mum&#x27;s furniture.&quot;</li>
+<li>A shortfall sized to be payable: &quot;About 900 short for the month,&quot; then a request for 850.</li>
+</ul>
+<h3>What to do</h3><ul>
+<li>Recognise the shape: a group-sheet or wrong-number opener, a charming remote worker whose job explains both absence and blocked calls, weeks of paced intimacy, then a modest deadline-driven emergency paid into a pool account. Counter-moves: reverse-image search the photos, insist on live video, ask the club whether the person exists, refuse any transfer to a third-party account regardless of reference codes, and treat any request for money from an unmet contact as fraud — no exceptions, no matter how small or how dated the promise of repayment.</li>
+</ul><h3>Sources</h3><ul>
+<li><code>romance_scam_sms.txt</code></li>
 </ul></section>
 <section>
 <h2>Tech support <span class="slug">(tech-support)</span></h2>
 <p class="meta">1 script(s), mean sophistication 6.0/10.</p>
 <h3>What to notice</h3><ul>
-<li>unsolicited call</li>
-<li>callback number differs from the printed one</li>
+<li>The caller contacted you first and claims to see errors on your machine — Microsoft and Windows never cold-call about errors.</li>
+<li>&quot;Windows Security Partner Program&quot; is not a Microsoft department; no case number, employee ID, or callback number is ever given.</li>
+<li>Red circle icons in Event Viewer appear on virtually every Windows PC and are not proof of a failing drive.</li>
+<li>He asks you to open &quot;mstsc&quot; (Remote Desktop) and read him a session ID — that hands a stranger your desktop.</li>
+<li>A free diagnostic becomes a $249 charge within the same call.</li>
+<li>A &quot;twenty minute&quot; quote hold and a &quot;price doubles&quot; checkbox are pressure devices, not system rules.</li>
 </ul>
 <h3>How pressure is applied</h3><ul>
-<li>deadline today</li>
-<li>escalating penalty</li>
-<li>closing queue</li>
-<li>restate the risk</li>
+<li>&quot;the drive is already at nine days&quot; — a running countdown the target cannot verify.</li>
+<li>&quot;Once it hits the failure threshold the session closes and the free diagnostic expires.&quot;</li>
+<li>&quot;I can hold the current quote for the next twenty minutes, that&#x27;s the most the system allows.&quot;</li>
+<li>&quot;the quote resets and you&#x27;d start the diagnostic again&quot; — punishes any delay.</li>
 </ul>
 <h3>What to do</h3><ul>
-<li>Hang up and dial the published number, never the one read out.</li>
+<li>Recognize the shape: unsolicited call, an error code you never reported, a walkthrough of your own Event Viewer, then a request for remote access, then a price. Microsoft does not call about errors and does not sell per-incident repairs. Hang up before the walkthrough; never open mstsc, Quick Assist, AnyDesk, or TeamViewer for an inbound caller, and never read out a session ID. Verify by calling the number printed on your own invoice or the vendor&#x27;s official site, not one the caller supplies. Check drive health yourself with the manufacturer&#x27;s tool (CrystalDiskInfo, SeaTools, or the OEM utility). If you already connected: disconnect the session, run a full malware scan, change passwords from a different device, and watch bank and card statements.</li>
 </ul><h3>Sources</h3><ul>
 <li><code>tech_support_scam.txt</code></li>
-</ul></section>
-<section>
-<h2>Vishing <span class="slug">(vishing)</span></h2>
-<p class="meta">1 script(s), mean sophistication 2.0/10.</p>
-<h3>What to notice</h3><ul>
-<li>unsolicited call</li>
-<li>callback number differs from the printed one</li>
-</ul>
-<h3>How pressure is applied</h3><ul>
-<li>deadline today</li>
-<li>escalating penalty</li>
-<li>closing queue</li>
-<li>restate the risk</li>
-</ul>
-<h3>What to do</h3><ul>
-<li>Hang up and dial the published number, never the one read out.</li>
-</ul><h3>Sources</h3><ul>
-<li><code>crude_robocall.txt</code></li>
 </ul></section>
 <footer>Model-produced reading of captured scripts. Security research and fraud-awareness training only.</footer></body></html>

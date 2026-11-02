@@ -18,7 +18,7 @@ body:
     id: command
     attributes:
       label: Command
-      options: [analyze, batch, report, history, prune, other]
+      options: [analyze, batch, brief, report, history, prune, other]
     validations:
       required: true
   - type: input

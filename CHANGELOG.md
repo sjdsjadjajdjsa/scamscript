@@ -5,12 +5,22 @@ schema are the things that count as public API.
 
 ## Unreleased
 
-## Unreleased
+### Added
+
+- `AGENTS.md` with setup, architecture and repository conventions for contributors.
 
 ### Changed
 
 - CI actions moved to current majors; dependabot now carries Action and dev-tool updates.
 - Dev dependencies: pytest 9.2.0, twine 7.0.0, build 1.6.1.
+- Sample report and briefing regenerated against the current output format; the README panel now
+  matches what the renderer actually prints.
+- Citation metadata, README layout and the calibration harness defaults brought in line with the
+  current release.
+
+### Fixed
+
+- A romance scam described with pig-butchering language now slugs as `romance`, not `investment`.
 
 ## 0.8.0 - 2026-11-02
 

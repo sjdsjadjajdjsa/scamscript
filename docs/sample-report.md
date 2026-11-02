@@ -1,7 +1,7 @@
 # Scam script breakdown report
 
-- Generated: 2026-11-01T23:27:31+00:00
-- Run: `20261101T232618Z-cde08863f044`
+- Generated: 2026-11-02T05:30:45+00:00
+- Run: `20261102T053045Z-9b8ffdc77970`
 - Command: `batch`
 - Model: `deepseek/deepseek-v4.1-flash-1017`
 - Scripts analyzed: 6
@@ -10,24 +10,36 @@
 - Unverified quotes: 1
 - Mean sophistication: 6.0/10
 
+## Attack types
+
+| Type | Scripts | Mean score |
+| --- | ---: | ---: |
+| Vishing (`vishing`) | 2 | 4.0 |
+| Business email compromise (`bec`) | 1 | 8.0 |
+| Government impersonation (`gov-impersonation`) | 1 | 7.0 |
+| Romance (`romance`) | 1 | 7.0 |
+| Tech support (`tech-support`) | 1 | 6.0 |
+
 ## Ranking by sophistication
 
-| Rank | Script | Attack type | Sophistication | Red flags | Unverified |
-| ---: | --- | --- | ---: | ---: | ---: |
-| 1 | sophisticated_wire_fraud.txt | Business email compromise by phone (vishing-led wire fraud / vendor payment redirection) | 8/10 | 7 | 0 |
-| 2 | gov_impersonation_vishing.txt | government impersonation vishing | 7/10 | 8 | 0 |
-| 3 | romance_scam_sms.txt | romance scam (long-con SMS / pig-butchering-adjacent confidence fraud) | 7/10 | 8 | 1 |
-| 4 | tech_support_scam.txt | Tech support scam (phone vishing with remote-access takeover and fake repair upsell) | 6/10 | 8 | 0 |
-| 5 | prompt_injection_script.txt | vishing / card-security impersonation | 6/10 | 7 | 0 |
-| 6 | crude_robocall.txt | vishing (automated robocall payment scam) | 2/10 | 6 | 0 |
+| Rank | Script | Type | Channel | Sophistication | Red flags | Unverified | Copies |
+| ---: | --- | --- | --- | ---: | ---: | ---: | ---: |
+| 1 | sophisticated_wire_fraud.txt | `bec` | `vishing` | 8/10 | 7 | 0 | 1 |
+| 2 | gov_impersonation_vishing.txt | `gov-impersonation` | `vishing` | 7/10 | 8 | 0 | 1 |
+| 3 | romance_scam_sms.txt | `romance` | `smishing` | 7/10 | 8 | 1 | 1 |
+| 4 | tech_support_scam.txt | `tech-support` | `vishing` | 6/10 | 8 | 0 | 1 |
+| 5 | prompt_injection_script.txt | `vishing` | `vishing` | 6/10 | 7 | 0 | 1 |
+| 6 | crude_robocall.txt | `vishing` | `vishing` | 2/10 | 6 | 0 | 1 |
 
 ## 1. sophisticated_wire_fraud.txt
 
 - **Attack type:** Business email compromise by phone (vishing-led wire fraud / vendor payment redirection)
+- **Type slug:** `bec`
+- **Channel:** `vishing`
 - **Sophistication:** 8/10
 - **Red flags observed:** 7
-- **Quote check:** 4/4 verbatim, 0 missing
-- **Source:** `/home/cj/Projects/scamscript/examples/sophisticated_wire_fraud.txt`
+- **Quote check:** 6/6 verbatim, 0 missing
+- **Source:** `examples/sophisticated_wire_fraud.txt`
 
 ### Persona adopted
 
@@ -89,10 +101,12 @@ Recognise the shape: an internal-sounding colleague, a same-morning document you
 ## 2. gov_impersonation_vishing.txt
 
 - **Attack type:** government impersonation vishing
+- **Type slug:** `gov-impersonation`
+- **Channel:** `vishing`
 - **Sophistication:** 7/10
 - **Red flags observed:** 8
 - **Quote check:** 2/2 verbatim, 0 missing
-- **Source:** `/home/cj/Projects/scamscript/examples/gov_impersonation_vishing.txt`
+- **Source:** `examples/gov_impersonation_vishing.txt`
 
 ### Persona adopted
 
@@ -151,10 +165,12 @@ Recognize unsolicited tax-enforcement call, ID confirmation, badge/case theater,
 ## 3. romance_scam_sms.txt
 
 - **Attack type:** romance scam (long-con SMS / pig-butchering-adjacent confidence fraud)
+- **Type slug:** `romance`
+- **Channel:** `smishing`
 - **Sophistication:** 7/10
 - **Red flags observed:** 8
-- **Quote check:** 4/5 verbatim, 0 missing
-- **Source:** `/home/cj/Projects/scamscript/examples/romance_scam_sms.txt`
+- **Quote check:** 6/7 verbatim, 0 missing
+- **Source:** `examples/romance_scam_sms.txt`
 
 ### Unverified quotes
 
@@ -220,10 +236,12 @@ Recognise the shape: a group-sheet or wrong-number opener, a charming remote wor
 ## 4. tech_support_scam.txt
 
 - **Attack type:** Tech support scam (phone vishing with remote-access takeover and fake repair upsell)
+- **Type slug:** `tech-support`
+- **Channel:** `vishing`
 - **Sophistication:** 6/10
 - **Red flags observed:** 8
 - **Quote check:** 2/2 verbatim, 0 missing
-- **Source:** `/home/cj/Projects/scamscript/examples/tech_support_scam.txt`
+- **Source:** `examples/tech_support_scam.txt`
 
 ### Persona adopted
 
@@ -286,10 +304,12 @@ Recognize the shape: unsolicited call, an error code you never reported, a walkt
 ## 5. prompt_injection_script.txt
 
 - **Attack type:** vishing / card-security impersonation
+- **Type slug:** `vishing`
+- **Channel:** `vishing`
 - **Sophistication:** 6/10
 - **Red flags observed:** 7
 - **Quote check:** 1/1 verbatim, 0 missing
-- **Source:** `/home/cj/Projects/scamscript/examples/prompt_injection_script.txt`
+- **Source:** `examples/prompt_injection_script.txt`
 
 ### Persona adopted
 
@@ -347,10 +367,12 @@ Recognize an unsolicited card-security call that demands the CVV and a second-ca
 ## 6. crude_robocall.txt
 
 - **Attack type:** vishing (automated robocall payment scam)
+- **Type slug:** `vishing`
+- **Channel:** `vishing`
 - **Sophistication:** 2/10
 - **Red flags observed:** 6
 - **Quote check:** 4/4 verbatim, 0 missing
-- **Source:** `/home/cj/Projects/scamscript/examples/crude_robocall.txt`
+- **Source:** `examples/crude_robocall.txt`
 
 ### Persona adopted
 

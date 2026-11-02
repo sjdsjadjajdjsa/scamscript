@@ -63,16 +63,21 @@ scamscript --base-url http://localhost:11434/v1 --model llama3.2 analyze --file 
 Each script renders as a colour-coded panel:
 
 ```text
-╭──────────────────────────── tech_support_scam.txt ────────────────────────────╮
-│ ATTACK TYPE   TECH SUPPORT SCAM     SOPHISTICATION  6/10                     │
+╭─────────────────────────── tech_support_scam.txt ────────────────────────────╮
+│ ATTACK TYPE   TECH SUPPORT SCAM   VIA VISHING   SOPHISTICATION  6/10         │
+│ slug: tech-support                                                           │
 │                                                                              │
-│ OPENING HOOK                                                                 │
-│   "Our telemetry shows your machine has been broadcasting error ..."         │
+│   "Hello, this is Marcus from the Windows Security Partner Program. Our      │
+│ telemetry shows your machine has been broadcasting error 0x8007045D for nine │
+│ days. Is it running slow?"                                                   │
 │                                                                              │
 │ RED FLAGS                                                                    │
-│   ✗ Unsolicited call claiming Windows telemetry                              │
-│   ✗ Caller asks for a Remote Desktop session ID                              │
-╰────────────────────────────────── 7 red flags ───────────────────────────────╯
+│   ✗ The caller contacted you first and claims to see errors on your machine  │
+│ — Microsoft and Windows never cold-call about errors.                        │
+│   ✗ "Windows Security Partner Program" is not a Microsoft department; no     │
+│ case number, employee ID, or callback number is ever given.                  │
+│                                                                              │
+╰───────────────────── 8 red flags · 2/2 quotes verbatim ──────────────────────╯
 ```
 
 Fields: `attack_type`, `channel`, `persona`, `opening_hook`, `trust_building_moves`, `urgency_tactics`,
@@ -84,6 +89,8 @@ compared against the source, and lines that are paraphrased or simply not there 
 
 Batch mode ranks a whole directory into one markdown report. A redacted report from the sample
 corpus is at [`docs/sample-report.md`](https://github.com/sjdsjadjajdjsa/scamscript/blob/master/docs/sample-report.md).
+The committed panel and sample documents replay a recorded model run through a local stub, so they
+can be regenerated without spend; the wording is the model's, not the stub's.
 
 ## Commands
 
@@ -281,9 +288,14 @@ src/scamscript/
   ingest.py     file and directory reading with guards
   models.py     Pydantic schema, tolerant JSON extraction
   prompts.py    analyst prompt and score rubric
+  config.py     settings resolution and defaults
+  language.py   stopword language detection
   redact.py     identifier masking
+  dedupe.py     body fingerprints for reprints
+  taxonomy.py   type slugs, channel inference, filters
   render.py     Rich panels and summary
   report.py     ranked markdown aggregation
+  brief.py      defence handout, markdown and HTML
   store.py      JSONL log, run discovery, retention
   verify.py     quote checking against the source
 tests/          schema, retry, redaction, verification, client and CLI tests

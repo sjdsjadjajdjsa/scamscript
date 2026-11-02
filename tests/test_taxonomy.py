@@ -9,6 +9,7 @@ from scamscript.taxonomy import SLUGS, label, parse_filter, slugify
         ("government impersonation vishing (tax/revenue)", "gov-impersonation"),
         ("vishing (automated robocall payment scam)", "vishing"),
         ("romance scam / smishing long con", "romance"),
+        ("romance scam, pig-butchering-adjacent", "romance"),
         ("parcel delivery fee scam", "delivery"),
         ("tech support scam with remote access", "tech-support"),
         ("business email compromise by phone", "bec"),

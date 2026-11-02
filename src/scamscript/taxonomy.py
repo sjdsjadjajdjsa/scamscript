@@ -17,9 +17,9 @@ RULES: tuple[tuple[str, tuple[str, ...]], ...] = (
     ("utility", ("utility", "water board", "energy", "electric", "gas board", "boiler", "home service")),
     ("refund", ("refund", "overpayment", "rebate", "student loan", "debt relief", "interest rate")),
     ("delivery", ("parcel", "delivery", "courier", "postage", "shipping")),
+    ("romance", ("romance", "dating", "long con", "long-con", "sweetheart")),
     ("crypto", ("crypto", "bitcoin", "wallet", "token")),
     ("investment", ("investment", "trading", "broker", "forex", "pig butchering")),
-    ("romance", ("romance", "dating", "long con", "long-con", "sweetheart")),
     ("smishing", ("smishing", "sms", "text message", "text-message", "whatsapp")),
     ("vishing", ("vishing", "phone call", "cold call", "robocall", "phone")),
 )

@@ -3,3 +3,6 @@ contact_links:
   - name: Security advisory
     url: https://github.com/sjdsjadjajdjsa/scamscript/security/advisories/new
     about: Private reports for injection, leakage and path issues.
+  - name: Calibration record
+    url: https://github.com/sjdsjadjajdjsa/scamscript/blob/master/docs/calibration.md
+    about: Read this before reporting a shallow or wrong breakdown.

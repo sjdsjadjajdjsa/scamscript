@@ -7,3 +7,5 @@ dist/
 .pytest_cache/
 .crush/
 *.md.out
+.ruff_cache/
+.mypy_cache/

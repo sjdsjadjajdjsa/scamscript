@@ -21,7 +21,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from scamscript.analysis import analyze_script  # noqa: E402
 from scamscript.client import ChatClient  # noqa: E402
-from scamscript.config import Settings  # noqa: E402
+from scamscript.config import DEFAULT_MAX_TOKENS, Settings  # noqa: E402
 from scamscript.ingest import collect_scripts  # noqa: E402
 from scamscript.store import RunLogger  # noqa: E402
 
@@ -33,7 +33,7 @@ def main(
     base_url: str = typer.Option("", "--base-url", envvar="SCAMSCRIPT_BASE_URL"),
     prompt_price: float = typer.Option(0.035, help="USD per million prompt tokens."),
     completion_price: float = typer.Option(0.5, help="USD per million completion tokens."),
-    max_tokens: int = typer.Option(4096, "--max-tokens"),
+    max_tokens: int = typer.Option(DEFAULT_MAX_TOKENS, "--max-tokens"),
 ) -> None:
     settings = Settings(base_url=base_url, model=model, max_tokens=max_tokens)
     settings.require_base_url()

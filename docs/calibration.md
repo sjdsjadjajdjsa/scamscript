@@ -6,7 +6,8 @@ number on the repair retry instead of assuming it.
 - Endpoint: `https://openrouter.ai/api/v1`
 - Model: `deepseek/deepseek-v4.1-flash-1017`
 - Corpus: the three `examples/` transcripts, three repetitions (n=9)
-- Settings: defaults (`--max-tokens 4096`, `--retries 2`, `--timeout 120`)
+- Settings: defaults at the time (`--max-tokens 4096`, `--retries 2`, `--timeout 120`); the
+  output budget is now 6144
 
 ## Results
 
