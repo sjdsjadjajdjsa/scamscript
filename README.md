@@ -31,11 +31,10 @@ mechanics instead of general advice.
 ## Quickstart
 
 ```bash
-git clone https://github.com/sjdsjadjajdjsa/scamscript
-cd scamscript
-python -m venv .venv && . .venv/bin/activate
-pip install -e ".[dev]"        # or: pip install -e .
-export API_KEY=...             # never committed, never logged
+pip install scamscript           # or, for development:
+# git clone https://github.com/sjdsjadjajdjsa/scamscript && cd scamscript && pip install -e ".[dev]"
+
+export API_KEY=...               # never committed, never logged
 
 scamscript --dry-run analyze --file examples/tech_support_scam.txt   # inspect the prompt, spend nothing
 scamscript analyze --file examples/tech_support_scam.txt
@@ -135,7 +134,8 @@ bounded.
 
 ## Install and configure
 
-Python 3.12+. `pip install -e .` for use, `pip install -e ".[dev]"` for tests.
+Python 3.12+. `pip install scamscript` for use, `pip install -e ".[dev]"` from a clone for tests.
+Release history is in [CHANGELOG.md](CHANGELOG.md).
 
 | Setting | Flag | Env | Default |
 | --- | --- | --- | --- |

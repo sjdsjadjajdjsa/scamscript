@@ -4,19 +4,42 @@ build-backend = "hatchling.build"
 
 [project]
 name = "scamscript"
-version = "0.1.0"
-description = "Reverse-engineering analyzer for leaked and public scam call scripts and vishing transcripts"
+version = "0.2.0"
+description = "Reverse-engineer scam scripts and vishing transcripts into structured counter-playbooks"
 readme = "README.md"
 requires-python = ">=3.12"
 license = { file = "LICENSE" }
-authors = [{ name = "scamscript contributors" }]
-keywords = ["security", "fraud", "vishing", "smishing", "scam", "osint", "cli"]
+authors = [
+  { name = "scamscript contributors", email = "313729361+sjdsjadjajdjsa@users.noreply.github.com" },
+]
+maintainers = [
+  { name = "scamscript contributors", email = "313729361+sjdsjadjajdjsa@users.noreply.github.com" },
+]
+keywords = [
+  "security",
+  "fraud",
+  "vishing",
+  "smishing",
+  "phishing",
+  "social-engineering",
+  "scam",
+  "osint",
+  "transcripts",
+  "cli",
+]
 classifiers = [
+  "Development Status :: 4 - Beta",
   "Environment :: Console",
   "Intended Audience :: Information Technology",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "Topic :: Security",
+  "Typing :: Typed",
 ]
 dependencies = [
   "typer==0.27.3",
@@ -29,9 +52,10 @@ dependencies = [
 Homepage = "https://github.com/sjdsjadjajdjsa/scamscript"
 Repository = "https://github.com/sjdsjadjajdjsa/scamscript"
 Issues = "https://github.com/sjdsjadjajdjsa/scamscript/issues"
+Changelog = "https://github.com/sjdsjadjajdjsa/scamscript/blob/master/CHANGELOG.md"
 
 [project.optional-dependencies]
-dev = ["pytest==8.4.1"]
+dev = ["pytest==8.4.1", "build==1.3.0", "twine==6.1.0"]
 
 [project.scripts]
 scamscript = "scamscript.cli:app"
