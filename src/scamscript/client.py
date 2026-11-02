@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import threading
 import time
 from typing import Any, Callable
 
@@ -52,7 +53,7 @@ class ChatClient:
         self.model = model
         self.retries = max(0, retries)
         self.max_tokens = max_tokens
-        self.last_usage: dict[str, int] | None = None
+        self._usage = threading.local()
         self._sleep = sleep
         self._client = httpx.Client(
             base_url=self.base_url,
@@ -62,7 +63,7 @@ class ChatClient:
                 "Authorization": f"Bearer {api_key}",
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "User-Agent": "scamscript/0.3.0",
+                "User-Agent": "scamscript/0.4.0",
             },
         )
 
@@ -74,6 +75,24 @@ class ChatClient:
 
     def close(self) -> None:
         self._client.close()
+
+    @property
+    def last_usage(self) -> dict[str, int] | None:
+        return getattr(self._usage, "value", None)
+
+    @last_usage.setter
+    def last_usage(self, value: dict[str, int] | None) -> None:
+        self._usage.value = value
+
+    @property
+    def last_cost(self) -> float | None:
+        usage = self.last_usage
+        if not usage:
+            return None
+        try:
+            return float(usage.get("cost") or 0.0)
+        except (TypeError, ValueError):
+            return None
 
     @property
     def endpoint(self) -> str:

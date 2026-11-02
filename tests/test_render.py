@@ -76,9 +76,14 @@ def test_prompt_panel():
 
 
 def test_summary_table_row_states():
-    text = capture(render_summary_table([("ok.txt", breakdown(), None), ("bad.txt", None, "boom")]))
+    text = capture(
+        render_summary_table(
+            [("ok.txt", breakdown(), None, False), ("bad.txt", None, "boom", False), ("skip.txt", None, "skipped", True)]
+        )
+    )
     assert "ok.txt" in text
     assert "boom" in text
+    assert "skipped" in text
 
 
 def test_panel_shows_quote_check():

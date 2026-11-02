@@ -26,6 +26,7 @@ class Outcome:
     error: str | None = None
     duration: float = 0.0
     redactions: dict[str, int] | None = None
+    skipped: bool = False
     issues: list[verify.Issue] | None = None
     verification: dict[str, int] | None = None
 
@@ -39,6 +40,7 @@ class Outcome:
             "source": str(self.source),
             "name": self.name,
             "ok": self.ok,
+            "skipped": self.skipped,
             "attempts": self.attempts,
             "duration_s": round(self.duration, 3),
             "breakdown": self.breakdown.model_dump() if self.breakdown else None,

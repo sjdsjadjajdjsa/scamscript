@@ -5,6 +5,19 @@ schema are the things that count as public API.
 
 ## Unreleased
 
+## 0.4.0 - 2026-11-02
+
+### Added
+
+- `--concurrency N` (1-16) with order-preserving output.
+- `--max-cost USD`: stop scheduling once reported spend reaches the cap, mark the rest skipped, and
+  warn when a provider reports no cost.
+- Per-run reported spend in output and logs.
+
+### Changed
+
+- Token usage is tracked per thread so parallel calls cannot read each other's cost.
+
 ## 0.3.0 - 2026-11-02
 
 ### Changed

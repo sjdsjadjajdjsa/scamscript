@@ -29,6 +29,7 @@ class ReportEntry:
     breakdown: ScriptBreakdown | None = None
     error: str | None = None
     duration: float = 0.0
+    skipped: bool = False
     verification: dict[str, int] | None = None
     unverified: list[dict[str, str]] | None = None
 
@@ -42,6 +43,7 @@ def entry_from_outcome(outcome: Any) -> ReportEntry:
         name=outcome.name,
         source=str(getattr(outcome, "source", outcome.name)),
         breakdown=outcome.breakdown,
+        skipped=getattr(outcome, "skipped", False),
         error=outcome.error,
         duration=getattr(outcome, "duration", 0.0),
         verification=getattr(outcome, "verification", None),
@@ -68,6 +70,7 @@ def entries_from_run(run: dict[str, Any]) -> list[ReportEntry]:
                 name=record.get("name") or record.get("source") or "unknown",
                 source=record.get("source") or "",
                 breakdown=breakdown,
+                skipped=bool(record.get("skipped")),
                 error=None if breakdown else record.get("error") or "no breakdown stored",
                 duration=float(record.get("duration_s") or 0.0),
                 verification=record.get("verification") or None,
@@ -96,7 +99,8 @@ def build_markdown(
 ) -> str:
     ranked = rank(entries)
     ok = [entry for entry in ranked if entry.ok]
-    failed = [entry for entry in ranked if not entry.ok]
+    skipped = [entry for entry in ranked if entry.skipped and not entry.ok]
+    failed = [entry for entry in ranked if not entry.ok and not entry.skipped]
     average = (
         sum(entry.breakdown.sophistication_score for entry in ok) / len(ok) if ok else 0.0
     )
@@ -112,6 +116,8 @@ def build_markdown(
     lines.append(f"- Scripts analyzed: {len(entries)}")
     lines.append(f"- Successful: {len(ok)}")
     lines.append(f"- Failed: {len(failed)}")
+    if skipped:
+        lines.append(f"- Skipped at budget: {len(skipped)}")
     unverified_total = sum(len(entry.unverified or []) for entry in ok)
     if unverified_total:
         lines.append(f"- Unverified quotes: {unverified_total}")
@@ -135,6 +141,13 @@ def build_markdown(
             lines.extend(_detail_section(position, entry))
     else:
         lines.append("_No successful analyses in this run._")
+        lines.append("")
+
+    if skipped:
+        lines.append("## Skipped")
+        lines.append("")
+        for entry in skipped:
+            lines.append(f"- **{_cell(entry.name)}** (`{_cell(entry.source)}`)")
         lines.append("")
 
     if failed:

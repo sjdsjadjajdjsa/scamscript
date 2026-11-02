@@ -207,14 +207,19 @@ def render_prompt(source: ScriptFile, messages: list[dict[str, str]]) -> Panel:
     )
 
 
-def render_summary_table(rows: list[tuple[str, ScriptBreakdown | None, str | None]]) -> Table:
+def render_summary_table(
+    rows: list[tuple[str, ScriptBreakdown | None, str | None, bool]]
+) -> Table:
     table = Table(title="Run summary", header_style="bold", expand=True)
     table.add_column("Script", overflow="fold", ratio=3)
     table.add_column("Attack type", ratio=2)
     table.add_column("Score", justify="right")
     table.add_column("Flags", justify="right")
     table.add_column("Status")
-    for name, breakdown, error in rows:
+    for name, breakdown, error, skipped in rows:
+        if skipped:
+            table.add_row(name, "-", "-", "-", "[yellow]skipped[/yellow]")
+            continue
         if breakdown is None:
             table.add_row(name, "-", "-", "-", f"[red]{error or 'failed'}[/red]")
             continue

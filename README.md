@@ -97,7 +97,7 @@ corpus is at [`docs/sample-report.md`](https://github.com/sjdsjadjajdjsa/scamscr
 | `prune` | Delete old logs |
 
 Useful flags: `--dry-run`, `--json`, `--redact`, `--top N`, `--recursive`, `--timeout`,
-`--retries`, `--max-tokens`, `--no-color`. `--json` puts one object per script on stdout and all
+`--retries`, `--max-tokens`, `--concurrency`, `--max-cost`, `--no-color`. `--json` puts one object per script on stdout and all
 Rich output on stderr, so it pipes:
 
 ```bash
@@ -213,6 +213,7 @@ docs/           calibration record, sample report, banner, demo
   `opening_hook` and `red_flags` against the source before quoting anything.
 - Redaction is regex-based and will miss names and identifiers without a fixed shape.
 - One script per request; no cross-script deduplication yet, so reprints inflate a ranking.
+- The cost cap depends on provider-reported usage and can overshoot by the in-flight count.
 - Analysis is English-centric: the prompt and schema assume English artifacts.
 - Quote checking compares text, not meaning. A legitimate paraphrase left in quotes is flagged;
   an accurate paraphrase without quotes is skipped rather than judged.

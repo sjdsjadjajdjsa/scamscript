@@ -7,6 +7,7 @@ from dataclasses import dataclass, field
 
 DEFAULT_TIMEOUT = 120.0
 DEFAULT_RETRIES = 2
+DEFAULT_CONCURRENCY = 1
 DEFAULT_MAX_TOKENS = 4096
 ENV_API_KEY = "API_KEY"
 ENV_HOME = "SCAMSCRIPT_HOME"
@@ -25,11 +26,16 @@ class Settings:
     retries: int = DEFAULT_RETRIES
     max_tokens: int = DEFAULT_MAX_TOKENS
     redact: bool = False
+    concurrency: int = DEFAULT_CONCURRENCY
+    max_cost: float | None = None
     home: str = field(default_factory=lambda: os.environ.get(ENV_HOME, ""))
 
     def __post_init__(self) -> None:
         self.base_url = (self.base_url or "").strip().rstrip("/")
         self.model = (self.model or "").strip()
+        self.concurrency = max(1, min(16, self.concurrency))
+        if self.max_cost is not None:
+            self.max_cost = max(0.0, self.max_cost)
         home = self.home or os.path.join(os.path.expanduser("~"), ".scamscript")
         self.home = home
 

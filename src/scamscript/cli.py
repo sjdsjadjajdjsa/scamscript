@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -104,6 +106,20 @@ def main(
         min=256,
         help="Output token budget per reply.",
     ),
+    concurrency: int = typer.Option(
+        1,
+        "--concurrency",
+        "-j",
+        min=1,
+        max=16,
+        help="Analyze this many scripts in parallel.",
+    ),
+    max_cost: float | None = typer.Option(
+        None,
+        "--max-cost",
+        min=0.0,
+        help="Stop scheduling new scripts once the provider reports this much spend in USD.",
+    ),
     redact: bool = typer.Option(
         False,
         "--redact",
@@ -146,6 +162,8 @@ def main(
         timeout=timeout,
         retries=retries,
         max_tokens=max_tokens,
+        concurrency=concurrency,
+        max_cost=max_cost,
         redact=redact,
         home=str(home) if home else "",
     )
@@ -254,8 +272,12 @@ def _run(
         _fail(console, str(exc))
         return
 
-    outcomes: list[Outcome] = []
+    outcomes: list[Outcome | None] = [None] * len(scripts)
     report_entries: list[reporting.ReportEntry] = []
+    budget = settings.max_cost
+    spent = 0.0
+    spent_seen = False
+    lock = threading.Lock()
     client = ChatClient(
         api_key=api_key,
         base_url=settings.base_url,
@@ -264,50 +286,114 @@ def _run(
         retries=settings.retries,
         max_tokens=settings.max_tokens,
     )
-    with client:
-        for index, script in enumerate(scripts, start=1):
-            if batch_mode and not state.json_output:
-                console.print(
-                    f"[dim]({index}/{len(scripts)}) analyzing {script.name}...[/dim]"
-                )
-            outcome = analyze_script(
-                client,
-                script,
-                logger,
-                redact_identifiers=settings.redact,
-                verify_quotes=state.verify_quotes,
-            )
-            outcomes.append(outcome)
-            report_entries.append(reporting.entry_from_outcome(outcome))
-            if state.json_output:
-                _emit_json(outcome.as_record())
-            elif outcome.breakdown is not None:
-                console.print(
-                    render_breakdown(
-                        outcome.breakdown,
-                        outcome.name,
-                        outcome.attempts,
-                        outcome.issues,
-                    )
-                )
-            else:
-                console.print(
-                    render_failure(outcome.name, outcome.error or "unknown", outcome.attempts)
-                )
 
-    successes = sum(1 for outcome in outcomes if outcome.ok)
-    failures = len(outcomes) - successes
+    def one(script: ScriptFile) -> Outcome:
+        nonlocal spent, spent_seen
+        if budget is not None:
+            with lock:
+                blocked = spent >= budget
+            if blocked:
+                outcome = Outcome(
+                    source=script.path,
+                    name=script.name,
+                    skipped=True,
+                    error="skipped: cost budget reached",
+                )
+                logger.result(**outcome.as_record())
+                return outcome
+        outcome = analyze_script(
+            client,
+            script,
+            logger,
+            redact_identifiers=settings.redact,
+            verify_quotes=state.verify_quotes,
+        )
+        cost = client.last_cost
+        if cost:
+            with lock:
+                spent += cost
+                spent_seen = True
+        return outcome
+
+    def emit(outcome: Outcome) -> None:
+        if state.json_output:
+            _emit_json(outcome.as_record())
+        elif outcome.skipped:
+            console.print(f"[dim]skipped {outcome.name}: budget reached[/dim]")
+        elif outcome.breakdown is not None:
+            console.print(
+                render_breakdown(
+                    outcome.breakdown, outcome.name, outcome.attempts, outcome.issues
+                )
+            )
+        else:
+            console.print(
+                render_failure(outcome.name, outcome.error or "unknown", outcome.attempts)
+            )
+
+    with client:
+        if settings.concurrency == 1:
+            for index, script in enumerate(scripts, start=1):
+                if batch_mode and not state.json_output:
+                    console.print(
+                        f"[dim]({index}/{len(scripts)}) analyzing {script.name}...[/dim]"
+                    )
+                outcome = one(script)
+                outcomes[index - 1] = outcome
+                report_entries.append(reporting.entry_from_outcome(outcome))
+                emit(outcome)
+        else:
+            if not state.json_output:
+                console.print(
+                    f"[dim]analyzing {len(scripts)} script(s), "
+                    f"{settings.concurrency} at a time[/dim]"
+                )
+            buffered: dict[int, Outcome] = {}
+            ready = 0
+            with ThreadPoolExecutor(max_workers=settings.concurrency) as pool:
+                futures = {
+                    pool.submit(one, script): index for index, script in enumerate(scripts)
+                }
+                for future in as_completed(futures):
+                    buffered[futures[future]] = future.result()
+                    while ready in buffered:
+                        outcome = buffered.pop(ready)
+                        outcomes[ready] = outcome
+                        report_entries.append(reporting.entry_from_outcome(outcome))
+                        emit(outcome)
+                        ready += 1
+
+    finished = [outcome for outcome in outcomes if outcome is not None]
+    successes = sum(1 for outcome in finished if outcome.ok)
+    skipped = sum(1 for outcome in finished if outcome.skipped)
+    failures = len(finished) - successes - skipped
+    if budget is not None and not spent_seen:
+        console.print(
+            "[yellow]note[/yellow] the endpoint reported no cost; --max-cost could not be enforced"
+        )
+    if skipped:
+        console.print(f"[yellow]{skipped} script(s) skipped at the cost budget[/yellow]")
+    if spent:
+        console.print(f"[dim]reported spend: ${spent:.4f}[/dim]")
     unverified = sum(
-        1 for outcome in outcomes for issue in (outcome.issues or []) if not issue.ok
+        1 for outcome in finished for issue in (outcome.issues or []) if not issue.ok
     )
     if state.strict_quotes and unverified:
         failures += 0
-    logger.run_end(status="ok" if failures == 0 else "partial", results=successes, failures=failures)
+    logger.run_end(
+        status="ok" if failures == 0 else "partial",
+        results=successes,
+        failures=failures,
+        skipped=skipped,
+        cost_usd=round(spent, 6),
+    )
 
-    if batch_mode and successes:
+    if batch_mode and (successes or skipped):
         if not state.json_output:
             console.print(
-                render_summary_table([(o.name, o.breakdown, o.error) for o in outcomes])
+                render_summary_table(
+                    [(o.name, o.breakdown, o.error, o.skipped) for o in finished]
+                )
             )
         ranked = reporting.rank(report_entries)
         if top:

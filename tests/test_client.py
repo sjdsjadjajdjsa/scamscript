@@ -276,3 +276,36 @@ def test_length_with_only_reasoning_is_truncation():
         with pytest.raises(TruncatedError) as excinfo:
             client.complete(MESSAGES)
     assert excinfo.value.partial == "thinking..."
+
+
+def test_usage_is_thread_local():
+    import threading
+
+    def handler(request):
+        content = json.loads(request.read())["messages"][-1]["content"]
+        return httpx.Response(
+            200,
+            json={
+                "choices": [{"message": {"content": content}}],
+                "usage": {"prompt_tokens": 1, "completion_tokens": 1, "cost": float(len(content))},
+            },
+        )
+
+    client = ChatClient(
+        api_key="k",
+        base_url="https://example.test/v1",
+        transport=httpx.MockTransport(handler),
+    )
+    seen = {}
+
+    def run(role, text):
+        client.complete([{"role": role, "content": text}])
+        seen[role] = client.last_cost
+
+    threads = [threading.Thread(target=run, args=("a", "xx")), threading.Thread(target=run, args=("b", "xxxx"))]
+    for thread in threads:
+        thread.start()
+    for thread in threads:
+        thread.join()
+    client.close()
+    assert seen == {"a": 2.0, "b": 4.0}

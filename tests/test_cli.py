@@ -32,6 +32,7 @@ class FakeClient:
         self.base_url = base_url
         self.model = model
         self.max_tokens = kwargs.get("max_tokens", 4096)
+        self.last_cost = None
 
     def __enter__(self):
         return self
@@ -227,7 +228,7 @@ def test_dry_run_without_endpoint(home, tmp_path, monkeypatch):
 def test_version(home):
     result = runner.invoke(cli.app, ["--version"])
     assert result.exit_code == 0
-    assert result.stdout.strip() == "scamscript 0.3.0"
+    assert result.stdout.strip() == "scamscript 0.4.0"
 
 
 def test_json_output_is_one_object_per_script(home, tmp_path, fake):
@@ -341,3 +342,70 @@ def test_json_result_carries_verification(home, tmp_path, fake):
     record = json.loads(result.stdout.splitlines()[0])
     assert record["verification"] == {"checked": 1, "verbatim": 0, "close": 0, "missing": 1}
     assert record["unverified"][0]["status"] == "missing"
+
+
+def test_concurrency_keeps_output_order(home, tmp_path, fake):
+    for index in range(6):
+        (tmp_path / f"s{index}.txt").write_text(f"CALLER: script {index}", encoding="utf-8")
+    result = runner.invoke(
+        cli.app, ["--api-key", "k", "--json", "--concurrency", "4", "batch", str(tmp_path)]
+    )
+    assert result.exit_code == 0
+    records = [json.loads(line) for line in result.stdout.splitlines() if line.strip()]
+    names = [record["name"] for record in records if "name" in record]
+    assert names[:6] == [f"s{i}.txt" for i in range(6)]
+
+
+def test_concurrency_runs_in_parallel(home, tmp_path, fake, monkeypatch):
+    import threading, time
+
+    active = {"now": 0, "peak": 0}
+    lock = threading.Lock()
+
+    def complete(self, messages, **kwargs):
+        with lock:
+            active["now"] += 1
+            active["peak"] = max(active["peak"], active["now"])
+        time.sleep(0.05)
+        with lock:
+            active["now"] -= 1
+        return json.dumps(breakdown())
+
+    monkeypatch.setattr(FakeClient, "complete", complete)
+    for index in range(6):
+        (tmp_path / f"s{index}.txt").write_text("CALLER: x", encoding="utf-8")
+
+    result = runner.invoke(
+        cli.app, ["--api-key", "k", "--concurrency", "4", "batch", str(tmp_path)]
+    )
+    assert result.exit_code == 0
+    assert active["peak"] > 1
+
+
+def test_max_cost_skips_remaining(home, tmp_path, fake, monkeypatch):
+    for index in range(4):
+        (tmp_path / f"s{index}.txt").write_text("CALLER: x", encoding="utf-8")
+
+    def complete(self, messages, **kwargs):
+        self.last_cost = 0.01
+        return json.dumps(breakdown())
+
+    monkeypatch.setattr(FakeClient, "complete", complete)
+    out = tmp_path / "r.md"
+    result = runner.invoke(
+        cli.app,
+        ["--api-key", "k", "--max-cost", "0.015", "batch", str(tmp_path), "--output", str(out)],
+    )
+    assert "skipped at the cost budget" in result.stdout
+    markdown = out.read_text()
+    assert "Skipped at budget" in markdown
+    assert "## Skipped" in markdown
+
+
+def test_max_cost_warns_when_provider_reports_nothing(home, tmp_path, fake):
+    (tmp_path / "a.txt").write_text("CALLER: x", encoding="utf-8")
+    result = runner.invoke(
+        cli.app, ["--api-key", "k", "--max-cost", "0.5", "analyze", "--file", str(tmp_path / "a.txt")]
+    )
+    assert result.exit_code == 0
+    assert "could not be enforced" in result.stdout
