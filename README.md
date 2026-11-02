@@ -2,6 +2,12 @@
   <img src="docs/banner.svg" alt="scamscript: reverse-engineer the playbook, not the story" width="100%">
 </p>
 
+<p align="center">
+  <img src="docs/demo.gif" alt="terminal demo: analyzing a script, then ranking a directory" width="760">
+  <br>
+  <sub>Recorded against a local stub endpoint, so no API spend.</sub>
+</p>
+
 # scamscript
 
 [![CI](https://github.com/sjdsjadjajdjsa/scamscript/actions/workflows/ci.yml/badge.svg)](https://github.com/sjdsjadjajdjsa/scamscript/actions/workflows/ci.yml)
@@ -194,7 +200,7 @@ src/scamscript/
 tests/          schema, retry, redaction, verification, client and CLI tests
 examples/       six fictional transcripts, plus adversarial/ fixtures
 scripts/        calibration and injection harnesses
-docs/           calibration record, sample report, banner
+docs/           calibration record, sample report, banner, demo
 ```
 
 ## Limits

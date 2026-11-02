@@ -3,6 +3,12 @@
 All notable changes are recorded here. Versions follow SemVer; the CLI surface and the JSON
 schema are the things that count as public API.
 
+## Unreleased
+
+### Added
+
+- Terminal demo GIF in the README, recorded against a local stub endpoint.
+
 ## 0.2.0 - 2026-11-02
 
 ### Added
