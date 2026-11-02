@@ -112,6 +112,9 @@ script ──▶ ingest (type/size guards, optional redaction)
 - **Transport.** Retryable statuses (408, 409, 425, 429, 5xx) and empty replies back off and
   retry within `--retries`; `Retry-After` is honoured. A `finish_reason: length` reply is treated
   as truncation and repaired with a shorter-answer instruction.
+- **Reasoning models.** If a provider returns only reasoning text with `finish_reason: length`, the
+  client treats it as truncation, and when a provider parks the answer in `reasoning` with an empty
+  `content`, that text is used as a last resort. Raise `--max-tokens` for models that think first.
 - **Quote checking.** Quoted claims are normalised (case, quotes, punctuation) and matched against
   the script. `close` means a paraphrase, `missing` means the line is not in the artifact.
   Verification never drops a finding, it only marks it for the reader.
@@ -159,9 +162,19 @@ API_KEY=... python scripts/calibrate.py --dir examples --repeat 3 \
   --base-url https://openrouter.ai/api/v1
 ```
 
-Recorded passes with their numbers are in [`docs/calibration.md`](docs/calibration.md). The current
-rubric reaches both ends of the scale in every repeat, and quote checking flagged the invented lines
-that a plain reading would have taken as evidence.
+Recorded passes with their numbers are in [`docs/calibration.md`](docs/calibration.md): three rubric
+repeats, a three-model comparison, an adversarial set and end-case stability runs. The current rubric
+reaches both ends of the scale, and quote checking flags the invented lines a plain reading would
+take as evidence.
+
+The adversarial set lives in `examples/adversarial/` and has its own harness:
+
+```bash
+API_KEY=... python scripts/injection_eval.py --model ... --base-url ...
+```
+
+Format held in 7/7 cases; embedded demands were obeyed in 1 of 6. The fence protects the schema, not
+the classification.
 
 ## Layout
 
@@ -179,8 +192,8 @@ src/scamscript/
   store.py      JSONL log, run discovery, retention
   verify.py     quote checking against the source
 tests/          schema, retry, redaction, verification, client and CLI tests
-examples/       six fictional transcripts, including two scale end-cases
-scripts/        calibration harness
+examples/       six fictional transcripts, plus adversarial/ fixtures
+scripts/        calibration and injection harnesses
 docs/           calibration record, sample report, banner
 ```
 

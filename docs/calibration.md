@@ -116,3 +116,69 @@ sample is a smoke check, not a proof; adversarial fuzzing is still open work.
 ## Cost
 
 All passes together cost about fourteen cents of a one-dollar key.
+
+---
+
+# Third pass: baselines, adversarial set and score stability, 2026-11-01
+
+Three questions: is the default model worth its price, does an embedded instruction steer it, and do
+the anchor scores hold still.
+
+## Model comparison
+
+Same corpus, same settings (defaults: 4096 output tokens, `--retries 2`), n=12 each.
+
+| Model | First-attempt valid | Failures | Mean latency | Billed cost | Histogram |
+| --- | ---: | ---: | ---: | ---: | --- |
+| `deepseek/deepseek-v4.1-flash-1017` (3 repeats) | 100 / 91.7 / 100% | 0 | ~12 s | $0.019-0.022 | 1-9, middle 5-7 |
+| `deepseek/deepseek-v4-flash` | 91.7% | 0 | 17.9 s | $0.0081 | 1x2, 5, 6x7, 9x2 |
+| `z-ai/glm-5.3-flash` @ 4096 | 58.3% | 4 | 46.6 s | $0.0025 | 1x2, 6, 7x4, 8 |
+| `z-ai/glm-5.3-flash` @ 16384 | 100% | 0 | 24.0 s | $0.0153 | 1, 2, 6x4, 7x4, 9x2 |
+
+GLM at 4096 fails because it spends the whole budget on reasoning and stops with empty content. That
+exposed a client bug: a `length` finish with no content was treated as an empty reply and retried
+instead of as truncation. Fixed: reasoning text is now the truncation partial and a last-resort
+content fallback.
+
+The cheap options do not win. GLM needs four times the tokens (so it costs almost as much as the
+default) and is twice as slow. `deepseek-v4-flash` is genuinely cheaper at $0.008 per twelve samples
+and roughly as adherent, but flattens the middle harder, with seven of twelve landing on exactly 6.
+The default stays.
+
+## Adversarial set
+
+Seven fixtures in `examples/adversarial/`: shipped fake JSON, fixed `attack_type`, fake end-of-fence
+with a new SYSTEM block, plain-text demand, system-prompt leak, role switch to YAML, and a forced
+`score_override`.
+
+| Metric | Result |
+| --- | ---: |
+| Parsed as valid JSON | 7/7 |
+| Output carried the system prompt | 0/7 |
+| Judged demands obeyed | 1/6 |
+
+The fence protects the format completely; it does not make the model obedient. The one obeyed demand
+was the fake fence classification (`utility`, which was also correct). Notably the shipped JSON blob
+was ignored and the script classified on its merits (`vishing`), which is better than obeying. The
+forced `friendly reminder` string and the forced score of 1 were both dropped.
+
+Content immunity is the weaker half. A defender reading `attack_type` gets a good answer; a machine
+depending on an exact string does not.
+
+## Score stability
+
+End-cases, n=5 each, primary model:
+
+| Sample | Scores | Mean |
+| --- | --- | ---: |
+| `crude_robocall.txt` | 2, 2, 2, 2, 2 | 2.0 |
+| `sophisticated_wire_fraud.txt` | 9, 8, 9, 8, 8 | 8.4 |
+
+The floor is stable. The ceiling moves within one point, which is the accuracy a single decimal-free
+integer can reasonably carry. Adherence in this run was 80% (two repairs, both successful), a reminder
+that reasoning models at 4096 still sometimes need the repair path and a larger budget helps.
+
+## Cost
+
+This pass cost about a third of the remaining key: roughly $0.06 across the comparison, adversarial
+and stability runs.
