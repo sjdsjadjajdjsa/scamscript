@@ -1,7 +1,7 @@
 # Scam script breakdown report
 
-- Generated: 2026-11-02T05:30:45+00:00
-- Run: `20261102T053045Z-9b8ffdc77970`
+- Generated: 2026-11-02T05:42:38+00:00
+- Run: `20261102T054238Z-bf339485b8a5`
 - Command: `batch`
 - Model: `deepseek/deepseek-v4.1-flash-1017`
 - Scripts analyzed: 6

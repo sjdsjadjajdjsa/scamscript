@@ -1,7 +1,20 @@
-# Calibration run, 2026-11-01
+# Calibration runs
 
 Purpose: check that a real endpoint obeys the schema before trusting the analyzer, and put a
 number on the repair retry instead of assuming it.
+
+## Pending before 0.9.0
+
+No live pass covers the current tree: the 6144 default token budget, the `channel` field, the
+romance-before-investment slug order and the quote-check clause split all landed after the last
+recorded run. Check the size first without spending, then run the real pass and append it here:
+
+```bash
+python scripts/calibrate.py --dry-run --dir examples --repeat 3
+API_KEY=... SCAMSCRIPT_BASE_URL=... python scripts/calibrate.py --dir examples --repeat 3 --model ...
+```
+
+## Run 1, 2026-11-01
 
 - Endpoint: `https://openrouter.ai/api/v1`
 - Model: `deepseek/deepseek-v4.1-flash-1017`

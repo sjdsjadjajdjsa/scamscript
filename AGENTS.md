@@ -121,16 +121,10 @@ Module roles:
 - `docs/` - calibration record, sample report and briefing. `docs/sample-report.md` and
   `docs/sample-briefing.html` are generated artifacts; regenerate rather than hand-edit.
 
-To regenerate the samples without spend, point `--base-url` at a local stub that returns recorded
-model JSON, then replay the run:
-
-```bash
-scamscript --api-key x --base-url http://127.0.0.1:PORT/v1 --model M --redact \
-  batch examples --output docs/sample-report.md --force
-scamscript brief --run-id RUN --html --output docs/sample-briefing.html --force
-```
-
-Rewrite the stored absolute source paths to `examples/...` afterwards, and keep the README
+To regenerate the samples without spend, run `scripts/rebuild_samples.sh`. It serves the recorded
+replies in `scripts/sample_responses.json` through `scripts/stub_endpoint.py`, replays the batch and
+the briefing, and rewrites the stored absolute source paths. Both files are hand-maintained copies
+of model output, so editing the response JSON changes what the samples show. Keep the README
 disclosure that the samples replay a recorded run through a stub.
 
 ## CI and release

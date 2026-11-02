@@ -8,15 +8,17 @@ schema are the things that count as public API.
 ### Added
 
 - `AGENTS.md` with setup, architecture and repository conventions for contributors.
+- `scripts/stub_endpoint.py` and `scripts/rebuild_samples.sh` to rebuild the committed samples
+  offline from recorded replies, and `--dry-run` on the calibration harness.
 
 ### Changed
 
 - CI actions moved to current majors; dependabot now carries Action and dev-tool updates.
 - Dev dependencies: pytest 9.2.0, twine 7.0.0, build 1.6.1.
 - Sample report and briefing regenerated against the current output format; the README panel now
-  matches what the renderer actually prints.
+  matches what the renderer actually prints, and the demo GIF shows the current UI.
 - Citation metadata, README layout and the calibration harness defaults brought in line with the
-  current release.
+  current release. The next live calibration pass is recorded as pending.
 
 ### Fixed
 

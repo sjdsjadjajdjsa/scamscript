@@ -3,9 +3,9 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/sjdsjadjajdjsa/scamscript/master/docs/demo.gif" alt="terminal demo: analyzing a script, then ranking a directory" width="760">
+  <img src="https://raw.githubusercontent.com/sjdsjadjajdjsa/scamscript/master/docs/demo.gif" alt="terminal demo: analyzing a script, then building a defence briefing" width="760">
   <br>
-  <sub>Recorded against a local stub endpoint, so no API spend.</sub>
+  <sub>Recorded against the local stub endpoint, so no API spend and no key.</sub>
 </p>
 
 # scamscript
@@ -301,7 +301,7 @@ src/scamscript/
 tests/          schema, retry, redaction, verification, client and CLI tests
 examples/       six fictional transcripts, plus adversarial/ fixtures
 corpus/real/    ten published transcripts with provenance
-scripts/        calibration and injection harnesses
+scripts/        calibration and injection harnesses, sample stub
 docs/           calibration record, sample report, banner, demo
 ```
 

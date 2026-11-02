@@ -34,13 +34,31 @@ def main(
     prompt_price: float = typer.Option(0.035, help="USD per million prompt tokens."),
     completion_price: float = typer.Option(0.5, help="USD per million completion tokens."),
     max_tokens: int = typer.Option(DEFAULT_MAX_TOKENS, "--max-tokens"),
+    dry_run: bool = typer.Option(
+        False, "--dry-run", help="Report the run size without calling the endpoint."
+    ),
 ) -> None:
     settings = Settings(base_url=base_url, model=model, max_tokens=max_tokens)
+    scripts = collect_scripts(directory)
+    runs = [script for _ in range(repeat) for script in scripts]
+    if dry_run:
+        print(
+            json.dumps(
+                {
+                    "dry_run": True,
+                    "directory": str(directory),
+                    "scripts": len(scripts),
+                    "samples": len(runs),
+                    "prompt_chars": sum(len(script.text) for script in runs),
+                },
+                indent=2,
+            )
+        )
+        return
+
     settings.require_base_url()
     settings.require_model()
     api_key = settings.require_api_key()
-    scripts = collect_scripts(directory)
-    runs = [script for _ in range(repeat) for script in scripts]
 
     outcomes = []
     prompt_tokens = 0
