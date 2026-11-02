@@ -7,6 +7,7 @@ from typing import Any
 
 from pydantic import ValidationError
 
+from scamscript import taxonomy
 from scamscript.models import ScriptBreakdown
 from scamscript.store import results_of, utc_now
 
@@ -31,6 +32,7 @@ class ReportEntry:
     duration: float = 0.0
     skipped: bool = False
     fingerprint: str = ""
+    attack_slug: str = ""
     duplicates: list[str] | None = None
     verification: dict[str, int] | None = None
     unverified: list[dict[str, str]] | None = None
@@ -47,6 +49,7 @@ def entry_from_outcome(outcome: Any) -> ReportEntry:
         breakdown=outcome.breakdown,
         skipped=getattr(outcome, "skipped", False),
         fingerprint=getattr(outcome, "fingerprint", ""),
+        attack_slug=getattr(outcome, "attack_slug", ""),
         error=outcome.error,
         duration=getattr(outcome, "duration", 0.0),
         verification=getattr(outcome, "verification", None),
@@ -75,6 +78,7 @@ def entries_from_run(run: dict[str, Any]) -> list[ReportEntry]:
                 breakdown=breakdown,
                 skipped=bool(record.get("skipped")),
                 fingerprint=record.get("fingerprint") or "",
+                attack_slug=record.get("attack_slug") or "",
                 duplicates=record.get("duplicates") or None,
                 error=None if breakdown else record.get("error") or "no breakdown stored",
                 duration=float(record.get("duration_s") or 0.0),
@@ -124,7 +128,14 @@ def build_markdown(
     run_id: str,
     command: str = "batch",
     model: str | None = None,
+    only_types: set[str] | None = None,
 ) -> str:
+    if only_types:
+        entries = [
+            entry
+            for entry in entries
+            if not entry.ok or (entry.attack_slug or taxonomy.slugify(entry.breakdown.attack_type)) in only_types
+        ]
     ranked = rank(entries)
     ok = [entry for entry in ranked if entry.ok]
     skipped = [entry for entry in ranked if entry.skipped and not entry.ok]
@@ -157,13 +168,21 @@ def build_markdown(
     lines.append("")
 
     if ok:
+        lines.append("## Attack types")
+        lines.append("")
+        lines.append("| Type | Scripts | Mean score |")
+        lines.append("| --- | ---: | ---: |")
+        for slug, count, mean in _type_counts(ok):
+            lines.append(f"| {taxonomy.label(slug)} (`{slug}`) | {count} | {mean:.1f} |")
+        lines.append("")
         lines.append("## Ranking by sophistication")
         lines.append("")
-        lines.append("| Rank | Script | Attack type | Sophistication | Red flags | Unverified | Copies |")
+        lines.append("| Rank | Script | Type | Sophistication | Red flags | Unverified | Copies |")
         lines.append("| ---: | --- | --- | ---: | ---: | ---: | ---: |")
         for position, entry in enumerate(ok, start=1):
             lines.append(
-                f"| {position} | {_cell(entry.name)} | {_cell(entry.breakdown.attack_type)} | "
+                f"| {position} | {_cell(entry.name)} | "
+                f"`{entry.attack_slug or taxonomy.slugify(entry.breakdown.attack_type)}` | "
                 f"{entry.breakdown.sophistication_score}/10 | {entry.breakdown.flag_count} | "
                 f"{len(entry.unverified or [])} | {1 + len(entry.duplicates or [])} |"
             )
@@ -203,6 +222,9 @@ def _detail_section(position: int, entry: ReportEntry) -> list[str]:
     assert breakdown is not None
     lines = [f"## {position}. {entry.name}", ""]
     lines.append(f"- **Attack type:** {breakdown.attack_type}")
+    lines.append(
+        f"- **Type slug:** `{entry.attack_slug or taxonomy.slugify(breakdown.attack_type)}`"
+    )
     lines.append(f"- **Sophistication:** {breakdown.sophistication_score}/10")
     lines.append(f"- **Red flags observed:** {breakdown.flag_count}")
     if entry.duplicates:
@@ -236,6 +258,20 @@ def _detail_section(position: int, entry: ReportEntry) -> list[str]:
             lines.append(value or "_None recorded._")
         lines.append("")
     return lines
+
+
+def _type_counts(entries: list[ReportEntry]) -> list[tuple[str, int, float]]:
+    buckets: dict[str, list[int]] = {}
+    for entry in entries:
+        if not entry.breakdown:
+            continue
+        slug = entry.attack_slug or taxonomy.slugify(entry.breakdown.attack_type)
+        buckets.setdefault(slug, []).append(entry.breakdown.sophistication_score)
+    rows = [
+        (slug, len(scores), sum(scores) / len(scores))
+        for slug, scores in buckets.items()
+    ]
+    return sorted(rows, key=lambda row: (-row[1], row[0]))
 
 
 def _cell(value: str) -> str:

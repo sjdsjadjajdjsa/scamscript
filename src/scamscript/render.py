@@ -9,6 +9,7 @@ from rich.table import Table
 from rich.text import Text
 
 from scamscript.ingest import ScriptFile
+from scamscript import taxonomy
 from scamscript.models import ScriptBreakdown
 from scamscript.verify import Issue, summarize
 
@@ -123,6 +124,7 @@ def render_breakdown(
         style=f"bold {border_for(breakdown)}",
     )
     renderables.append(attack)
+    renderables.append(Text(f"slug: {taxonomy.slugify(breakdown.attack_type)}", style="dim"))
     renderables.append(Text(""))
 
     for key in (

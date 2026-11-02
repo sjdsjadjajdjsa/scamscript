@@ -31,10 +31,11 @@ def test_markdown_has_summary_and_details():
     ]
     markdown = build_markdown(entries, run_id="run-1", command="batch", model="m")
     assert "# Scam script breakdown report" in markdown
-    assert "| 1 | a.txt | vishing | 9/10 | 1 |" in markdown
+    assert "| 1 | a.txt | `vishing` | 9/10 | 1 | 0 | 1 |" in markdown
     assert "## Failures" in markdown
     assert "bad json" in markdown
     assert "### Defense summary" in markdown
+    assert "## Attack types" in markdown
     assert "security research and fraud-awareness" in markdown
 
 
@@ -77,3 +78,15 @@ def test_report_shows_unverified_quotes():
     assert "**Quote check:** 1/2 verbatim, 1 missing" in markdown
     assert "### Unverified quotes" in markdown
     assert "_missing_ [red flags] \"invented\"" in markdown
+
+
+def test_type_filter_keeps_only_allowed_and_failures():
+    entries = [
+        ReportEntry(name="a.txt", source="a", breakdown=breakdown(9, attack="vishing"), attack_slug="vishing"),
+        ReportEntry(name="b.txt", source="b", breakdown=breakdown(5, attack="romance scam"), attack_slug="romance"),
+        ReportEntry(name="bad.txt", source="bad", error="boom"),
+    ]
+    markdown = build_markdown(entries, run_id="r", only_types={"vishing"})
+    assert "a.txt" in markdown
+    assert "b.txt" not in markdown
+    assert "bad.txt" in markdown

@@ -38,3 +38,13 @@ def test_prune_by_age(tmp_path):
 
 def test_prune_missing_dir(tmp_path):
     assert prune(str(tmp_path / "ghost")) == (0, 0, 0)
+
+
+def test_log_dir_and_file_are_private(tmp_path):
+    from scamscript.store import RunLogger
+
+    log = RunLogger(str(tmp_path / "home" / "logs"), "analyze")
+    log.run_start(model="m")
+    assert oct((tmp_path / "home").stat().st_mode)[-3:] == "700"
+    assert oct((tmp_path / "home" / "logs").stat().st_mode)[-3:] == "700"
+    assert oct(log.path.stat().st_mode)[-3:] == "600"

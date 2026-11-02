@@ -5,6 +5,21 @@ schema are the things that count as public API.
 
 ## Unreleased
 
+## 0.6.0 - 2026-11-02
+
+### Added
+
+- Closed-set attack type slugs, a per-type count and mean score table, and `--type` filtering with an
+  unknown-token warning. Raw descriptions are preserved.
+
+### Changed
+
+- Panels show the slug beneath the attack type.
+
+### Security
+
+- Log directories are created `0700` and log files `0600`, so captures are not world-readable.
+
 ## 0.5.0 - 2026-11-02
 
 ### Added

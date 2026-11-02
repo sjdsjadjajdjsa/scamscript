@@ -12,7 +12,7 @@ import typer
 from rich.console import Console
 from rich.table import Table
 
-from scamscript import __version__, prompts, redact, store
+from scamscript import __version__, prompts, redact, store, taxonomy
 from scamscript import report as reporting
 from scamscript.analysis import Outcome, analyze_script
 from scamscript.client import ChatClient
@@ -234,6 +234,7 @@ def _run(
     batch_mode: bool,
     output: Path | None,
     top: int | None,
+    types: list[str] | None = None,
 ) -> None:
     console = state.console
     settings = state.settings
@@ -412,6 +413,13 @@ def _run(
         cost_usd=round(spent, 6),
     )
 
+    only_types = taxonomy.parse_filter(types)
+    if only_types:
+        unknown = taxonomy.unknown(types)
+        if unknown:
+            console.print(
+                f"[yellow]note[/yellow] unknown type(s): {', '.join(sorted(unknown))}"
+            )
     collapsed = reporting.collapse(report_entries) if state.dedupe else report_entries
 
     if batch_mode and (successes or skipped):
@@ -430,6 +438,7 @@ def _run(
             run_id=logger.run_id,
             command=command,
             model=settings.model,
+            only_types=only_types,
         )
         written = _emit_report(console, markdown, output, json_mode=state.json_output)
         if state.json_output:
@@ -496,6 +505,9 @@ def analyze(
     ),
     recursive: bool = typer.Option(False, "--recursive", "-r", help="Recurse into subdirectories."),
     top: int | None = typer.Option(None, "--top", min=1, help="Keep only the N most sophisticated scripts."),
+    types: list[str] | None = typer.Option(
+        None, "--type", help="Only report these type slugs (repeatable or comma-separated)."
+    ),
 ) -> None:
     """Analyze a single script file, or a directory with --batch."""
     state = _context(ctx)
@@ -508,7 +520,15 @@ def analyze(
     except IngestError as exc:
         _fail(state.console, str(exc))
         return
-    _run(state, scripts, command="analyze", batch_mode=batch_mode, output=output, top=top)
+    _run(
+        state,
+        scripts,
+        command="analyze",
+        batch_mode=batch_mode,
+        output=output,
+        top=top,
+        types=types,
+    )
 
 
 @app.command()
@@ -520,6 +540,9 @@ def batch(
     ),
     recursive: bool = typer.Option(False, "--recursive", "-r", help="Recurse into subdirectories."),
     top: int | None = typer.Option(None, "--top", min=1, help="Keep only the N most sophisticated scripts."),
+    types: list[str] | None = typer.Option(
+        None, "--type", help="Only report these type slugs (repeatable or comma-separated)."
+    ),
 ) -> None:
     """Analyze a directory and rank every script by sophistication."""
     state = _context(ctx)
@@ -528,7 +551,7 @@ def batch(
     except IngestError as exc:
         _fail(state.console, str(exc))
         return
-    _run(state, scripts, command="batch", batch_mode=True, output=output, top=top)
+    _run(state, scripts, command="batch", batch_mode=True, output=output, top=top, types=types)
 
 
 @app.command()
@@ -539,6 +562,9 @@ def report(  # noqa: A001
     ),
     output: Path | None = typer.Option(None, "--output", "-o", help="Write the markdown here."),
     logs_dir: Path | None = typer.Option(None, "--logs-dir", help="Override the log directory."),
+    types: list[str] | None = typer.Option(
+        None, "--type", help="Only report these type slugs (repeatable or comma-separated)."
+    ),
 ) -> None:
     """Regenerate the aggregated report from a past run's log."""
     state = _context(ctx)
@@ -565,6 +591,7 @@ def report(  # noqa: A001
         run_id=str(run["run_id"]),
         command=str(run.get("command") or "report"),
         model=run.get("model"),
+        only_types=taxonomy.parse_filter(types),
     )
     _emit_report(state.console, markdown, output)
 

@@ -31,14 +31,23 @@ class RunLogger:
         self.command = command
         self.path = self.logs_dir / f"{self.run_id}.jsonl"
         self._started = False
+        self._locked_down = False
+
+    def _prepare(self) -> None:
+        self.logs_dir.mkdir(parents=True, exist_ok=True)
+        for directory in (self.logs_dir.parent, self.logs_dir):
+            _chmod(directory, 0o700)
 
     def _write(self, record: dict[str, Any]) -> None:
         record.setdefault("ts", utc_now())
         record.setdefault("run_id", self.run_id)
         try:
-            self.logs_dir.mkdir(parents=True, exist_ok=True)
+            self._prepare()
             with self.path.open("a", encoding="utf-8") as handle:
                 handle.write(json.dumps(record, ensure_ascii=False) + "\n")
+            if not self._locked_down:
+                self._locked_down = True
+                _chmod(self.path, 0o600)
         except OSError:
             pass
 
@@ -145,9 +154,18 @@ def _mtime(path: Path) -> float:
         return 0.0
 
 
+def _chmod(path: Path, mode: int) -> None:
+    try:
+        os.chmod(path, mode)
+    except OSError:
+        pass
+
+
 def ensure_home(home: str) -> None:
     try:
         os.makedirs(os.path.join(home, "logs"), exist_ok=True)
+        _chmod(Path(home), 0o700)
+        _chmod(Path(home) / "logs", 0o700)
     except OSError:
         pass
 

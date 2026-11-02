@@ -230,7 +230,7 @@ def test_dry_run_without_endpoint(home, tmp_path, monkeypatch):
 def test_version(home):
     result = runner.invoke(cli.app, ["--version"])
     assert result.exit_code == 0
-    assert result.stdout.strip() == "scamscript 0.5.0"
+    assert result.stdout.strip() == "scamscript 0.6.0"
 
 
 def test_json_output_is_one_object_per_script(home, tmp_path, fake):
@@ -455,3 +455,26 @@ def test_json_marks_duplicates(home, tmp_path, fake):
     results = [record for record in records if record.get("event") == "result"]
     assert all(record["fingerprint"] for record in results)
     assert sum(1 for record in results if record["duplicate_of"]) == 2
+
+
+def test_type_filter_limits_report(home, tmp_path, fake):
+    (tmp_path / "a.txt").write_text("CALLER: vish", encoding="utf-8")
+    (tmp_path / "b.txt").write_text("CALLER: romance", encoding="utf-8")
+    fake.replies = {"vish": breakdown(attack="vishing"), "romance": breakdown(attack="romance scam")}
+    out = tmp_path / "r.md"
+    result = runner.invoke(
+        cli.app, ["--api-key", "k", "batch", str(tmp_path), "--type", "vishing", "--output", str(out)]
+    )
+    assert result.exit_code == 0
+    text = out.read_text()
+    assert "a.txt" in text
+    assert "b.txt" not in text
+
+
+def test_unknown_type_warns(home, tmp_path, fake):
+    (tmp_path / "a.txt").write_text("CALLER: x", encoding="utf-8")
+    result = runner.invoke(
+        cli.app, ["--api-key", "k", "batch", str(tmp_path), "--type", "wibble"]
+    )
+    assert result.exit_code == 0
+    assert "unknown type" in result.stdout

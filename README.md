@@ -98,7 +98,7 @@ corpus is at [`docs/sample-report.md`](https://github.com/sjdsjadjajdjsa/scamscr
 
 Useful flags: `--dry-run`, `--json`, `--redact`, `--top N`, `--recursive`, `--timeout`,
 `--retries`, `--max-tokens`, `--concurrency`, `--max-cost`, `--dedupe/--no-dedupe`,
-`--show-duplicates`, `--no-color`. `--json` puts one object per script on stdout and all
+`--show-duplicates`, `--type`, `--no-color`. `--json` puts one object per script on stdout and all
 Rich output on stderr, so it pipes:
 
 ```bash
@@ -118,6 +118,20 @@ scamscript --concurrency 6 --max-cost 0.25 batch corpus/ --output report.md
 The cap reads `usage.cost` from the response, so it works only where the provider reports cost and
 says so when none is sent. Spend is printed and logged per run. In-flight requests can overshoot by
 up to the concurrency, so keep headroom on a hard limit.
+
+## Attack types
+
+`attack_type` is free prose, which is useful to read and useless to group. Every result also carries a
+closed-set slug (`vishing`, `smishing`, `tech-support`, `refund`, `gov-impersonation`, `bec`,
+`romance`, `crypto`, `investment`, `utility`, `delivery`, `other`). Reports show counts and mean scores
+per slug above the ranking, and `--type` filters to the ones you ask for:
+
+```bash
+scamscript batch corpus/ --type tech-support,refund --output report.md
+```
+
+The raw phrase is always kept next to the slug. An unrecognised description lands in `other` and the
+CLI names any filter token it did not recognise.
 
 ## Duplicates
 
@@ -168,7 +182,7 @@ masking is best effort: names, case IDs and spelled-out digits survive it.
 Every request appends to a timestamped JSONL file under `~/.scamscript/logs/` (override with
 `--home` or `SCAMSCRIPT_HOME`). The API key is never written. Logs are the source for `report`, so
 a run replays without spending tokens, and `prune --keep 200 --keep-days 30` keeps the store
-bounded.
+bounded. Directories are `0700` and log files `0600`.
 
 ## Install and configure
 
@@ -241,6 +255,7 @@ docs/           calibration record, sample report, banner, demo
   `opening_hook` and `red_flags` against the source before quoting anything.
 - Redaction is regex-based and will miss names and identifiers without a fixed shape.
 - Duplicate folding ignores formatting only; a single changed digit keeps a copy separate.
+- Type slugs are keyword-matched, so an unusual description falls to `other` rather than inventing one.
 - The cost cap depends on provider-reported usage and can overshoot by the in-flight count.
 - Analysis is English-centric: the prompt and schema assume English artifacts.
 - Quote checking compares text, not meaning. A legitimate paraphrase left in quotes is flagged;
